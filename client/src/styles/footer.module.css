@@ -1,0 +1,90 @@
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: url(../fonts/Montserrat-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Montserrat-Medium';
+    src: url(../fonts/Montserrat-Medium.ttf);
+}
+
+.footer1 {
+    background-image: url(../Images/headerback.svg);
+    width: 100%;
+    border-radius: 100px 100px 0 0;
+    height: 250px;
+
+}
+
+.logo {
+    padding-top: 3%;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 100px;
+}
+
+.logo>button {
+    text-align: left;
+    font-size: 16px;
+    color: white;
+    text-decoration: underline;
+    width: 270px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.courses {
+    align-items: center;
+
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    height: 100px;
+}
+
+.oppblock {
+    margin-left: 35%;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.courses>p {
+    font-size: 18px;
+    font-family: 'Montserrat-Bold';
+    color: white;
+}
+
+.buttons {
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.buttons>button {
+    font-size: 14px;
+    color: white;
+    text-decoration: underline;
+}
+
+.auth {
+    margin-top: 3%;
+    margin-left: 15%;
+    gap: 30px;
+    display: flex;
+
+}
+
+.auth>div>button {
+    font-family: 'Montserrat-Bold';
+    color: white;
+    font-size: 18px;
+}

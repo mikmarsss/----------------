@@ -1,0 +1,135 @@
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: url(../fonts/Montserrat-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Montserrat-Medium';
+    src: url(../fonts/Montserrat-Medium.ttf);
+}
+
+.container {
+    background-image: url(../Images/headerback.svg);
+    width: 500px;
+    height: 750px;
+    border-radius: 31px 31px 31px 31px;
+    margin-top: 10%;
+    position: absolute;
+    z-index: 1;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.container>p {
+    padding-top: 10%;
+    font-family: 'Montserrat-Medium';
+    font-size: 34px;
+    text-align: center;
+    color: #ff8c37;
+}
+
+.mailfild {
+    display: flex;
+    flex-direction: column;
+}
+
+.loginbutt {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.loginbutt>button {
+    border-radius: 15px;
+    background: #FF8C37;
+    width: 200px;
+    height: 60px;
+    font-size: 24px;
+    color: white;
+    font-family: 'Montserrat-Medium';
+}
+
+.passwordfild {
+    display: flex;
+    flex-direction: column;
+}
+
+.mailfild>input {
+    width: 400px;
+    height: 30px;
+    border-radius: 15px;
+    padding: 5px;
+    border: none;
+}
+
+.passwordfild>input {
+    width: 400px;
+    height: 30px;
+    border-radius: 15px;
+    padding: 5px;
+    border: none;
+}
+
+.inputfields {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+
+span {
+    margin-left: 10px;
+    color: white;
+}
+
+hr {
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 20px;
+    height: 1px;
+    background: #6f31c1;
+    border: none;
+}
+
+
+.description {
+    padding-top: 30px;
+    text-align: center;
+    width: 400px;
+    margin: 0 auto;
+}
+
+.description>span {
+
+    font-size: 12px;
+}
+
+.reg {
+    padding-top: 25px;
+    text-align: center;
+    width: 400px;
+    margin: 0 auto;
+}
+
+.reg>span {
+
+    font-size: 12px;
+}
+
+a {
+    color: white;
+}

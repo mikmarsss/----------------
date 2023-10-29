@@ -1,0 +1,37 @@
+.container {
+    margin: 0 auto;
+    border: solid black 3px;
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    min-height: 130px;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.inputfields {
+    align-items: center;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.inputfields>input {
+    width: calc(1em + 6vw);
+    height: calc(0.5em + 1vh);
+}
+
+.vhod {
+    color: blue;
+}
+
+.reg {
+    color: blue;
+}

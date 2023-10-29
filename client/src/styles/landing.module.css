@@ -1,0 +1,202 @@
+p {
+    margin: 0em;
+}
+
+
+
+
+
+
+
+.opportunities {
+    position: absolute;
+    top: 850px;
+    left: 10%;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    border: solid black 3px;
+
+}
+
+
+
+.learn {
+    border: solid black 3px;
+    width: 900px;
+    height: 500px;
+}
+
+.teach {
+    border: solid black 3px;
+    width: 900px;
+    height: 500px;
+}
+
+.courses {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.work1 {
+    width: 600px;
+    height: 1020px;
+    border: solid black 3px;
+}
+
+.offer {
+    margin-left: 10%;
+    font-size: calc(0.5em + 5vh);
+}
+
+.aboutUs {
+    position: absolute;
+    top: 2000px;
+    margin-left: 10%;
+}
+
+h1 {
+    font-size: calc(0.5em + 3vw);
+}
+
+h2 {
+    font-size: calc(0.5em + 2vw);
+}
+
+.pointers {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5%;
+}
+
+.pointers>p {
+    font-size: calc(0.5em + 1vw);
+}
+
+.joinUs {
+    position: absolute;
+    top: 2500px;
+    left: 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.joinUs>p {
+    font-size: calc(0.5em + 1vw);
+}
+
+.joinUs>button {
+    width: calc(0.5em + 18vw);
+    height: calc(0.5em + 5vh);
+    border: solid black 3px;
+    background-color: black;
+    color: white;
+}
+
+
+@media only screen and (max-width: 1920px) {
+    .opportunities {
+        position: absolute;
+        top: 650px;
+        left: 10%;
+        display: flex;
+        flex-direction: row;
+        gap: 50px;
+
+    }
+
+    .offer {
+        position: absolute;
+        top: 500px;
+        margin-left: 10%;
+        font-size: calc(0.5em + 2.5vh);
+    }
+
+    .learn {
+        border: solid black 3px;
+        width: 600px;
+        height: 300px;
+    }
+
+    .teach {
+        border: solid black 3px;
+        width: 600px;
+        height: 300px;
+    }
+
+    .work1 {
+        width: 600px;
+        height: 620px;
+        border: solid black 3px;
+    }
+
+    .aboutUs {
+        position: absolute;
+        top: 1350px;
+        margin-left: 10%;
+    }
+
+    .joinUs {
+        position: absolute;
+        top: 1700px;
+        left: 10%;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+    .opportunities {
+        position: absolute;
+        top: 500px;
+        left: 10%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+    }
+
+    .offer {
+        position: absolute;
+        top: 400px;
+        margin-left: 10%;
+        font-size: calc(0.5em + 2.5vw);
+    }
+
+    .learn {
+        border: solid black 3px;
+        width: 300px;
+        height: 150px;
+    }
+
+    .teach {
+        border: solid black 3px;
+        width: 300px;
+        height: 150px;
+    }
+
+    .work1 {
+        width: 300px;
+        height: 150px;
+        border: solid black 3px;
+    }
+
+    .aboutUs {
+        position: absolute;
+        top: 1000px;
+        margin-left: 10%;
+    }
+
+    .joinUs {
+        position: absolute;
+        top: 1250px;
+        left: 10%;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+}
