@@ -1,2 +1,22 @@
 {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "liveSassCompile.settings.autoprefix": [],
+    "explorer.confirmDelete": false,
+    "editor.fontSize": 20,
+    "editor.cursorBlinking": "smooth",
+    "editor.fontFamily": "Iosevka NFM, 'Courier New', monospace",
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "emmet.syntaxProfiles": {
+        "javascript": "jsx"
+    },
+    "editor.cursorBlinking": "expand",
+    "editor.cursorStyle": "line-thin",
+    "workbench.iconTheme": "vscode-icons",
+    "figma.autocompleteBlocks": true,
+    "workbench.preferredDarkColorTheme": "Default High Contrast Light",
+    "workbench.colorTheme": "Amethyst",
+    "javascript.updateImportsOnFileMove.enabled": "always"
 }
