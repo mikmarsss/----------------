@@ -5,14 +5,26 @@ import { Context } from "..";
 import { useContext, useState } from "react";
 import Image from "./Image";
 import logo from "../Images/logo.svg"
+import exitbutton from "../Images/exitbutton.svg"
+import Landing from "./Landing";
 
 function VhodForm() {
     const { store } = useContext(Context)
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const handleOnClick = () => {
+
+    }
+
     return (
         <>
             <div className={styles.container}>
+                <div className={styles.exitbutton}>
+                    <button onClick={() => handleOnClick()}>
+                        <Image image={exitbutton} alt={"exit"} />
+                    </button>
+                </div>
                 <div className={styles.logo}>
                     <Image image={logo} alt={"logo"} />
                 </div>

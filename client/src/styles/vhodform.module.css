@@ -8,6 +8,14 @@
     src: url(../fonts/Montserrat-Medium.ttf);
 }
 
+.exitbutton {
+    position: absolute;
+    scale: 0.4;
+    left: 430px;
+    top: 10px;
+    cursor: pointer;
+}
+
 .container {
     background-image: url(../Images/headerback.svg);
     width: 500px;

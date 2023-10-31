@@ -14,9 +14,9 @@
     },
     "editor.cursorBlinking": "expand",
     "editor.cursorStyle": "line-thin",
-    "workbench.iconTheme": "vscode-icons",
+    "workbench.iconTheme": "material-icon-theme",
     "figma.autocompleteBlocks": true,
     "workbench.preferredDarkColorTheme": "Default High Contrast Light",
-    "workbench.colorTheme": "Amethyst",
+    "workbench.colorTheme": "Winter is Coming (Dark Blue)",
     "javascript.updateImportsOnFileMove.enabled": "always"
 }
