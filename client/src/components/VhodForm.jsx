@@ -7,21 +7,26 @@ import Image from "./Image";
 import logo from "../Images/logo.svg"
 import exitbutton from "../Images/exitbutton.svg"
 import Landing from "./Landing";
+import RegForm from "./RegForm";
 
-function VhodForm() {
+function VhodForm({ onShowVhodBlock, showVhodBlock }) {
     const { store } = useContext(Context)
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    const handleOnClick = () => {
-
+    const [showRegBlock, setShowRegBlock] = useState(null)
+    const handleClick = () => {
+        onShowVhodBlock(null)
     }
 
     return (
         <>
-            <div className={styles.container}>
+            <div className={`${showVhodBlock === "show" && showRegBlock === null ? styles.conthide : styles.nbn}`}>
+
+            </div>
+
+            <div className={`${showRegBlock === null ? styles.container : styles.none}`}>
                 <div className={styles.exitbutton}>
-                    <button onClick={() => handleOnClick()}>
+                    <button onClick={handleClick}>
                         <Image image={exitbutton} alt={"exit"} />
                     </button>
                 </div>
@@ -55,12 +60,12 @@ function VhodForm() {
                 <div className={styles.description}>
                     <span>Продолжая, вы соглашаетесь с положениями основных документов TETA.
                         Это <a href=""><b>Условия предоставления услуг</b></a> и <a href=""> <b>Политика конфиденциальности</b></a>.
-                        . А также подтверждаете, что прочли их.</span>
+                        А также подтверждаете, что прочли их.</span>
                 </div>
                 <hr />
                 <div className={styles.reg}>
                     <span>
-                        <a href=""> <b>Еще не зарегистрировались в TETA? Зарегистрироваться.</b></a>
+                        <button className={styles.regssilka}> <b>Еще не зарегистрировались в TETA? Зарегистрироваться.</b></button>
                     </span>
                 </div>
             </div>
@@ -68,4 +73,6 @@ function VhodForm() {
     )
 }
 
-export default VhodForm
+
+
+export default observer(VhodForm)

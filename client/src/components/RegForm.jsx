@@ -5,14 +5,30 @@ import { Context } from "..";
 import { useContext, useState } from "react";
 import Image from "./Image";
 import logo from "../Images/logo.svg"
+import exitbutton from "../Images/exitbutton.svg"
+import UserService from "../service/UserService";
 
-function RegForm() {
+function RegForm({ onShowRegBlock, showRegBlock }) {
     const { store } = useContext(Context)
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const handleClick = () => {
+        onShowRegBlock(null)
+    }
+
     return (
         <>
+            if(UserService.)
+            <div className={`${showRegBlock === "show" ? styles.conthide : styles.nbn}`}>
+
+            </div>
             <div className={styles.container}>
+                <div className={styles.exitbutton}>
+                    <button onClick={handleClick}>
+                        <Image image={exitbutton} alt={"exit"} />
+                    </button>
+                </div>
                 <div className={styles.logo}>
                     <Image image={logo} alt={"logo"} />
                 </div>
