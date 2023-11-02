@@ -19,7 +19,7 @@ function RegForm({ onShowRegBlock, showRegBlock }) {
 
     return (
         <>
-            if()
+
             <div className={`${showRegBlock === "show" ? styles.conthide : styles.nbn}`}>
 
             </div>

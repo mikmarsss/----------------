@@ -45,6 +45,8 @@ function VhodForm({ onShowVhodBlock, showVhodBlock }) {
                     <div className={styles.passwordfild}>
                         <span>Пароль</span>
                         <input
+                            minLength={6}
+                            maxLength={32}
                             type="password"
                             onChange={e => setPassword(e.target.value)}
                             value={password}

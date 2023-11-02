@@ -25,7 +25,9 @@
     z-index: 1;
 }
 
-
+.passwordfild >input:invalid {
+    border: solid reb 2px;
+}
 
 .container {
     z-index: 3;

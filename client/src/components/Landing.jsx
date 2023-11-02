@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import styles from '../styles/header.module.css'
+import styles from '../styles/landing.module.css'
 import { Context } from "..";
 import { observer } from "mobx-react-lite";
 import Image from "./Image";
