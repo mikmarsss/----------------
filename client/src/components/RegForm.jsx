@@ -6,7 +6,7 @@ import { useContext, useState } from "react";
 import Image from "./Image";
 import logo from "../Images/logo.svg"
 import exitbutton from "../Images/exitbutton.svg"
-import UserService from "../service/UserService";
+
 
 function RegForm({ onShowRegBlock, showRegBlock }) {
     const { store } = useContext(Context)
@@ -19,7 +19,7 @@ function RegForm({ onShowRegBlock, showRegBlock }) {
 
     return (
         <>
-            if(UserService.)
+            if()
             <div className={`${showRegBlock === "show" ? styles.conthide : styles.nbn}`}>
 
             </div>
