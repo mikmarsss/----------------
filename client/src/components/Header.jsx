@@ -9,6 +9,7 @@ import VhodForm from './VhodForm'
 import { useState } from 'react'
 import { profile } from "../data/coursesData"
 
+
 function Header({ }) {
     const [showBlockFirst, setShowBlockFirst] = useState(null)
     const [showBlockSecond, setShowBlockSecond] = useState(null)
@@ -39,6 +40,7 @@ function Header({ }) {
 
 
     return (
+
         <>
             <div className={`${showRegBlock === "show" ? styles.showReg : styles.non}`}>
                 <RegForm showRegBlock={showRegBlock} onShowRegBlock={regHandleClick} />
@@ -103,13 +105,34 @@ function ShowAuth({ onVhodHandleClick, onRegHandleClick }) {
 }
 
 function ShowProfile({ name }) {
+    const { store } = useContext(Context)
     const [showProfileBlock, setShowProfileBlock] = useState(null)
     const handleClick = (show) => {
         const shown = show === "show" ? null : "show"
         setShowProfileBlock(shown)
-
     }
-    const menuBlok = profile.map((item) => (<ProfileMenu name={item.name} />))
+
+    const profileHandleClick = (id) => {
+        switch (id) {
+            case "1":
+                console.log(id)
+                break;
+            case "2":
+                console.log(id)
+                break;
+            case "3":
+                console.log(id)
+                break;
+            case "4":
+                console.log(id)
+                break;
+            case "5":
+                store.logout()
+                break;
+        }
+    }
+
+    const menuBlok = profile.map((item) => (<ProfileMenu name={item.name} id={item.id} onProfileClick={profileHandleClick} />))
     return (
         <>
             <div className={styles.auth}>
@@ -125,16 +148,15 @@ function ShowProfile({ name }) {
     )
 }
 
-function ProfileMenu({ name }) {
-
-
+function ProfileMenu({ name, id, onProfileClick }) {
+    const handleClick = () => {
+        onProfileClick(id)
+    }
     return (
         <>
-
-            <button>
+            <button onClick={handleClick}>
                 {name}
             </button>
-
         </>
     )
 }
