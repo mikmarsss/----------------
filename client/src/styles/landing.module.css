@@ -40,6 +40,12 @@
     border-radius: 0 0 100px 100px;
 }
 
+.header2 {
+    background: url(../Images/headerback.svg);
+    width: 100%;
+    height: 80PX;
+    border-radius: 0 0 100px 100px;
+}
 
 
 .conthide {
@@ -53,6 +59,7 @@
 
 .logo {
     margin-left: 10%;
+    scale: 0.8;
 }
 
 .non {
@@ -101,10 +108,11 @@
     position: absolute;
     left: 50%;
     display: flex;
-    font-size: 28px;
-    height: 87px;
+    font-size: 25px;
+    height: 80px;
+    width: 250px;
     align-items: center;
-    gap: 35%;
+    gap: 10%;
 }
 
 .course>button {
@@ -194,7 +202,6 @@ button {
 .container {
     display: flex;
     flex-direction: column;
-    height: 400px;
     align-items: center;
 
 }
@@ -216,7 +223,7 @@ button {
 
 .workContainer>button {
     color: white;
-    font-size: 26px;
+    font-size: 24px;
     cursor: pointer;
 }
 
@@ -226,7 +233,7 @@ button {
 }
 
 .navButtuns {
-    font-size: calc(0.3em + 1vw);
+    font-size: calc(0.1em + 0.8vw);
     font-family: 'Montserrat-Medium';
 
 
