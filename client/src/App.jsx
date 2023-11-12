@@ -4,6 +4,7 @@ import { Context } from ".";
 import { observer } from "mobx-react-lite";
 import "./styles/global.css"
 import Header from "./components/Header";
+import PersonalAccount from "./components/PersonalAccount";
 function App() {
     const { store } = useContext(Context)
 
@@ -15,7 +16,7 @@ function App() {
 
     return (
         <>
-            <Header />
+            <PersonalAccount />
         </>
     )
 }

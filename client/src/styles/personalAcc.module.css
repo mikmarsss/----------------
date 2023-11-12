@@ -1,0 +1,118 @@
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: url(../fonts/Montserrat-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Montserrat-Medium';
+    src: url(../fonts/Montserrat-Medium.ttf);
+
+}
+
+.profileinfo {
+    margin-top: 4%;
+    border: solid black 3px;
+    height: 300px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo {
+
+    height: 243px;
+    width: 264px;
+    background-image: url(../Images/photoback.svg);
+
+}
+
+.info {
+    width: 800px;
+    height: 243px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+}
+
+.first {
+    width: 350px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+    justify-content: center;
+
+}
+
+.first>div>p {
+    margin-left: 20px;
+    font-family: 'Montserrat-Bold';
+}
+
+.first>div>input {
+    width: 300px;
+    height: 25px;
+    border: solid #9559d4 2px;
+    border-radius: 5px;
+
+}
+
+.disabled>div>input {
+    pointer-events: none;
+    border: solid #DCD1E8 2px;
+
+}
+
+.redButton>button {
+
+    background-color: #FF8C37;
+    width: 180px;
+    height: 50px;
+    font-size: 18px;
+    border-radius: 15px;
+}
+
+.redButton {
+    margin-top: 200px;
+}
+
+.buttext {
+    font-family: 'Montserrat-Medium';
+}
+
+.redButton>button:active {
+    background-color: #9559d4;
+    color: white;
+}
+
+.linia {
+    width: 1300px;
+}
+
+.courses {
+    margin-top: 57px;
+
+}
+
+.coursbuttons {
+    display: flex;
+    gap: 10%;
+    position: absolute;
+    top: 519px;
+    width: 490px;
+    left: 627px;
+}
+
+.coursbuttons>button {
+    font-size: 20px;
+}
+
+.underlinedecor {
+    text-decoration: underline #9559d4 4px;
+    text-underline-offset: 4px;
+}
