@@ -8,6 +8,13 @@ import RegForm from './RegForm'
 import VhodForm from './VhodForm'
 import { useState } from 'react'
 import { profile } from "../data/coursesData"
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Link
+} from "react-router-dom";
+import PersonalAccount from './PersonalAccount';
 
 
 function Header({ }) {
@@ -31,8 +38,6 @@ function Header({ }) {
 
     const vhodHandleClick = (showVhodBlock) => {
         setShowVhodBlock(showVhodBlock);
-
-
     }
 
     const showAuth = <ShowAuth onVhodHandleClick={vhodHandleClick} onRegHandleClick={regHandleClick} />
@@ -52,13 +57,24 @@ function Header({ }) {
             <div className={styles.container}>
                 <div className={styles.header}>
                     <div className={styles.image}>
-                        <Image image={logo2} alt={"logo"} />
+                        <button>
+                            <Link to="/catalog">
+                                <Image image={logo2} alt={"logo"} />
+                            </Link>
+
+                        </button>
                     </div>
                     <div className={styles.dropdownButtons} >
                         <div className={styles.course}>
                             <button onClick={() => handleClickNavFirst(showBlockFirst)} className={styles.navButtuns}>Курсы</button>
                             <div className={`${styles.workContainer} ${showBlockFirst === "show" ? styles.showSecond : ''}`}>
-                                <button>Учиться</button>
+
+                                <button>
+                                    <Link style={{ textDecoration: 'none', color: 'white' }} to={"/catalog"}>
+                                        Учиться
+                                    </Link>
+                                </button>
+
                                 <button>Создать</button>
                             </div>
                         </div>
@@ -77,6 +93,7 @@ function Header({ }) {
                     </div>
                 </div>
             </div>
+
         </>
     )
 
@@ -114,27 +131,18 @@ function ShowProfile({ name }) {
 
     const profileHandleClick = (id) => {
         switch (id) {
-            case "1":
-                console.log(id)
-                break;
-            case "2":
-                console.log(id)
-                break;
-            case "3":
-                console.log(id)
-                break;
-            case "4":
-                console.log(id)
-                break;
             case "5":
                 store.logout()
                 break;
         }
     }
 
-    const menuBlok = profile.map((item) => (<ProfileMenu name={item.name} id={item.id} onProfileClick={profileHandleClick} />))
+
+    const menuBlok = profile.map((item) => (<ProfileMenu name={item.name} url={item.url} id={item.id} onProfileClick={profileHandleClick} />))
     return (
+
         <>
+
             <div className={styles.auth}>
                 <button className={styles.navButtuns} onClick={() => handleClick(showProfileBlock)}>
                     {name}
@@ -148,14 +156,16 @@ function ShowProfile({ name }) {
     )
 }
 
-function ProfileMenu({ name, id, onProfileClick }) {
+function ProfileMenu({ name, id, onProfileClick, url }) {
     const handleClick = () => {
         onProfileClick(id)
     }
     return (
         <>
             <button onClick={handleClick}>
-                {name}
+                <Link style={{ textDecoration: 'none', color: 'black' }} to={url}>
+                    {name}
+                </Link>
             </button>
         </>
     )

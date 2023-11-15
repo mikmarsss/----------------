@@ -6,8 +6,7 @@ import { useContext, useState } from "react";
 import Image from "./Image";
 import logo from "../Images/logo.svg"
 import exitbutton from "../Images/exitbutton.svg"
-import Landing from "./Landing";
-import RegForm from "./RegForm";
+import { Link, BrowserRouter as Router } from "react-router-dom";
 
 function VhodForm({ onShowVhodBlock, showVhodBlock }) {
     const { store } = useContext(Context)
@@ -19,6 +18,7 @@ function VhodForm({ onShowVhodBlock, showVhodBlock }) {
     }
     return (
         <>
+
             <div className={`${showVhodBlock === "show" && showRegBlock === null ? styles.conthide : styles.nbn}`}>
 
             </div>
@@ -53,7 +53,9 @@ function VhodForm({ onShowVhodBlock, showVhodBlock }) {
                     </div>
                 </div>
                 <div className={styles.loginbutt}>
-                    <button onClick={() => store.login(email, password)}>продолжить</button>
+                    <button onClick={() => store.login(email, password)}>
+                        продолжить
+                    </button>
                 </div>
                 <hr />
                 <div className={styles.description}>
@@ -64,10 +66,14 @@ function VhodForm({ onShowVhodBlock, showVhodBlock }) {
                 <hr />
                 <div className={styles.reg}>
                     <span>
-                        <button className={styles.regssilka}> <b>Еще не зарегистрировались в TETA? Зарегистрироваться.</b></button>
+
+                        <button className={styles.regssilka}>
+                            <b>Еще не зарегистрировались в TETA? Зарегистрироваться.</b>
+                        </button>
                     </span>
                 </div>
             </div>
+
         </>
     )
 }

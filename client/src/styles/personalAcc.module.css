@@ -9,9 +9,9 @@
 
 }
 
+
 .profileinfo {
     margin-top: 4%;
-    border: solid black 3px;
     height: 300px;
     width: 100%;
     display: flex;
@@ -19,6 +19,30 @@
     gap: 30px;
     justify-content: center;
     align-items: center;
+}
+
+.unauth {
+    text-align: center;
+    font-size: 36px;
+    color: #9559d4;
+    margin-top: 10%;
+
+}
+
+.unauth>button {
+    text-align: center;
+    font-size: 36px;
+    color: #FF8C37;
+
+}
+
+.unauth>p {
+    font-family: 'Montserrat-Medium';
+}
+
+.unauth>button {
+    font-family: 'Montserrat-Medium';
+    text-decoration: underline;
 }
 
 .photo {
@@ -95,7 +119,7 @@
 }
 
 .courses {
-    margin-top: 57px;
+    margin-top: 64px;
 
 }
 
@@ -115,4 +139,65 @@
 .underlinedecor {
     text-decoration: underline #9559d4 4px;
     text-underline-offset: 4px;
+}
+
+
+.coursescont {
+
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+}
+
+.coursesblock {
+    width: 460px;
+    height: 220px;
+    border-radius: 20px;
+    background-image: url(../Images/coursesback.svg);
+
+}
+
+.courselogo {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.coursename {
+    margin-left: 190px;
+    margin-top: -120px;
+
+}
+
+.coursename>button {
+    font-size: 18px;
+    font-family: 'Montserrat-Bold';
+    text-align: left;
+}
+
+.courseauthor {
+    margin-top: 10px;
+    margin-left: 190px;
+    font-size: 12px;
+}
+
+.coursecost {
+    color: #FF8C37;
+    font-family: 'Montserrat-Bold';
+    font-size: 24px;
+    margin-left: 190px;
+    margin-top: 10px;
+}
+
+.activecourses {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    width: 1500px;
+
+}
+
+.non {
+    display: none;
 }

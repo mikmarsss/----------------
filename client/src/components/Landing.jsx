@@ -16,7 +16,7 @@ import third from "../Images/03.svg"
 import Footer from "./Footer";
 import RegForm from "./RegForm";
 import VhodForm from "./VhodForm";
-
+import { Link } from "react-router-dom";
 function Landing({ onSelectedFunc, hide, onSetHide }) {
 
     const { store } = useContext(Context)
@@ -56,8 +56,10 @@ function Landing({ onSelectedFunc, hide, onSetHide }) {
             <div className={styles.header}>
                 <div className={styles.navBar}>
                     <div className={styles.logo}>
-                        <button onClick={() => onSelectedFunc("landingpage")}>
-                            <Image image={logo} alt={"logo"} />
+                        <button>
+                            <Link to="/catalog">
+                                <Image image={logo} alt={"logo"} />
+                            </Link>
                         </button>
                     </div>
                     <div className={styles.dropdownButtons} >

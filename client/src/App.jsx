@@ -5,6 +5,8 @@ import { observer } from "mobx-react-lite";
 import "./styles/global.css"
 import Header from "./components/Header";
 import PersonalAccount from "./components/PersonalAccount";
+import Catalog from "./components/Catalog";
+import { Route, Routes } from "react-router-dom";
 function App() {
     const { store } = useContext(Context)
 
@@ -16,7 +18,11 @@ function App() {
 
     return (
         <>
-            <PersonalAccount />
+            <Routes>
+                <Route path="/" element={<Landing />} />
+                <Route path="/persacc" element={<PersonalAccount />} />
+                <Route path="/catalog" element={<Catalog />} />
+            </Routes>
         </>
     )
 }
