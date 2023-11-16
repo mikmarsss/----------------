@@ -96,13 +96,13 @@
 
 .dropdownButtons {
     position: absolute;
-    left: 50%;
+    left: 65%;
     display: flex;
     font-size: 25px;
     height: 80px;
     width: 250px;
     align-items: center;
-    gap: 10%;
+    gap: 30px;
     justify-content: center;
 }
 
@@ -159,6 +159,11 @@
     font-size: calc(0.2em + 0.8vw);
     font-family: 'Montserrat-Medium';
 
+}
+
+.firstbutton{
+    display: flex;
+    flex-direction: row;
 }
 
 .workContainer>button {

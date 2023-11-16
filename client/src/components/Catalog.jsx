@@ -6,6 +6,7 @@ function Catalog() {
     return (
         <>
             <Header />
+
         </>
     )
 }

@@ -15,6 +15,8 @@ import {
     Link
 } from "react-router-dom";
 import PersonalAccount from './PersonalAccount';
+import upstrelka from "../Images/downstrelka.svg"
+import downstrelka from "../Images/upstrelka.svg"
 
 
 function Header({ }) {
@@ -65,26 +67,32 @@ function Header({ }) {
                         </button>
                     </div>
                     <div className={styles.dropdownButtons} >
-                        <div className={styles.course}>
-                            <button onClick={() => handleClickNavFirst(showBlockFirst)} className={styles.navButtuns}>Курсы</button>
-                            <div className={`${styles.workContainer} ${showBlockFirst === "show" ? styles.showSecond : ''}`}>
-
-                                <button>
-                                    <Link style={{ textDecoration: 'none', color: 'white' }} to={"/catalog"}>
-                                        Учиться
-                                    </Link>
+                        <div className={styles.firstbutton}>
+                            <div className={styles.course}>
+                                <button onClick={() => handleClickNavFirst(showBlockFirst)} className={styles.navButtuns}>
+                                    Курсы
                                 </button>
 
-                                <button>Создать</button>
+                                <div className={`${styles.workContainer} ${showBlockFirst === "show" ? styles.showSecond : ''}`}>
+                                    <button>
+                                        <Link style={{ textDecoration: 'none', color: 'white' }} to={"/catalog"}>
+                                            Учиться
+                                        </Link>
+                                    </button>
+                                    <button>Создать</button>
+                                </div>
                             </div>
+                            <Image image={upstrelka} alt="strelka" />
                         </div>
-
-                        <div className={styles.work}>
-                            <button onClick={() => handleClickNavSecond(showBlockSecond)} className={styles.navButtuns} >Работа</button>
-                            <div className={`${styles.workContainer} ${showBlockSecond === "show" ? styles.showSecond : ''}`}>
-                                <button>Фриланс</button>
-                                <button>Фул тайм</button>
+                        <div className={styles.firstbutton}>
+                            <div className={styles.work}>
+                                <button onClick={() => handleClickNavSecond(showBlockSecond)} className={styles.navButtuns} >Работа</button>
+                                <div className={`${styles.workContainer} ${showBlockSecond === "show" ? styles.showSecond : ''}`}>
+                                    <button>Фриланс</button>
+                                    <button>Фул тайм</button>
+                                </div>
                             </div>
+                            <Image image={upstrelka} alt="strelka" />
                         </div>
                     </div>
 
