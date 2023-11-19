@@ -115,7 +115,10 @@
 }
 
 .linia {
+    position: absolute;
+    top: 526px;
     width: 1300px;
+    left: 620px;
 }
 
 .courses {
@@ -129,7 +132,7 @@
     position: absolute;
     top: 519px;
     width: 490px;
-    left: 627px;
+    left: 620px;
 }
 
 .coursbuttons>button {
@@ -144,7 +147,7 @@
 
 .coursescont {
 
-    margin-top: 2%;
+    margin-top: 5%;
     display: flex;
     justify-content: center;
 }

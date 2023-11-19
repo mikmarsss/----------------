@@ -102,7 +102,7 @@
     height: 80px;
     width: 250px;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
     justify-content: center;
 }
 
@@ -152,7 +152,7 @@
 
 .workContainer>button {
     color: black;
-    font-size: 24px;
+    font-size: calc(0.2em + 0.8vw);
 }
 
 .navButtuns {
@@ -161,7 +161,7 @@
 
 }
 
-.firstbutton{
+.firstbutton {
     display: flex;
     flex-direction: row;
 }

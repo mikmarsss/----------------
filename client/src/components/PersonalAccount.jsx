@@ -8,6 +8,8 @@ import { courses } from "../data/coursesData"
 import courseicon from '../Images/courseicon.svg'
 import Footer from "./Footer";
 import VhodForm from "./VhodForm";
+import CourseBlock from "./CourseBlock";
+
 
 function PersonalAccount() {
     const { store } = useContext(Context)
@@ -23,7 +25,7 @@ function PersonalAccount() {
     }
 
     const coursesBlocks = courses.map((item) => (
-        <CoursesBlock
+        <CourseBlock
             tag={item.tag}
             id={item.id}
             name={item.name}
@@ -89,12 +91,14 @@ function PersonalAccount() {
                 </div>
 
                 <div className={styles.courses}>
-                    <div className={styles.coursbuttons}>
-                        <button className={`${switchCourses === "active" ? styles.underlinedecor : ''}`} onClick={() => coursesHandleClick("active")}>Активные курсы</button>
-                        <button className={`${switchCourses === "done" ? styles.underlinedecor : ''}`} onClick={() => coursesHandleClick("done")}>Пройденные курсы</button>
+                    <div className={styles.butbar}>
+                        <div className={styles.coursbuttons}>
+                            <button className={`${switchCourses === "active" ? styles.underlinedecor : ''}`} onClick={() => coursesHandleClick("active")}>Активные курсы</button>
+                            <button className={`${switchCourses === "done" ? styles.underlinedecor : ''}`} onClick={() => coursesHandleClick("done")}>Пройденные курсы</button>
 
+                        </div>
+                        <hr className={styles.linia} />
                     </div>
-                    <hr className={styles.linia} />
                     <div className={styles.coursescont}>
                         <div className={switchCourses === "active" ? `${styles.activecourses}` : `${styles.non}`}>
                             {coursesBlocks}
@@ -119,29 +123,6 @@ function ProfileButton({ redButton }) {
     return (
         <>
             <p className={styles.buttext}>{text}</p>
-        </>
-    )
-}
-
-function CoursesBlock({ id, tag, name, description, cost, img, author }) {
-    return (
-        <>
-            <div className={styles.coursesblock}>
-                <div className={styles.courselogo}>
-                    <Image image={courseicon} alt="fd" />
-                </div>
-                <div className={styles.coursename}>
-                    <button>
-                        {name}
-                    </button>
-                </div>
-                <div className={styles.courseauthor}>
-                    {author}
-                </div>
-                <div className={styles.coursecost}>
-                    {cost} руб
-                </div>
-            </div>
         </>
     )
 }

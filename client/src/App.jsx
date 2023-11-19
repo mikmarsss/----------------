@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import PersonalAccount from "./components/PersonalAccount";
 import Catalog from "./components/Catalog";
 import { Route, Routes } from "react-router-dom";
+import CourseBlock from "./components/CourseBlock";
 function App() {
     const { store } = useContext(Context)
 

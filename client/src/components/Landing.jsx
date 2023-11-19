@@ -66,8 +66,12 @@ function Landing({ onSelectedFunc, hide, onSetHide }) {
                         <div className={styles.course}>
                             <button onClick={() => handleClickNavFirst(showBlockFirst)} className={styles.navButtuns}>Курсы</button>
                             <div className={`${styles.workContainer} ${showBlockFirst === "show" ? styles.showSecond : ''}`}>
-                                <button onClick={() => onSelectedFunc("catalogpage")}>Учиться</button>
-                                <button onClick={() => onSelectedFunc("CreateCoursesBlock")}>Создать</button>
+                                <button>
+                                    <Link to="/catalog" style={{ textDecoration: 'none', color: 'white' }}>
+                                        Учиться
+                                    </Link>
+                                </button>
+                                <button>Создать</button>
                             </div>
                         </div>
                         <div className={styles.work}>

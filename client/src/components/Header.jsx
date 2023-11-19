@@ -15,8 +15,8 @@ import {
     Link
 } from "react-router-dom";
 import PersonalAccount from './PersonalAccount';
-import upstrelka from "../Images/downstrelka.svg"
-import downstrelka from "../Images/upstrelka.svg"
+import downstrelka from "../Images/downstrelka.svg"
+import upstrelka from "../Images/upstrelka.svg"
 
 
 function Header({ }) {
@@ -25,6 +25,9 @@ function Header({ }) {
     const [showVhodBlock, setShowVhodBlock] = useState(null)
     const [showRegBlock, setShowRegBlock] = useState(null)
     const { store } = useContext(Context)
+    const upArrow = showBlockFirst === "show" ? <Image image={upstrelka} alt="strelka" /> : <Image image={downstrelka} alt="strelka" />
+    const downArrow = showBlockSecond === "show" ? <Image image={upstrelka} alt="strelka" /> : <Image image={downstrelka} alt="strelka" />
+
     const handleClickNavFirst = (showBlockFirst) => {
         const shown = showBlockFirst === "show" ? null : "show"
         setShowBlockFirst(shown)
@@ -82,7 +85,7 @@ function Header({ }) {
                                     <button>Создать</button>
                                 </div>
                             </div>
-                            <Image image={upstrelka} alt="strelka" />
+
                         </div>
                         <div className={styles.firstbutton}>
                             <div className={styles.work}>
@@ -92,7 +95,7 @@ function Header({ }) {
                                     <button>Фул тайм</button>
                                 </div>
                             </div>
-                            <Image image={upstrelka} alt="strelka" />
+
                         </div>
                     </div>
 
