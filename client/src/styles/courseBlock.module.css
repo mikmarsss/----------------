@@ -57,3 +57,18 @@
 .non {
     display: none;
 }
+
+.linia {
+    width: 240px;
+    margin-left: 190px;
+}
+
+.properties {
+    margin-top: 15px;
+    margin-left: 190px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    color: #BEA0E5;
+    font-size: 18px;
+}

@@ -50,6 +50,9 @@ const courses = [
         cost: "1400",
         img: "courseicon.svg",
         author: "Михаил Казинский",
+        buyer: "1552",
+        time: "41",
+        point: "4.7",
     },
     {
         id: "2",
@@ -59,6 +62,9 @@ const courses = [
         description: "Описание тут",
         cost: "1400",
         author: "Михаил Казинский",
+        buyer: "1552",
+        time: "41",
+        point: "4.7",
     },
     {
         id: "3",
@@ -68,6 +74,9 @@ const courses = [
         description: "Описание тут",
         cost: "1400",
         author: "Михаил Казинский",
+        buyer: "1552",
+        time: "41",
+        point: "4.7",
     },
     {
         id: "4",
@@ -77,6 +86,9 @@ const courses = [
         description: "Описание тут",
         cost: "1400",
         author: "Михаил Казинский",
+        buyer: "1552",
+        time: "41",
+        point: "4.7",
     },
     {
         id: "5",
@@ -86,6 +98,9 @@ const courses = [
         description: "Описание тут",
         cost: "1400",
         author: "Михаил Казинский",
+        buyer: "1552",
+        time: "41",
+        point: "4.7",
     },
     {
         id: "6",
@@ -95,6 +110,9 @@ const courses = [
         description: "Описание тут",
         cost: "1400",
         author: "Михаил Казинский",
+        buyer: "1552",
+        time: "41",
+        point: "4.7",
     },
 ]
 

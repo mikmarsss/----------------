@@ -5,6 +5,8 @@ import Footer from "./Footer";
 import styles from "../styles/catalog.module.css"
 import CourseBlock from "./CourseBlock";
 import { courses } from "../data/coursesData"
+import bookforbutt from "../Images/bookforbutt.svg"
+import Image from "./Image";
 
 function Catalog() {
     const [selectTheme, setSelectTheme] = useState("1")
@@ -45,6 +47,9 @@ function Catalog() {
             cost={item.cost}
             img={item.img}
             author={item.author}
+            point={item.point}
+            time={item.time}
+            buyer={item.buyer}
         />
     ))
     return (
@@ -65,9 +70,23 @@ function Catalog() {
                 </div>
                 <div ><hr className={styles.linia} /></div>
                 <div className={styles.courses}>{coursesBlocks}</div>
+                <div className={styles.ourcourses}>
+                    <button>
+                        <div className={styles.our}>
+                            НАШИ КУРСЫ
+                        </div>
+                    </button>
+                    <button>
+                        <div className={styles.schoolSub}>
+                            <Image image={bookforbutt} alt={"book"} />
+                            ОГЭ ЕГЭ
+                        </div>
+                    </button>
+                </div>
             </div>
-
-            <Footer />
+            <div className={styles.footer}>
+                <Footer />
+            </div>
         </>
 
     )

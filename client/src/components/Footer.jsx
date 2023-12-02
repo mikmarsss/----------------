@@ -3,6 +3,7 @@ import styles from '../styles/footer.module.css'
 import Image from "./Image";
 import logo from "../Images/logo.svg"
 import profileicon from "../Images/profileIcon.svg"
+import { Link } from "react-router-dom";
 
 export default function Footer() {
     return (
@@ -20,8 +21,16 @@ export default function Footer() {
                         <div className={styles.courses}>
                             <p>Курсы</p>
                             <div className={styles.buttons}>
-                                <button>Учиться</button>
-                                <button>Создать</button>
+                                <button>
+                                    <Link to="/catalog" style={{ textDecoration: 'none', color: 'white' }}>
+                                        Учиться
+                                    </Link>
+                                </button>
+                                <button>
+                                    <Link to="/create" style={{ textDecoration: 'none', color: 'white' }}>
+                                        Создать
+                                    </Link>
+                                </button>
                             </div>
                         </div>
                         <div className={styles.courses}>

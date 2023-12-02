@@ -12,10 +12,60 @@ function VhodForm({ onShowVhodBlock, showVhodBlock }) {
     const { store } = useContext(Context)
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [emailDirty, setEmailDirty] = useState(false)
+    const [passwordDirty, setPasswordDirty] = useState(false)
     const [showRegBlock, setShowRegBlock] = useState(null)
+    const [emailError, setEmailError] = useState('Поле email не может быть пустым')
+    const [passwordError, setPasswordError] = useState('Поле пароль не может быть пустым')
     const handleClick = () => {
         onShowVhodBlock(null)
     }
+
+    const blurHandler = (e) => {
+        switch (e.target.name) {
+            case 'email':
+                setEmailDirty(true)
+                break
+            case 'password':
+                setPasswordDirty(true)
+                break
+
+        }
+    }
+
+    const emailHandler = (e) => {
+        setEmail(e.target.value)
+        const re =
+            /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        if (!re.test(String(e.target.value).toLowerCase())) {
+            setEmailError('Некорректный email')
+        } else {
+            setEmailError('')
+        }
+    }
+
+    const passwordHandler = (e) => {
+        setPassword(e.target.value)
+        if (e.target.value.length < 6 || e.target.value.length > 32) {
+            setPasswordError('Пароль должен быть больше 6 знаков и не более 32 знаков')
+            if (!e.target.value) {
+                setPasswordError('Пароль не может быть пустым')
+            }
+        } else {
+            setPasswordError('')
+        }
+    }
+
+    const twoCallsEmail = (e) => {
+        emailHandler(e)
+        setEmail(e.target.value)
+    }
+
+    const twoCallsPassword = (e) => {
+        passwordHandler(e)
+        setPassword(e.target.value)
+    }
+
     return (
         <>
 
@@ -35,17 +85,23 @@ function VhodForm({ onShowVhodBlock, showVhodBlock }) {
                 <div className={styles.inputfields}>
                     <div className={styles.mailfild}>
                         <span>Адресс электронной почты</span>
+                        {{ emailDirty, emailError } && <div style={{ color: "red" }}>{emailError}</div>}
                         <input
-                            onChange={e => setEmail(e.target.value)}
+                            name='email'
+                            onBlur={e => blurHandler(e)}
+                            onChange={e => twoCallsEmail(e)}
                             value={email}
                             placeholder="Email"
                             type="email" />
                     </div>
                     <div className={styles.passwordfild}>
                         <span>Пароль</span>
+                        {{ passwordDirty, passwordError } && <div style={{ color: "red" }}>{passwordError}</div>}
                         <input
+                            name="password"
+                            onBlur={e => blurHandler(e)}
                             type="password"
-                            onChange={e => setPassword(e.target.value)}
+                            onChange={e => twoCallsPassword(e)}
                             value={password}
                             placeholder="Password"
 

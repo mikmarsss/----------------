@@ -78,11 +78,15 @@ function Header({ }) {
 
                                 <div className={`${styles.workContainer} ${showBlockFirst === "show" ? styles.showSecond : ''}`}>
                                     <button>
-                                        <Link style={{ textDecoration: 'none', color: 'white' }} to={"/catalog"}>
+                                        <Link style={{ textDecoration: 'none', color: 'black' }} to={"/catalog"}>
                                             Учиться
                                         </Link>
                                     </button>
-                                    <button>Создать</button>
+                                    <button>
+                                        <Link style={{ textDecoration: 'none', color: 'black' }} to={"/create"}>
+                                            Создать
+                                        </Link>
+                                    </button>
                                 </div>
                             </div>
 

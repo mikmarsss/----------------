@@ -25,7 +25,7 @@
     z-index: 1;
 }
 
-.passwordfild >input:invalid {
+.passwordfild>input:invalid {
     border: solid reb 2px;
 }
 
@@ -98,7 +98,7 @@
     height: 30px;
     border-radius: 15px;
     padding: 5px;
-    border: none;
+
 }
 
 .passwordfild>input {
@@ -106,14 +106,14 @@
     height: 30px;
     border-radius: 15px;
     padding: 5px;
-    border: none;
+
 }
 
 .inputfields {
-    margin-top: 100px;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
     align-items: center;
 }
 
@@ -159,7 +159,27 @@ hr {
     font-size: 12px;
 }
 
+.error {
+    border: solid red 2px;
+}
+
 .regssilka {
     color: white;
     text-decoration: underline;
+}
+
+.passwordError {
+    color: red;
+    font-family: Montserrat-Medium;
+    text-align: center;
+}
+
+.emailError {
+    color: red;
+    font-family: Montserrat-Medium;
+    text-align: center;
+}
+
+.nn {
+    border: none;
 }

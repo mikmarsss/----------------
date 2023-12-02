@@ -95,14 +95,14 @@
 }
 
 .dropdownButtons {
+
     position: absolute;
-    left: 65%;
+    left: 70%;
     display: flex;
     font-size: 25px;
     height: 80px;
     width: 250px;
     align-items: center;
-    gap: 20px;
     justify-content: center;
 }
 
@@ -126,8 +126,10 @@
     position: absolute;
     display: none;
     flex-direction: column;
-    width: 100px;
+    width: 120px;
     justify-content: center;
+    margin-top: 20px;
+
 }
 
 .auth>button {
@@ -150,11 +152,6 @@
     align-items: center;
 }
 
-.workContainer>button {
-    color: black;
-    font-size: calc(0.2em + 0.8vw);
-}
-
 .navButtuns {
     font-size: calc(0.2em + 0.8vw);
     font-family: 'Montserrat-Medium';
@@ -167,8 +164,9 @@
 }
 
 .workContainer>button {
-    color: white;
     cursor: pointer;
+    color: black;
+    font-size: calc(0.2em + 0.8vw);
 }
 
 .showSecond {
@@ -177,4 +175,18 @@
 
 .non {
     display: none;
+}
+
+@media only screen and (max-width: 1920px) {
+    .dropdownButtons {
+
+        position: absolute;
+        left: 70%;
+        display: flex;
+        font-size: 25px;
+        height: 80px;
+        width: 100px;
+        align-items: center;
+        justify-content: center;
+    }
 }

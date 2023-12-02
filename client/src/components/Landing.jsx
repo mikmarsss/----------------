@@ -71,7 +71,10 @@ function Landing({ onSelectedFunc, hide, onSetHide }) {
                                         Учиться
                                     </Link>
                                 </button>
-                                <button>Создать</button>
+                                <button>
+                                    <Link to="/create" style={{ textDecoration: 'none', color: 'white' }}>
+                                        Создать
+                                    </Link></button>
                             </div>
                         </div>
                         <div className={styles.work}>
