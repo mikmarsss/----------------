@@ -118,7 +118,7 @@ function RegForm({ onShowRegBlock, showRegBlock }) {
                             placeholder="Password"
                         />
                     </div>
-                    <div className={styles.passwordfild}>
+                    {/* <div className={styles.passwordfild}>
                         <span>Повторите пароль</span>
                         {{ passwordDirty, passwordEqualError } && <div className={styles.passwordError}>{passwordEqualError}</div>}
                         <input className={`${passwordEqualError ? styles.error : styles.nn}`}
@@ -129,7 +129,7 @@ function RegForm({ onShowRegBlock, showRegBlock }) {
                             placeholder="Password"
                             name='equalpassword'
                         />
-                    </div>
+                    </div> */}
                 </div>
                 <div className={styles.loginbutt}>
                     <button onClick={() => store.registration(email, password)}>продолжить</button>

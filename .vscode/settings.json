@@ -4,7 +4,7 @@
     "liveSassCompile.settings.autoprefix": [],
     "explorer.confirmDelete": false,
     "editor.fontSize": 20,
-    "editor.fontWeight": "bold",
+    // "editor.fontWeight": "bold",
     "editor.cursorBlinking": "smooth",
     "editor.fontFamily": "Iosevka NFM, 'Courier New', monospace",
     "emmet.includeLanguages": {

@@ -18,6 +18,16 @@ class UserController {
         }
     }
 
+    async saveData(req, res, next) {
+        try {
+            const { name, surname, dob, city } = req.body
+            const userData = await userService.saveData(name, surname, dob, city)
+            return res.json(userData)
+        } catch (e) {
+            next(e)
+        }
+    }
+
     async login(req, res, next) {
         try {
             const { email, password } = req.body

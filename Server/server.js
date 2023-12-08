@@ -7,13 +7,13 @@ const app = express()
 const router = require('./router');
 const mongoose = require('mongoose')
 const errorMiddleware = require('./middlewares/error-middlewares')
-
+const sequelize = require('./db')
 
 
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    credentials: false,
+    credentials: true,
     origin: process.env.CLIENT_URL
 }))
 app.use('/api', router)
@@ -21,7 +21,8 @@ app.use(errorMiddleware)
 
 const start = async () => {
     try {
-        await mongoose.connect(process.env.DB_URl, {})
+        await sequelize.authenticate()
+        await sequelize.sync()
         app.listen(port, () => console.log(`Server started on PORT ${port}`))
     } catch (e) {
         console.log(`Database connect error: ${e}!`)
