@@ -94,6 +94,7 @@ function RegForm({ onShowRegBlock, showRegBlock }) {
                 <div className={styles.logo}>
                     <Image image={logo} alt={"logo"} />
                 </div>
+
                 <div className={styles.inputfields}>
                     <div className={styles.mailfild}>
                         <span>Адресс электронной почты</span>
@@ -118,7 +119,7 @@ function RegForm({ onShowRegBlock, showRegBlock }) {
                             placeholder="Password"
                         />
                     </div>
-                    {/* <div className={styles.passwordfild}>
+                    <div className={styles.passwordfild}>
                         <span>Повторите пароль</span>
                         {{ passwordDirty, passwordEqualError } && <div className={styles.passwordError}>{passwordEqualError}</div>}
                         <input className={`${passwordEqualError ? styles.error : styles.nn}`}
@@ -129,7 +130,7 @@ function RegForm({ onShowRegBlock, showRegBlock }) {
                             placeholder="Password"
                             name='equalpassword'
                         />
-                    </div> */}
+                    </div>
                 </div>
                 <div className={styles.loginbutt}>
                     <button onClick={() => store.registration(email, password)}>продолжить</button>
@@ -140,13 +141,7 @@ function RegForm({ onShowRegBlock, showRegBlock }) {
                         Это <a href=""><b>Условия предоставления услуг</b></a> и <a href=""> <b>Политика конфиденциальности</b></a>.
                         . А также подтверждаете, что прочли их.</span>
                 </div>
-                <hr />
-                <div className={styles.reg}>
-                    <span>
-                        <a href=""> <b>Уже зарегистрировались?
-                            Войти</b></a>
-                    </span>
-                </div>
+
             </div>
         </>
     )

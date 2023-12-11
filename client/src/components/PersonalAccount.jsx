@@ -10,8 +10,11 @@ import Footer from "./Footer";
 import VhodForm from "./VhodForm";
 import CourseBlock from "./CourseBlock";
 import bq from "../Images/questionmark.svg"
+import { useParams } from "react-router-dom";
 
 function PersonalAccount() {
+    const params = useParams()
+    const current = params.id
     const { store } = useContext(Context)
     const [redButton, setRedButton] = useState("confirm")
     const [showVhodBlock, setShowVhodBlock] = useState(null)
@@ -38,13 +41,16 @@ function PersonalAccount() {
     const coursesHandleClick = (switchCourses) => {
         setSwitchCourses(switchCourses)
     }
+
+    console.log(current)
+    console.log(store.user.id)
     return (
         <>
             <div className={`${(showVhodBlock === "show") ? styles.showVhod : styles.non}`}>
                 <VhodForm showVhodBlock={showVhodBlock} onShowVhodBlock={vhodHandleClick} />
             </div>
             <Header />
-            <div className={`${store.isAuth ? styles.container : styles.non}`}>
+            <div className={`${store.isAuth && current == store.user.id ? styles.container : styles.non}`}>
                 <div className={styles.profile}>
                     <div className={styles.profileinfo}>
                         <div className={styles.photo}>

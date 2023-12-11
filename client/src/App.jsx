@@ -3,11 +3,8 @@ import Landing from "./components/Landing";
 import { Context } from ".";
 import { observer } from "mobx-react-lite";
 import "./styles/global.css"
-import PersonalAccount from "./components/PersonalAccount";
-import Catalog from "./components/Catalog";
 import { Route, Routes } from "react-router-dom";
-import CreateCoursesBlock from "./components/CreateCoursesBlock";
-
+import { authRoutes, publicRoutes } from "./routes";
 function App() {
     const { store } = useContext(Context)
 
@@ -20,10 +17,12 @@ function App() {
     return (
         <>
             <Routes>
-                <Route path="/" element={<Landing />} />
-                <Route path="/persacc" element={<PersonalAccount />} />
-                <Route path="/catalog" element={<Catalog />} />
-                <Route path="/create" element={<CreateCoursesBlock />} />
+                {store.isAuth && authRoutes.map(({ path, Component }) =>
+                    <Route key={path} path={path} Component={Component} />
+                )}
+                {publicRoutes.map(({ path, Component }) =>
+                    <Route key={path} path={path} Component={Component} />
+                )}
             </Routes>
         </>
     )

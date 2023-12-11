@@ -47,7 +47,7 @@ function VhodForm({ onShowVhodBlock, showVhodBlock }) {
     const passwordHandler = (e) => {
         setPassword(e.target.value)
         if (e.target.value.length < 6 || e.target.value.length > 32) {
-            setPasswordError('Пароль должен быть больше 6 знаков и не более 32 знаков')
+            setPasswordError('Пароль должен быть больше 6 знаков')
             if (!e.target.value) {
                 setPasswordError('Пароль не может быть пустым')
             }
@@ -85,8 +85,8 @@ function VhodForm({ onShowVhodBlock, showVhodBlock }) {
                 <div className={styles.inputfields}>
                     <div className={styles.mailfild}>
                         <span>Адресс электронной почты</span>
-                        {{ emailDirty, emailError } && <div style={{ color: "red" }}>{emailError}</div>}
-                        <input
+                        {{ emailDirty, emailError } && <div className={styles.emailError}>{emailError}</div>}
+                        <input className={`${emailError ? styles.error : styles.nn}`}
                             name='email'
                             onBlur={e => blurHandler(e)}
                             onChange={e => twoCallsEmail(e)}
@@ -96,8 +96,8 @@ function VhodForm({ onShowVhodBlock, showVhodBlock }) {
                     </div>
                     <div className={styles.passwordfild}>
                         <span>Пароль</span>
-                        {{ passwordDirty, passwordError } && <div style={{ color: "red" }}>{passwordError}</div>}
-                        <input
+                        {{ passwordDirty, passwordError } && <div className={styles.passwordError}>{passwordError}</div>}
+                        <input className={`${passwordError ? styles.error : styles.nn}`}
                             name="password"
                             onBlur={e => blurHandler(e)}
                             type="password"
@@ -110,7 +110,7 @@ function VhodForm({ onShowVhodBlock, showVhodBlock }) {
                 </div>
                 <div className={styles.loginbutt}>
                     <button onClick={() => store.login(email, password)}>
-                        продолжить
+                        войти
                     </button>
                 </div>
                 <hr />
@@ -118,15 +118,6 @@ function VhodForm({ onShowVhodBlock, showVhodBlock }) {
                     <span>Продолжая, вы соглашаетесь с положениями основных документов TETA.
                         Это <a href=""><b>Условия предоставления услуг</b></a> и <a href=""> <b>Политика конфиденциальности</b></a>.
                         А также подтверждаете, что прочли их.</span>
-                </div>
-                <hr />
-                <div className={styles.reg}>
-                    <span>
-
-                        <button className={styles.regssilka}>
-                            <b>Еще не зарегистрировались в TETA? Зарегистрироваться.</b>
-                        </button>
-                    </span>
                 </div>
             </div>
 

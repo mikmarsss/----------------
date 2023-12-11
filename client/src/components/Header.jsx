@@ -52,10 +52,10 @@ function Header({ }) {
     return (
 
         <>
-            <div className={`${showRegBlock === "show" ? styles.showReg : styles.non}`}>
+            <div className={`${showRegBlock === "show" && !store.isAuth ? styles.showReg : styles.non}`}>
                 <RegForm showRegBlock={showRegBlock} onShowRegBlock={regHandleClick} />
             </div>
-            <div className={`${(showVhodBlock === "show") ? styles.showVhod : styles.non}`}>
+            <div className={`${(showVhodBlock === "show" && !store.isAuth) ? styles.showVhod : styles.non}`}>
                 <VhodForm showVhodBlock={showVhodBlock} onShowVhodBlock={vhodHandleClick} />
             </div>
 
@@ -172,13 +172,14 @@ function ShowProfile({ name }) {
 }
 
 function ProfileMenu({ name, id, onProfileClick, url }) {
+    const { store } = useContext(Context)
     const handleClick = () => {
         onProfileClick(id)
     }
     return (
         <>
             <button onClick={handleClick}>
-                <Link style={{ textDecoration: 'none', color: 'black' }} to={url}>
+                <Link style={{ textDecoration: 'none', color: 'black' }} to={`/persacc` + `/${store.user.id}`}>
                     {name}
                 </Link>
             </button>
