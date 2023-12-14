@@ -10,7 +10,7 @@ const User = sequelize.define('user', {
     role: { type: DataTypes.STRING, defaultValue: "USER" },
     name: { type: DataTypes.STRING, allowNull: true },
     surname: { type: DataTypes.STRING, allowNull: true },
-    dob: { type: DataTypes.DATE, allowNull: true },
+    dob: { type: DataTypes.DATEONLY, allowNull: true },
     city: { type: DataTypes.STRING, allowNull: true },
     isActivated: { type: DataTypes.BOOLEAN, default: false },
     activationLink: { type: DataTypes.STRING }

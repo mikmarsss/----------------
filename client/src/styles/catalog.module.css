@@ -58,7 +58,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 30px
+    gap: 30px;
 }
 
 .our {
@@ -73,6 +73,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
 
 }
 
@@ -117,7 +118,6 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-        margin-left: -250px;
         gap: 30px;
     }
 
@@ -126,8 +126,8 @@
         font-size: 30px;
         font-family: 'Montserrat-Medium';
         color: #FF8C37;
-        width: 500px;
-        height: 200px;
+        width: 400px;
+        height: 180px;
         background-image: url(../Images/blockback.svg);
         border-radius: 30px;
         display: flex;
@@ -139,8 +139,8 @@
         font-size: 30px;
         font-family: 'Montserrat-Medium';
         color: #FF8C37;
-        width: 500px;
-        height: 200px;
+        width: 400px;
+        height: 180px;
         background-image: url(../Images/blockback.svg);
         border-radius: 30px;
         display: flex;

@@ -20,8 +20,9 @@ class UserController {
 
     async saveData(req, res, next) {
         try {
-            const { name, surname, dob, city } = req.body
-            const userData = await userService.saveData(name, surname, dob, city)
+            const { email, name, surname, city, dob } = req.body
+            const userData = await userService.saveData(email, name, surname, city, dob)
+            res.cookie('refreshToken', userData.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true })
             return res.json(userData)
         } catch (e) {
             next(e)

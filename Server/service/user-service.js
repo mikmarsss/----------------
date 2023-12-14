@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt')
 const uuid = require('uuid')
 const mailService = require('./mail-service')
 const UserDto = require('../dtos/user-dto')
+
 const tokenService = require('./token-service')
 const ApiError = require('../exceptions/api-error')
 const jwt = require('jsonwebtoken')
@@ -21,7 +22,7 @@ class UserService {
         await mailService.sendActivationMail(email, `${process.env.API_URL}/api/user/activate/${activationLink}`)
 
         const userDto = new UserDto(user);
-        const tokens = tokenService.generateTokens({ ...userDto });
+        const tokens = tokenService.generateTokens(userDto.email, userDto.id, userDto.isActivated);
         await tokenService.saveToken(userDto.id, tokens.refreshToken);
 
         return { ...tokens, user: userDto }
@@ -47,7 +48,7 @@ class UserService {
             throw ApiError.BadRequest('Неверный пароль!')
         }
         const userDto = new UserDto(user)
-        const tokens = await tokenService.generateTokens({ ...userDto })
+        const tokens = await tokenService.generateTokens(userDto.email, userDto.id, userDto.isActivated)
         await tokenService.saveToken(userDto.id, tokens.refreshToken);
 
         return { ...tokens, user: userDto }
@@ -56,6 +57,20 @@ class UserService {
     async logout(refreshToken) {
         const token = await tokenService.removeToken(refreshToken)
         return token
+    }
+
+    async saveData(email, name, surname, city, dob) {
+        const user = await User.findOne({ where: { email } })
+        const userDto = new UserDto(user)
+        user.isActivated = null;
+        user.name = name;
+        user.surname = surname;
+        user.city = city;
+        user.dob = dob;
+        await user.save();
+        const tokens = await tokenService.generateTokens(userDto.email, userDto.id, userDto.isActivated)
+        await tokenService.saveToken(userDto.id, tokens.refreshToken);
+        return { ...tokens, user: userDto }
     }
 
     async refresh(refreshToken) {
@@ -69,7 +84,7 @@ class UserService {
         }
         const user = await User.findByPk(userData.id)
         const userDto = new UserDto(user)
-        const tokens = await tokenService.generateTokens({ ...userDto })
+        const tokens = await tokenService.generateTokens(userDto.email, userDto.id, userDto.isActivated)
         await tokenService.saveToken(userDto.id, tokens.refreshToken);
 
         return { ...tokens, user: userDto }

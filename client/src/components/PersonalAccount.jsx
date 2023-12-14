@@ -13,19 +13,32 @@ import bq from "../Images/questionmark.svg"
 import { useParams } from "react-router-dom";
 
 function PersonalAccount() {
+    const { store } = useContext(Context)
+    const [name, setName] = useState(store.user.name)
+    const [surname, setSurname] = useState(store.user.surname)
+    const [city, setCity] = useState(store.user.city)
+    const [dob, setDob] = useState(store.user.dob)
+
     const params = useParams()
     const current = params.id
-    const { store } = useContext(Context)
+
     const [redButton, setRedButton] = useState("confirm")
     const [showVhodBlock, setShowVhodBlock] = useState(null)
     const [switchCourses, setSwitchCourses] = useState("active")
+
     const handleClick = (redButton) => {
         const shown = redButton === "confirm" ? "red" : "confirm"
         setRedButton(shown)
+        if (redButton === 'red') {
+            store.saveData(store.user.email, name, surname, city, dob)
+        }
+
     }
     const vhodHandleClick = (showVhodBlock) => {
         setShowVhodBlock(showVhodBlock);
     }
+
+
 
     const coursesBlocks = courses.map((item) => (
         <CourseBlock
@@ -42,8 +55,6 @@ function PersonalAccount() {
         setSwitchCourses(switchCourses)
     }
 
-    console.log(current)
-    console.log(store.user.id)
     return (
         <>
             <div className={`${(showVhodBlock === "show") ? styles.showVhod : styles.non}`}>
@@ -60,31 +71,54 @@ function PersonalAccount() {
                             <div className={`${styles.first} ${redButton === "confirm" ? styles.disabled : styles.first}`}>
                                 <div>
                                     <p>Имя</p>
-                                    <input type="text" />
+                                    <input
+                                        type="text"
+                                        value={name}
+                                        onChange={e => setName(e.target.value)}
+                                        placeholder={store.user.name}
+
+                                    />
                                 </div>
                                 <div>
                                     <p>Фамилия</p>
-                                    <input type="text" />
+                                    <input
+                                        type="text"
+                                        value={surname}
+                                        onChange={e => setSurname(e.target.value)}
+                                        placeholder={store.user.surname} />
                                 </div>
                                 <div>
                                     <p>Город</p>
-                                    <input type="text" />
+                                    <input
+                                        type="text"
+                                        value={city}
+                                        onChange={e => setCity(e.target.value)}
+                                        placeholder={store.user.city}
+                                    />
                                 </div>
 
                             </div>
                             <div className={`${styles.first} ${redButton === "confirm" ? styles.disabled : styles.first}`}>
                                 <div>
+                                    <p>Дата рождения</p>
+                                    <input
+                                        value={dob}
+                                        onChange={e => setDob(e.target.value)}
+                                        type="date"
+                                        placeholder={store.user.dob}
+                                    />
+                                </div>
+                                <div>
                                     <p>Почта</p>
-                                    <input type="mail" />
+                                    <input
+                                        type="mail"
+                                    />
                                 </div>
                                 <div>
                                     <p>Пароль</p>
                                     <input type="password" />
                                 </div>
-                                <div>
-                                    <p>Дата рождения</p>
-                                    <input type="date" />
-                                </div>
+
                             </div>
                         </div>
                         <div className={styles.redButton}>

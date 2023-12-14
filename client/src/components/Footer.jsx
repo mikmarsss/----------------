@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from '../styles/footer.module.css'
 import Image from "./Image";
 import logo from "../Images/logo.svg"
 import profileicon from "../Images/profileIcon.svg"
 import { Link } from "react-router-dom";
+import { Context } from "..";
+import { observer } from "mobx-react-lite";
 
-export default function Footer() {
+function Footer() {
+    const { store } = useContext(Context)
     return (
         <>
             <footer className={styles.footer1}>
@@ -41,7 +44,7 @@ export default function Footer() {
                             </div>
                         </div>
                     </div>
-                    <div className={styles.auth}>
+                    <div className={`${!store.isAuth ? styles.auth : styles.non}`}>
                         <div>
                             <Image image={profileicon} alt={"icon"} />
                         </div>
@@ -52,8 +55,17 @@ export default function Footer() {
                             <button>Регистрация</button>
                         </div>
                     </div>
+                    <div className={`${store.isAuth ? styles.auth : styles.non}`}>
+                        <div>
+                            <button>
+                                {store.user.email}
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </footer>
         </>)
 
 }
+
+export default observer(Footer)

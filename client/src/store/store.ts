@@ -36,6 +36,17 @@ export default class Store {
         }
     }
 
+
+    async saveData(email: string, name: string, surname: string, city: string, dob: Date) {
+        try {
+            const response = await AuthService.saveData(email, name, surname, city, dob)
+            console.log(response)
+            this.setUser(response.data.user)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+    }
+
     async registration(email: string, password: string) {
         try {
             const response = await AuthService.registration(email, password)
