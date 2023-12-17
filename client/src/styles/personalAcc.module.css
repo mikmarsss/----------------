@@ -44,6 +44,7 @@
     transform: rotate(-20deg);
 }
 
+
 .profileinfo {
     margin-top: 4%;
     height: 300px;
@@ -126,6 +127,56 @@
 
 }
 
+.proffileBlockButtons {
+    display: flex;
+    justify-content: center;
+    border: solid #9559d4 2px;
+    flex-direction: column;
+    border-radius: 15px;
+
+}
+
+.coursesProfile {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 30px;
+    margin-top: 5%;
+
+}
+
+.coursesNavButt {
+    font-family: 'Montserrat-Medium';
+    width: 300px;
+    height: 53px;
+    background-color: white;
+    font-size: 25px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 18px;
+}
+
+.buttonClicked {
+    border-radius: 10px;
+    font-family: 'Montserrat-Medium';
+    width: 300px;
+    height: 53px;
+    background-color: #9559d4;
+    font-size: 25px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer {
+    margin-top: 800px;
+}
+
+
+
 .redButton>button {
 
     background-color: #FF8C37;
@@ -156,8 +207,8 @@
 }
 
 .courses {
-    margin-top: 64px;
-
+    display: flex;
+    justify-content: center;
 }
 
 .coursbuttons {
@@ -180,10 +231,13 @@
 
 
 .coursescont {
-
-    margin-top: 5%;
+    align-items: center;
+    width: 1200px;
+    height: 1000px;
     display: flex;
     justify-content: center;
+    border: solid black 2px;
+
 }
 
 .coursesblock {
@@ -238,3 +292,5 @@
 .non {
     display: none;
 }
+
+@media only screen and (max-width: 1920px) {}

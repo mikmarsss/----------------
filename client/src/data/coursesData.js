@@ -125,21 +125,27 @@ const profile = [
     },
     {
         id: "2",
-        name: "Мои курсы",
-    },
-    {
-        id: "3",
-        name: "Мои заказы",
-    },
-    {
-        id: "4",
         name: "Настройки",
     },
     {
-        id: "5",
+        id: "3",
         name: "Выход",
     }
 ]
 
+const inProfileMenu = [
+    {
+        id: "1",
+        name: "активные курсы"
+    },
+    {
+        id: "2",
+        name: "пройденные курсы"
+    },
+    {
+        id: "3",
+        name: "портфолио"
+    },
+]
 
-export { tags, courses, profile }
+export { tags, courses, profile, inProfileMenu }

@@ -146,7 +146,7 @@ function ShowProfile({ name }) {
 
     const profileHandleClick = (id) => {
         switch (id) {
-            case "5":
+            case "3":
                 store.logout()
                 break;
         }

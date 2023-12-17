@@ -11,29 +11,20 @@ import VhodForm from "./VhodForm";
 import CourseBlock from "./CourseBlock";
 import bq from "../Images/questionmark.svg"
 import { useParams } from "react-router-dom";
+import { inProfileMenu } from "../data/coursesData";
 
 function PersonalAccount() {
     const { store } = useContext(Context)
-    const [name, setName] = useState(store.user.name)
-    const [surname, setSurname] = useState(store.user.surname)
-    const [city, setCity] = useState(store.user.city)
-    const [dob, setDob] = useState(store.user.dob)
-
     const params = useParams()
     const current = params.id
-
-    const [redButton, setRedButton] = useState("confirm")
     const [showVhodBlock, setShowVhodBlock] = useState(null)
-    const [switchCourses, setSwitchCourses] = useState("active")
-
-    const handleClick = (redButton) => {
-        const shown = redButton === "confirm" ? "red" : "confirm"
-        setRedButton(shown)
-        if (redButton === 'red') {
-            store.saveData(store.user.email, name, surname, city, dob)
-        }
-
+    const [show, setShow] = useState('courses')
+    const handleClick = (show) => {
+        setShow(show)
     }
+
+
+
     const vhodHandleClick = (showVhodBlock) => {
         setShowVhodBlock(showVhodBlock);
     }
@@ -51,9 +42,6 @@ function PersonalAccount() {
             author={item.author}
         />
     ))
-    const coursesHandleClick = (switchCourses) => {
-        setSwitchCourses(switchCourses)
-    }
 
     return (
         <>
@@ -62,93 +50,30 @@ function PersonalAccount() {
             </div>
             <Header />
             <div className={`${store.isAuth && current == store.user.id ? styles.container : styles.non}`}>
-                <div className={styles.profile}>
-                    <div className={styles.profileinfo}>
-                        <div className={styles.photo}>
-
-                        </div>
-                        <div className={styles.info} >
-                            <div className={`${styles.first} ${redButton === "confirm" ? styles.disabled : styles.first}`}>
-                                <div>
-                                    <p>Имя</p>
-                                    <input
-                                        type="text"
-                                        value={name}
-                                        onChange={e => setName(e.target.value)}
-                                        placeholder={store.user.name}
-
-                                    />
-                                </div>
-                                <div>
-                                    <p>Фамилия</p>
-                                    <input
-                                        type="text"
-                                        value={surname}
-                                        onChange={e => setSurname(e.target.value)}
-                                        placeholder={store.user.surname} />
-                                </div>
-                                <div>
-                                    <p>Город</p>
-                                    <input
-                                        type="text"
-                                        value={city}
-                                        onChange={e => setCity(e.target.value)}
-                                        placeholder={store.user.city}
-                                    />
-                                </div>
-
+                <div className={styles.coursesProfile}>
+                    <div className={styles.proffileBlockButtons}>
+                        <button onClick={() => handleClick('courses')}>
+                            <div className={`${show === 'courses' ? styles.buttonClicked : styles.coursesNavButt}`}>
+                                курсы
                             </div>
-                            <div className={`${styles.first} ${redButton === "confirm" ? styles.disabled : styles.first}`}>
-                                <div>
-                                    <p>Дата рождения</p>
-                                    <input
-                                        value={dob}
-                                        onChange={e => setDob(e.target.value)}
-                                        type="date"
-                                        placeholder={store.user.dob}
-                                    />
-                                </div>
-                                <div>
-                                    <p>Почта</p>
-                                    <input
-                                        type="mail"
-                                    />
-                                </div>
-                                <div>
-                                    <p>Пароль</p>
-                                    <input type="password" />
-                                </div>
-
+                        </button>
+                        <button onClick={() => handleClick('work')}>
+                            <div className={`${show === 'work' ? styles.buttonClicked : styles.coursesNavButt}`}>
+                                работа
                             </div>
-                        </div>
-                        <div className={styles.redButton}>
-                            <button onClick={() => handleClick(redButton)}>
-                                <ProfileButton redButton={redButton} />
-                            </button>
-                        </div>
+                        </button>
                     </div>
 
-                </div>
+                    <div className={styles.courses}>
 
-                <div className={styles.courses}>
-                    <div className={styles.butbar}>
-                        <div className={styles.coursbuttons}>
-                            <button className={`${switchCourses === "active" ? styles.underlinedecor : ''}`} onClick={() => coursesHandleClick("active")}>Активные курсы</button>
-                            <button className={`${switchCourses === "done" ? styles.underlinedecor : ''}`} onClick={() => coursesHandleClick("done")}>Пройденные курсы</button>
-
-                        </div>
-                        <hr className={styles.linia} />
-                    </div>
-                    <div className={styles.coursescont}>
-                        <div className={switchCourses === "active" ? `${styles.activecourses}` : `${styles.non}`}>
-                            {coursesBlocks}
-                        </div>
-                        <div className={switchCourses === "active" ? `${styles.donecourses}` : `${styles.non}`}>
+                        <div className={styles.coursescont}>
 
                         </div>
                     </div>
                 </div>
-                <Footer />
+                <div className={styles.footer}>
+                    <Footer />
+                </div>
             </div>
             <div className={`${!store.isAuth ? styles.unauth : styles.non}`}>
                 <div className={styles.qm}>
@@ -173,14 +98,6 @@ function PersonalAccount() {
     )
 }
 
-function ProfileButton({ redButton }) {
-    const text = redButton === "confirm" ? "РЕДАКТИРОВАТЬ" : "ПРИНЯТЬ"
-    return (
-        <>
-            <p className={styles.buttext}>{text}</p>
-        </>
-    )
-}
 
 
 export default observer(PersonalAccount)
