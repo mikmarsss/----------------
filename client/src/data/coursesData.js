@@ -126,6 +126,7 @@ const profile = [
     {
         id: "2",
         name: "Настройки",
+        url: "/settings"
     },
     {
         id: "3",
@@ -136,16 +137,25 @@ const profile = [
 const inProfileMenu = [
     {
         id: "1",
-        name: "активные курсы"
+        name: "активные курсы",
+        url: "active",
     },
     {
         id: "2",
-        name: "пройденные курсы"
+        name: "пройденные курсы",
+        url: "done",
     },
     {
         id: "3",
-        name: "портфолио"
+        name: "избранное",
+        url: "favorite",
+    },
+    {
+        id: "4",
+        name: "портфолио",
+        url: "portfolio",
     },
 ]
+
 
 export { tags, courses, profile, inProfileMenu }

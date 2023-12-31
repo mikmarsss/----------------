@@ -179,7 +179,7 @@ function ProfileMenu({ name, id, onProfileClick, url }) {
     return (
         <>
             <button onClick={handleClick}>
-                <Link style={{ textDecoration: 'none', color: 'black' }} to={`/persacc` + `/${store.user.id}`}>
+                <Link style={{ textDecoration: 'none', color: 'black' }} to={url + `/${store.user.username}`}>
                     {name}
                 </Link>
             </button>

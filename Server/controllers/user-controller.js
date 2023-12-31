@@ -9,8 +9,8 @@ class UserController {
             if (!errors.isEmpty()) {
                 return next(ApiError.BadRequest('Ошибка при валидации', errors.array()))
             }
-            const { email, password } = req.body;
-            const userData = await userService.registration(email, password)
+            const { email, password, username } = req.body;
+            const userData = await userService.registration(email, password, username)
             res.cookie('refreshToken', userData.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true })
             return res.json(userData)
         } catch (e) {
@@ -20,8 +20,8 @@ class UserController {
 
     async saveData(req, res, next) {
         try {
-            const { email, name, surname, city, dob } = req.body
-            const userData = await userService.saveData(email, name, surname, city, dob)
+            const { email, name, surname, city, dob, username } = req.body
+            const userData = await userService.saveData(email, name, surname, city, dob, username)
             res.cookie('refreshToken', userData.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true })
             return res.json(userData)
         } catch (e) {
@@ -33,6 +33,28 @@ class UserController {
         try {
             const { email, password } = req.body
             const userData = await userService.login(email, password)
+            res.cookie('refreshToken', userData.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true })
+            return res.json(userData)
+        } catch (e) {
+            next(e)
+        }
+    }
+
+    async sendChangePasswordCode(req, res, next) {
+        try {
+            const { email, password } = req.body
+            const code = await userService.sendChangePassword(email, password)
+
+            return res.json(code)
+        } catch (e) {
+            next(e)
+        }
+    }
+
+    async changePassword(req, res, next) {
+        try {
+            const { email, code, newPassword } = req.body
+            const userData = await userService.changePassword(email, code, newPassword)
             res.cookie('refreshToken', userData.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true })
             return res.json(userData)
         } catch (e) {

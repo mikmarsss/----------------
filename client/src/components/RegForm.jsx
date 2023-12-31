@@ -1,6 +1,6 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
-import styles from "../styles/vhodform.module.css"
+import styles from "../styles/regform.module.css"
 import { Context } from "..";
 import { useContext, useState } from "react";
 import Image from "./Image";
@@ -15,11 +15,25 @@ function RegForm({ onShowRegBlock, showRegBlock }) {
     const [equalPassword, setEqualPassword] = useState('');
     const [emailDirty, setEmailDirty] = useState(false)
     const [passwordDirty, setPasswordDirty] = useState(false)
-    const [emailError, setEmailError] = useState('Поле email не может быть пустым')
-    const [passwordError, setPasswordError] = useState('Поле пароль не может быть пустым')
+    const [emailError, setEmailError] = useState('')
+    const [passwordError, setPasswordError] = useState('')
     const [passwordEqualError, setPasswordEqualsError] = useState('')
+    const [username, setUsername] = useState('')
+    const [usernameError, setUsernameError] = useState('Поле не может быть пустым')
     const handleClick = () => {
         onShowRegBlock(null)
+    }
+
+    const usernameHandler = (e) => {
+        if (e.target.value === '') {
+            setUsernameError('Поле не может быть пустым')
+        }
+        else {
+            setUsernameError('')
+        }
+    }
+    const showRegError = () => {
+        console.log('пароли не совпадают')
     }
 
     const equalHandler = (e) => {
@@ -69,6 +83,11 @@ function RegForm({ onShowRegBlock, showRegBlock }) {
         setEmail(e.target.value)
     }
 
+    const twoCallsUsername = (e) => {
+        usernameHandler(e)
+        setUsername(e.target.value)
+    }
+
     const twoCallsPassword = (e) => {
         passwordHandler(e)
         setPassword(e.target.value)
@@ -91,57 +110,67 @@ function RegForm({ onShowRegBlock, showRegBlock }) {
                         <Image image={exitbutton} alt={"exit"} />
                     </button>
                 </div>
-                <div className={styles.logo}>
-                    <Image image={logo} alt={"logo"} />
+                <div className={styles.zagolovok}>
+                    <h1>Регистрация</h1>
                 </div>
-
                 <div className={styles.inputfields}>
                     <div className={styles.mailfild}>
-                        <span>Адресс электронной почты</span>
+                        <label htmlFor="username">Имя пользователя</label>
+                        {{ usernameError } && <div className={styles.emailError}>{usernameError}</div>}
+                        <input className={styles.usernameField}
+                            name='email'
+                            onBlur={e => blurHandler(e)}
+                            onChange={e => twoCallsUsername(e)}
+                            value={username}
+                            placeholder="Имя пользователя"
+                            type="text"
+                            id="username"
+                        />
+                    </div>
+                    <div className={styles.mailfild}>
+                        <label htmlFor="email">Почта</label>
                         {{ emailDirty, emailError } && <div className={styles.emailError}>{emailError}</div>}
                         <input className={`${emailError ? styles.error : styles.nn}`}
                             name='email'
                             onBlur={e => blurHandler(e)}
                             onChange={e => twoCallsEmail(e)}
                             value={email}
-                            placeholder="Email"
-                            type="email" />
+                            placeholder="Электронная почта"
+                            type="email"
+                            id="email"
+                        />
                     </div>
                     <div className={styles.passwordfild}>
-                        <span>Пароль</span>
+                        <label htmlFor="password">Пароль</label>
                         {{ passwordDirty, passwordError } && <div className={styles.passwordError}>{passwordError}</div>}
+
                         <input className={`${passwordError ? styles.error : styles.nn}`}
                             name='password'
                             onBlur={e => blurHandler(e)}
                             type="password"
                             onChange={e => twoCallsPassword(e)}
                             value={password}
-                            placeholder="Password"
+                            placeholder="Пароль"
+                            id="password"
                         />
                     </div>
                     <div className={styles.passwordfild}>
-                        <span>Повторите пароль</span>
+                        <label htmlFor="password">Повторите пароль</label>
                         {{ passwordDirty, passwordEqualError } && <div className={styles.passwordError}>{passwordEqualError}</div>}
+
                         <input className={`${passwordEqualError ? styles.error : styles.nn}`}
                             type="password"
                             onChange={e => twoCallsEqualPassword(e)}
                             onBlur={e => blurHandler(e)}
                             value={equalPassword}
-                            placeholder="Password"
+                            placeholder="Повторите пароль"
                             name='equalpassword'
                         />
                     </div>
                 </div>
-                <div className={styles.loginbutt}>
-                    <button onClick={() => store.registration(email, password)}>продолжить</button>
-                </div>
-                <hr />
-                <div className={styles.description}>
-                    <span>Продолжая, вы соглашаетесь с положениями основных документов TETA.
-                        Это <a href=""><b>Условия предоставления услуг</b></a> и <a href=""> <b>Политика конфиденциальности</b></a>.
-                        . А также подтверждаете, что прочли их.</span>
-                </div>
-
+                <button className={styles.loginbutt}>
+                    <div onClick={() => store.registration(email, password, username)}>Зарегистрироваться</div>
+                </button>
             </div>
         </>
     )

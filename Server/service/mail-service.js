@@ -28,6 +28,23 @@ class MailService {
                 `
         })
     }
+
+    async sendChangePasswordCode(to, code) {
+        await this.transporter.sendMail({
+            from: process.env.SMTP_USER,
+            to,
+            subject: 'Смена пароля на ' + process.env.API_URL,
+            text: '',
+            html:
+                `
+                <div>
+                    <h1>Для смены пароля используйте данный код:</h1>
+                    <h1>${code}</h1>
+                    <h1>Если вы не пытались сменить пароль игнорируйте данное сообщение</h1>
+                </div>
+                `
+        })
+    }
 }
 
 module.exports = new MailService()

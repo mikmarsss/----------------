@@ -10,5 +10,7 @@ module.exports = class UserDto {
         this.surname = model.surname;
         this.city = model.city;
         this.dob = model.dob;
+        this.username = model.username;
+        this.changeCode = model.changeCode
     }
 }

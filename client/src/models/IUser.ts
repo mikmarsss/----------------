@@ -6,5 +6,5 @@ export interface IUser {
     surname: string;
     dob: Date;
     city: string;
-
+    username: string;
 }

@@ -33,8 +33,8 @@
     z-index: 3;
     background-image: url(../Images/headerback.svg);
     width: 460px;
-    height: 500px;
-    border-radius: 31px 31px 31px 31px;
+    height: 700px;
+    border-radius: 11px 11px 11px 11px;
     left: 0;
     right: 0;
     position: fixed;
@@ -42,8 +42,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
-
 
 .logo {
     display: flex;
@@ -66,25 +64,29 @@
     flex-direction: column;
 }
 
+.passwordfild>label {
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.mailfild>label {
+    font-size: 18px;
+    margin-left: 10px;
+}
+
 .loginbutt {
     margin-top: 40px;
     display: flex;
     justify-content: center;
-
+    background-color: #ff8c37;
+    font-size: 24px;
+    border-radius: 5px;
+    padding: 6px;
     align-items: center;
     margin: 0 auto;
     margin-top: 50px;
 }
 
-.loginbutt>button {
-    border-radius: 15px;
-    background: #FF8C37;
-    width: 200px;
-    height: 60px;
-    font-size: 24px;
-    color: white;
-    font-family: 'Montserrat-Medium';
-}
 
 .loginbutt>button:active {
     background: #6f31c1;
@@ -98,15 +100,25 @@
 .mailfild>input {
     width: 400px;
     height: 30px;
-    border-radius: 15px;
     padding: 5px;
 
+}
+
+
+
+.zagolovok {
+    margin-top: 50px;
+    text-align: center;
+
+}
+
+.zagolovok>h1 {
+    font-family: Montserrat-Regular;
 }
 
 .passwordfild>input {
     width: 400px;
     height: 30px;
-    border-radius: 15px;
     padding: 5px;
 
 }
@@ -115,7 +127,7 @@
     margin-top: 40px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
     align-items: center;
 }
 
@@ -124,14 +136,7 @@ span {
     color: white;
 }
 
-hr {
-    width: 400px;
-    margin: 0 auto;
-    margin-top: 20px;
-    height: 1px;
-    background: #6f31c1;
-    border: none;
-}
+
 
 .none {
     display: none;
@@ -180,6 +185,7 @@ hr {
     color: red;
     font-family: Montserrat-Medium;
     text-align: center;
+
 }
 
 .nn {

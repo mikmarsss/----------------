@@ -37,9 +37,9 @@ export default class Store {
     }
 
 
-    async saveData(email: string, name: string, surname: string, city: string, dob: Date) {
+    async saveData(email: string, name: string, surname: string, city: string, dob: Date, username: string) {
         try {
-            const response = await AuthService.saveData(email, name, surname, city, dob)
+            const response = await AuthService.saveData(email, name, surname, city, dob, username)
             console.log(response)
             this.setUser(response.data.user)
         } catch (e) {
@@ -47,9 +47,9 @@ export default class Store {
         }
     }
 
-    async registration(email: string, password: string) {
+    async registration(email: string, password: string, username: string) {
         try {
-            const response = await AuthService.registration(email, password)
+            const response = await AuthService.registration(email, password, username)
             console.log(response)
             localStorage.setItem('token', response.data.accessToken)
             this.setAuth(true)
@@ -65,6 +65,24 @@ export default class Store {
             localStorage.removeItem('token')
             this.setAuth(false)
             this.setUser({} as IUser)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+    }
+
+    async sendChangePasswordCode(email: string, password: string) {
+        try {
+            const response = await AuthService.sendChangePasswordCode(email, password)
+            console.log(response)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+    }
+
+    async changePassword(email: string, code: BigInt, newPassword: string) {
+        try {
+            const response = await AuthService.changePassword(email, code, newPassword)
+            console.log(response)
         } catch (e) {
             console.log(e.response?.data?.message)
         }

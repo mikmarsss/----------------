@@ -84,18 +84,16 @@ function VhodForm({ onShowVhodBlock, showVhodBlock }) {
                 </div>
                 <div className={styles.inputfields}>
                     <div className={styles.mailfild}>
-                        <span>Адресс электронной почты</span>
                         {{ emailDirty, emailError } && <div className={styles.emailError}>{emailError}</div>}
                         <input className={`${emailError ? styles.error : styles.nn}`}
                             name='email'
                             onBlur={e => blurHandler(e)}
                             onChange={e => twoCallsEmail(e)}
                             value={email}
-                            placeholder="Email"
+                            placeholder="Электронная почта"
                             type="email" />
                     </div>
                     <div className={styles.passwordfild}>
-                        <span>Пароль</span>
                         {{ passwordDirty, passwordError } && <div className={styles.passwordError}>{passwordError}</div>}
                         <input className={`${passwordError ? styles.error : styles.nn}`}
                             name="password"
@@ -103,7 +101,7 @@ function VhodForm({ onShowVhodBlock, showVhodBlock }) {
                             type="password"
                             onChange={e => twoCallsPassword(e)}
                             value={password}
-                            placeholder="Password"
+                            placeholder="Пароль"
 
                         />
                     </div>
@@ -112,12 +110,6 @@ function VhodForm({ onShowVhodBlock, showVhodBlock }) {
                     <button onClick={() => store.login(email, password)}>
                         войти
                     </button>
-                </div>
-                <hr />
-                <div className={styles.description}>
-                    <span>Продолжая, вы соглашаетесь с положениями основных документов TETA.
-                        Это <a href=""><b>Условия предоставления услуг</b></a> и <a href=""> <b>Политика конфиденциальности</b></a>.
-                        А также подтверждаете, что прочли их.</span>
                 </div>
             </div>
 

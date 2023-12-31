@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Header from "./Header";
 import { observer } from "mobx-react-lite";
 import Footer from "./Footer";
@@ -7,8 +7,10 @@ import CourseBlock from "./CourseBlock";
 import { courses } from "../data/coursesData"
 import bookforbutt from "../Images/bookforbutt.svg"
 import Image from "./Image";
+import { Context } from "..";
 
 function Catalog() {
+    const { store } = useContext(Context)
     const [selectTheme, setSelectTheme] = useState("1")
     const handleClick = (id) => {
         switch (id) {
@@ -52,6 +54,7 @@ function Catalog() {
             buyer={item.buyer}
         />
     ))
+
     return (
         <>
             <Header />

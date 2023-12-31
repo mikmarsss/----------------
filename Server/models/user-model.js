@@ -13,7 +13,9 @@ const User = sequelize.define('user', {
     dob: { type: DataTypes.DATEONLY, allowNull: true },
     city: { type: DataTypes.STRING, allowNull: true },
     isActivated: { type: DataTypes.BOOLEAN, default: false },
-    activationLink: { type: DataTypes.STRING }
+    activationLink: { type: DataTypes.STRING },
+    username: { type: DataTypes.STRING, allowNull: true },
+    changeCode: { type: DataTypes.BIGINT, allowNull: true }
 })
 
 const User_courses = sequelize.define('user_courses', {
@@ -57,6 +59,7 @@ const TokenSchema = sequelize.define('token', {
     userId: { type: DataTypes.INTEGER, allowNull: false }
 })
 
+
 User.hasOne(User_courses)
 User_courses.belongsTo(User)
 
@@ -94,6 +97,7 @@ Rating.belongsTo(Course_info)
 Creator.hasMany(Course_info)
 Course_info.belongsTo(Creator)
 
+
 module.exports = {
     User,
     User_courses,
@@ -103,5 +107,5 @@ module.exports = {
     Course_info,
     Creator,
     Rating,
-    TokenSchema
+    TokenSchema,
 }
