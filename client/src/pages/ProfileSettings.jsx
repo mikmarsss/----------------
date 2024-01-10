@@ -5,6 +5,8 @@ import { Context } from "..";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useParams } from "react-router-dom";
+import Image from "../components/Image";
+
 function ProfileSettings() {
     const { store } = useContext(Context)
     const [name, setName] = useState(store.user.name)
@@ -96,6 +98,7 @@ function ProfileSettings() {
 
     const params = useParams()
     const current = params.id
+
     return (
         <>
             <Header />
@@ -104,6 +107,7 @@ function ProfileSettings() {
                 <div className={styles.profileinfo}>
 
                     <div className={styles.photoButton}>
+
                         <div className={styles.photo}>
 
                         </div>

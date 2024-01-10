@@ -17,8 +17,8 @@ export default class AuthService {
 
     }
 
-    static async saveData(email: string, name: string, surname: string, city: string, dob: Date, username: string, aboutMe: string): Promise<AxiosResponse<AuthResponse>> {
-        return $api.post<AuthResponse>('/user/save', { email, name, surname, city, dob, username, aboutMe })
+    static async saveData(email: string, name: string, surname: string, city: string, dob: Date, username: string, aboutMe: string, img: string): Promise<AxiosResponse<AuthResponse>> {
+        return $api.post<AuthResponse>('/user/save', { email, name, surname, city, dob, username, aboutMe, img })
     }
 
     static async sendChangePasswordCode(email: string): Promise<AxiosResponse<AuthResponse>> {

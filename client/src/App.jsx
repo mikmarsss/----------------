@@ -5,6 +5,7 @@ import { observer } from "mobx-react-lite";
 import "./styles/global.css"
 import { Route, Routes } from "react-router-dom";
 import { authRoutes, publicRoutes } from "./routes";
+
 function App() {
     const { store } = useContext(Context)
 

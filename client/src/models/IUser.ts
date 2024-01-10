@@ -9,4 +9,5 @@ export interface IUser {
     username: string;
     changeCode: BigInt;
     aboutMe: string;
+    img: string;
 }
