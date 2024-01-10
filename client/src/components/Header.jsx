@@ -12,7 +12,8 @@ import {
     BrowserRouter as Router,
     Routes,
     Route,
-    Link
+    Link,
+    useNavigate
 } from "react-router-dom";
 import PersonalAccount from './PersonalAccount';
 import downstrelka from "../Images/downstrelka.svg"
@@ -38,15 +39,17 @@ function Header({ }) {
         setShowBlockSecond(shownn)
     }
     const regHandleClick = (showRegBlock) => {
-        setShowRegBlock(showRegBlock)
+
+        setShowRegBlock(showRegBlock);
     }
 
     const vhodHandleClick = (showVhodBlock) => {
+
         setShowVhodBlock(showVhodBlock);
     }
 
     const showAuth = <ShowAuth onVhodHandleClick={vhodHandleClick} onRegHandleClick={regHandleClick} />
-    const showProfile = <ShowProfile name={store.user.email} />
+    const showProfile = <ShowProfile name={store.user.username} />
 
 
     return (
@@ -137,6 +140,8 @@ function ShowAuth({ onVhodHandleClick, onRegHandleClick }) {
 }
 
 function ShowProfile({ name }) {
+    const navigate = useNavigate();
+
     const { store } = useContext(Context)
     const [showProfileBlock, setShowProfileBlock] = useState(null)
     const handleClick = (show) => {
@@ -148,6 +153,7 @@ function ShowProfile({ name }) {
         switch (id) {
             case "3":
                 store.logout()
+                navigate("/catalog")
                 break;
         }
     }
@@ -179,7 +185,7 @@ function ProfileMenu({ name, id, onProfileClick, url }) {
     return (
         <>
             <button onClick={handleClick}>
-                <Link style={{ textDecoration: 'none', color: 'black' }} to={url + `/${store.user.username}`}>
+                <Link style={{ textDecoration: 'none', color: 'black' }} to={url + `/${store.user.id}`}>
                     {name}
                 </Link>
             </button>

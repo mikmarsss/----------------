@@ -17,12 +17,12 @@ export default class AuthService {
 
     }
 
-    static async saveData(email: string, name: string, surname: string, city: string, dob: Date, username: string): Promise<AxiosResponse<AuthResponse>> {
-        return $api.post<AuthResponse>('/user/save', { email, name, surname, city, dob, username })
+    static async saveData(email: string, name: string, surname: string, city: string, dob: Date, username: string, aboutMe: string): Promise<AxiosResponse<AuthResponse>> {
+        return $api.post<AuthResponse>('/user/save', { email, name, surname, city, dob, username, aboutMe })
     }
 
-    static async sendChangePasswordCode(email: string, password: string): Promise<AxiosResponse<AuthResponse>> {
-        return $api.post<AuthResponse>('/user/sendChangePasswordCode', { email, password })
+    static async sendChangePasswordCode(email: string): Promise<AxiosResponse<AuthResponse>> {
+        return $api.post<AuthResponse>('/user/sendChangePasswordCode', { email })
     }
 
     static async changePassword(email: string, code: BigInt, newPassword: string): Promise<AxiosResponse<AuthResponse>> {

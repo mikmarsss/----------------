@@ -142,10 +142,32 @@
     width: 750px;
     height: 300px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 10%;
     justify-content: center;
-    flex-wrap: wrap;
+}
+
+.aboutMe {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+}
+
+.aboutMe>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 600px;
+}
+
+.aboutMe>div>textarea {
+    width: 600px;
+    height: 300px;
+    border: solid red 2px;
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 16px;
 }
 
 .second>div>div>p {
@@ -157,6 +179,8 @@
     display: flex;
     gap: 20px;
     flex-direction: column;
+    padding-top: 70px;
+
 }
 
 .second>div>div>input {
@@ -174,6 +198,27 @@
 
 .passwordError {
     color: red;
+    font-family: 'Montserrat-Medium';
+}
+
+.passwordInput {
+    border: none;
+    outline: none;
+    border-bottom: .2em solid red !important;
+    border-radius: .2em .2em 0 0;
+}
+
+
+
+.redButtonError>button {
+    width: 180px;
+    height: 50px;
+    font-size: 18px;
+    border-radius: 15px;
+    border: none;
+    border-bottom: red 2px solid;
+    border-top: red 2px solid;
+
 }
 
 .changePassBlock {
@@ -206,6 +251,16 @@
     outline: none;
     border-bottom: .2em solid #9559d4;
     border-radius: 5px;
+    padding: .4em;
+}
+
+.disabled>div>textarea {
+    font-family: 'Montserrat-Medium';
+    pointer-events: none;
+    appearance: none;
+    outline: none;
+    border: 2px solid #9559d4;
+    border-radius: 15px;
     padding: .4em;
 }
 

@@ -20,9 +20,30 @@ class UserController {
 
     async saveData(req, res, next) {
         try {
-            const { email, name, surname, city, dob, username } = req.body
-            const userData = await userService.saveData(email, name, surname, city, dob, username)
-            res.cookie('refreshToken', userData.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true })
+
+            if (req.files) {
+                const { email, name, surname, city, dob, username, aboutMe } = req.body
+                const { img } = req.files
+                const userData = await userService.saveData(email, name, surname, city, dob, username, aboutMe, img)
+                res.cookie('refreshToken', userData.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true })
+                return res.json(userData)
+            } else {
+                const { email, name, surname, city, dob, username, aboutMe } = req.body
+                const userData = await userService.saveData(email, name, surname, city, dob, username, aboutMe)
+                res.cookie('refreshToken', userData.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true })
+                return res.json(userData)
+            }
+
+
+        } catch (e) {
+            next(e)
+        }
+    }
+
+    async getAll(req, res, next) {
+        try {
+            const { email } = req.body
+            const userData = await userService.getAll(email)
             return res.json(userData)
         } catch (e) {
             next(e)
@@ -40,12 +61,14 @@ class UserController {
         }
     }
 
+
+
     async sendChangePasswordCode(req, res, next) {
         try {
-            const { email, password } = req.body
-            const code = await userService.sendChangePassword(email, password)
-
-            return res.json(code)
+            const { email } = req.body
+            const userData = await userService.sendChangePassword(email)
+            res.cookie('refreshToken', userData.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true })
+            return res.json(userData)
         } catch (e) {
             next(e)
         }

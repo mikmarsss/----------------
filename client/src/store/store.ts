@@ -33,13 +33,14 @@ export default class Store {
             this.setUser(response.data.user)
         } catch (e) {
             console.log(e.response?.data?.message)
+            alert(e.response.data.message)
         }
     }
 
 
-    async saveData(email: string, name: string, surname: string, city: string, dob: Date, username: string) {
+    async saveData(email: string, name: string, surname: string, city: string, dob: Date, username: string, aboutMe: string) {
         try {
-            const response = await AuthService.saveData(email, name, surname, city, dob, username)
+            const response = await AuthService.saveData(email, name, surname, city, dob, username, aboutMe)
             console.log(response)
             this.setUser(response.data.user)
         } catch (e) {
@@ -70,10 +71,11 @@ export default class Store {
         }
     }
 
-    async sendChangePasswordCode(email: string, password: string) {
+    async sendChangePasswordCode(email: string) {
         try {
-            const response = await AuthService.sendChangePasswordCode(email, password)
+            const response = await AuthService.sendChangePasswordCode(email)
             console.log(response)
+            this.setUser(response.data.user)
         } catch (e) {
             console.log(e.response?.data?.message)
         }
@@ -83,6 +85,7 @@ export default class Store {
         try {
             const response = await AuthService.changePassword(email, code, newPassword)
             console.log(response)
+            this.setUser(response.data.user)
         } catch (e) {
             console.log(e.response?.data?.message)
         }

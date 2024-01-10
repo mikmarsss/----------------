@@ -12,43 +12,94 @@ function ProfileSettings() {
     const [city, setCity] = useState(store.user.city)
     const [dob, setDob] = useState(store.user.dob)
     const [username, setUsername] = useState(store.user.username)
-    const [password, setPassword] = useState('')
     const [newPassword, setNewPassword] = useState('')
     const [changeCode, setChangeCode] = useState('')
     const [changeBlock, setChangeBlock] = useState(false)
-    const [passwordError, setPasswordError] = useState(false)
     const [redButton, setRedButton] = useState("confirm")
+    const [newPasswordError, setNewPasswordError] = useState(true)
+    const [NPErrorText, setNPErrorText] = useState('')
+    const [changeCodeError, setChangeCodeError] = useState(true)
+    const [changeCodeErrorText, setChangeCodeErrorText] = useState('Поле не может быть пустым')
+    const [aboutMe, setAboutMe] = useState(store.user.aboutMe)
+
+
+
+    const newPasswordHandler = (e) => {
+        setNewPassword(e.target.value)
+
+        if (e.target.value.length < 6 || e.target.value.length > 32) {
+            setNewPasswordError(true)
+            setNPErrorText('Пароль должен быть больше 6 знаков')
+            if (!e.target.value) {
+                setNPErrorText('Пароль не может быть пустым')
+            }
+            if (e.target.value === '') {
+                setNewPasswordError(false)
+                setNPErrorText('')
+            }
+
+        } else {
+            setNewPasswordError(false)
+            setNPErrorText('')
+
+        }
+    }
 
     const handleClick = (redButton) => {
         const shown = redButton === "confirm" ? "red" : "confirm"
         setRedButton(shown)
         if (redButton === 'red') {
-            store.saveData(store.user.email, name, surname, city, dob, username)
+            store.saveData(store.user.email, name, surname, city, dob, username, aboutMe)
         }
 
     }
 
-    const passwordHandler = () => {
-        if (password === '') {
-            setPasswordError(true)
+
+    const sendCodeHandler = () => {
+        if (newPasswordError) {
+            setNPErrorText('Поле не может быть пустым')
         } else {
-            setPasswordError(false)
             setChangeBlock(true)
-            store.sendChangePasswordCode(store.user.email, password)
+            store.sendChangePasswordCode(store.user.email)
         }
     }
 
     const changePasswordHandler = () => {
-        setChangeBlock(false)
-        store.changePassword(store.user.email, changeCode, newPassword)
+        if (newPassword && !changeCodeError) {
+            setChangeBlock(false)
+            store.changePassword(store.user.email, changeCode, newPassword)
+            setNewPasswordError(false)
+        } else {
+            setNewPasswordError(true)
+        }
+    }
+
+    const changeCodeHandler = (e) => {
+        setChangeCode(e.target.value)
+        if (e.target.value.length < 6) {
+            setChangeCodeError(true)
+            setChangeCodeErrorText('Код должен быть шести значным')
+            if (!e.target.value) {
+                setChangeCodeError(true)
+                setChangeCodeErrorText("Поле не может быть пустым")
+            }
+        } else {
+            if (store.user.changeCode == e.target.value) {
+                setChangeCodeError(false)
+            } else {
+                setChangeCodeError(true)
+                setChangeCodeErrorText("Код неверный")
+            }
+
+        }
     }
 
     const params = useParams()
-    const current = params.username
+    const current = params.id
     return (
         <>
             <Header />
-            <div className={`${store.isAuth && current === store.user.username ? styles.container : styles.non} `}>
+            <div className={`${store.isAuth && current == store.user.id ? styles.container : styles.non} `}>
                 <hr className={styles.linia} />
                 <div className={styles.profileinfo}>
 
@@ -117,6 +168,19 @@ function ProfileSettings() {
 
                     </div>
                 </div>
+
+                <div className={`${styles.aboutMe} ${redButton === "confirm" ? styles.disabled : styles.aboutMe}`}>
+                    <div>
+                        <p>Напишите немного о себе</p>
+                        <textarea
+                            placeholder={store.user.aboutMe}
+                            value={aboutMe}
+                            type="text"
+                            onChange={e => setAboutMe(e.target.value)}
+                        />
+                    </div>
+                </div>
+
                 <div>
                     <hr className={styles.linia} />
                 </div>
@@ -124,46 +188,38 @@ function ProfileSettings() {
                     <div className={styles.second}>
                         <div>
                             <div>
-                                {passwordError && <div className={styles.passwordError}>Поле пароль не может быть пустым</div>}
-                                <p>Пароль</p>
-                                <input
-                                    id="password"
-                                    type="password"
-                                    placeholder="Текущий пароль"
-                                    value={password}
-                                    onChange={e => setPassword(e.target.value)}
-                                />
-                            </div>
-                            <div>
+                                {newPasswordError && <div className={styles.passwordError}>{NPErrorText}</div>}
                                 <p>Новый пароль</p>
                                 <input
+                                    className={`${newPasswordError && styles.passwordInput}`}
                                     id="password"
-                                    type="text"
+                                    type="password"
                                     placeholder="Введите новый пароль"
                                     value={newPassword}
-                                    onChange={e => setNewPassword(e.target.value)}
+                                    onChange={e => newPasswordHandler(e)}
                                 />
                             </div>
                             {changeBlock &&
                                 <div>
+                                    {changeCodeError && <div className={styles.passwordError}>{changeCodeErrorText}</div>}
                                     <p>Код подтверждения</p>
                                     <input
                                         id="password"
                                         type="text"
                                         placeholder="Введите шестизначный код из письма"
                                         value={changeCode}
-                                        onChange={e => setChangeCode(e.target.value)}
+                                        onChange={e => changeCodeHandler(e)}
                                     />
                                 </div>}
                             {!changeBlock &&
-                                <div className={styles.redButton}>
-                                    <button onClick={() => passwordHandler()}>
+                                <div className={`${newPasswordError ? styles.redButtonError : styles.redButton}`}>
+                                    <button onClick={() => sendCodeHandler()}>
                                         <p className={styles.buttext}>РЕДАКТИРОВАТЬ</p>
                                     </button>
                                 </div>
                             }
                             {changeBlock &&
-                                <div className={styles.redButton}>
+                                <div className={`${changeCodeError ? styles.redButtonError : styles.redButton}`}>
                                     <button onClick={() => changePasswordHandler()}>
                                         <p className={styles.buttext}>ПРИНЯТЬ</p>
                                     </button>
@@ -171,15 +227,7 @@ function ProfileSettings() {
                             }
                         </div>
                         <div>
-                            <div>
-                                <p>Почта</p>
-                                <input
-                                    id="email"
-                                    type="text"
-                                    name="email"
-                                    placeholder="Введите текущую почту"
-                                />
-                            </div>
+
                             <div>
                                 <p>Новая почта</p>
                                 <input

@@ -16,7 +16,7 @@ import { inProfileMenu } from "../data/coursesData";
 function PersonalAccount() {
     const { store } = useContext(Context)
     const params = useParams()
-    const current = params.username
+    const current = params.id
     const [showVhodBlock, setShowVhodBlock] = useState(null)
     const [show, setShow] = useState('courses')
     const [showCourses, setShowCourses] = useState('active')
@@ -59,7 +59,7 @@ function PersonalAccount() {
                 <VhodForm showVhodBlock={showVhodBlock} onShowVhodBlock={vhodHandleClick} />
             </div>
             <Header />
-            <div className={`${store.isAuth && current == store.user.username ? styles.container : styles.non}`}>
+            <div className={`${store.isAuth && current == store.user.id ? styles.container : styles.non}`}>
                 <div className={styles.coursesProfile}>
                     <div className={styles.proffileBlockButtons}>
                         <div className={styles.firstNavButtons}>

@@ -7,11 +7,11 @@ import { CATALOG_ROUTE, CREATE_ROUTE, LANDING_ROUTE, PROFILE_ROUTE, SETTINGS_ROU
 
 export const authRoutes = [
     {
-        path: PROFILE_ROUTE + '/:username',
+        path: PROFILE_ROUTE + '/:id',
         Component: PersonalAccount
     },
     {
-        path: SETTINGS_ROUTE + '/:username',
+        path: SETTINGS_ROUTE + '/:id',
         Component: ProfileSettings
     }
 ]

@@ -44,6 +44,17 @@
 }
 
 
+.restorePass {
+    text-align: center;
+    margin-top: 30px;
+
+}
+
+.restorePass>button {
+    font-size: 16px;
+    color: white;
+    text-decoration: underline;
+}
 
 .logo {
     display: flex;
@@ -67,13 +78,12 @@
 }
 
 .loginbutt {
-    margin-top: 40px;
     display: flex;
     justify-content: center;
 
     align-items: center;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .loginbutt>button {
@@ -101,6 +111,13 @@
     border-radius: 15px;
     padding: 5px;
 
+}
+
+.inputMail>input {
+    width: 300px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
 }
 
 .passwordfild>input {

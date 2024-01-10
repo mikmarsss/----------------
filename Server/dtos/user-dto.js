@@ -2,6 +2,14 @@ module.exports = class UserDto {
     email;
     id;
     isActivated;
+    name;
+    surname;
+    city;
+    dob;
+    username;
+    changeCode;
+    aboutMe;
+    img;
     constructor(model) {
         this.email = model.email;
         this.id = model.id;
@@ -12,5 +20,7 @@ module.exports = class UserDto {
         this.dob = model.dob;
         this.username = model.username;
         this.changeCode = model.changeCode
+        this.aboutMe = model.aboutMe
+        this.img = model.img
     }
 }

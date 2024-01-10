@@ -15,7 +15,9 @@ const User = sequelize.define('user', {
     isActivated: { type: DataTypes.BOOLEAN, default: false },
     activationLink: { type: DataTypes.STRING },
     username: { type: DataTypes.STRING, allowNull: true },
-    changeCode: { type: DataTypes.BIGINT, allowNull: true }
+    changeCode: { type: DataTypes.BIGINT, allowNull: true },
+    aboutMe: { type: DataTypes.STRING, allowNull: true },
+    img: { type: DataTypes.STRING, allowNull: true }
 })
 
 const User_courses = sequelize.define('user_courses', {

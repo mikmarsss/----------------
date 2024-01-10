@@ -7,4 +7,6 @@ export interface IUser {
     dob: Date;
     city: string;
     username: string;
+    changeCode: BigInt;
+    aboutMe: string;
 }
