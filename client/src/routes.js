@@ -1,9 +1,14 @@
-import Catalog from "./components/Catalog"
-import CreateCoursesBlock from "./components/CreateCoursesBlock"
-import Landing from "./components/Landing"
-import PersonalAccount from "./components/PersonalAccount"
+import Catalog from "./pages/Catalog"
+import ChooseCourse from "./pages/ChooseCourse"
+import CoursesContent from "./components/CoursesContent"
+import CreateCoursesBlock from "./pages/CreateCoursesBlock"
+import FreeCourses from "./pages/FreeCourses"
+import Landing from "./pages/Landing"
+import PayCourses from "./pages/PayCourses"
+import PersonalAccount from "./pages/PersonalAccount"
 import ProfileSettings from "./pages/ProfileSettings"
-import { CATALOG_ROUTE, CREATE_ROUTE, LANDING_ROUTE, PROFILE_ROUTE, SETTINGS_ROUTE } from "./utils"
+import { CATALOG_ROUTE, CHOOSE_COURSE, COURSES_CONTENT, COURSE_LESSONS, CREATE_ROUTE, FREE_COURSE, LANDING_ROUTE, PAY_COURSE, PROFILE_ROUTE, SETTINGS_ROUTE } from "./utils"
+import CourseLessons from "./pages/CourseLessons"
 
 export const authRoutes = [
     {
@@ -13,7 +18,27 @@ export const authRoutes = [
     {
         path: SETTINGS_ROUTE + '/:id',
         Component: ProfileSettings
-    }
+    },
+    {
+        path: CHOOSE_COURSE,
+        Component: ChooseCourse
+    },
+    {
+        path: FREE_COURSE,
+        Component: FreeCourses
+    },
+    {
+        path: PAY_COURSE,
+        Component: PayCourses
+    },
+    {
+        path: COURSES_CONTENT,
+        Component: CoursesContent
+    },
+    {
+        path: COURSE_LESSONS,
+        Component: CourseLessons
+    },
 ]
 
 export const publicRoutes = [

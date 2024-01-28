@@ -4,8 +4,12 @@ import styles from "../styles/personalAcc.module.css"
 import { Context } from "..";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
 import Image from "../components/Image";
+import { CATALOG_ROUTE } from "../utils";
+
+
+
 
 function ProfileSettings() {
     const { store } = useContext(Context)
@@ -22,7 +26,9 @@ function ProfileSettings() {
     const [NPErrorText, setNPErrorText] = useState('')
     const [changeCodeError, setChangeCodeError] = useState(true)
     const [changeCodeErrorText, setChangeCodeErrorText] = useState('Поле не может быть пустым')
-    const [aboutMe, setAboutMe] = useState(store.user.aboutMe)
+    const [aboutM, setAboutMe] = useState(store.user.aboutMe)
+    const [ava, setAva] = useState([])
+
 
 
 
@@ -47,11 +53,26 @@ function ProfileSettings() {
         }
     }
 
+
+
     const handleClick = (redButton) => {
         const shown = redButton === "confirm" ? "red" : "confirm"
         setRedButton(shown)
         if (redButton === 'red') {
-            store.saveData(store.user.email, name, surname, city, dob, username, aboutMe)
+
+            const formdata = new FormData()
+            formdata.append('email', store.user.email)
+            formdata.append('name', name)
+            formdata.append('surname', surname)
+            formdata.append('dob', dob)
+            formdata.append('city', city)
+            formdata.append('username', username)
+            formdata.append('aboutMe', aboutM)
+            formdata.append('img', ava)
+            formdata.forEach((value, key) => {
+                console.log(key, value);
+            });
+            store.saveData(formdata)
         }
 
     }
@@ -95,12 +116,18 @@ function ProfileSettings() {
 
         }
     }
-
+    const selectAva = (e) => {
+        setAva(e.target.files[0])
+    }
+    console.log(store.user.email)
     const params = useParams()
     const current = params.id
-
     return (
         <>
+            {
+                !store.isAuth &&
+                <Navigate to={CATALOG_ROUTE} />
+            }
             <Header />
             <div className={`${store.isAuth && current == store.user.id ? styles.container : styles.non} `}>
                 <hr className={styles.linia} />
@@ -109,9 +136,13 @@ function ProfileSettings() {
                     <div className={styles.photoButton}>
 
                         <div className={styles.photo}>
-
+                            <Image image={"http://localhost:5000/" + store.user.img} />
                         </div>
-
+                        <div>
+                            <input type="file"
+                                onChange={e => selectAva(e)}
+                            />
+                        </div>
                     </div>
                     <div className={styles.mainInfo} >
                         <div className={`${styles.first} ${redButton === "confirm" ? styles.disabled : styles.first}`}>
@@ -178,7 +209,7 @@ function ProfileSettings() {
                         <p>Напишите немного о себе</p>
                         <textarea
                             placeholder={store.user.aboutMe}
-                            value={aboutMe}
+                            value={aboutM}
                             type="text"
                             onChange={e => setAboutMe(e.target.value)}
                         />

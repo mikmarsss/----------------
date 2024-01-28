@@ -27,11 +27,6 @@ class UserService {
 
         return { ...tokens, user: userDto }
     }
-    async getAll(email) {
-        const user = await User.findOne({ where: { email } })
-        const userDto = new UserDto(user);
-        return { user: userDto }
-    }
 
 
     async activate(activationLink) {
@@ -66,20 +61,34 @@ class UserService {
 
     async saveData(email, name, surname, city, dob, username, aboutMe, img) {
         const user = await User.findOne({ where: { email } })
-
-        if (img) {
+        if (img && img != "undefined") {
+            let deleteImg = user.img
+            if (deleteImg != null) {
+                fs.unlinkSync(path.resolve(__dirname, '..', 'static', deleteImg))
+                user.update({ img: null }, { where: { email } })
+            }
             let fileName = uuid.v4() + ".jpg";
             img.mv(path.resolve(__dirname, '..', 'static', fileName))
             user.update({ img: fileName }, { where: { email } })
         }
-
-        user.update({ name: name }, { where: { email } })
-        user.update({ surname: surname }, { where: { email } })
-        user.update({ city: city }, { where: { email } })
-        user.update({ dob: dob }, { where: { email } })
-        user.update({ username: username }, { where: { email } })
-        user.update({ aboutMe: aboutMe }, { where: { email } })
-
+        if (name != "undefined") {
+            user.update({ name: name }, { where: { email } })
+        }
+        if (surname != "undefined") {
+            user.update({ surname: surname }, { where: { email } })
+        }
+        if (city != "undefined") {
+            user.update({ city: city }, { where: { email } })
+        }
+        if (dob != "undefined") {
+            user.update({ dob: dob }, { where: { email } })
+        }
+        if (username != undefined) {
+            user.update({ username: username }, { where: { email } })
+        }
+        if (username != "undefined") {
+            user.update({ aboutMe: aboutMe }, { where: { email } })
+        }
         const userDto = new UserDto(user)
         const tokens = tokenService.generateTokens(userDto.email, userDto.id, userDto.isActivated)
         await tokenService.saveToken(userDto.id, tokens.refreshToken);
@@ -136,11 +145,6 @@ class UserService {
         await tokenService.saveToken(userDto.id, tokens.refreshToken);
 
         return { ...tokens, user: userDto }
-    }
-
-    async getAllUsers() {
-        const users = await User.find()
-        return users
     }
 }
 

@@ -46,13 +46,29 @@ const Course_info = sequelize.define('course_info', {
     img: { type: DataTypes.STRING, allowNull: false },
 })
 
+const Course_module = sequelize.define('course_module', {
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    number: { type: DataTypes.INTEGER },
+    name: { type: DataTypes.STRING, allowNull: false },
+    img: { type: DataTypes.STRING, allowNull: false }
+})
+
+const Module_lesson = sequelize.define('module_lesson', {
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    number: { type: DataTypes.INTEGER },
+    name: { type: DataTypes.STRING, allowNull: false },
+    img: { type: DataTypes.STRING, allowNull: false },
+    content: { type: DataTypes.STRING, allowNull: false },
+    material: { type: DataTypes.STRING, allowNull: false },
+})
+
 const Creator = sequelize.define('creator', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
 })
 
 const Rating = sequelize.define('rating', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    rate: { type: DataTypes.INTEGER, }
+    rate: { type: DataTypes.INTEGER }
 })
 
 const TokenSchema = sequelize.define('token', {
@@ -61,6 +77,11 @@ const TokenSchema = sequelize.define('token', {
     userId: { type: DataTypes.INTEGER, allowNull: false }
 })
 
+Course_module.hasMany(Module_lesson)
+Module_lesson.belongsTo(Course_module)
+
+Course_info.hasMany(Course_module)
+Course_module.belongsTo(Course_info)
 
 User.hasOne(User_courses)
 User_courses.belongsTo(User)

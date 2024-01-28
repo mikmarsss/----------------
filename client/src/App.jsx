@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import Landing from "./components/Landing";
+import Landing from "./pages/Landing";
 import { Context } from ".";
 import { observer } from "mobx-react-lite";
 import "./styles/global.css"

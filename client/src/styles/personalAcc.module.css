@@ -64,6 +64,8 @@
 .photoButton {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
     align-items: center;
     border: solid black 2px;
@@ -98,6 +100,8 @@
     background-color: #9559d4;
     border-radius: 15px;
 }
+
+
 
 .mainInfo {
 

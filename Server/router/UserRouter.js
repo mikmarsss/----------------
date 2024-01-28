@@ -12,7 +12,6 @@ router.post(
 )
 
 router.post('/login', userController.login)
-router.post('/getAll', userController.getAll)
 router.post('/save', userController.saveData)
 router.post('/logout', userController.logout)
 router.post('/sendChangePasswordCode', userController.sendChangePasswordCode)

@@ -17,6 +17,7 @@ export default class Store {
     }
 
     setUser(user: IUser) {
+
         this.user = user
     }
 
@@ -38,11 +39,12 @@ export default class Store {
     }
 
 
-    async saveData(email: string, name: string, surname: string, city: string, dob: Date, username: string, aboutMe: string, img: string) {
+    async saveData(formdata: any) {
         try {
-            const response = await AuthService.saveData(email, name, surname, city, dob, username, aboutMe, img)
+            const response = await AuthService.saveData(formdata)
             console.log(response)
             this.setUser(response.data.user)
+
         } catch (e) {
             console.log(e.response?.data?.message)
         }

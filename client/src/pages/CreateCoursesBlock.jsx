@@ -1,10 +1,13 @@
 import React from "react";
 import styles from "../styles/createCourses.module.css"
-import Header from "./Header";
+import Header from "../components/Header";
 import { observer } from "mobx-react-lite";
-import Image from "./Image";
+import Image from "../components/Image";
 import createback from "../Images/createpageback.svg"
-import Footer from "./Footer";
+import Footer from "../components/Footer";
+import { authRoutes } from "../routes";
+import { Link } from "react-router-dom";
+import { CHOOSE_COURSE } from "../utils";
 
 function CreateCoursesBlock() {
     return (
@@ -22,7 +25,9 @@ function CreateCoursesBlock() {
                     </p>
                 </div>
                 <div >
-                    <button className={styles.createbutton}>СОЗДАТЬ КУРС</button>
+                    <Link to={CHOOSE_COURSE}>
+                        <button className={styles.createbutton}>СОЗДАТЬ КУРС</button>
+                    </Link>
                 </div>
 
             </div>

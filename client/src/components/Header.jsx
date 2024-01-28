@@ -15,7 +15,7 @@ import {
     Link,
     useNavigate
 } from "react-router-dom";
-import PersonalAccount from './PersonalAccount';
+import PersonalAccount from '../pages/PersonalAccount';
 import downstrelka from "../Images/downstrelka.svg"
 import upstrelka from "../Images/upstrelka.svg"
 

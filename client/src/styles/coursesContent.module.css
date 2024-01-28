@@ -1,0 +1,20 @@
+.container {
+    border: solid black 2px;
+    height: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 30px;
+}
+
+.newLesson {
+    border: solid black 2px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contentOfLesson {
+    border: solid black 2px;
+    width: 700px;
+}

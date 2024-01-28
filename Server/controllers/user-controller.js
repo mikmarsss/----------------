@@ -20,7 +20,6 @@ class UserController {
 
     async saveData(req, res, next) {
         try {
-
             if (req.files) {
                 const { email, name, surname, city, dob, username, aboutMe } = req.body
                 const { img } = req.files
@@ -33,18 +32,6 @@ class UserController {
                 res.cookie('refreshToken', userData.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true })
                 return res.json(userData)
             }
-
-
-        } catch (e) {
-            next(e)
-        }
-    }
-
-    async getAll(req, res, next) {
-        try {
-            const { email } = req.body
-            const userData = await userService.getAll(email)
-            return res.json(userData)
         } catch (e) {
             next(e)
         }

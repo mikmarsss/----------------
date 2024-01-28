@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import styles from '../styles/landing.module.css'
 import { Context } from "..";
 import { observer } from "mobx-react-lite";
-import Image from "./Image";
+import Image from "../components/Image";
 import logo from "../Images/logo.svg"
 import book1 from "../Images/book1.svg"
 import book2 from "../Images/book2.svg"
@@ -13,9 +13,9 @@ import freelance from "../Images/freelance.svg"
 import first from "../Images/01.svg"
 import second from "../Images/02.svg"
 import third from "../Images/03.svg"
-import Footer from "./Footer";
-import RegForm from "./RegForm";
-import VhodForm from "./VhodForm";
+import Footer from "../components/Footer";
+import RegForm from "../components/RegForm";
+import VhodForm from "../components/VhodForm";
 import { Link } from "react-router-dom";
 function Landing({ onSelectedFunc, hide, onSetHide }) {
 

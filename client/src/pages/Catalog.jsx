@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
-import Header from "./Header";
+import Header from "../components/Header";
 import { observer } from "mobx-react-lite";
-import Footer from "./Footer";
+import Footer from "../components/Footer";
 import styles from "../styles/catalog.module.css"
-import CourseBlock from "./CourseBlock";
+import CourseBlock from "../components/CourseBlock";
 import { courses } from "../data/coursesData"
 import bookforbutt from "../Images/bookforbutt.svg"
-import Image from "./Image";
+import Image from "../components/Image";
 import { Context } from "..";
 
 function Catalog() {

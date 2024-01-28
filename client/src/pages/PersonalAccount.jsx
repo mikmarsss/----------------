@@ -1,17 +1,17 @@
 import React, { useContext, useState } from "react";
 import { observer } from "mobx-react-lite";
 import styles from "../styles/personalAcc.module.css"
-import Header from "./Header";
-import Image from "./Image";
+import Header from "../components/Header";
+import Image from "../components/Image";
 import { Context } from "..";
 import { courses } from "../data/coursesData"
-import courseicon from '../Images/courseicon.svg'
-import Footer from "./Footer";
-import VhodForm from "./VhodForm";
-import CourseBlock from "./CourseBlock";
+import Footer from "../components/Footer";
+import VhodForm from "../components/VhodForm";
+import CourseBlock from "../components/CourseBlock";
 import bq from "../Images/questionmark.svg"
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { inProfileMenu } from "../data/coursesData";
+import { CATALOG_ROUTE } from "../utils";
 
 function PersonalAccount() {
     const { store } = useContext(Context)
@@ -55,6 +55,10 @@ function PersonalAccount() {
     const navMenuCourses = inProfileMenu.map((item) => (<NavMenu id={item.id} url={item.url} name={item.name} onHandleClick={coursesHandleClick} show={showCourses} />))
     return (
         <>
+            {
+                !store.isAuth &&
+                <Navigate to={CATALOG_ROUTE} />
+            }
             <div className={`${(showVhodBlock === "show") ? styles.showVhod : styles.non}`}>
                 <VhodForm showVhodBlock={showVhodBlock} onShowVhodBlock={vhodHandleClick} />
             </div>
