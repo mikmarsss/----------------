@@ -6,19 +6,22 @@ import { createContext } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { getElementError } from '@testing-library/react';
 import reportWebVitals from './reportWebVitals';
+import CourseStore from './store/CoursesStore';
 
 interface State {
-  store: Store
+  store: Store,
+  courseStore: CourseStore
+
 }
 const store = new Store();
-
+const courseStore = new CourseStore()
 export const Context = createContext<State>({
-  store,
+  store, courseStore
 })
 
 ReactDOM.render(
 
-  <Context.Provider value={{ store }}>
+  <Context.Provider value={{ store, courseStore }}>
     <BrowserRouter>
       <App />
     </BrowserRouter>

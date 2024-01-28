@@ -20,10 +20,6 @@ const User = sequelize.define('user', {
     img: { type: DataTypes.STRING, allowNull: true }
 })
 
-const User_courses = sequelize.define('user_courses', {
-    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-})
-
 const Done_courses = sequelize.define('done_courses', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
 })
@@ -42,8 +38,8 @@ const Course_info = sequelize.define('course_info', {
     price: { type: DataTypes.DECIMAL, allowNull: false },
     rating: { type: DataTypes.DECIMAL, allowNull: true },
     people: { type: DataTypes.INTEGER, allowNull: true },
-    time: { type: DataTypes.INTEGER, allowNull: false },
-    img: { type: DataTypes.STRING, allowNull: false },
+    time: { type: DataTypes.INTEGER, allowNull: true },
+    img: { type: DataTypes.STRING, allowNull: true },
 })
 
 const Course_module = sequelize.define('course_module', {
@@ -83,8 +79,14 @@ Module_lesson.belongsTo(Course_module)
 Course_info.hasMany(Course_module)
 Course_module.belongsTo(Course_info)
 
-User.hasOne(User_courses)
-User_courses.belongsTo(User)
+User.hasMany(Done_courses)
+Done_courses.belongsTo(User)
+
+User.hasMany(Active_courses)
+Active_courses.belongsTo(User)
+
+User.hasMany(Favorite_courses)
+Favorite_courses.belongsTo(User)
 
 User.hasOne(TokenSchema, { foreignKey: 'userId' })
 TokenSchema.belongsTo(User)
@@ -95,39 +97,29 @@ Creator.belongsTo(User)
 User.hasMany(Rating)
 Rating.belongsTo(User)
 
-User_courses.hasMany(Done_courses)
-Done_courses.belongsTo(User_courses)
-
-User_courses.hasMany(Active_courses)
-Active_courses.belongsTo(User_courses)
-
-
-User_courses.hasMany(Favorite_courses)
-Favorite_courses.belongsTo(User_courses)
-
-Done_courses.hasOne(Course_info)
-Course_info.belongsTo(Done_courses)
-
-Active_courses.hasOne(Course_info)
-Course_info.belongsTo(Active_courses)
-
-Favorite_courses.hasOne(Course_info)
-Course_info.belongsTo(Favorite_courses)
-
 Course_info.hasMany(Rating)
 Rating.belongsTo(Course_info)
 
 Creator.hasMany(Course_info)
 Course_info.belongsTo(Creator)
 
+Course_info.hasMany(Favorite_courses)
+Favorite_courses.belongsTo(Course_info)
+
+Course_info.hasMany(Active_courses)
+Active_courses.belongsTo(Course_info)
+
+Course_info.hasMany(Done_courses)
+Done_courses.belongsTo(Course_info)
 
 module.exports = {
     User,
-    User_courses,
     Done_courses,
     Active_courses,
     Favorite_courses,
     Course_info,
+    Course_module,
+    Module_lesson,
     Creator,
     Rating,
     TokenSchema,

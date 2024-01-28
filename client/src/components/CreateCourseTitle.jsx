@@ -1,11 +1,15 @@
 import { observer } from "mobx-react-lite";
-import React from "react";
+import React, { useContext, useState } from "react";
 import styles from '../styles/createCourses.module.css'
 import { Link } from "react-router-dom";
 import { COURSES_CONTENT } from "../utils";
-
+import { Context } from "..";
 
 function CreateCourse() {
+    const { courseStore } = useContext(Context)
+    const [name, setName] = useState('')
+    const [price, setPrice] = useState('')
+
     return (
         <>
             <div className={styles.mainInfo}>
@@ -16,7 +20,21 @@ function CreateCourse() {
                     </div>
                     <div>
                         <label htmlFor="name">Название</label>
-                        <input id="name" type="text" />
+                        <input
+                            id="name"
+                            type="text"
+                            value={name}
+                            onChange={e => setName(e.target.value)}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="price">Стоимость</label>
+                        <input
+                            id="price"
+                            type="text"
+                            value={price}
+                            onChange={e => setPrice(e.target.value)}
+                        />
                     </div>
                 </div>
                 <div className={styles.description}>
@@ -41,7 +59,7 @@ function CreateCourse() {
                 </div>
                 <div>
                     <Link to={COURSES_CONTENT}>
-                        <button className={styles.nextButton}>
+                        <button onClick={() => courseStore.createCourse(name, price)} className={styles.nextButton}>
 
                             Далее
 
