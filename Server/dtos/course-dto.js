@@ -1,6 +1,8 @@
 module.exports = class CourseDto {
     id;
     name;
+    description;
+    courseContent;
     price;
     rating;
     people;
@@ -9,6 +11,8 @@ module.exports = class CourseDto {
     constructor(model) {
         this.id = model.id;
         this.name = model.name;
+        this.description = model.description;
+        this.courseContent = model.courseContent;
         this.price = model.price;
         this.rating = model.rating;
         this.people = model.people;

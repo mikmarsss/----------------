@@ -7,13 +7,17 @@ import { Route, Routes } from "react-router-dom";
 import { authRoutes, publicRoutes } from "./routes";
 
 function App() {
-    const { store } = useContext(Context)
+    const { store, courseStore } = useContext(Context)
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
             store.checkAuth()
         }
+        if (localStorage.getItem('courseId')) {
+            courseStore.checkCourse()
+        }
     }, [])
+
 
     return (
         <>

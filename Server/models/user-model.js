@@ -40,13 +40,15 @@ const Course_info = sequelize.define('course_info', {
     people: { type: DataTypes.INTEGER, allowNull: true },
     time: { type: DataTypes.INTEGER, allowNull: true },
     img: { type: DataTypes.STRING, allowNull: true },
+    description: { type: DataTypes.STRING, allowNull: false },
+    courseContent: { type: DataTypes.STRING, allowNull: false },
 })
 
 const Course_module = sequelize.define('course_module', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     number: { type: DataTypes.INTEGER },
     name: { type: DataTypes.STRING, allowNull: false },
-    img: { type: DataTypes.STRING, allowNull: false }
+    description: { type: DataTypes.STRING, allowNull: false }
 })
 
 const Module_lesson = sequelize.define('module_lesson', {
@@ -56,6 +58,8 @@ const Module_lesson = sequelize.define('module_lesson', {
     img: { type: DataTypes.STRING, allowNull: false },
     content: { type: DataTypes.STRING, allowNull: false },
     material: { type: DataTypes.STRING, allowNull: false },
+    numberModule: { type: DataTypes.STRING, allowNull: false },
+
 })
 
 const Creator = sequelize.define('creator', {

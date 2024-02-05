@@ -17,7 +17,6 @@ export default class Store {
     }
 
     setUser(user: IUser) {
-
         this.user = user
     }
 

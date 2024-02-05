@@ -6,69 +6,108 @@ import { COURSES_CONTENT } from "../utils";
 import { Context } from "..";
 
 function CreateCourse() {
-    const { courseStore } = useContext(Context)
+    const { courseStore, store } = useContext(Context)
     const [name, setName] = useState('')
     const [price, setPrice] = useState('')
+    const [description, setDescription] = useState('')
+    const [courseContent, setCourseContent] = useState([])
+    const [ava, setAva] = useState([])
+
+    const selectAva = (e) => {
+        setAva(e.target.files[0])
+    }
+
+    const addContent = () => {
+        setCourseContent([...courseContent, { description: '', number: Date.now() }])
+    }
+
+    const changeInfo = (key, value, number) => {
+        setCourseContent(courseContent.map(i => (i.number === number ? { ...i, [key]: value } : i)))
+    }
+    const removeInfo = (number) => {
+        setCourseContent(courseContent.filter(i => (i.number !== number)))
+    }
+    const saveData = () => {
+        const formdata = new FormData()
+        formdata.append('userId', store.user.id)
+        formdata.append('name', name)
+        formdata.append('price', price)
+        formdata.append('description', description)
+        formdata.append('courseContent', JSON.stringify(courseContent))
+        formdata.append('img', ava)
+        courseStore.createCourse(formdata)
+    }
 
     return (
         <>
+
             <div className={styles.mainInfo}>
-                <div className={styles.titleOfCourse}>
+                <div className={styles.leftBlock}>
                     <div>
                         <label htmlFor="img">Картинка</label>
-                        <input id='img' type="file" />
+                        <input
+
+                            type="file"
+                            id="img"
+                            onChange={(e) => selectAva(e)}
+                        />
+                    </div>
+                </div>
+                <div className={styles.rightBlock}>
+                    <div>
+                        <label htmlFor="price">Введите цену</label>
+                        <input
+                            value={price}
+                            type="text"
+                            id="price"
+                            onChange={e => setPrice(e.target.value)}
+                        />
                     </div>
                     <div>
-                        <label htmlFor="name">Название</label>
+                        <label htmlFor="name">Введите название</label>
                         <input
-                            id="name"
-                            type="text"
                             value={name}
+                            type="text"
+                            id="name"
                             onChange={e => setName(e.target.value)}
                         />
                     </div>
                     <div>
-                        <label htmlFor="price">Стоимость</label>
-                        <input
-                            id="price"
+                        <label htmlFor="description">Введите описание</label>
+                        <textarea
+                            value={description}
                             type="text"
-                            value={price}
-                            onChange={e => setPrice(e.target.value)}
+                            id="description"
+                            onChange={e => setDescription(e.target.value)}
                         />
                     </div>
-                </div>
-                <div className={styles.description}>
-                    <div>
-                        <label htmlFor="description">Описание</label>
-                        <input id="description" type="text" />
+                    <div className={styles.courseContent}>
+                        {
+                            courseContent.map(i => (
+                                <div key={i.number}>
+                                    <label htmlFor="content">Пункт </label>
+                                    <input
+                                        type="text"
+                                        id="content"
+                                        value={i.description}
+                                        onChange={(e) => changeInfo('description', e.target.value, i.number)}
+                                    />
+                                    <button onClick={() => removeInfo(i.number)}>Удалить</button>
+                                </div>
+                            ))
+                        }
+                        <button onClick={addContent}>Добавить пункт</button>
                     </div>
-                    <div>
-                        <label htmlFor="content">Что будет в курсе?</label>
-                        <input id="content" type="text" />
-                    </div>
-                    <div>
-                        <label htmlFor="dificulty">Выберите уровень сложности</label>
-                        <select id="dificulty" type="text">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </div>
-                </div>
-                <div>
-                    <Link to={COURSES_CONTENT}>
-                        <button onClick={() => courseStore.createCourse(name, price)} className={styles.nextButton}>
-
-                            Далее
-
-                        </button>
-                    </Link>
                 </div>
             </div>
+            <Link to={COURSES_CONTENT}>
+                <button onClick={saveData} className={styles.saveButton}>СОХРАНИТЬ</button>
+            </Link>
         </>
     )
 }
+
+
+
 
 export default observer(CreateCourse) 
