@@ -9,6 +9,12 @@
 
 }
 
+.ava{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .qm {
     top: 120px;
     left: 35%;

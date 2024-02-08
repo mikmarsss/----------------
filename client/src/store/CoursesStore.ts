@@ -51,4 +51,13 @@ export default class CourseStore {
             console.log(e.response?.data?.message)
         }
     }
+
+    async fetchUserCourses(userId: string) {
+        try {
+            const response = await CoursesService.fetchUserCourses(userId)
+            console.log(response)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+    }
 }

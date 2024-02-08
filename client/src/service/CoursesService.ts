@@ -11,4 +11,8 @@ export default class CoursesService {
     static async createModule(courseId: string): Promise<AxiosResponse<ModuleResponse>> {
         return $api.post<ModuleResponse>('/courses/createModule', { courseId })
     }
+
+    static async fetchUserCourses(userId: string): Promise<AxiosResponse<CourseResponse>> {
+        return $api.post<CourseResponse>('/courses/fetchusercourses', { userId })
+    }
 }

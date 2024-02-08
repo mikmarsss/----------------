@@ -29,7 +29,7 @@ function CoursesContent() {
     }
 
 
-
+    console.log(courseStore.course.id)
     return (
         <>
             <Header />

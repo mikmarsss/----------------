@@ -41,6 +41,16 @@ class CoursesController {
 
     }
 
+    async fetchUserCourses(req, res, next) {
+        try {
+            const { userId } = req.body
+            const coursesData = await CoursesService.fetchUserCourses(userId)
+            return res.json(coursesData)
+        } catch (e) {
+            next(e)
+        }
+    }
+
 }
 
 module.exports = new CoursesController()

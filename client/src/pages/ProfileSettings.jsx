@@ -136,7 +136,7 @@ function ProfileSettings() {
                     <div className={styles.photoButton}>
 
                         <div className={styles.photo}>
-                            <Image image={"http://localhost:5000/" + store.user.img} />
+                            <img className={styles.ava} src={"http://localhost:5000/" + store.user.img} alt="ava" />
                         </div>
                         <div>
                             <input type="file"

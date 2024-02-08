@@ -95,25 +95,6 @@ function PersonalAccount() {
                     <Footer />
                 </div>
             </div>
-            <div className={`${!store.isAuth ? styles.unauth : styles.non}`}>
-                <div className={styles.qm}>
-                    <Image image={bq} alt="?" />
-                </div>
-                <div className={styles.qm1}>
-                    <Image image={bq} alt="?" />
-                </div>
-                <div className={styles.qm2}>
-                    <Image image={bq} alt="?" />
-                </div>
-                <div className={styles.qm3}>
-                    <Image image={bq} alt="?" />
-                </div>
-                <div className={styles.qm4}>
-                    <Image image={bq} alt="?" />
-                </div>
-                <p>ПОХОЖЕ ВЫ НЕ АВТОРИЗОВАНЫ</p>
-                <button onClick={() => vhodHandleClick("show")}>ВОЙТИ</button>
-            </div>
         </>
     )
 }
@@ -121,7 +102,6 @@ function PersonalAccount() {
 function NavMenu({ name, id, onHandleClick, show, url }) {
     const handleClick = (url) => {
         onHandleClick(url)
-        console.log({ url })
     }
     return (
         <>
@@ -130,6 +110,16 @@ function NavMenu({ name, id, onHandleClick, show, url }) {
                     {name}
                 </div>
             </button>
+        </>
+    )
+}
+
+function ShowCourses() {
+    return (
+        <>
+            <div>
+
+            </div>
         </>
     )
 }

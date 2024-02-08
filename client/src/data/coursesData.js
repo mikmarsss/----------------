@@ -155,6 +155,11 @@ const inProfileMenu = [
         name: "портфолио",
         url: "portfolio",
     },
+    {
+        id: "5",
+        name: "Мои курсы",
+        url: "mycourses",
+    },
 ]
 
 

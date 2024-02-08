@@ -9,6 +9,7 @@ class CoursesService {
 
 
     async CreateCourse(name, price, userId, description, courseContent, img) {
+        const typeCourse = 1;
         const creator = await Creator.findOne({ where: { userId } })
         if (!creator) {
             await Creator.create({ userId })
@@ -19,7 +20,7 @@ class CoursesService {
         const creatorId = findCreatorId.id
         let fileName = uuid.v4() + ".jpg";
         img.mv(path.resolve(__dirname, '..', 'static', fileName))
-        const course = await Course_info.create({ name, price, creatorId, description, courseContent, img: fileName });
+        const course = await Course_info.create({ name, price, creatorId, description, courseContent, img: fileName, typeCourse });
         const courseDto = new CourseDto(course);
         return { course: courseDto }
     }
@@ -33,6 +34,15 @@ class CoursesService {
         const courseDto = new CourseDto(course)
         return { course: courseDto }
     }
+
+    async fetchUserCourses(userId) {
+        const creator = await Creator.findOne({ where: { userId } })
+        const creatorId = creator.id
+        const courses = await Course_info.findOne({ where: { creatorId } })
+        const courseDto = new CourseDto(courses)
+        return { course: courseDto }
+    }
+
 }
 
 module.exports = new CoursesService()

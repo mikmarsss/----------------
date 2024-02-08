@@ -72,6 +72,7 @@ function CreateCourse() {
                             onChange={e => setName(e.target.value)}
                         />
                     </div>
+
                     <div>
                         <label htmlFor="description">Введите описание</label>
                         <textarea

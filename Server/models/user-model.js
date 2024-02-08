@@ -42,7 +42,6 @@ const Course_info = sequelize.define('course_info', {
     img: { type: DataTypes.STRING, allowNull: true },
     description: { type: DataTypes.STRING, allowNull: false },
     courseContent: { type: DataTypes.STRING, allowNull: false },
-    typeCourse: { type: DataTypes.INTEGER, allowNull: false },
 })
 
 const Course_module = sequelize.define('course_module', {
