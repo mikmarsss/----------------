@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
 import styles from "../styles/personalAcc.module.css"
 import Header from "../components/Header";
@@ -12,9 +12,12 @@ import bq from "../Images/questionmark.svg"
 import { useParams, Navigate } from "react-router-dom";
 import { inProfileMenu } from "../data/coursesData";
 import { CATALOG_ROUTE } from "../utils";
+import CoursesService from "../service/CoursesService";
+import CoursesBlockProfile from "../components/CoursesBlockProfile";
+
 
 function PersonalAccount() {
-    const { store } = useContext(Context)
+    const { store, courseStore } = useContext(Context)
     const params = useParams()
     const current = params.id
     const [showVhodBlock, setShowVhodBlock] = useState(null)
@@ -26,8 +29,6 @@ function PersonalAccount() {
 
     const coursesHandleClick = (show) => {
         setShowCourses(show)
-
-        console.log(showCourses)
     }
 
 
@@ -35,20 +36,6 @@ function PersonalAccount() {
     const vhodHandleClick = (showVhodBlock) => {
         setShowVhodBlock(showVhodBlock);
     }
-
-
-
-    const coursesBlocks = courses.map((item) => (
-        <CourseBlock
-            tag={item.tag}
-            id={item.id}
-            name={item.name}
-            description={item.description}
-            cost={item.cost}
-            img={item.img}
-            author={item.author}
-        />
-    ))
 
     const navMenuWork = 'ok'
 
@@ -79,15 +66,13 @@ function PersonalAccount() {
                             </button>
                         </div>
                         <div className={styles.dopFilter}>
-
                             {show === 'courses' ? navMenuCourses : navMenuWork}
                         </div>
                     </div>
 
                     <div className={styles.courses}>
-
                         <div className={styles.coursescont}>
-
+                            {<ShowCourses onShowCourses={showCourses} />}
                         </div>
                     </div>
                 </div>
@@ -114,12 +99,34 @@ function NavMenu({ name, id, onHandleClick, show, url }) {
     )
 }
 
-function ShowCourses() {
+function ShowCourses({ onShowCourses }) {
+    const { store, courseStore } = useContext(Context)
+    const [courses, setCourses] = useState([])
+    useEffect(() => {
+        if (onShowCourses === 'mycourses') {
+            getCourses()
+        }
+    }, [onShowCourses])
+
+    async function getCourses() {
+        try {
+            const response = await CoursesService.fetchUserCourses(store.user.id)
+            const dataArray = response.data.courses; // Предполагается, что courses - это массив в модели
+            if (Array.isArray(dataArray)) {
+                setCourses(dataArray);
+            } else {
+                console.error('Ожидался массив, но получен другой тип данных:', dataArray);
+                setCourses([]); // Установка пустого массива в случае ошибки
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    }
     return (
         <>
-            <div>
+            {console.log(courses)}
+            <CoursesBlockProfile courses={courses} />
 
-            </div>
         </>
     )
 }

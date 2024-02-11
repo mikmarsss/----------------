@@ -9,6 +9,7 @@ import { CourseResponse } from "../models/response/CoursesResponse";
 export default class CourseStore {
     module = {} as IModule
     course = {} as ICourse
+    data = {} as ICourse;
     constructor() {
         makeAutoObservable(this)
     }
@@ -16,13 +17,17 @@ export default class CourseStore {
         this.course = course
     }
 
+    setData(data: ICourse) {
+        this.data = data
+    }
+
     setModule(module: IModule) {
         this.module = module
     }
 
-    async createCourse(formdata: any) {
+    async createCourse(userId: string) {
         try {
-            const response = await CoursesService.createCourse(formdata)
+            const response = await CoursesService.createCourse(userId)
             localStorage.setItem('courseId', response.data.course.id)
             console.log(response)
             this.setCourse(response.data.course)
@@ -31,9 +36,20 @@ export default class CourseStore {
         }
     }
 
-    async createModule(courseId: string) {
+    async saveCourseData(formdata: any) {
         try {
-            const response = await CoursesService.createModule(courseId)
+            const response = await CoursesService.saveCourseData(formdata)
+            localStorage.setItem('courseId', response.data.course.id)
+            console.log(response)
+            this.setCourse(response.data.course)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+    }
+
+    async createModule(courseId: string, index: string) {
+        try {
+            const response = await CoursesService.createModule(courseId, index)
             console.log(response)
             this.setModule(response.data.module)
         } catch (e) {

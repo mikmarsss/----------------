@@ -1,14 +1,15 @@
 import Catalog from "./pages/Catalog"
 import ChooseCourse from "./pages/ChooseCourse"
-import CoursesContent from "./components/CoursesContent"
+import CoursesContent from "./pages/CoursesContent"
 import CreateCoursesBlock from "./pages/CreateCoursesBlock"
 import FreeCourses from "./pages/FreeCourses"
 import Landing from "./pages/Landing"
 import PayCourses from "./pages/PayCourses"
 import PersonalAccount from "./pages/PersonalAccount"
 import ProfileSettings from "./pages/ProfileSettings"
-import { CATALOG_ROUTE, CHOOSE_COURSE, COURSES_CONTENT, COURSE_LESSONS, CREATE_ROUTE, FREE_COURSE, LANDING_ROUTE, PAY_COURSE, PROFILE_ROUTE, SETTINGS_ROUTE } from "./utils"
+import { CATALOG_ROUTE, CHOOSE_COURSE, COURSES_CONTENT, COURSE_LESSONS, COURSE_PAGE, CREATE_ROUTE, FREE_COURSE, LANDING_ROUTE, PAY_COURSE, PROFILE_ROUTE, SETTINGS_ROUTE } from "./utils"
 import CourseLessons from "./pages/CourseLessons"
+import CoursePage from "./pages/CoursePage"
 
 export const authRoutes = [
     {
@@ -32,7 +33,7 @@ export const authRoutes = [
         Component: PayCourses
     },
     {
-        path: COURSES_CONTENT,
+        path: COURSES_CONTENT + '/:id',
         Component: CoursesContent
     },
     {
@@ -53,5 +54,9 @@ export const publicRoutes = [
     {
         path: CREATE_ROUTE,
         Component: CreateCoursesBlock
+    },
+    {
+        path: COURSE_PAGE,
+        Component: CoursePage
     },
 ]

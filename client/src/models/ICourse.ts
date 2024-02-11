@@ -6,4 +6,6 @@ export interface ICourse {
     people: string;
     time: string;
     img: string;
+    type: string;
+    additional_type: string;
 }

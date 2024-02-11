@@ -12,6 +12,9 @@ function CreateCourse() {
     const [description, setDescription] = useState('')
     const [courseContent, setCourseContent] = useState([])
     const [ava, setAva] = useState([])
+    const [type, setType] = useState('1')
+    const [dopType, setDopType] = useState([1, 2, 3, 4])
+
 
     const selectAva = (e) => {
         setAva(e.target.files[0])
@@ -29,16 +32,22 @@ function CreateCourse() {
     }
     const saveData = () => {
         const formdata = new FormData()
-        formdata.append('userId', store.user.id)
+        formdata.append('courseId', courseStore.course.id)
         formdata.append('name', name)
         formdata.append('price', price)
         formdata.append('description', description)
         formdata.append('courseContent', JSON.stringify(courseContent))
         formdata.append('img', ava)
-        courseStore.createCourse(formdata)
+        formdata.append('type', type)
+        dopType.forEach((index, item) => {
+            formdata.append('additional_type', index)
+        })
+        courseStore.saveCourseData(formdata)
     }
-
+    console.log(courseStore.course.id)
+    console.log(store.user.id)
     return (
+
         <>
 
             <div className={styles.mainInfo}>
@@ -82,6 +91,24 @@ function CreateCourse() {
                             onChange={e => setDescription(e.target.value)}
                         />
                     </div>
+                    <div>
+                        <label htmlFor="type">Выберите основной тип</label>
+                        <select id="type" onChange={e => setType(e.target.value)}>
+                            <option selected value="1">Программирование</option>
+                            <option value="2">Дизайн</option>
+                            <option value="3">Маркетинг</option>
+                            <option value="4">Тестирование</option>
+                        </select>
+                    </div>
+                    {/* <div>
+                        <label htmlFor="doptype">Выберите основной тип</label>
+                        <select id="doptype" onChange={e => setDopType(e.target.value)}>
+                            <option selected value="1">C++</option>
+                            <option value="2">JavaScript</option>
+                            <option value="3">Java</option>
+                            <option value="4">GO</option>
+                        </select>
+                    </div> */}
                     <div className={styles.courseContent}>
                         {
                             courseContent.map(i => (
@@ -101,7 +128,8 @@ function CreateCourse() {
                     </div>
                 </div>
             </div>
-            <Link to={COURSES_CONTENT}>
+
+            <Link to={COURSES_CONTENT + `/${courseStore.course.id}`}>
                 <button onClick={saveData} className={styles.saveButton}>СОХРАНИТЬ</button>
             </Link>
         </>

@@ -10,6 +10,7 @@ module.exports = class UserDto {
     changeCode;
     aboutMe;
     img;
+
     constructor(model) {
         this.email = model.email;
         this.id = model.id;
@@ -22,5 +23,6 @@ module.exports = class UserDto {
         this.changeCode = model.changeCode
         this.aboutMe = model.aboutMe
         this.img = model.img
+
     }
 }

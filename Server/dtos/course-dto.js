@@ -8,6 +8,10 @@ module.exports = class CourseDto {
     people;
     time;
     img;
+    type;
+    additional_type;
+    created_at;
+    updated_at;
     constructor(model) {
         this.id = model.id;
         this.name = model.name;
@@ -18,5 +22,9 @@ module.exports = class CourseDto {
         this.people = model.people;
         this.time = model.time;
         this.img = model.img
+        this.type = model.type
+        this.additional_type = model.additional_type
+        this.created_at = model.created_at
+        this.updated_at = model.updated_at
     }
 }
