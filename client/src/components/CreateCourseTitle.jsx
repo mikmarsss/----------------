@@ -44,8 +44,8 @@ function CreateCourse() {
         })
         courseStore.saveCourseData(formdata)
     }
-    console.log(courseStore.course.id)
-    console.log(store.user.id)
+
+    console.log("userId " + store.user.id)
     return (
 
         <>

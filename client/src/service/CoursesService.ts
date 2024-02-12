@@ -21,7 +21,7 @@ export default class CoursesService {
         return $api.post<ICourse[]>('/courses/fetchusercourses', { userId })
     }
 
-    static async fetcCourseModules(courseId: string): Promise<AxiosResponse<IModule[]>> {
-        return $api.post<IModule[]>('/courses/fetchusercourses', { courseId })
+    static async fetchCourseModules(courseId: string): Promise<AxiosResponse<IModule[]>> {
+        return $api.post<IModule[]>('/courses/fetchcoursemodules', { courseId })
     }
 }
