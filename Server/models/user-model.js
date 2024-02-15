@@ -55,9 +55,9 @@ const Course_info = sequelize.define('course_info', {
     time: { type: DataTypes.INTEGER, allowNull: true },
     img: { type: DataTypes.STRING, allowNull: true },
     description: { type: DataTypes.STRING, allowNull: false },
-    courseContent: { type: DataTypes.STRING, allowNull: false },
+    course_content: { type: DataTypes.STRING, allowNull: false },
     creator_id: { type: DataTypes.INTEGER },
-    type: { type: DataTypes.STRING, allowNull: false },
+    type: { type: DataTypes.INTEGER, allowNull: false },
     additional_type: { type: DataTypes.ARRAY(DataTypes.INTEGER), allowNull: false },
     created_at: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW },
     updated_at: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW }

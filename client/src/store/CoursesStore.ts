@@ -78,10 +78,33 @@ export default class CourseStore {
 
     }
 
+    async fetchUserCourse(courseId: string) {
+        try {
+            console.log(courseId, typeof (courseId))
+            const response = await CoursesService.fetchUserCourse(courseId)
+            console.log(response)
+            this.setCourse(response.data.course)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+
+    }
+
     async fetchCourseModules(courseId: string) {
         try {
-            const response = await CoursesService.fetchUserCourses(courseId)
+            const response = await CoursesService.fetchCourseModules(courseId)
             console.log(response)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+
+    }
+
+    async fetchCourseModule(moduleId: string) {
+        try {
+            const response = await CoursesService.fetchCourseModule(moduleId)
+            console.log(response)
+            this.setModule(response.data.module)
         } catch (e) {
             console.log(e.response?.data?.message)
         }

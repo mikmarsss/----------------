@@ -72,7 +72,9 @@ function PersonalAccount() {
 
                     <div className={styles.courses}>
                         <div className={styles.coursescont}>
+
                             {<ShowCourses onShowCourses={showCourses} />}
+
                         </div>
                     </div>
                 </div>
@@ -124,7 +126,6 @@ function ShowCourses({ onShowCourses }) {
     }
     return (
         <>
-            {console.log(courses)}
             <CoursesBlockProfile courses={courses} />
 
         </>

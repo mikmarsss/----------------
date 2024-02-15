@@ -4,12 +4,12 @@ import React, { useContext, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
-import { COURSE_LESSONS } from "../utils";
+import { COURSES_CONTENT, COURSE_LESSONS, MODULE_PAGE } from "../utils";
 import { Context } from "..";
 import { useParams } from "react-router-dom";
 import CoursesService from "../service/CoursesService";
 import { useEffect } from "react";
-
+import ModulePage from "./ModulePage";
 function CoursesContent() {
 
     const [moduleIndex, setModuleIndex] = useState(0)
@@ -47,6 +47,10 @@ function CoursesContent() {
     console.log(modulee)
     const params = useParams()
     const current = params.id
+    const choseModel = (id) => {
+        localStorage.setItem('moduleId', id)
+        courseStore.fetchCourseModule(id)
+    }
     return (
         <>
             <Header />
@@ -56,11 +60,12 @@ function CoursesContent() {
                     <div className={styles.contentOfLesson}>
                         <button onClick={() => addModule(moduleIndex)}>Добавить модуль</button>
                         {
-                            modulee.map((i, index) => (
+                            modulee.map((item, index) => (
                                 <div key={index}>
                                     <label htmlFor="moduleName">Модуль {index}</label>
-                                    <Link to={COURSE_LESSONS}>
-                                        <button>
+                                    <Link to={COURSES_CONTENT + `/${courseStore.course.id}` + MODULE_PAGE + `/${item.id}`}>
+                                        <button onClick={() => choseModel(item.id)}>
+
                                             Редактикровать модуль
                                         </button>
                                     </Link>

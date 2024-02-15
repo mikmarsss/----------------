@@ -2,11 +2,18 @@ import axios from 'axios'
 import { error } from 'console'
 import { AuthResponse } from "../models/response/AuthResponse";
 export const APi_URL = 'http://localhost:5000/api'
+export const APi_URL_GO = 'http://localhost:8081/api'
 
 const $api = axios.create({
     withCredentials: true,
     baseURL: APi_URL
 })
+
+const $apigo = axios.create({
+    withCredentials: true,
+    baseURL: APi_URL_GO
+})
+
 
 $api.interceptors.request.use((config) => {
     config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`

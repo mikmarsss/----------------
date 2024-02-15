@@ -1,0 +1,3 @@
+port = ":8081"
+log_level = "debug"
+session_key = "sadiasoi3o213sas"

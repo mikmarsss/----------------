@@ -1,4 +1,5 @@
 import $api from "../http";
+import $apigo from "../http/indexGO";
 import { AxiosResponse } from 'axios'
 import { CourseResponse } from '../models/response/CoursesResponse'
 import { ModuleResponse } from '../models/response/ModuleResponse'
@@ -21,7 +22,15 @@ export default class CoursesService {
         return $api.post<ICourse[]>('/courses/fetchusercourses', { userId })
     }
 
+    static async fetchUserCourse(courseId: string): Promise<AxiosResponse<CourseResponse>> {
+        return $apigo.post<CourseResponse>('/get-course', { courseId })
+    }
+
     static async fetchCourseModules(courseId: string): Promise<AxiosResponse<IModule[]>> {
         return $api.post<IModule[]>('/courses/fetchcoursemodules', { courseId })
+    }
+
+    static async fetchCourseModule(moduleId: string): Promise<AxiosResponse<ModuleResponse>> {
+        return $api.post<ModuleResponse>('/courses/fetchcoursemodule', { moduleId })
     }
 }

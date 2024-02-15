@@ -7,13 +7,16 @@ import { Link } from "react-router-dom";
 import { FREE_COURSE, PAY_COURSE } from "../utils";
 import { Context } from "..";
 function ChooseCourse() {
+    const createCourse = () => {
+        courseStore.createCourse(store.user.id)
+    }
     const { store, courseStore } = useContext(Context)
     return (
         <>
             <Header />
             <div className={styles.typesOfCourses}>
                 <Link to={FREE_COURSE}>
-                    <button onClick={courseStore.createCourse(store.user.id)}>
+                    <button onClick={createCourse}>
                         <div className={styles.freeCourses}>
                             <p>
                                 бесплатные курсы

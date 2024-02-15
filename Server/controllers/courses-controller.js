@@ -40,7 +40,6 @@ class CoursesController {
         try {
             const { courseId } = req.cookies
             const courseData = await CoursesService.refreshCourse(courseId)
-            // res.cookie('courseId', courseData.ID)
             return res.json(courseData)
         } catch (e) {
             next(e)
@@ -62,6 +61,16 @@ class CoursesController {
         try {
             const { courseId } = req.body
             const modulesData = await CoursesService.fetchCourseModules(courseId)
+            return res.json(modulesData)
+        } catch (e) {
+            next(e)
+        }
+    }
+
+    async fetchCourseModule(req, res, next) {
+        try {
+            const { moduleId } = req.body
+            const modulesData = await CoursesService.fetchCourseModule(moduleId)
             return res.json(modulesData)
         } catch (e) {
             next(e)

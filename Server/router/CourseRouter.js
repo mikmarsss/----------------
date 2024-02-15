@@ -9,5 +9,6 @@ router.post('/createModule', CoursesController.CreateModule)
 router.get('/refreshCourse', CoursesController.refreshCourse)
 router.post('/fetchusercourses', CoursesController.fetchUserCourses)
 router.post('/fetchcoursemodules', CoursesController.fetchCourseModules)
+router.post('/fetchcoursemodule', CoursesController.fetchCourseModule)
 
 module.exports = router

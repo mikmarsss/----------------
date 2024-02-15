@@ -21,7 +21,7 @@ class CoursesService {
         })
         const creator_id = findCreatorId.id
         const time = Math.floor(Date.now() / 1000)
-        const course = await Course_info.create({ name: '1', price: 1, creator_id, description: '1', courseContent: '1', img: 'fileName', type: '1', additional_type: [1], created_at: time, updated_at: time });
+        const course = await Course_info.create({ name: '1', price: 1, creator_id, description: '1', rating: '0', people: '0', time: '0', course_content: '1', img: 'fileName', type: '1', additional_type: [1], created_at: time, updated_at: time });
         const courseDto = new CourseDto(course);
         return { course: courseDto }
     }
@@ -40,7 +40,7 @@ class CoursesService {
         course.update({ name: name }, { where: { id: courseId } })
         course.update({ price: price }, { where: { id: courseId } })
         course.update({ description: description }, { where: { id: courseId } })
-        course.update({ courseContent: courseContent }, { where: { id: courseId } })
+        course.update({ course_content: courseContent }, { where: { id: courseId } })
         course.update({ type: type }, { where: { id: courseId } })
         course.update({ additional_type: additional_type }, { where: { id: courseId } })
         const courseDto = new CourseDto(course);
@@ -71,6 +71,13 @@ class CoursesService {
         const modules = await Course_module.findAll({ where: { course_info_id: courseId } })
 
         return { modules }
+    }
+
+    async fetchCourseModule(moduleId) {
+        const modules = await Course_module.findOne({ where: { id: moduleId } })
+        const modelDto = new ModuleDto(modules)
+
+        return { module: modelDto }
     }
 
 }
