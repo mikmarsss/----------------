@@ -65,7 +65,7 @@ function Header({ }) {
             <div className={styles.container}>
                 <div className={styles.header}>
                     <div className={styles.image}>
-                        <button>
+                        <button className={styles.logo}>
                             <Link to="/catalog">
                                 <Image image={logo2} alt={"logo"} />
                             </Link>
