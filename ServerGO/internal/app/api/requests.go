@@ -302,7 +302,7 @@ func (s Server) GetCourseById() http.HandlerFunc {
 			s.error(w, http.StatusBadRequest, err)
 			return
 		}
-
+		fmt.Println("course_id: ", req.CourseId)
 		courseId, err := strconv.Atoi(req.CourseId)
 		if err != nil {
 			fmt.Println(err)
@@ -310,7 +310,7 @@ func (s Server) GetCourseById() http.HandlerFunc {
 			http.Error(w, "Invalid course ID", http.StatusBadRequest)
 			return
 		}
-
+		fmt.Println("course_id1: ", courseId)
 		if courseId <= 0 {
 			fmt.Println(courseId)
 			s.error(w, http.StatusBadRequest, errorInvalidCourseId)

@@ -50,38 +50,43 @@ function PersonalAccount() {
                 <VhodForm showVhodBlock={showVhodBlock} onShowVhodBlock={vhodHandleClick} />
             </div>
             <Header />
-            <div className={`${store.isAuth && current == store.user.id ? styles.container : styles.non}`}>
-                <div className={styles.coursesProfile}>
-                    <div className={styles.proffileBlockButtons}>
-                        <div className={styles.firstNavButtons}>
-                            <button onClick={() => handleClick('courses')}>
-                                <div className={`${show === 'courses' ? styles.buttonClicked : styles.coursesNavButt}`}>
-                                    курсы
-                                </div>
-                            </button>
-                            <button onClick={() => handleClick('work')}>
-                                <div className={`${show === 'work' ? styles.buttonClicked : styles.coursesNavButt}`}>
-                                    работа
-                                </div>
-                            </button>
+            {
+                store.isAuth && current == store.user.id &&
+                < div className={styles.container}>
+                    <div className={styles.coursesProfile}>
+                        <div className={styles.proffileBlockButtons}>
+                            <div className={styles.firstNavButtons}>
+                                <button onClick={() => handleClick('courses')}>
+                                    <div className={`${show === 'courses' ? styles.buttonClicked : styles.coursesNavButt}`}>
+                                        курсы
+                                    </div>
+                                </button>
+                                <button onClick={() => handleClick('work')}>
+                                    <div className={`${show === 'work' ? styles.buttonClicked : styles.coursesNavButt}`}>
+                                        работа
+                                    </div>
+                                </button>
+                            </div>
+                            <div className={styles.dopFilter}>
+
+                                {show === 'courses' ? navMenuCourses : navMenuWork}
+                            </div>
                         </div>
-                        <div className={styles.dopFilter}>
-                            {show === 'courses' ? navMenuCourses : navMenuWork}
+
+                        <div className={styles.courses}>
+                            <div className={styles.coursescont}>
+
+                                {<ShowCourses onShowCourses={showCourses} />}
+
+                            </div>
                         </div>
                     </div>
-
-                    <div className={styles.courses}>
-                        <div className={styles.coursescont}>
-
-                            {<ShowCourses onShowCourses={showCourses} />}
-
-                        </div>
+                    <div className={styles.footer}>
+                        <Footer />
                     </div>
-                </div>
-                <div className={styles.footer}>
-                    <Footer />
-                </div>
-            </div>
+                </div >
+            }
+
         </>
     )
 }

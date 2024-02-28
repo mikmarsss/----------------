@@ -64,7 +64,7 @@
 .container {
     display: flex;
     flex-direction: column;
-
+    background: #8B969F;
 }
 
 
@@ -285,6 +285,7 @@
 }
 
 .coursesProfile {
+
     display: flex;
     justify-content: center;
     align-items: start;
@@ -297,7 +298,6 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    border: solid #9559d4 2px;
     border-radius: 15px;
 }
 
@@ -305,7 +305,6 @@
     font-family: 'Montserrat-Medium';
     width: 300px;
     height: 53px;
-    background-color: white;
     font-size: 25px;
     color: black;
     display: flex;
@@ -315,11 +314,11 @@
 }
 
 .buttonClicked {
-    border-radius: 10px;
+    border-radius: 18px;
     font-family: 'Montserrat-Medium';
     width: 300px;
     height: 53px;
-    background-color: #9559d4;
+    background-color: #0576C2;
     font-size: 25px;
     color: white;
     display: flex;
@@ -359,8 +358,8 @@
 }
 
 .courses {
-    display: flex;
-    justify-content: center;
+    width: 1200px;
+    height: auto;
 }
 
 
@@ -390,16 +389,16 @@
 
 .coursescont {
     align-items: center;
-    width: 1200px;
-    height: 1000px;
     display: flex;
     justify-content: center;
-    border: solid black 2px;
+
     flex-direction: row;
     flex-wrap: wrap;
     gap: 10px;
 
 }
+
+
 
 .coursesblock {
     width: 460px;
@@ -463,7 +462,7 @@
 .dopFilterButtonsActive {
     font-family: 'Montserrat-Medium';
     border-radius: 10px;
-    background-color: #9559d4;
+    background-color: #0576C2;
     font-size: 25px;
     color: white;
     height: 53px;
@@ -483,8 +482,6 @@
 
 .dopFilter {
     width: 300px;
-    border: solid #9559d4 2px;
-    border-radius: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -496,14 +493,13 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
-        border: solid #9559d4 2px;
+
         border-radius: 15px;
         width: 250px;
     }
 
     .dopFilter {
         width: 250px;
-        border: solid #9559d4 2px;
         border-radius: 15px;
         display: flex;
         flex-direction: column;
@@ -512,11 +508,9 @@
 
     .coursescont {
         align-items: center;
-        width: 800px;
-        height: 900px;
         display: flex;
         justify-content: center;
-        border: solid black 2px;
+
 
     }
 
@@ -524,7 +518,6 @@
         font-family: 'Montserrat-Medium';
         width: 250px;
         height: 53px;
-        background-color: white;
         font-size: 25px;
         color: black;
         display: flex;
@@ -538,7 +531,6 @@
         font-family: 'Montserrat-Medium';
         width: 250px;
         height: 53px;
-        background-color: #9559d4;
         font-size: 25px;
         color: white;
         display: flex;

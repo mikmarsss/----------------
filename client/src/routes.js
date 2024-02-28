@@ -45,6 +45,10 @@ export const authRoutes = [
         path: COURSES_CONTENT + '/:id' + MODULE_PAGE + '/:id',
         Component: ModulePage
     },
+    {
+        path: COURSE_PAGE + '/:id',
+        Component: CoursePage
+    },
 ]
 
 export const publicRoutes = [
@@ -60,8 +64,5 @@ export const publicRoutes = [
         path: CREATE_ROUTE,
         Component: CreateCoursesBlock
     },
-    {
-        path: COURSE_PAGE,
-        Component: CoursePage
-    },
+
 ]

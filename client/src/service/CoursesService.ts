@@ -23,7 +23,11 @@ export default class CoursesService {
     }
 
     static async fetchUserCourse(courseId: string): Promise<AxiosResponse<CourseResponse>> {
-        return $apigo.post<CourseResponse>('/get-course', { courseId })
+        return $apigo.post<CourseResponse>('/get-course', { course_id: courseId })
+    }
+
+    static async fetchCourseByType(typeId: any, additionaltype: any[]): Promise<AxiosResponse<CourseResponse>> {
+        return $apigo.post<CourseResponse>('/get-courses-by-types', { type: typeId, additional_type: additionaltype })
     }
 
     static async fetchCourseModules(courseId: string): Promise<AxiosResponse<IModule[]>> {
@@ -33,4 +37,6 @@ export default class CoursesService {
     static async fetchCourseModule(moduleId: string): Promise<AxiosResponse<ModuleResponse>> {
         return $api.post<ModuleResponse>('/courses/fetchcoursemodule', { moduleId })
     }
+
 }
+
