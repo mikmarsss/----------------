@@ -81,6 +81,7 @@ export default class CourseStore {
     async fetchUserCourse(course_id: string) {
         try {
             const response = await CoursesService.fetchUserCourse(course_id)
+            localStorage.setItem('courseId', response.data.course.id)
             console.log(response)
             this.setCourse(response.data.course)
         } catch (e) {
@@ -92,7 +93,6 @@ export default class CourseStore {
     async fetchCourseByType(course_id: any) {
         try {
             const additionaltype = new Array()
-            console.log(course_id, typeof (course_id))
             const response = await CoursesService.fetchCourseByType(course_id, additionaltype)
             console.log(response)
             this.setCourse(response.data.course)

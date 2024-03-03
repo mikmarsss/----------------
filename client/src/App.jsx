@@ -13,9 +13,6 @@ function App() {
         if (localStorage.getItem('token')) {
             store.checkAuth()
         }
-        if (localStorage.getItem('courseId')) {
-            courseStore.checkCourse()
-        }
     }, [])
 
 

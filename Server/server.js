@@ -14,6 +14,7 @@ const path = require('path')
 app.use(express.json())
 app.use(fileUpload({}))
 app.use(express.static(path.resolve(__dirname, 'static')));
+app.use(express.static(path.resolve(__dirname, 'langIcons')));
 app.use(cookieParser())
 app.use(cors({
     credentials: true,

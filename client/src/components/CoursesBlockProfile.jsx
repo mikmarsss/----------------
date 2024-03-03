@@ -35,9 +35,6 @@ function CourseBlockProfile({ courses }) {
                             </div>
 
                         </button>
-
-
-
                     </div>
                 </Link >
             ))}

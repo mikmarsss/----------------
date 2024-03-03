@@ -7,10 +7,11 @@ import Landing from "./pages/Landing"
 import PayCourses from "./pages/PayCourses"
 import PersonalAccount from "./pages/PersonalAccount"
 import ProfileSettings from "./pages/ProfileSettings"
-import { CATALOG_ROUTE, CHOOSE_COURSE, COURSES_CONTENT, COURSE_LESSONS, COURSE_PAGE, CREATE_ROUTE, FREE_COURSE, LANDING_ROUTE, MODULE_PAGE, PAY_COURSE, PROFILE_ROUTE, SETTINGS_ROUTE } from "./utils"
+import { CATALOG_ROUTE, CHOOSE_COURSE, COURSES_CONTENT, COURSE_LESSONS, COURSE_PAGE, CREATE_ROUTE, EDITCOURSE_PAGE, FREE_COURSE, LANDING_ROUTE, MODULE_PAGE, PAY_COURSE, PROFILE_ROUTE, SETTINGS_ROUTE } from "./utils"
 import CourseLessons from "./pages/CourseLessons"
 import CoursePage from "./pages/CoursePage"
 import ModulePage from "./pages/ModulePage"
+import EditCoursePage from "./pages/EditCoursePage"
 
 export const authRoutes = [
     {
@@ -48,6 +49,10 @@ export const authRoutes = [
     {
         path: COURSE_PAGE + '/:id',
         Component: CoursePage
+    },
+    {
+        path: EDITCOURSE_PAGE + '/:id',
+        Component: EditCoursePage
     },
 ]
 

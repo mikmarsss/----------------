@@ -10,6 +10,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 .ava {
@@ -37,15 +38,16 @@
 }
 
 .courseInfo {
-    border: solid black 2px;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 1200px;
     height: auto;
-    background-color: #B2C9CA;
-    border-radius: 100px;
-
+    border-radius: 45px;
+    background: linear-gradient(225deg, #7d878f, #95a1aa);
+    box-shadow: -14px 14px 28px #60686e,
+        14px -14px 28px #b6c5d0;
+    padding-top: 20px;
 }
 
 .body {
@@ -61,5 +63,18 @@
     width: auto;
     font-size: 24px;
     font-family: 'Montserrat-Medium';
+
+}
+
+.langicons {
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    height: auto;
+}
+
+.titleInfo {
+    display: flex;
+    flex-direction: column;
 
 }
