@@ -18,7 +18,8 @@ const User = sequelize.define('user', {
     username: { type: DataTypes.STRING, allowNull: true },
     changeCode: { type: DataTypes.BIGINT, allowNull: true },
     aboutMe: { type: DataTypes.STRING, allowNull: true },
-    img: { type: DataTypes.STRING, allowNull: true }
+    img: { type: DataTypes.STRING, allowNull: true },
+    test_result: { type: DataTypes.STRING, allowNull: true }
 })
 
 const Done_courses = sequelize.define('done_courses', {

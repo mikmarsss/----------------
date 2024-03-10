@@ -10,4 +10,5 @@ export interface IUser {
     changeCode: BigInt;
     aboutMe: string;
     img: string;
+    test_result: string;
 }

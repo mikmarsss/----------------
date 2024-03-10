@@ -16,6 +16,8 @@ router.post('/save', userController.saveData)
 router.post('/logout', userController.logout)
 router.post('/sendChangePasswordCode', userController.sendChangePasswordCode)
 router.post('/changePassword', userController.changePassword)
+router.post('/savetestresult', userController.saveTestResult)
+
 router.get('/activate/:link', userController.activate)
 router.get('/refresh', userController.refresh)
 

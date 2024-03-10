@@ -67,6 +67,33 @@
     background: #8B969F;
 }
 
+.test {
+    border: solid black 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+    text-align: center;
+}
+
+.testButton {
+    width: 180px;
+    height: 60px;
+    font-size: 26px;
+
+}
+
+.testButton:active {
+    font-size: 24px;
+    width: 180px;
+    height: 60px;
+    border-radius: 14px;
+    background: #8B969F;
+    box-shadow: inset 10px 10px 20px #768087,
+        inset -10px -10px 20px #a0adb7;
+}
+
+
 
 .photoButton {
     display: flex;

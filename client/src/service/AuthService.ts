@@ -1,6 +1,9 @@
 import $api from "../http";
-import { AxiosResponse } from 'axios'
+import { Axios, AxiosResponse } from 'axios'
 import { AuthResponse } from "../models/response/AuthResponse";
+import { ITest } from "../models/ITest";
+import $apiAI from "../http/deepSeekIndex";
+import { AiResponse } from "../models/response/Airesponse";
 
 export default class AuthService {
     static async login(email: string, password: string): Promise<AxiosResponse<AuthResponse>> {
@@ -28,4 +31,19 @@ export default class AuthService {
     static async changePassword(email: string, code: BigInt, newPassword: string): Promise<AxiosResponse<AuthResponse>> {
         return $api.post<AuthResponse>('/user/changePassword', { email, code, newPassword })
     }
+
+    static async saveTestResult(answer: string, id: string): Promise<AxiosResponse<AuthResponse>> {
+        return $api.post<AuthResponse>('/user/savetestresult', { answer, id })
+    }
+
+    static async sendAiText(mdel: string, msg: any): Promise<AxiosResponse<ITest>> {
+        return $apiAI.post<ITest>('/v1/chat/completions', { model: mdel, messages: msg }, {
+            headers: {
+                "Content-Type": "application/json",
+                'Authorization': 'Bearer sk-3ea5e3c63ed146ecb0d250da7cae96c2',
+                'Accept': 'application/json'
+            }
+        })
+    }
 }
+

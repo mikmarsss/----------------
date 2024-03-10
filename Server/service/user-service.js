@@ -146,6 +146,13 @@ class UserService {
 
         return { ...tokens, user: userDto }
     }
+
+    async saveTestResult(answer, id) {
+        const user = await User.findOne({ where: { id: id } })
+        user.update({ test_result: answer }, { where: { id } })
+        const userDto = new UserDto(user)
+        return { user: userDto }
+    }
 }
 
 module.exports = new UserService()

@@ -19,6 +19,25 @@
     margin-top: 45%;
 }
 
+.dopTypes {
+    display: flex;
+    flex-direction: column;
+    scale: 1;
+    overflow-y: scroll;
+    border: solid black 2px;
+    height: 300px;
+    background-color: #6F31C1;
+    align-items: center;
+}
+
+.dopTypes>button {
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
 .payCourses>p {
     margin-top: 45%;
 }
@@ -34,8 +53,9 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 400px;
-    border: solid black 1px;
+    height: 100%;
+    gap: 100px;
+    background-color: #8B969F;
     justify-content: center;
 
 }
@@ -51,18 +71,24 @@
 
 }
 
+.choosedTypes {
+    display: flex;
+    flex-direction: row;
+}
+
 .rightBlock {
     display: flex;
     border: solid black 2px;
     width: 600px;
-    height: 300px;
+    height: auto;
     flex-direction: column;
     gap: 20px;
 }
 
 .saveButton {
+    width: 300px;
+    height: 300px;
     border: solid black 2px;
-    margin-left: 50%;
     font-size: 24px;
 }
 

@@ -9,10 +9,6 @@ const $api = axios.create({
     baseURL: APi_URL
 })
 
-const $apigo = axios.create({
-    withCredentials: true,
-    baseURL: APi_URL_GO
-})
 
 
 $api.interceptors.request.use((config) => {

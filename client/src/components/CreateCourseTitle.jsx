@@ -13,8 +13,112 @@ function CreateCourse() {
     const [courseContent, setCourseContent] = useState([])
     const [ava, setAva] = useState([])
     const [type, setType] = useState('1')
-    const [dopType, setDopType] = useState([1, 2, 3, 4])
+    const [dopType, setDopType] = useState([])
+    const [showDopTypes, setShowDopTypes] = useState(false)
 
+
+    const icons = [
+        {
+            id: 1,
+            name: 'angular',
+        },
+        {
+            id: 2,
+            name: 'bootstrap',
+        },
+        {
+            id: 3,
+            name: 'c',
+        },
+        {
+            id: 4,
+            name: 'cshj',
+        },
+        {
+            id: 5,
+            name: 'c++',
+        },
+        {
+            id: 6,
+            name: 'github',
+        },
+        {
+            id: 7,
+            name: 'go-lang',
+        },
+        {
+            id: 8,
+            name: 'html5',
+        },
+        {
+            id: 9,
+            name: 'java',
+        },
+        {
+            id: 10,
+            name: 'js',
+        },
+        {
+            id: 11,
+            name: 'mysql',
+        },
+        {
+            id: 12,
+            name: 'nodejs',
+        },
+        {
+            id: 13,
+            name: 'php',
+        },
+        {
+            id: 14,
+            name: 'postgresql',
+        },
+        {
+            id: 15,
+            name: 'python',
+        },
+        {
+            id: 16,
+            name: 'react',
+        },
+        {
+            id: 17,
+            name: 'sql-server',
+        },
+        {
+            id: 18,
+            name: 'swift',
+        },
+        {
+            id: 19,
+            name: 'typescript',
+        },
+        {
+            id: 20,
+            name: 'unity',
+        },
+        {
+            id: 21,
+            name: 'visual-studio',
+        },
+        {
+            id: 22,
+            name: 'vue',
+        },
+        {
+            id: 23,
+            name: 'wordpress',
+        },
+    ]
+
+    const showDopTypesHandler = (show) => {
+        if (show === false) {
+            setShowDopTypes(true)
+        } else {
+            setShowDopTypes(false)
+        }
+    }
 
     const selectAva = (e) => {
         setAva(e.target.files[0])
@@ -29,6 +133,11 @@ function CreateCourse() {
     }
     const removeInfo = (number) => {
         setCourseContent(courseContent.filter(i => (i.number !== number)))
+    }
+
+    const addDopTypesHandler = (id) => {
+        setDopType(prev => [...prev, id])
+
     }
     const saveData = () => {
         const formdata = new FormData()
@@ -45,7 +154,7 @@ function CreateCourse() {
         courseStore.saveCourseData(formdata)
     }
 
-    console.log("userId " + store.user.id)
+    console.log(courseStore.course.id)
     return (
 
         <>
@@ -100,15 +209,37 @@ function CreateCourse() {
                             <option value="4">Тестирование</option>
                         </select>
                     </div>
-                    {/* <div>
-                        <label htmlFor="doptype">Выберите основной тип</label>
-                        <select id="doptype" onChange={e => setDopType(e.target.value)}>
-                            <option selected value="1">C++</option>
-                            <option value="2">JavaScript</option>
-                            <option value="3">Java</option>
-                            <option value="4">GO</option>
-                        </select>
-                    </div> */}
+                    <div>
+                        {
+                            <>
+                                <label htmlFor="choosedTypes">выбранные теги</label>
+                                <div className={styles.choosedTypes} id="choosedTypes">
+                                    {icons.filter(item => dopType.includes(item.id)).map(item => (
+                                        <div key={item.id}>
+                                            <img className={styles.ava} src={`http://localhost:5000/${item.name}.svg`} alt="" />
+                                        </div>
+                                    ))}
+                                </div>
+                            </>
+                        }
+                        <label htmlFor="doptype">Выберите дополнительные теги</label>
+                        <button
+                            id="doptype"
+                            onClick={() => showDopTypesHandler(showDopTypes)}
+                        >Показать теги</button>
+
+                        {
+                            showDopTypes === true &&
+                            <div className={styles.dopTypes}>
+                                {icons.map(item => (
+                                    <button key={item.id} onClick={() => addDopTypesHandler(item.id)}>
+                                        <img className={styles.ava} src={`http://localhost:5000/${item.name}.svg`} alt="" />
+                                        <p>{item.name}</p>
+                                    </button>
+                                ))}
+                            </div>
+                        }
+                    </div>
                     <div className={styles.courseContent}>
                         {
                             courseContent.map(i => (
@@ -127,11 +258,12 @@ function CreateCourse() {
                         <button onClick={addContent}>Добавить пункт</button>
                     </div>
                 </div>
+                <div>
+                    <button onClick={saveData} className={styles.saveButton}>СОХРАНИТЬ</button>
+                </div>
             </div>
 
-            <Link to={COURSES_CONTENT + `/${courseStore.course.id}`}>
-                <button onClick={saveData} className={styles.saveButton}>СОХРАНИТЬ</button>
-            </Link>
+
         </>
     )
 }

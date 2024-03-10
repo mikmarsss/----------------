@@ -112,6 +112,16 @@ class UserController {
             next(e)
         }
     }
+
+    async saveTestResult(req, res, next) {
+        try {
+            const { answer, id } = req.body
+            const userData = await userService.saveTestResult(answer, id)
+            return res.json(userData)
+        } catch (e) {
+            next(e)
+        }
+    }
 }
 
 module.exports = new UserController()

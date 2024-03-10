@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Link, Navigate, useParams } from "react-router-dom";
 import Image from "../components/Image";
-import { CATALOG_ROUTE } from "../utils";
+import { CATALOG_ROUTE, TEST_PAGE } from "../utils";
 
 
 
@@ -215,7 +215,35 @@ function ProfileSettings() {
                         />
                     </div>
                 </div>
+                <div>
+                    <hr className={styles.linia} />
+                </div>
+                <div className={styles.test}>
+                    {
+                        store.user.test_result === null &&
+                        <>
+                            <p>Пройдите тест и получите рекомендации к обучению</p>
+                            <Link to={TEST_PAGE + `/${store.user.id}`}>
+                                <button className={styles.testButton}>
+                                    Пройти
+                                </button>
+                            </Link>
+                        </>
 
+                    }
+                    {
+                        store.user.test_result !== null &&
+                        <>
+                            <p>{store.user.test_result}</p>
+                            <Link to={TEST_PAGE + `/${store.user.id}`}>
+                                <button className={styles.testButton}>
+                                    Пройти еще раз
+                                </button>
+                            </Link>
+                        </>
+
+                    }
+                </div>
                 <div>
                     <hr className={styles.linia} />
                 </div>

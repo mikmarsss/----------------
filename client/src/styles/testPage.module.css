@@ -38,15 +38,25 @@
     -webkit-text-fill-color: transparent;
 }
 
-.test>button {
+.questionBlock>img {
+    margin-top: 100px;
+    width: 350px;
+    height: 350px;
+}
+
+.nextButton {
     font-size: 30px;
     width: 180px;
     height: 100px;
 }
 
+.buttonBlock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-
-.test>button:active {
+.nextButton:active {
     font-size: 28px;
     width: 180px;
     height: 100px;
@@ -57,17 +67,22 @@
 }
 
 .questionBlock {
-    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 750px;
-    height: 650px;
+    height: 750px;
 }
 
-.questionBlockAnimation {
-    width: 750px;
-    height: 650px;
-    opacity: 0;
-    transition: 0.25s all ease-in-out;
-    transform: translate3d(-50px, 0, 0);
+
+.answer {
+    font-family: 'Montserrat-Medium';
+    text-align: center;
+    font-size: 22px;
+    background: #121FCF;
+    background: linear-gradient(to right, #121FCF 0%, #CF1512 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .firstQeustion {
@@ -105,7 +120,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: solid black 2px;
 }
 
 .secondQuestion>textarea {
