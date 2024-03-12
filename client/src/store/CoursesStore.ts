@@ -57,9 +57,9 @@ export default class CourseStore {
         }
     }
 
-    async checkCourse() {
+    async checkCourse(courseId: string) {
         try {
-            const response = await axios.get<CourseResponse>(`${APi_URL}/courses/refreshCourse`, { withCredentials: true })
+            const response = await axios.post<CourseResponse>(`${APi_URL}/courses/refreshCourse`, { courseId }, { withCredentials: true })
             console.log(response)
             localStorage.setItem('courseId', response.data.course.id)
             this.setCourse(response.data.course)

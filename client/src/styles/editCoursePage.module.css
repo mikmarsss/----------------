@@ -18,18 +18,78 @@
         -41px -41px 82px #a0adb7;
     display: flex;
     flex-direction: column;
+    gap: 50px;
 }
 
 .title {
     align-items: center;
     justify-content: center;
     width: 70%;
-    height: 300px;
+    height: auto;
     margin-top: 50px;
     border: solid black 2px;
     display: flex;
     flex-direction: row;
     gap: 20px;
+}
+
+.choosedTypes {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.dopTypes {
+    display: flex;
+    flex-direction: column;
+    scale: 1;
+    overflow-y: scroll;
+    border: solid black 2px;
+    height: 300px;
+    background-color: #6F31C1;
+    align-items: center;
+}
+
+.dopTypes>button {
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.showDopTypes {
+    font-size: 20px;
+}
+
+.deleteButton {
+    position: absolute;
+    background-color: #8B969F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    width: 15px;
+    height: 15px;
+}
+
+.body {
+    width: 70%;
+    height: auto;
+    border: solid black 2px;
+}
+
+.tegblock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+
+    background: #343637;
+    box-shadow: inset 5px 5px 10px #2c2e2f,
+        inset -5px -5px 10px #3c3e3f;
 }
 
 .ava {
@@ -39,7 +99,7 @@
 
 .titleName {
     width: 400px;
-    height: 200px;
+    height: auto;
     display: flex;
     flex-direction: column;
     border: solid black 2px;
@@ -48,4 +108,8 @@
 .titleName>div {
     display: flex;
     flex-direction: column;
+}
+
+.saveButtonBlock>button {
+    font-size: 30px;
 }

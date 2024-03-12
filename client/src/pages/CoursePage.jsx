@@ -127,7 +127,6 @@ function CoursePage() {
             name: 'wordpress.svg',
         },
     ]
-    console.log(courseStore.course.id)
     return (
         <>
             <Header />

@@ -5,7 +5,6 @@ class CoursesController {
         try {
             const { userId } = req.body
             const courseData = await CoursesService.CreateCourse(userId)
-            res.cookie('courseId', courseData.course.id)
             return res.json(courseData)
 
         } catch (e) {
@@ -18,7 +17,6 @@ class CoursesController {
             const { name, price, courseId, description, courseContent, type, additional_type } = req.body
             const { img } = req.files
             const courseData = await CoursesService.SaveCourseData(name, price, courseId, description, courseContent, img, type, additional_type)
-            res.cookie('courseId', courseData.course.id)
             return res.json(courseData)
 
         } catch (e) {
@@ -38,7 +36,7 @@ class CoursesController {
 
     async refreshCourse(req, res, next) {
         try {
-            const { courseId } = req.cookies
+            const { courseId } = req.body
             const courseData = await CoursesService.refreshCourse(courseId)
             return res.json(courseData)
         } catch (e) {
