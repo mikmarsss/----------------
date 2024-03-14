@@ -33,7 +33,7 @@ function EditCoursePage() {
         setCourseContent(courseContent.filter(i => (i.number !== number)))
     }
 
-    console.log(courseStore.course.course_content)
+    console.log(courseStore.course.img)
     const icons = [
         {
             id: 1,
@@ -157,6 +157,10 @@ function EditCoursePage() {
         }
     }
 
+    const selectAva = (e) => {
+        setAva(e.target.files[0])
+    }
+    console.log(ava)
     const saveData = () => {
         const formdata = new FormData()
         formdata.append('courseId', courseStore.course.id)
@@ -181,6 +185,12 @@ function EditCoursePage() {
                         <div className={styles.title}>
                             <div>
                                 <img className={styles.ava} src={"http://localhost:5000/" + courseStore.course.img} alt="" />
+                                <input
+
+                                    type="file"
+                                    id="img"
+                                    onChange={(e) => selectAva(e)}
+                                />
                             </div>
                             <div className={styles.titleName}>
                                 <div>
@@ -211,6 +221,15 @@ function EditCoursePage() {
                                         onChange={(e) => setDescription(e.target.value)}
 
                                     />
+                                </div>
+                                <div>
+                                    <label htmlFor="type">Выберите основной тип</label>
+                                    <select id="type" onChange={e => setType(e.target.value)}>
+                                        <option selected value="1">Программирование</option>
+                                        <option value="2">Дизайн</option>
+                                        <option value="3">Маркетинг</option>
+                                        <option value="4">Тестирование</option>
+                                    </select>
                                 </div>
                                 <div>
                                     {
@@ -267,7 +286,7 @@ function EditCoursePage() {
                             }
                             <button onClick={addContent}>Добавить пункт</button>
                         </div>
-                        <div className={styles.saveButtonBlock}>
+                        <div className={styles.saveButtonBlock} onClick={saveData}>
                             <button>Сохранить</button>
                         </div>
                     </div>
