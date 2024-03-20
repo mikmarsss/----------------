@@ -86,15 +86,34 @@ class CoursesService {
         return { lessons }
     }
 
-    async createLesson(moduleId) {
+    async createLesson(moduleId, lessonIndex) {
         const time = Math.floor(Date.now() / 1000)
-        const lesson = await Module_lesson.create({ number: 0, name: "Черновик", img: "logo", content: "Черновик", material: "Черновик", numberModule: "1", created_at: time, updated_at: time, course_module_id: moduleId })
+        const lesson = await Module_lesson.create({ number: lessonIndex, name: "Черновик", img: "logo.svg", content: "Черновик", material: "Черновик", numberModule: "1", created_at: time, updated_at: time, course_module_id: moduleId })
         const lessonDto = new LessonDto(lesson)
         return { lesson: lessonDto }
     }
 
     async fetchLesson(lessonId) {
         const lesson = await Module_lesson.findOne({ where: { id: lessonId } })
+        const lessonDto = new LessonDto(lesson)
+        return { lesson: lessonDto }
+    }
+
+    async saveLesson(lessonId, img, name, content) {
+        const lesson = await Module_lesson.findOne({ where: { id: lessonId } })
+        let deleteImg = lesson.img
+
+        if (deleteImg !== "logo.svg") {
+            fs.unlinkSync(path.resolve(__dirname, '..', 'static', deleteImg))
+        }
+        const time = Math.floor(Date.now() / 1000)
+        let fileName = uuid.v4() + ".jpg";
+        img.mv(path.resolve(__dirname, '..', 'static', fileName))
+        lesson.update({ updated_at: time }, { where: { id: lessonId } })
+        lesson.update({ img: fileName }, { where: { id: lessonId } })
+        lesson.update({ name: name }, { where: { id: lessonId } })
+        lesson.update({ content: content }, { where: { id: lessonId } })
+
         const lessonDto = new LessonDto(lesson)
         return { lesson: lessonDto }
     }

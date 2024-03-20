@@ -9,7 +9,8 @@ import { Context } from "..";
 import { useParams } from "react-router-dom";
 import CoursesService from "../service/CoursesService";
 import { useEffect } from "react";
-import ModulePage from "./ModulePage";
+
+
 function CoursesContent() {
 
     const [moduleIndex, setModuleIndex] = useState(0)
@@ -91,13 +92,5 @@ function CoursesContent() {
         </>
     )
 }
-
-function CreateLesson() {
-    return (
-        <>
-        </>
-    )
-}
-
 
 export default observer(CoursesContent)

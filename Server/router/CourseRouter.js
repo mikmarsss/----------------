@@ -13,5 +13,6 @@ router.post('/fetchcoursemodule', CoursesController.fetchCourseModule)
 router.post('/fetchmodulelessons', CoursesController.fetchModuleLessons)
 router.post('/createlesson', CoursesController.createLesson)
 router.post('/fetchlesson', CoursesController.fetchLesson)
+router.post('/savelesson', CoursesController.saveLesson)
 
 module.exports = router

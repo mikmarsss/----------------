@@ -41,15 +41,19 @@ export default class CoursesService {
     }
 
     static async fetchModuleLessons(moduleId: string): Promise<AxiosResponse<ILesson[]>> {
-        return $api.post<ILesson[]>('/courses/fetchmodulelessons', { moduleId })
+        return $api.post<ILesson[]>('/courses/fetchmodulelessons', { moduleId, })
     }
 
-    static async createLesson(moduleId: string): Promise<AxiosResponse<ILesson>> {
-        return $api.post<ILesson>('/courses/createlesson', { moduleId })
+    static async createLesson(moduleId: string, lessonIndex: any): Promise<AxiosResponse<ILesson>> {
+        return $api.post<ILesson>('/courses/createlesson', { moduleId, lessonIndex })
     }
 
     static async fetchLesson(lessonId: string): Promise<AxiosResponse<LessonResponse>> {
         return $api.post<LessonResponse>('/courses/fetchlesson', { lessonId })
+    }
+
+    static async saveLesson(formdata: any): Promise<AxiosResponse<LessonResponse>> {
+        return $api.post<LessonResponse>('/courses/savelesson', { formdata })
     }
 
 }

@@ -1,0 +1,28 @@
+.container {
+    width: 100%;
+    height: 100vh;
+    background-color: #8B969F;
+    display: flex;
+    justify-content: center;
+}
+
+.lessoncontainer {
+    margin-top: 100px;
+    width: 700px;
+    height: 900px;
+    border-radius: 36px;
+    background: linear-gradient(145deg, #7d878f, #95a1aa);
+    box-shadow: 41px 41px 82px #768087,
+        -41px -41px 82px #a0adb7;
+}
+
+.title {
+    display: flex;
+}
+
+.ava {
+    width: 200px;
+    height: 200px;
+}
+
+.body {}

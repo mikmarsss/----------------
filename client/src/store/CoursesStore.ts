@@ -140,9 +140,9 @@ export default class CourseStore {
 
     }
 
-    async createLesson(moduleId: string) {
+    async createLesson(moduleId: string, lessonIndex: any) {
         try {
-            const response = await CoursesService.createLesson(moduleId)
+            const response = await CoursesService.createLesson(moduleId, lessonIndex)
             console.log(response)
         } catch (e) {
             console.log(e.response?.data?.message)
@@ -153,6 +153,16 @@ export default class CourseStore {
     async fetchLesson(lessonId: string) {
         try {
             const response = await CoursesService.fetchLesson(lessonId)
+            console.log(response)
+            this.setLesson(response.data.lesson)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+    }
+
+    async saveLesson(formdata: any) {
+        try {
+            const response = await CoursesService.saveLesson(formdata)
             console.log(response)
             this.setLesson(response.data.lesson)
         } catch (e) {

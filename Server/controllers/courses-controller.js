@@ -87,8 +87,8 @@ class CoursesController {
 
     async createLesson(req, res, next) {
         try {
-            const { moduleId } = req.body
-            const lessonData = await CoursesService.createLesson(moduleId)
+            const { moduleId, lessonIndex } = req.body
+            const lessonData = await CoursesService.createLesson(moduleId, lessonIndex)
             return res.json(lessonData)
         } catch (e) {
             next(e)
@@ -99,6 +99,17 @@ class CoursesController {
         try {
             const { lessonId } = req.body
             const lessonData = await CoursesService.fetchLesson(lessonId)
+            return res.json(lessonData)
+        } catch (e) {
+            next(e)
+        }
+    }
+
+    async saveLesson(req, res, next) {
+        try {
+            const { img } = req.files
+            const { lessonId, name, content } = req.body
+            const lessonData = await CoursesService.saveLesson(lessonId, img, name, content)
             return res.json(lessonData)
         } catch (e) {
             next(e)
