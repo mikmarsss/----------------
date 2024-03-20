@@ -61,11 +61,10 @@ function CoursesContent() {
                         <button onClick={() => addModule(moduleIndex)}>Добавить модуль</button>
                         {
                             modulee.map((item, index) => (
-                                <div key={index}>
-                                    <label htmlFor="moduleName">Модуль {index}</label>
+                                <div key={index} className={styles.module}>
+                                    <label htmlFor="moduleName">Модуль {index + 1}</label>
                                     <Link to={COURSES_CONTENT + `/${courseStore.course.id}` + MODULE_PAGE + `/${item.id}`}>
                                         <button onClick={() => choseModel(item.id)}>
-
                                             Редактикровать модуль
                                         </button>
                                     </Link>
@@ -76,6 +75,14 @@ function CoursesContent() {
 
 
                     </div>
+                    {
+                        modulee.length === 0 &&
+                        <>
+                            <div>
+                                <h1>У вас нет уроков в этом модуле</h1>
+                            </div>
+                        </>
+                    }
                 </div>
             }
 

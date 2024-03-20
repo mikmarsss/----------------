@@ -1,10 +1,20 @@
 .container {
+    background-color: #8B969F;
     border: solid black 2px;
-    height: 800px;
+    height: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     padding: 30px;
+}
+
+.module {
+    border: solid black 2px;
+    width: 500px;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .newLesson {
@@ -12,9 +22,19 @@
     width: 250px;
     display: flex;
     flex-direction: column;
+
 }
 
 .contentOfLesson {
-    border: solid black 2px;
+    gap: 30px;
+    padding-top: 30px;
+    border-radius: 25px;
+    background: linear-gradient(145deg, #7d878f, #95a1aa);
+    box-shadow: 41px 41px 82px #768087,
+        -41px -41px 82px #a0adb7;
     width: 700px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

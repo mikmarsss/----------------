@@ -5,11 +5,14 @@ import axios from 'axios'
 import { APi_URL } from "../http";
 import CoursesService from "../service/CoursesService";
 import { CourseResponse } from "../models/response/CoursesResponse";
+import { ILesson } from "../models/ILesson";
 
 export default class CourseStore {
     module = {} as IModule
     course = {} as ICourse
     data = {} as ICourse;
+    lesson = {} as ILesson
+
     constructor() {
         makeAutoObservable(this)
     }
@@ -23,6 +26,10 @@ export default class CourseStore {
 
     setModule(module: IModule) {
         this.module = module
+    }
+
+    setLesson(lesson: ILesson) {
+        this.lesson = lesson
     }
 
     async createCourse(userId: string) {
@@ -121,5 +128,35 @@ export default class CourseStore {
             console.log(e.response?.data?.message)
         }
 
+    }
+
+    async fetchModuleLessons(moduleId: string) {
+        try {
+            const response = await CoursesService.fetchModuleLessons(moduleId)
+            console.log(response)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+
+    }
+
+    async createLesson(moduleId: string) {
+        try {
+            const response = await CoursesService.createLesson(moduleId)
+            console.log(response)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+
+    }
+
+    async fetchLesson(lessonId: string) {
+        try {
+            const response = await CoursesService.fetchLesson(lessonId)
+            console.log(response)
+            this.setLesson(response.data.lesson)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
     }
 }

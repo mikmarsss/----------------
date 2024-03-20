@@ -74,6 +74,36 @@ class CoursesController {
             next(e)
         }
     }
+
+    async fetchModuleLessons(req, res, next) {
+        try {
+            const { moduleId } = req.body
+            const modulesData = await CoursesService.fetchModuleLessons(moduleId)
+            return res.json(modulesData)
+        } catch (e) {
+            next(e)
+        }
+    }
+
+    async createLesson(req, res, next) {
+        try {
+            const { moduleId } = req.body
+            const lessonData = await CoursesService.createLesson(moduleId)
+            return res.json(lessonData)
+        } catch (e) {
+            next(e)
+        }
+    }
+
+    async fetchLesson(req, res, next) {
+        try {
+            const { lessonId } = req.body
+            const lessonData = await CoursesService.fetchLesson(lessonId)
+            return res.json(lessonData)
+        } catch (e) {
+            next(e)
+        }
+    }
 }
 
 module.exports = new CoursesController()

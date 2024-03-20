@@ -5,6 +5,8 @@ import { CourseResponse } from '../models/response/CoursesResponse'
 import { ModuleResponse } from '../models/response/ModuleResponse'
 import { ICourse } from "../models/ICourse";
 import { IModule } from '../models/IModule'
+import { ILesson } from "../models/ILesson";
+import { LessonResponse } from "../models/response/LessonResponse";
 export default class CoursesService {
     static async createCourse(userId: any): Promise<AxiosResponse<CourseResponse>> {
         return $api.post<CourseResponse>('/courses/createCourse', { userId })
@@ -36,6 +38,18 @@ export default class CoursesService {
 
     static async fetchCourseModule(moduleId: string): Promise<AxiosResponse<ModuleResponse>> {
         return $api.post<ModuleResponse>('/courses/fetchcoursemodule', { moduleId })
+    }
+
+    static async fetchModuleLessons(moduleId: string): Promise<AxiosResponse<ILesson[]>> {
+        return $api.post<ILesson[]>('/courses/fetchmodulelessons', { moduleId })
+    }
+
+    static async createLesson(moduleId: string): Promise<AxiosResponse<ILesson>> {
+        return $api.post<ILesson>('/courses/createlesson', { moduleId })
+    }
+
+    static async fetchLesson(lessonId: string): Promise<AxiosResponse<LessonResponse>> {
+        return $api.post<LessonResponse>('/courses/fetchlesson', { lessonId })
     }
 
 }

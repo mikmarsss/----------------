@@ -6,6 +6,8 @@ import styles from '../styles/editCoursePage.module.css'
 import { useParams } from "react-router-dom";
 import { Context } from "..";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { COURSES_CONTENT } from "../utils";
 function EditCoursePage() {
     const { store, courseStore } = useContext(Context)
     const params = useParams()
@@ -16,9 +18,9 @@ function EditCoursePage() {
     const [dopType, setDopType] = useState(courseStore.course.additional_type)
     const [showDopTypes, setShowDopTypes] = useState(false)
     const [courseContent, setCourseContent] = useState([])
-    const [name, setName] = useState('')
-    const [price, setPrice] = useState('')
-    const [description, setDescription] = useState('')
+    const [name, setName] = useState(courseStore.course.name)
+    const [price, setPrice] = useState(courseStore.course.price)
+    const [description, setDescription] = useState(courseStore.course.description)
     const [ava, setAva] = useState([])
     const [type, setType] = useState('1')
 
@@ -289,6 +291,12 @@ function EditCoursePage() {
                         <div className={styles.saveButtonBlock} onClick={saveData}>
                             <button>Сохранить</button>
                         </div>
+                        <Link to={COURSES_CONTENT + `/${courseStore.course.id}`}>
+                            <div className={styles.saveButtonBlock}>
+                                <button>Редактировать модули</button>
+                            </div>
+                        </Link>
+
                     </div>
 
                 </div>

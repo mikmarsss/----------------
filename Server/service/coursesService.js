@@ -8,6 +8,7 @@ const path = require('path')
 const fs = require('fs')
 const { DATE, where } = require('sequelize')
 const ModuleDto = require('../dtos/model-dto')
+const LessonDto = require('../dtos/lesson-dto')
 class CoursesService {
 
 
@@ -80,6 +81,23 @@ class CoursesService {
         return { module: modelDto }
     }
 
+    async fetchModuleLessons(moduleId) {
+        const lessons = await Module_lesson.findAll({ where: { course_module_id: moduleId } })
+        return { lessons }
+    }
+
+    async createLesson(moduleId) {
+        const time = Math.floor(Date.now() / 1000)
+        const lesson = await Module_lesson.create({ number: 0, name: "Черновик", img: "logo", content: "Черновик", material: "Черновик", numberModule: "1", created_at: time, updated_at: time, course_module_id: moduleId })
+        const lessonDto = new LessonDto(lesson)
+        return { lesson: lessonDto }
+    }
+
+    async fetchLesson(lessonId) {
+        const lesson = await Module_lesson.findOne({ where: { id: lessonId } })
+        const lessonDto = new LessonDto(lesson)
+        return { lesson: lessonDto }
+    }
 }
 
 module.exports = new CoursesService()

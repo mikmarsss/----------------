@@ -1,0 +1,61 @@
+.container {
+    width: 100%;
+    height: auto;
+    background-color: #8B969F;
+    display: flex;
+    justify-content: center;
+}
+
+.moduleContainer {
+    width: 1000px;
+    height: auto;
+    border-radius: 50px;
+    background: linear-gradient(145deg, #7d878f, #95a1aa);
+    box-shadow: 41px 41px 82px #768087,
+        -41px -41px 82px #a0adb7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.title>div {
+    font-size: 24px;
+}
+
+.lessons {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.lesson {
+    gap: 20px;
+    display: flex;
+    padding: 20px;
+    width: 600px;
+    height: 200px;
+    border-radius: 50px;
+    background: linear-gradient(145deg, #7d878f, #95a1aa);
+    box-shadow: 20px 20px 60px #768087,
+        -20px -20px 60px #a0adb7;
+}
+
+.imgLesson {
+    width: 200px;
+}
+
+.redbutton>button {
+    background-color: #CDA454;
+    font-family: 'Montserrat-Medium';
+    width: 200px;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 10px;
+}
