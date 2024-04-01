@@ -20,100 +20,46 @@ function PersonalAccount() {
     const { store, courseStore } = useContext(Context)
     const params = useParams()
     const current = params.id
-    const [showVhodBlock, setShowVhodBlock] = useState(null)
-    const [show, setShow] = useState('courses')
-    const [showCourses, setShowCourses] = useState('active')
-    const handleClick = (show) => {
-        setShow(show)
+    const [showCourses, setShowCourses] = useState(localStorage.getItem('choosedCourse'))
+
+    const showCourseHandler = (courseTag) => {
+        localStorage.setItem('choosedCourse', courseTag)
+        setShowCourses(courseTag)
     }
 
-    const coursesHandleClick = (show) => {
-        setShowCourses(show)
-    }
-
-
-
-    const vhodHandleClick = (showVhodBlock) => {
-        setShowVhodBlock(showVhodBlock);
-    }
-
-    const navMenuWork = 'ok'
-
-    const navMenuCourses = inProfileMenu.map((item) => (<NavMenu id={item.id} url={item.url} name={item.name} onHandleClick={coursesHandleClick} show={showCourses} />))
     return (
         <>
-            {
-                !store.isAuth &&
-                <Navigate to={CATALOG_ROUTE} />
-            }
-            <div className={`${(showVhodBlock === "show") ? styles.showVhod : styles.non}`}>
-                <VhodForm showVhodBlock={showVhodBlock} onShowVhodBlock={vhodHandleClick} />
-            </div>
             <Header />
             {
                 store.isAuth && current == store.user.id &&
-                < div className={styles.container}>
-                    <div className={styles.coursesProfile}>
-                        <div className={styles.proffileBlockButtons}>
-                            <div className={styles.firstNavButtons}>
-                                <button onClick={() => handleClick('courses')}>
-                                    <div className={`${show === 'courses' ? styles.buttonClicked : styles.coursesNavButt}`}>
-                                        курсы
-                                    </div>
-                                </button>
-                                <button onClick={() => handleClick('work')}>
-                                    <div className={`${show === 'work' ? styles.buttonClicked : styles.coursesNavButt}`}>
-                                        работа
-                                    </div>
-                                </button>
-                            </div>
-                            <div className={styles.dopFilter}>
-
-                                {show === 'courses' ? navMenuCourses : navMenuWork}
-                            </div>
-                        </div>
-
-                        <div className={styles.courses}>
-                            <div className={styles.coursescont}>
-
-                                {<ShowCourses onShowCourses={showCourses} />}
-
-                            </div>
-                        </div>
+                <div className={styles.container}>
+                    <div className={styles.navmenu}>
+                        <button onClick={() => showCourseHandler('active')} className={`${showCourses === 'active' ? styles.choosed : styles.bb}`}>активные</button>
+                        <button onClick={() => showCourseHandler('done')} className={`${showCourses === 'done' ? styles.choosed : styles.bb}`}>пройденные</button>
+                        <button onClick={() => showCourseHandler('favorite')} className={`${showCourses === 'favorite' ? styles.choosed : styles.bb}`}>избранные</button>
+                        <button onClick={() => showCourseHandler('portfolio')} className={`${showCourses === 'portfolio' ? styles.choosed : styles.bb}`}>портфолио</button>
+                        <button onClick={() => showCourseHandler('created')} className={`${showCourses === 'created' ? styles.choosed : styles.bb}`}>созданные</button>
                     </div>
-                    <div className={styles.footer}>
-                        <Footer />
+                    <div className={styles.courses}>
+                        <ShowCourses courseTag={showCourses} />
                     </div>
                 </div >
             }
+            <Footer />
 
         </>
     )
 }
 
-function NavMenu({ name, id, onHandleClick, show, url }) {
-    const handleClick = (url) => {
-        onHandleClick(url)
-    }
-    return (
-        <>
-            <button onClick={() => handleClick(url)}>
-                <div className={`${show === url ? styles.dopFilterButtonsActive : styles.dopFilterButtons}`}>
-                    {name}
-                </div>
-            </button>
-        </>
-    )
-}
-
-function ShowCourses({ onShowCourses }) {
+function ShowCourses({ courseTag }) {
+    console.log(courseTag)
     const { store, courseStore } = useContext(Context)
     const [courses, setCourses] = useState([])
     useEffect(() => {
-        if (onShowCourses === 'mycourses') {
+        if (courseTag === 'created') {
             getCourses()
         }
-    }, [onShowCourses])
+    }, [courseTag])
 
     async function getCourses() {
         try {
@@ -121,6 +67,7 @@ function ShowCourses({ onShowCourses }) {
             const dataArray = response.data.courses; // Предполагается, что courses - это массив в модели
             if (Array.isArray(dataArray)) {
                 setCourses(dataArray);
+
             } else {
                 console.error('Ожидался массив, но получен другой тип данных:', dataArray);
                 setCourses([]); // Установка пустого массива в случае ошибки
@@ -129,14 +76,16 @@ function ShowCourses({ onShowCourses }) {
             console.log(e)
         }
     }
+
     return (
         <>
-            <CoursesBlockProfile courses={courses} />
-
+            <div className={styles.coursesList}>
+                {
+                    <CoursesBlockProfile courses={courses} />
+                }
+            </div>
         </>
     )
 }
-
-
 
 export default observer(PersonalAccount)

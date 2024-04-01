@@ -10,14 +10,14 @@
     height: auto;
 }
 
-.catalog{
+.catalog {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 30px;
 }
 
-.left{
+.left {
     width: auto;
     height: auto;
     display: flex;
@@ -25,10 +25,10 @@
     flex-direction: column;
     border: solid black 2px;
     align-items: center;
-    gap: 30px   ;
+    gap: 30px;
 }
 
-.upl{
+.upl {
     width: 500px;
     height: 140px;
     background-color: white;
@@ -36,13 +36,13 @@
     border-radius: 120px;
 }
 
-.upl >button>h1 {
+.upl>button>h1 {
     font-size: 28px;
     padding-left: 50px;
     padding-top: 20px;
 }
 
-.upl>button> p{
+.upl>button>p {
     font-size: 18px;
     padding-top: 20px;
     padding-left: 150px;
@@ -51,7 +51,7 @@
 
 .downl {
     width: 500px;
-        height:600px;
+    height: 600px;
     background-color: white;
     border: solid black 2px;
     border-radius: 120px;
@@ -77,7 +77,7 @@
 }
 
 .downr {
-        border-radius: 120px;
+    border-radius: 120px;
     width: 1000px;
     height: 600px;
     background-color: white;

@@ -1,6 +1,5 @@
 .container {
-    background-color: #8B969F;
-    border: solid black 2px;
+    background-color: #3D3F4C;
     height: auto;
     display: flex;
     flex-direction: row;
@@ -15,6 +14,31 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    border: 2px #C1A875 solid;
+    gap: 30px;
+    border-radius: 20px;
+}
+
+.nameModule {
+    font-size: 30px;
+}
+
+.aboutModule {
+    display: flex;
+    flex-direction: column;
+}
+
+.addModule {
+    font-size: 30px;
+    border: 2px #C1A875 solid;
+    border-radius: 20PX;
+    padding: 10PX;
+}
+
+.numberModule {
+    font-size: 80px;
+    color: #C1A875;
+    margin-left: 70px;
 }
 
 .newLesson {
@@ -28,10 +52,6 @@
 .contentOfLesson {
     gap: 30px;
     padding-top: 30px;
-    border-radius: 25px;
-    background: linear-gradient(145deg, #7d878f, #95a1aa);
-    box-shadow: 41px 41px 82px #768087,
-        -41px -41px 82px #a0adb7;
     width: 700px;
     height: auto;
     display: flex;

@@ -9,47 +9,59 @@
 
 }
 
-.ava {
+.container {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #3D3F4C;
+    gap: 40px;
 }
 
-.qm {
-    top: 120px;
-    left: 35%;
-    position: absolute;
-    transform: rotate(-45deg);
+.navmenu {
+    margin-top: 100px;
+    width: 900px;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
 }
 
-.qm1 {
-    top: 120px;
-    left: 60%;
-    position: absolute;
-    transform: rotate(180deg);
+.navmenu>button {
+    color: #C1A875;
+    font-size: 20px;
+    width: 150px;
+    height: 40px;
+
 }
 
-.qm2 {
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    transform: rotate(75deg);
+.choosed {
+    border: 2px #C1A875 solid;
+    width: 150px;
+    height: 40px;
+    border-radius: 15px;
 }
 
-.qm3 {
-    top: 70%;
-    left: 70%;
-    position: absolute;
-    transform: rotate(-90deg);
+.courses {
+    width: 1200px;
+    height: 700px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-.qm4 {
-    top: 70%;
-    left: 20%;
-    position: absolute;
-    transform: rotate(-20deg);
+.coursesList {
+    gap: 40px;
+    justify-content: center;
+    width: 1200px;
+    height: 700px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
-
 
 .profileinfo {
     height: 300px;
@@ -61,40 +73,6 @@
     align-items: center;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    background: #8B969F;
-}
-
-.test {
-    border: solid black 2px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 25px;
-    text-align: center;
-}
-
-.testButton {
-    width: 180px;
-    height: 60px;
-    font-size: 26px;
-
-}
-
-.testButton:active {
-    font-size: 24px;
-    width: 180px;
-    height: 60px;
-    border-radius: 14px;
-    background: #8B969F;
-    box-shadow: inset 10px 10px 20px #768087,
-        inset -10px -10px 20px #a0adb7;
-}
-
-
-
 .photoButton {
     display: flex;
     flex-direction: column;
@@ -105,29 +83,6 @@
     border: solid black 2px;
 }
 
-.unauth {
-    text-align: center;
-    font-size: 36px;
-    color: #9559d4;
-    margin-top: 400px;
-
-}
-
-.unauth>button {
-    text-align: center;
-    font-size: 36px;
-    color: #FF8C37;
-}
-
-.unauth>p {
-    font-family: 'Montserrat-Medium';
-}
-
-.unauth>button {
-    font-family: 'Montserrat-Medium';
-    text-decoration: underline;
-}
-
 .photo {
     height: 183px;
     width: 214px;
@@ -135,7 +90,11 @@
     border-radius: 15px;
 }
 
-
+.ava {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
 .mainInfo {
 
@@ -177,13 +136,24 @@
     font-family: 'Montserrat-Medium';
 }
 
-.second {
-    width: 750px;
-    height: 300px;
-    display: flex;
-    flex-direction: row;
-    gap: 10%;
-    justify-content: center;
+disabled>div>input {
+    font-family: 'Montserrat-Medium';
+    pointer-events: none;
+    appearance: none;
+    outline: none;
+    border-bottom: .2em solid #9559d4;
+    border-radius: 5px;
+    padding: .4em;
+}
+
+.disabled>div>textarea {
+    font-family: 'Montserrat-Medium';
+    pointer-events: none;
+    appearance: none;
+    outline: none;
+    border: 2px solid #9559d4;
+    border-radius: 15px;
+    padding: .4em;
 }
 
 .aboutMe {
@@ -207,6 +177,46 @@
     border-radius: 15px;
     padding: 10px;
     font-size: 16px;
+}
+
+.test {
+    border: solid black 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+    text-align: center;
+}
+
+.testButton {
+    width: 180px;
+    height: 60px;
+    font-size: 26px;
+
+}
+
+.testButton:active {
+    font-size: 24px;
+    width: 180px;
+    height: 60px;
+    border-radius: 14px;
+    background: #8B969F;
+    box-shadow: inset 10px 10px 20px #768087,
+        inset -10px -10px 20px #a0adb7;
+}
+
+.emailPassword {
+    display: flex;
+    justify-content: center;
+}
+
+.second {
+    width: 750px;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+    justify-content: center;
 }
 
 .second>div>div>p {
@@ -238,330 +248,4 @@
 .passwordError {
     color: red;
     font-family: 'Montserrat-Medium';
-}
-
-.passwordInput {
-    border: none;
-    outline: none;
-    border-bottom: .2em solid red !important;
-    border-radius: .2em .2em 0 0;
-}
-
-
-
-.redButtonError>button {
-    width: 180px;
-    height: 50px;
-    font-size: 18px;
-    border-radius: 15px;
-    border: none;
-    border-bottom: red 2px solid;
-    border-top: red 2px solid;
-
-}
-
-.changePassBlock {
-    z-index: 3;
-    background-color: #9559d4;
-    width: 400px;
-    height: 300px;
-    border-radius: 31px 31px 31px 31px;
-    left: 0;
-    right: 0;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-}
-
-.inputCode {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.disabled>div>input {
-    font-family: 'Montserrat-Medium';
-    pointer-events: none;
-    appearance: none;
-    outline: none;
-    border-bottom: .2em solid #9559d4;
-    border-radius: 5px;
-    padding: .4em;
-}
-
-.disabled>div>textarea {
-    font-family: 'Montserrat-Medium';
-    pointer-events: none;
-    appearance: none;
-    outline: none;
-    border: 2px solid #9559d4;
-    border-radius: 15px;
-    padding: .4em;
-}
-
-
-.proffileBlockButtons {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.coursesProfile {
-
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    gap: 30px;
-    margin-top: 5%;
-
-}
-
-.firstNavButtons {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    border-radius: 15px;
-}
-
-.coursesNavButt {
-    font-family: 'Montserrat-Medium';
-    width: 300px;
-    height: 53px;
-    font-size: 25px;
-    color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 18px;
-}
-
-.buttonClicked {
-    border-radius: 18px;
-    font-family: 'Montserrat-Medium';
-    width: 300px;
-    height: 53px;
-    background-color: #0576C2;
-    font-size: 25px;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.footer {
-    margin-top: 35%;
-}
-
-
-
-.redButton>button {
-    width: 180px;
-    height: 50px;
-    font-size: 18px;
-    border-radius: 15px;
-    border: none;
-    border-bottom: #9559d4 2px solid;
-    border-top: #9559d4 2px solid;
-}
-
-
-.buttext {
-    font-family: 'Montserrat-Medium';
-}
-
-.redButton>button:active {
-    background-color: #9559d4;
-    color: white;
-}
-
-.linia {
-    width: 85%;
-    max-width: 1100px;
-}
-
-.courses {
-    width: 1200px;
-    height: auto;
-}
-
-
-
-.coursbuttons {
-    display: flex;
-    gap: 10%;
-    position: absolute;
-    top: 519px;
-    width: 490px;
-    left: 620px;
-}
-
-.coursbuttons>button {
-    font-size: 20px;
-}
-
-.underlinedecor {
-    text-decoration: underline #9559d4 4px;
-    text-underline-offset: 4px;
-}
-
-.Mycourse {
-    border: solid black 2px;
-
-}
-
-.coursescont {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-
-}
-
-
-
-.coursesblock {
-    width: 460px;
-    height: 220px;
-    border-radius: 20px;
-    background-image: url(../Images/coursesback.svg);
-
-}
-
-.courselogo {
-    margin-top: 20px;
-    margin-left: 20px;
-}
-
-.coursename {
-    margin-left: 190px;
-    margin-top: -120px;
-
-}
-
-.coursename>button {
-    font-size: 18px;
-    font-family: 'Montserrat-Bold';
-    text-align: left;
-}
-
-.courseauthor {
-    margin-top: 10px;
-    margin-left: 190px;
-    font-size: 12px;
-}
-
-.coursecost {
-    color: #FF8C37;
-    font-family: 'Montserrat-Bold';
-    font-size: 24px;
-    margin-left: 190px;
-    margin-top: 10px;
-}
-
-.activecourses {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    width: 1500px;
-
-}
-
-.dopFilterButtons {
-    font-family: 'Montserrat-Medium';
-    font-size: 25px;
-    color: black;
-    height: 53px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.dopFilterButtonsActive {
-    font-family: 'Montserrat-Medium';
-    border-radius: 10px;
-    background-color: #0576C2;
-    font-size: 25px;
-    color: white;
-    height: 53px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.non {
-    display: none;
-}
-
-.emailPassword {
-    display: flex;
-    justify-content: center;
-}
-
-.dopFilter {
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-@media only screen and (max-width: 1920px) {
-
-    .firstNavButtons {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-
-        border-radius: 15px;
-        width: 250px;
-    }
-
-    .dopFilter {
-        width: 250px;
-        border-radius: 15px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .coursescont {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-
-
-    }
-
-    .coursesNavButt {
-        font-family: 'Montserrat-Medium';
-        width: 250px;
-        height: 53px;
-        font-size: 25px;
-        color: black;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 18px;
-    }
-
-    .buttonClicked {
-        border-radius: 10px;
-        font-family: 'Montserrat-Medium';
-        width: 250px;
-        height: 53px;
-        font-size: 25px;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
 }

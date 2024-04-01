@@ -133,36 +133,37 @@ function CoursePage() {
             <div className={styles.container}>
                 <div className={styles.courseInfo}>
                     <div className={styles.title}>
-                        {
-                            courseStore.course.creator_id === store.user.id &&
-                            <Link to={EDITCOURSE_PAGE + `/${courseStore.course.id}`}>
-                                <button className={styles.button}>
-                                    <p>
-                                        редактировать
-                                    </p>
-                                </button>
-                            </Link>
-                        }
 
-                        {
-                            courseStore.course.creator_id !== store.user.id &&
-                            <button className={styles.button}>
-                                <p>
-                                    Купить
-                                </p>
-                            </button>
-                        }
-
-                        {
-                            courseStore.course.price === 0 &&
-                            <button className={styles.button}>
-                                <p>
-                                    учиться
-                                </p>
-                            </button>
-                        }
                         <div className={styles.imgfield}>
                             <img className={styles.ava} src={"http://localhost:5000/" + courseStore.course.img} alt="" />
+                            {
+                                courseStore.course.creator_id === store.user.id &&
+                                <Link to={EDITCOURSE_PAGE + `/${courseStore.course.id}`}>
+                                    <button className={styles.button}>
+                                        <p>
+                                            редактировать
+                                        </p>
+                                    </button>
+                                </Link>
+                            }
+
+                            {
+                                courseStore.course.creator_id !== store.user.id &&
+                                <button className={styles.button}>
+                                    <p>
+                                        Купить
+                                    </p>
+                                </button>
+                            }
+
+                            {
+                                courseStore.course.price === 0 &&
+                                <button className={styles.button}>
+                                    <p>
+                                        учиться
+                                    </p>
+                                </button>
+                            }
                         </div>
                         <div className={styles.titleInfo}>
                             <div>
@@ -175,7 +176,7 @@ function CoursePage() {
                                 {courseStore.course.additional_type &&
                                     icons.filter(item => courseStore.course.additional_type.includes(item.id)).map(item => (
                                         <div key={item.id}>
-                                            <img className={styles.ava} src={`http://localhost:5000/${item.name}`} alt="" />
+                                            <img src={`http://localhost:5000/${item.name}`} alt="" />
                                         </div>
                                     ))
                                 }

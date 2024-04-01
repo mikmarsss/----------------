@@ -59,17 +59,23 @@ function CoursesContent() {
                 current == courseStore.course.id &&
                 <div className={styles.container}>
                     <div className={styles.contentOfLesson}>
-                        <button onClick={() => addModule(moduleIndex)}>Добавить модуль</button>
+                        <button className={styles.addModule} onClick={() => addModule(moduleIndex)}>Добавить модуль</button>
                         {
                             modulee.map((item, index) => (
                                 <div key={index} className={styles.module}>
-                                    <label htmlFor="moduleName">Модуль {index + 1}</label>
-                                    <Link to={COURSES_CONTENT + `/${courseStore.course.id}` + MODULE_PAGE + `/${item.id}`}>
-                                        <button onClick={() => choseModel(item.id)}>
-                                            Редактикровать модуль
-                                        </button>
-                                    </Link>
-
+                                    <div className={styles.numberModule}>
+                                        {index + 1}
+                                    </div>
+                                    <div className={styles.aboutModule}>
+                                        <div className={styles.nameModule}>
+                                            {item.name}
+                                        </div>
+                                        <Link to={COURSES_CONTENT + `/${courseStore.course.id}` + MODULE_PAGE + `/${item.id}`}>
+                                            <button onClick={() => choseModel(item.id)}>
+                                                Редактикровать модуль
+                                            </button>
+                                        </Link>
+                                    </div>
                                 </div>
                             ))
                         }

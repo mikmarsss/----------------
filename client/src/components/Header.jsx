@@ -13,15 +13,16 @@ import {
     Link,
     useNavigate
 } from "react-router-dom";
-import { CATALOG_ROUTE, CREATE_ROUTE, PERSONAL_PAGE } from '../utils';
+import { AUTHORIZATION_PAGE, CATALOG_ROUTE, CREATE_ROUTE, PERSONAL_PAGE } from '../utils';
 
 
 
-function Header({ }) {
-    const [showUnderline, setShowUnderline] = useState('course')
+function Header() {
+    const [showUnderline, setShowUnderline] = useState(localStorage.getItem('coursetag'))
     const { store } = useContext(Context)
 
     const handleClickNavButtons = (tag) => {
+        localStorage.setItem('coursetag', tag)
         setShowUnderline(tag)
     }
 
@@ -63,11 +64,11 @@ function Header({ }) {
 
                         </div>
                         <div className={styles.firstbutton}>
-                            <div>
+                            <div className={styles.profile}>
                                 {
                                     store.isAuth &&
                                     <Link to={PERSONAL_PAGE + `/${store.user.id}`}>
-                                        <button className={styles.navButtuns}>
+                                        <button onClick={() => handleClickNavButtons('profile')} className={`${styles.navButtuns} ${showUnderline === 'profile' ? styles.underline : styles.nn}`}>
                                             {store.user.username}
                                         </button>
                                     </Link>
@@ -75,12 +76,11 @@ function Header({ }) {
                                 {
                                     !store.isAuth &&
                                     <>
-                                        <button className={styles.navButtuns}>
-                                            Вход
-                                        </button>
-                                        <button className={styles.navButtuns}>
-                                            Регистрация
-                                        </button>
+                                        <Link to={AUTHORIZATION_PAGE}>
+                                            <button className={styles.navButtuns}>
+                                                Авторизация
+                                            </button>
+                                        </Link>
                                     </>
                                 }
                             </div>
