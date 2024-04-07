@@ -13,7 +13,7 @@ export default class CoursesService {
     }
 
     static async createModule(courseId: string, index: string): Promise<AxiosResponse<ModuleResponse>> {
-        return $api.post<ModuleResponse>('/courses/createModule', { courseId, index })
+        return $api.post<ModuleResponse>('/module/createModule', { courseId, index })
     }
 
     static async saveCourseData(formdata: any): Promise<AxiosResponse<CourseResponse>> {
@@ -33,28 +33,43 @@ export default class CoursesService {
     }
 
     static async fetchCourseModules(courseId: string): Promise<AxiosResponse<IModule[]>> {
-        return $api.post<IModule[]>('/courses/fetchcoursemodules', { courseId })
+        return $api.post<IModule[]>('/module/fetchcoursemodules', { courseId })
     }
 
     static async fetchCourseModule(moduleId: string): Promise<AxiosResponse<ModuleResponse>> {
-        return $api.post<ModuleResponse>('/courses/fetchcoursemodule', { moduleId })
+        return $api.post<ModuleResponse>('/module/fetchcoursemodule', { moduleId })
     }
 
     static async fetchModuleLessons(moduleId: string): Promise<AxiosResponse<ILesson[]>> {
-        return $api.post<ILesson[]>('/courses/fetchmodulelessons', { moduleId, })
+        return $api.post<ILesson[]>('/lesson/fetchmodulelessons', { moduleId, })
     }
 
-    static async createLesson(moduleId: string, lessonIndex: any): Promise<AxiosResponse<ILesson>> {
-        return $api.post<ILesson>('/courses/createlesson', { moduleId, lessonIndex })
+    static async createLesson(moduleId: string, moduleNumber: any): Promise<AxiosResponse<ILesson>> {
+        return $api.post<ILesson>('/lesson/createlesson', { moduleId, moduleNumber })
     }
 
     static async fetchLesson(lessonId: string): Promise<AxiosResponse<LessonResponse>> {
-        return $api.post<LessonResponse>('/courses/fetchlesson', { lessonId })
+        return $api.post<LessonResponse>('/lesson/fetchlesson', { lessonId })
     }
 
     static async saveLesson(formdata: any): Promise<AxiosResponse<LessonResponse>> {
-        return $api.post<LessonResponse>('/courses/savelesson', { formdata })
+        return $api.post<LessonResponse>('/lesson/savelesson', { formdata })
     }
 
+    static async refreshModule(moduleId: string): Promise<AxiosResponse<ModuleResponse>> {
+        return $api.post<ModuleResponse>('/module/refreshModule', { moduleId })
+    }
+
+    static async refreshLesson(lessonId: string): Promise<AxiosResponse<LessonResponse>> {
+        return $api.post<LessonResponse>('/lesson/savelesson', { lessonId })
+    }
+
+    static async saveModule(moduleId: string, name: string, description: string): Promise<AxiosResponse<ModuleResponse>> {
+        return $api.post<ModuleResponse>('/module/saveModule', { moduleId, name, description })
+    }
+
+    static async deleteModule(moduleId: string): Promise<AxiosResponse<ModuleResponse>> {
+        return $api.post<ModuleResponse>('/module/deleteModule', { moduleId })
+    }
 }
 

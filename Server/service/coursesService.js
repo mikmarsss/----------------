@@ -1,16 +1,11 @@
 const { Course_info } = require('../models/user-model')
-const { Course_module } = require('../models/user-model')
-const { Module_lesson } = require('../models/user-model')
 const { Creator } = require('../models/user-model')
 const CourseDto = require('../dtos/course-dto')
 const uuid = require('uuid')
 const path = require('path')
 const fs = require('fs')
-const { DATE, where } = require('sequelize')
-const ModuleDto = require('../dtos/model-dto')
-const LessonDto = require('../dtos/lesson-dto')
-class CoursesService {
 
+class CoursesService {
 
     async CreateCourse(userId) {
         const creator = await Creator.findOne({ where: { user_id: userId } })
@@ -48,13 +43,6 @@ class CoursesService {
         return { course: courseDto }
     }
 
-    async CreateModule(courseId, index) {
-        const time = Math.floor(Date.now() / 1000)
-        const modulee = await Course_module.create({ number: index, course_info_id: courseId, name: "Новый Модуль", description: "Черновик", created_at: time, updated_at: time })
-        const moduleeDto = new ModuleDto(modulee)
-        return { module: moduleeDto }
-    }
-
     async refreshCourse(courseId) {
         const course = await Course_info.findOne({ where: { id: courseId } })
         const courseDto = new CourseDto(course)
@@ -68,55 +56,6 @@ class CoursesService {
         return { courses }
     }
 
-    async fetchCourseModules(courseId) {
-        const modules = await Course_module.findAll({ where: { course_info_id: courseId } })
-
-        return { modules }
-    }
-
-    async fetchCourseModule(moduleId) {
-        const modules = await Course_module.findOne({ where: { id: moduleId } })
-        const modelDto = new ModuleDto(modules)
-
-        return { module: modelDto }
-    }
-
-    async fetchModuleLessons(moduleId) {
-        const lessons = await Module_lesson.findAll({ where: { course_module_id: moduleId } })
-        return { lessons }
-    }
-
-    async createLesson(moduleId, lessonIndex) {
-        const time = Math.floor(Date.now() / 1000)
-        const lesson = await Module_lesson.create({ number: lessonIndex, name: "Черновик", img: "logo.svg", content: "Черновик", material: "Черновик", numberModule: "1", created_at: time, updated_at: time, course_module_id: moduleId })
-        const lessonDto = new LessonDto(lesson)
-        return { lesson: lessonDto }
-    }
-
-    async fetchLesson(lessonId) {
-        const lesson = await Module_lesson.findOne({ where: { id: lessonId } })
-        const lessonDto = new LessonDto(lesson)
-        return { lesson: lessonDto }
-    }
-
-    async saveLesson(lessonId, img, name, content) {
-        const lesson = await Module_lesson.findOne({ where: { id: lessonId } })
-        let deleteImg = lesson.img
-
-        if (deleteImg !== "logo.svg") {
-            fs.unlinkSync(path.resolve(__dirname, '..', 'static', deleteImg))
-        }
-        const time = Math.floor(Date.now() / 1000)
-        let fileName = uuid.v4() + ".jpg";
-        img.mv(path.resolve(__dirname, '..', 'static', fileName))
-        lesson.update({ updated_at: time }, { where: { id: lessonId } })
-        lesson.update({ img: fileName }, { where: { id: lessonId } })
-        lesson.update({ name: name }, { where: { id: lessonId } })
-        lesson.update({ content: content }, { where: { id: lessonId } })
-
-        const lessonDto = new LessonDto(lesson)
-        return { lesson: lessonDto }
-    }
 }
 
 module.exports = new CoursesService()

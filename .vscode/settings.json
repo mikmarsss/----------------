@@ -3,10 +3,9 @@
     "editor.formatOnPaste": true,
     "liveSassCompile.settings.autoprefix": [],
     "explorer.confirmDelete": false,
-    "editor.fontSize": 20,
+    "editor.fontSize": 18,
     // "editor.fontWeight": "bold",
     "editor.cursorBlinking": "smooth",
-    "editor.fontFamily": "Iosevka NFM, 'Courier New', monospace",
     "emmet.includeLanguages": {
         "javascript": "javascriptreact"
     },
@@ -19,5 +18,6 @@
     "figma.autocompleteBlocks": true,
     "workbench.preferredDarkColorTheme": "Default High Contrast Light",
     "workbench.colorTheme": "Winter is Coming (Dark Blue)",
-    "javascript.updateImportsOnFileMove.enabled": "always"
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "editor.fontFamily": "JetBrains Mono"
 }

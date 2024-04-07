@@ -2,8 +2,8 @@
     background-color: #3D3F4C;
     height: auto;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
     padding: 30px;
 }
 
@@ -57,4 +57,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.deleteButton {
+    border: 2px #C1A875 solid;
+    font-size: 26px;
+    padding: 20px;
+    border-radius: 20PX;
 }

@@ -16,6 +16,9 @@ function App() {
         if (localStorage.getItem('courseId')) {
             courseStore.checkCourse(localStorage.getItem('courseId'))
         }
+        if (localStorage.getItem('moduleId')) {
+            courseStore.refresshModule(localStorage.getItem('moduleId'))
+        }
     }, [])
 
 

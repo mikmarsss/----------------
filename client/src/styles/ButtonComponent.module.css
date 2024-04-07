@@ -1,0 +1,8 @@
+.redbutton>button {
+    background-color: #CDA454;
+    font-family: 'Montserrat-Medium';
+    width: 200px;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 10px;
+}

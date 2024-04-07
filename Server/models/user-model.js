@@ -78,14 +78,24 @@ const Module_lesson = sequelize.define('module_lesson', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     number: { type: DataTypes.INTEGER },
     name: { type: DataTypes.STRING, allowNull: false },
-    img: { type: DataTypes.STRING, allowNull: false },
     content: { type: DataTypes.STRING, allowNull: false },
-    material: { type: DataTypes.STRING, allowNull: false },
     numberModule: { type: DataTypes.STRING, allowNull: false },
     created_at: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW },
     updated_at: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW },
     course_module_id: { type: DataTypes.INTEGER },
 
+}, { sequelize, timestamps: false })
+
+const Lesson_Chapter = sequelize.define('lesson_chapter', {
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    number: { type: DataTypes.INTEGER },
+    name: { type: DataTypes.STRING, allowNull: false },
+    content: { type: DataTypes.STRING, allowNull: false },
+    numberLesson: { type: DataTypes.STRING, allowNull: false },
+    created_at: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW },
+    updated_at: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW },
+    course_lesson_id: { type: DataTypes.INTEGER },
+    imgs: { type: DataTypes.STRING }
 }, { sequelize, timestamps: false })
 
 const Creator = sequelize.define('creator', {
@@ -105,6 +115,9 @@ const TokenSchema = sequelize.define('token', {
     refreshToken: { type: DataTypes.STRING, allowNull: false },
     userId: { type: DataTypes.INTEGER, allowNull: false }
 })
+
+Module_lesson.hasMany(Lesson_Chapter, { foreignKey: 'course_lesson_id' })
+Lesson_Chapter.belongsTo(Module_lesson, { foreignKey: 'course_lesson_id' })
 
 Course_module.hasMany(Module_lesson, { foreignKey: 'course_module_id' })
 Module_lesson.belongsTo(Course_module, { foreignKey: 'course_module_id' })
@@ -156,4 +169,5 @@ module.exports = {
     Creator,
     Rating,
     TokenSchema,
+    Lesson_Chapter,
 }

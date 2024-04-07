@@ -1,28 +1,50 @@
 .container {
     width: 100%;
     height: 100vh;
-    background-color: #8B969F;
+    background-color: #3D3F4C;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .lessoncontainer {
-    margin-top: 100px;
-    width: 700px;
+    width: 1200px;
     height: 900px;
-    border-radius: 36px;
-    background: linear-gradient(145deg, #7d878f, #95a1aa);
-    box-shadow: 41px 41px 82px #768087,
-        -41px -41px 82px #a0adb7;
+    border: 2px #C1A875 solid;
 }
 
 .title {
     display: flex;
 }
 
-.ava {
-    width: 200px;
-    height: 200px;
+.body {}
+
+.moduleName {
+    color: white;
+    font-size: 50px;
+    margin-top: 50px;
 }
 
-.body {}
+.logininput {
+    border: none;
+    border-bottom: 2px solid #D1D1D4;
+    background: none;
+    padding: 10px;
+    padding-left: 24px;
+    font-weight: 700;
+    width: 75%;
+    transition: .2s;
+    color: white;
+    font-size: 40px;
+}
+
+.logininput:active,
+.logininput:focus,
+.logininput:hover {
+    outline: none;
+    border-bottom-color: #C1A875;
+}
+
+.lessonName {
+    width: 400px;
+}

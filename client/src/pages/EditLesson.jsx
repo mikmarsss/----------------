@@ -46,15 +46,14 @@ function EditLesson() {
                 current == courseStore.lesson.id &&
                 <>
                     <div className={styles.container}>
+                        <div className={styles.moduleName}>
+                            {courseStore.module.name}
+                        </div>
                         <div className={styles.lessoncontainer}>
                             <div className={styles.title}>
-                                <div>
-                                    <img className={styles.ava} src={`http://localhost:5000/${courseStore.lesson.img}`} alt="" />
-                                    <input type="file" onChange={(e) => selectAva(e)} />
-                                </div>
-                                <div>
-
+                                <div className={styles.lessonName}>
                                     <input
+                                        className={styles.logininput}
                                         type="text"
                                         placeholder={courseStore.lesson.name}
                                         onChange={(e) => setName(e.target.value)}
@@ -62,10 +61,7 @@ function EditLesson() {
                                 </div>
                             </div>
                             <div className={styles.body}>
-                                <textarea
-                                    placeholder={courseStore.lesson.content}
-                                    onChange={(e) => setContent(e.target.value)}
-                                ></textarea>
+
                             </div>
                             <button onClick={saveData}>Сохранить</button>
 

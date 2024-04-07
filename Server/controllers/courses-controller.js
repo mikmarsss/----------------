@@ -24,16 +24,6 @@ class CoursesController {
         }
     }
 
-    async CreateModule(req, res, next) {
-        try {
-            const { courseId, index } = req.body
-            const moduleData = await CoursesService.CreateModule(courseId, index)
-            return res.json(moduleData)
-        } catch (e) {
-            next(e)
-        }
-    }
-
     async refreshCourse(req, res, next) {
         try {
             const { courseId } = req.body
@@ -50,67 +40,6 @@ class CoursesController {
             const { userId } = req.body
             const coursesData = await CoursesService.fetchUserCourses(userId)
             return res.json(coursesData)
-        } catch (e) {
-            next(e)
-        }
-    }
-
-    async fetchCourseModules(req, res, next) {
-        try {
-            const { courseId } = req.body
-            const modulesData = await CoursesService.fetchCourseModules(courseId)
-            return res.json(modulesData)
-        } catch (e) {
-            next(e)
-        }
-    }
-
-    async fetchCourseModule(req, res, next) {
-        try {
-            const { moduleId } = req.body
-            const modulesData = await CoursesService.fetchCourseModule(moduleId)
-            return res.json(modulesData)
-        } catch (e) {
-            next(e)
-        }
-    }
-
-    async fetchModuleLessons(req, res, next) {
-        try {
-            const { moduleId } = req.body
-            const modulesData = await CoursesService.fetchModuleLessons(moduleId)
-            return res.json(modulesData)
-        } catch (e) {
-            next(e)
-        }
-    }
-
-    async createLesson(req, res, next) {
-        try {
-            const { moduleId, lessonIndex } = req.body
-            const lessonData = await CoursesService.createLesson(moduleId, lessonIndex)
-            return res.json(lessonData)
-        } catch (e) {
-            next(e)
-        }
-    }
-
-    async fetchLesson(req, res, next) {
-        try {
-            const { lessonId } = req.body
-            const lessonData = await CoursesService.fetchLesson(lessonId)
-            return res.json(lessonData)
-        } catch (e) {
-            next(e)
-        }
-    }
-
-    async saveLesson(req, res, next) {
-        try {
-            const { img } = req.files
-            const { lessonId, name, content } = req.body
-            const lessonData = await CoursesService.saveLesson(lessonId, img, name, content)
-            return res.json(lessonData)
         } catch (e) {
             next(e)
         }

@@ -75,6 +75,16 @@ export default class CourseStore {
         }
     }
 
+    async refresshModule(moduleId: string) {
+        try {
+            const response = await CoursesService.refreshModule(moduleId)
+            console.log(response)
+            this.setModule(response.data.module)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+    }
+
     async fetchUserCourses(userId: string) {
         try {
             const response = await CoursesService.fetchUserCourses(userId)
@@ -140,9 +150,9 @@ export default class CourseStore {
 
     }
 
-    async createLesson(moduleId: string, lessonIndex: any) {
+    async createLesson(moduleId: string, moduleNumber: any) {
         try {
-            const response = await CoursesService.createLesson(moduleId, lessonIndex)
+            const response = await CoursesService.createLesson(moduleId, moduleNumber)
             console.log(response)
         } catch (e) {
             console.log(e.response?.data?.message)
@@ -165,6 +175,26 @@ export default class CourseStore {
             const response = await CoursesService.saveLesson(formdata)
             console.log(response)
             this.setLesson(response.data.lesson)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+    }
+
+    async saveModule(moduleId: string, name: string, description: string) {
+        try {
+            const response = await CoursesService.saveModule(moduleId, name, description)
+            console.log(response)
+            this.setModule(response.data.module)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+    }
+
+    async deleteModule(moduleId: string) {
+        try {
+            const response = await CoursesService.deleteModule(moduleId)
+            console.log(response)
+            this.setModule(response.data.module)
         } catch (e) {
             console.log(e.response?.data?.message)
         }

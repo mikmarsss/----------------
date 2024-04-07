@@ -8,37 +8,49 @@ import { useParams } from "react-router-dom";
 import styles from "../styles/modulePage.module.css"
 import CoursesService from "../service/CoursesService";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import EditLesson from "./EditLesson";
 import { EDIT_LESSON, MODULE_PAGE, COURSES_CONTENT } from "../utils";
+
 
 function ModulePage() {
     const { store, courseStore } = useContext(Context)
     const params = useParams()
     const current = params.id
     const [lessons, setLessons] = useState([])
-    const [lessonIndex, setLessonIndex] = useState(1)
+    const [name, setName] = useState(courseStore.module.name)
+    const [description, setDescription] = useState(courseStore.module.description)
+    const [newLesson, setNewLesson] = useState(0)
 
     useEffect(() => {
         getModule()
-    }, [])
+    }, [newLesson])
 
+    const [editTitle, setEditTilte] = useState(false)
+
+    const editHandler = (e) => {
+        setEditTilte(e === false ? true : false)
+        if (e === true) {
+            courseStore.saveModule(courseStore.module.id, name, description)
+        }
+    }
     // const removeInfo = (number) => {
     //     setModule(modulee.filter(i => (i.number !== number)))
     // }
 
-    const addLesson = (lessonIndex) => {
+    const addLesson = () => {
         setLessons([...lessons, []])
-        setLessonIndex(prevCount => prevCount + 1)
-        courseStore.createLesson(courseStore.module.id, lessonIndex)
-        console.log(courseStore.module.id, lessonIndex)
+        setNewLesson(newLesson + 1)
+        courseStore.createLesson(courseStore.module.id, courseStore.module.number)
     }
 
     async function getModule() {
         try {
-            let moduleId = localStorage.getItem('moduleId')
-            await courseStore.fetchCourseModule(moduleId)
-            const response = await CoursesService.fetchModuleLessons(courseStore.module.id)
+            await courseStore.fetchCourseModule(current)
+            setName(courseStore.module.name)
+            setDescription(courseStore.module.description)
+
+            const response = await CoursesService.fetchModuleLessons(current)
             const dataArray = response.data.lessons;
             if (Array.isArray(dataArray)) {
                 setLessons(dataArray);
@@ -50,7 +62,6 @@ function ModulePage() {
             console.log(e)
         }
     }
-    console.log(lessons)
     return (
         <>
             <Header />
@@ -59,15 +70,54 @@ function ModulePage() {
                 <div className={styles.container}>
                     <div className={styles.moduleContainer}>
                         <div className={styles.title}>
-                            <div>
-                                {courseStore.module.name}
-                            </div>
-                            <div>
-                                {courseStore.module.description}
-                            </div>
+                            {
+                                editTitle === true &&
+                                <>
+                                    <div>
+                                        <input
+                                            className={styles.logininput}
+                                            type="text"
+                                            onChange={(e) => setName(e.target.value)}
+                                            placeholder={name}
+                                        />
+
+                                    </div>
+                                    <div>
+                                        <input
+                                            className={styles.logininput}
+                                            type="text"
+                                            onChange={(e) => setDescription(e.target.value)}
+                                            placeholder={description}
+                                        />
+                                    </div>
+
+                                </>
+                            }
+
+                            {
+                                editTitle === false &&
+                                <>
+                                    <div>
+                                        {name}
+                                    </div>
+                                    <div>
+                                        {description}
+                                    </div>
+                                </>
+                            }
+                            <button onClick={() => editHandler(editTitle)}>
+                                {
+                                    editTitle === true &&
+                                    <p>Сохрнаить</p>
+                                }
+                                {
+                                    editTitle === false &&
+                                    <p>Редактировать</p>
+                                }
+                            </button>
                         </div>
                         <div className={styles.createLesson}>
-                            <button onClick={() => addLesson(lessonIndex)}>Добавить урок</button>
+                            <button onClick={() => addLesson()}>Добавить урок</button>
                         </div>
                         <div className={styles.lessons}>
                             {
@@ -80,7 +130,7 @@ function ModulePage() {
                                                     <img className={styles.ava} src={`http://localhost:5000/${item.img}`} alt="" />
                                                 </div>
                                                 <div className={styles.lessonInfo}>
-                                                    <div>Модуль {courseStore.module.number + 1} Урок {index + 1} </div>
+                                                    <div>Модуль {courseStore.module.number} Урок {index + 1} </div>
                                                     {item.name}
                                                 </div>
                                                 <Link to={COURSES_CONTENT + `/${courseStore.course.id}` + MODULE_PAGE + `/${courseStore.module.id}` + EDIT_LESSON + `/${item.id}`}>
