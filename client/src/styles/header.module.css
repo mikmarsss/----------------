@@ -39,12 +39,11 @@
     height: 100PX;
     display: flex;
     align-items: center;
+    justify-content: center;
 
 }
 
-.logo {
-    scale: 0.5;
-}
+.logo {}
 
 .course {
     gap: 30px;
@@ -67,7 +66,6 @@
 
 .dropdownButtons {
     display: flex;
-    margin-left: 1200px;
     gap: 30px;
 }
 

@@ -11,4 +11,7 @@ export interface IUser {
     aboutMe: string;
     img: string;
     test_result: string;
+    user_done_courses: number;
+    user_done_lessons: number;
+    user_done_tasks: number;
 }

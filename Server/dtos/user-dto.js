@@ -11,6 +11,9 @@ module.exports = class UserDto {
     aboutMe;
     img;
     test_result;
+    user_done_courses;
+    user_done_lessons;
+    user_done_tasks;
     constructor(model) {
         this.email = model.email;
         this.id = model.id;
@@ -24,5 +27,8 @@ module.exports = class UserDto {
         this.aboutMe = model.aboutMe
         this.img = model.img
         this.test_result = model.test_result
+        this.user_done_courses = model.user_done_courses
+        this.user_done_lessons = model.user_done_lessons
+        this.user_done_tasks = model.user_done_tasks
     }
 }

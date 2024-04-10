@@ -43,12 +43,17 @@ function Header() {
                         <div className={styles.firstbutton}>
                             <div className={styles.course}>
                                 <Link to={CATALOG_ROUTE}>
-                                    <button onClick={() => handleClickNavButtons('course')} className={`${styles.navButtuns} ${showUnderline === 'course' ? styles.underline : styles.nn}`}>
+                                    <button onClick={() => handleClickNavButtons('catalog')} className={`${styles.navButtuns}`}>
+                                        Главная
+                                    </button>
+                                </Link>
+                                <Link to={CATALOG_ROUTE}>
+                                    <button onClick={() => handleClickNavButtons('course')} className={`${styles.navButtuns}`}>
                                         Курсы
                                     </button>
                                 </Link>
                                 <Link to={CREATE_ROUTE}>
-                                    <button onClick={() => handleClickNavButtons('create')} className={`${styles.navButtuns} ${showUnderline === 'create' ? styles.underline : styles.nn}`}>
+                                    <button onClick={() => handleClickNavButtons('create')} className={`${styles.navButtuns} `}>
                                         Создать
                                     </button>
                                 </Link>
@@ -57,7 +62,7 @@ function Header() {
                         </div>
                         <div className={styles.firstbutton}>
                             <div className={styles.work}>
-                                <button onClick={() => handleClickNavButtons('freelance')} className={`${styles.navButtuns} ${showUnderline === 'freelance' ? styles.underline : styles.nn}`} >
+                                <button onClick={() => handleClickNavButtons('freelance')} className={`${styles.navButtuns} `} >
                                     Фриланс
                                 </button>
                             </div>
@@ -68,7 +73,7 @@ function Header() {
                                 {
                                     store.isAuth &&
                                     <Link to={PERSONAL_PAGE + `/${store.user.id}`}>
-                                        <button onClick={() => handleClickNavButtons('profile')} className={`${styles.navButtuns} ${showUnderline === 'profile' ? styles.underline : styles.nn}`}>
+                                        <button onClick={() => handleClickNavButtons('profile')} className={`${styles.navButtuns}`}>
                                             {store.user.username}
                                         </button>
                                     </Link>

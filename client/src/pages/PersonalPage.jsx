@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "..";
 import { CATALOG_ROUTE, PROFILE_ROUTE, SETTINGS_ROUTE } from "../utils";
-
+import ProfilePanel from "../components/ProfilePanel";
 
 function PersonalPage() {
     const { store } = useContext(Context)
@@ -26,18 +26,7 @@ function PersonalPage() {
         <>
             <Header />
             <div className={styles.container}>
-                <div className={styles.mainInfo}>
-                    <div className={styles.courses}>
-                        <button onClick={accauntPageHandler}>курсы</button>
-                    </div>
-                    <div className={styles.settings}>
-                        <button onClick={settingsPageHandler}>Настройки</button>
-                    </div>
-                    <div className={styles.exit}>
-
-                        <button onClick={logoutHandleClick}>выход</button>
-                    </div>
-                </div>
+                <ProfilePanel />
             </div>
             <Footer />
         </>

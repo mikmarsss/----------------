@@ -6,8 +6,9 @@
 
 .container {
     width: 100%;
-    background-color: #8B969F;
+    background-color: #3D3F4C;
     height: auto;
+    min-height: 979px;
 }
 
 .catalog {

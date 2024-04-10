@@ -16,20 +16,21 @@ function CreateCoursesBlock() {
                 <Header />
             </div>
             <div className={styles.container}>
-                <div className={styles.zagolovok}>
-                    <p>КАКОЙ ТО НЕВЕРОЯТНО<br /> КРАСИВЫЙ ТЕКСТ  ПРИЗЫВАЮЩИЙ<br /> РАЗМЕЩАТЬ КУРСЫ У НАС</p>
+                <div className={styles.content}>
+                    <div className={styles.zagolovok}>
+                        <p>КАКОЙ ТО НЕВЕРОЯТНО КРАСИВЫЙ ТЕКСТ  ПРИЗЫВАЮЩИЙ РАЗМЕЩАТЬ КУРСЫ У НАС</p>
+                    </div>
+                    <div className={styles.opisanie}>
+                        <p>
+                            Равным образом, начало повседневной работы по формированию позиции предоставляет широкие возможности для системы массового участия.
+                        </p>
+                    </div>
+                    <div >
+                        <Link to={CHOOSE_COURSE}>
+                            <button className={styles.createbutton}>СОЗДАТЬ КУРС</button>
+                        </Link>
+                    </div>
                 </div>
-                <div className={styles.opisanie}>
-                    <p>
-                        Равным образом, начало повседневной работы по формированию<br /> позиции предоставляет широкие возможности <br />для системы массового участия.
-                    </p>
-                </div>
-                <div >
-                    <Link to={CHOOSE_COURSE}>
-                        <button className={styles.createbutton}>СОЗДАТЬ КУРС</button>
-                    </Link>
-                </div>
-
             </div>
             {/* <div className={styles.background1}>
 
