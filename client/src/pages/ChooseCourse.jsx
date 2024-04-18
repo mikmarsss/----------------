@@ -14,25 +14,27 @@ function ChooseCourse() {
     return (
         <>
             <Header />
-            <div className={styles.typesOfCourses}>
-                <Link to={FREE_COURSE}>
-                    <button onClick={createCourse}>
-                        <div className={styles.freeCourses}>
-                            <p>
-                                бесплатные курсы
-                            </p>
-                        </div>
-                    </button>
-                </Link>
-                <Link to={PAY_COURSE}>
-                    <button>
-                        <div className={styles.payCourses}>
-                            <p>
-                                платные курсы
-                            </p>
-                        </div>
-                    </button>
-                </Link >
+            <div className={styles.container}>
+                <div className={styles.typesOfCourses}>
+                    <Link to={FREE_COURSE}>
+                        <button onClick={createCourse}>
+                            <div className={styles.freeCourses}>
+                                <p>
+                                    бесплатные курсы
+                                </p>
+                            </div>
+                        </button>
+                    </Link>
+                    <Link to={PAY_COURSE}>
+                        <button>
+                            <div className={styles.payCourses}>
+                                <p>
+                                    платные курсы
+                                </p>
+                            </div>
+                        </button>
+                    </Link >
+                </div>
             </div>
             <Footer />
         </>

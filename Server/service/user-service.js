@@ -110,15 +110,46 @@ class UserService {
         return { ...tokens, user: userDto }
     }
 
+    async sendChangeEmail(email, newEmail) {
+        const randomNumber = Math.floor(Math.random() * (999999 - 111111 + 1)) + 111111
+        const user = await User.findOne({ where: { email } })
+        if (!user) {
+            throw ApiError.BadRequest('Пользователь не найден!')
+        }
+        await mailService.sendChangePasswordCode(newEmail, randomNumber)
+        user.changeCode = randomNumber;
+        await user.save();
+        const userDto = new UserDto(user)
+        const tokens = tokenService.generateTokens(userDto.email, userDto.id, userDto.isActivated)
+        await tokenService.saveToken(userDto.id, tokens.refreshToken);
+        return { ...tokens, user: userDto }
+    }
+
     async changePassword(email, code, newPassword) {
         const user = await User.findOne({ where: { email } })
-        const userDto = new UserDto(user)
         if (user.changeCode == code) {
             const hashPassword = await bcrypt.hash(newPassword, 3)
             user.changeCode = null;
             user.password = hashPassword
             await user.save()
 
+            const userDto = new UserDto(user)
+            const tokens = await tokenService.generateTokens(userDto.email, userDto.id, userDto.isActivated)
+            await tokenService.saveToken(userDto.id, tokens.refreshToken);
+            return { ...tokens, user: userDto }
+        } else {
+            throw ApiError.BadRequest('Неверный код!')
+        }
+    }
+
+    async changeEmail(oldEmail, newEmail, code) {
+        const user = await User.findOne({ where: { email: oldEmail } })
+        if (user.changeCode == code) {
+            user.changeCode = null;
+            user.email = newEmail
+            await user.save()
+
+            const userDto = new UserDto(user)
             const tokens = await tokenService.generateTokens(userDto.email, userDto.id, userDto.isActivated)
             await tokenService.saveToken(userDto.id, tokens.refreshToken);
             return { ...tokens, user: userDto }
@@ -127,8 +158,6 @@ class UserService {
         }
 
     }
-
-
 
     async refresh(refreshToken) {
         if (!refreshToken) {

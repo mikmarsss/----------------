@@ -4,13 +4,13 @@
     height: 900px;
     padding: 10px;
     gap: 70px;
-    border: solid black 2px;
     align-items: center;
 }
 
 .zagolovok {
-    font-size: 60px;
-    color: #C1A875;
+    text-align: center;
+    color: white;
+    font-size: 30px;
 }
 
 .info {

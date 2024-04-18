@@ -9,14 +9,58 @@
 
 }
 
+.settingContainer {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.zagolovok {
+    text-align: center;
+    color: white;
+    font-size: 30px;
+}
+
+.editEmail {
+    width: 50%;
+    align-items: center;
+}
+
+.editPassword {
+    width: 50%;
+    align-items: center;
+}
+
 .container {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
+    height: auto;
     flex-direction: column;
     align-items: center;
     background: #3D3F4C;
-    gap: 40px;
+}
+
+.logininput {
+    border: none;
+    border-bottom: 2px solid #D1D1D4;
+    background: none;
+    padding: 10px;
+    padding-left: 24px;
+    font-weight: 700;
+    width: 75%;
+    transition: .2s;
+    color: white;
+}
+
+.logininput:active,
+.logininput:focus,
+.logininput:hover {
+    outline: none;
+    border-bottom-color: #C1A875;
 }
 
 .navmenu {
@@ -64,86 +108,88 @@
 }
 
 .profileinfo {
-    height: 300px;
+    height: auto;
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 30px;
     justify-content: center;
     align-items: center;
 }
 
-.photoButton {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    align-items: center;
-    border: solid black 2px;
-}
-
-.photo {
-    height: 183px;
-    width: 214px;
-    background-color: #9559d4;
-    border-radius: 15px;
-}
-
 .ava {
-    width: 100%;
-    height: 100%;
+    border-radius: 20px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
 }
 
-.mainInfo {
+.saveButton {
+    color: #C1A875;
+    font-size: 26px;
+    border: #C1A875 solid 1px;
+    padding: 10px;
+    border-radius: 10px;
+}
 
-    width: 800px;
-    height: 290px;
+.saveButton:hover {
+    background-color: #C1A875;
+    color: #3D3F4C;
+    transition: .5s;
+}
+
+.mainInfo {
     display: flex;
     flex-direction: row;
+    width: 85%;
     justify-content: center;
+    gap: 20px;
+}
+
+.avausername {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+}
+
+.otherInfo {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
     align-items: center;
-    gap: 5%;
+    gap: 20px;
+}
+
+.otherInfo>div {
+    width: 70%;
+}
+
+.otherInfo>div>p {
+    color: #C1A875;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.avausername>div>p {
+    color: #C1A875;
+    font-size: 20px;
+    margin-left: 20px;
 }
 
 .first {
-    width: 750px;
-    height: 290px;
+    width: 90%;
+    height: 350px;
     display: flex;
     flex-direction: column;
-    gap: 10%;
+    gap: 20px;
     justify-content: center;
-    flex-wrap: wrap;
-
 }
 
 .first>div>p {
     margin-left: 20px;
-    font-family: 'Montserrat-Bold';
-}
-
-.first>div>input {
-    width: 300px;
-    height: 25px;
-    appearance: none;
-    border: none;
-    outline: none;
-    border-bottom: .2em solid red;
-    border-radius: .2em .2em 0 0;
-    padding: .4em;
-    border-radius: 5px;
-    font-family: 'Montserrat-Medium';
-}
-
-disabled>div>input {
-    font-family: 'Montserrat-Medium';
-    pointer-events: none;
-    appearance: none;
-    outline: none;
-    border-bottom: .2em solid #9559d4;
-    border-radius: 5px;
-    padding: .4em;
+    color: #C1A875;
+    font-size: 20px;
 }
 
 .disabled>div>textarea {
@@ -157,7 +203,7 @@ disabled>div>input {
 }
 
 .aboutMe {
-    height: 500px;
+    height: auto;
     display: flex;
     justify-content: center;
 }
@@ -179,20 +225,9 @@ disabled>div>input {
     font-size: 16px;
 }
 
-.test {
-    border: solid black 2px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.redButton>button {
+    color: #C1A875;
     font-size: 25px;
-    text-align: center;
-}
-
-.testButton {
-    width: 180px;
-    height: 60px;
-    font-size: 26px;
-
 }
 
 .testButton:active {
@@ -206,22 +241,23 @@ disabled>div>input {
 }
 
 .emailPassword {
+    width: 90%;
     display: flex;
     justify-content: center;
 }
 
 .second {
-    width: 750px;
-    height: 300px;
+    width: 85%;
+    height: auto;
     display: flex;
     flex-direction: row;
-    gap: 10%;
     justify-content: center;
 }
 
 .second>div>div>p {
     margin-left: 20px;
-    font-family: 'Montserrat-Bold';
+    color: #C1A875;
+    font-size: 20px;
 }
 
 .second>div {
@@ -232,20 +268,8 @@ disabled>div>input {
 
 }
 
-.second>div>div>input {
-    width: 300px;
-    height: 25px;
-    appearance: none;
-    border: none;
-    outline: none;
-    border-bottom: .2em solid #9559d4;
-    border-radius: .2em .2em 0 0;
-    padding: .4em;
-    border-radius: 5px;
-    font-family: 'Montserrat-Medium';
-}
-
-.passwordError {
+.error {
+    text-align: center;
     color: red;
-    font-family: 'Montserrat-Medium';
+    font-size: 17px;
 }

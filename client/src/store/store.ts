@@ -78,9 +78,9 @@ export default class Store {
         }
     }
 
-    async sendChangePasswordCode(email: string) {
+    async sendChangePasswordCode(email: string, newEmail: string) {
         try {
-            const response = await AuthService.sendChangePasswordCode(email)
+            const response = await AuthService.sendChangePasswordCode(email, newEmail)
             console.log(response)
             this.setUser(response.data.user)
         } catch (e) {
@@ -91,6 +91,16 @@ export default class Store {
     async changePassword(email: string, code: BigInt, newPassword: string) {
         try {
             const response = await AuthService.changePassword(email, code, newPassword)
+            console.log(response)
+            this.setUser(response.data.user)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+    }
+
+    async changeEmail(oldEmail: string, newEmail: string, code: BigInt) {
+        try {
+            const response = await AuthService.changeEmail(oldEmail, newEmail, code)
             console.log(response)
             this.setUser(response.data.user)
         } catch (e) {

@@ -6,7 +6,7 @@
 
 .Mycourse {
     border: 2px #C1A875 solid;
-    width: 320px;
+    width: 300px;
     height: 400px;
     object-fit: cover;
     border-radius: 50px;
@@ -53,4 +53,19 @@
 .buttons>button:hover {
     background-color: #C1A875;
     transition: .2s;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.zagolovok {
+    text-align: center;
+    text-align: center;
+    color: white;
+    font-size: 30px;
 }

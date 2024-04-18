@@ -23,7 +23,6 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    border: solid black 2px;
     gap: 10px;
 }
 
@@ -39,7 +38,6 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    border: solid black 2px;
     gap: 20px;
 
 }

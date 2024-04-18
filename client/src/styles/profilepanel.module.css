@@ -1,11 +1,10 @@
 .container {
     width: 50%;
-    height: 1000px;
+    height: auto;
     display: flex;
     flex-direction: row;
     padding: 10px;
     justify-content: center;
-    align-items: center;
 }
 
 .navmenu {
@@ -111,7 +110,8 @@ label {
 }
 
 .info {
-    width: 70%;
+    width: 85%;
+    height: 100%;
 }
 
 .homePageContainer {

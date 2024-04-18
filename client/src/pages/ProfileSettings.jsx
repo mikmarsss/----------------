@@ -21,14 +21,17 @@ function ProfileSettings() {
     const [newPassword, setNewPassword] = useState('')
     const [changeCode, setChangeCode] = useState('')
     const [changeBlock, setChangeBlock] = useState(false)
-    const [redButton, setRedButton] = useState("confirm")
+    const [changeEmailBlock, setChangeEmailBlock] = useState(false)
     const [newPasswordError, setNewPasswordError] = useState(true)
     const [NPErrorText, setNPErrorText] = useState('')
     const [changeCodeError, setChangeCodeError] = useState(true)
     const [changeCodeErrorText, setChangeCodeErrorText] = useState('Поле не может быть пустым')
     const [aboutM, setAboutMe] = useState(store.user.aboutMe)
     const [ava, setAva] = useState([])
-
+    const [avaSrc, setAvaSrc] = useState(`${"http://localhost:5000/" + store.user.img}`)
+    const [email, setEmail] = useState(store.user.email)
+    const [newEmail, setNewEmail] = useState('')
+    const [emailError, setEmailError] = useState('')
 
 
 
@@ -38,49 +41,43 @@ function ProfileSettings() {
         if (e.target.value.length < 6 || e.target.value.length > 32) {
             setNewPasswordError(true)
             setNPErrorText('Пароль должен быть больше 6 знаков')
-            if (!e.target.value) {
-                setNPErrorText('Пароль не может быть пустым')
-            }
-            if (e.target.value === '') {
-                setNewPasswordError(false)
-                setNPErrorText('')
-            }
-
-        } else {
+        }
+        if (e.target.value === '') {
             setNewPasswordError(false)
             setNPErrorText('')
-
+        }
+        if (e.target.value.length >= 6 && e.target.value.length < 32) {
+            setNewPasswordError(false)
+            setNPErrorText('')
         }
     }
 
 
-
-    const handleClick = (redButton) => {
-        const shown = redButton === "confirm" ? "red" : "confirm"
-        setRedButton(shown)
-        if (redButton === 'red') {
-
-            const formdata = new FormData()
-            formdata.append('email', store.user.email)
-            formdata.append('name', name)
-            formdata.append('surname', surname)
-            formdata.append('dob', dob)
-            formdata.append('city', city)
-            formdata.append('username', username)
-            formdata.append('aboutMe', aboutM)
-            formdata.append('img', ava)
-            store.saveData(formdata)
-        }
-
+    const handleClick = () => {
+        const formdata = new FormData()
+        formdata.append('email', store.user.email)
+        formdata.append('name', name)
+        formdata.append('surname', surname)
+        formdata.append('dob', dob)
+        formdata.append('city', city)
+        formdata.append('username', username)
+        formdata.append('aboutMe', aboutM)
+        formdata.append('img', ava)
+        store.saveData(formdata)
     }
 
 
     const sendCodeHandler = () => {
-        if (newPasswordError) {
-            setNPErrorText('Поле не может быть пустым')
-        } else {
+        if ((NPErrorText !== '' || newPassword) && NPErrorText !== 'Поле не может быть пустым' && NPErrorText !== 'Пароль должен быть больше 6 знаков') {
             setChangeBlock(true)
             store.sendChangePasswordCode(store.user.email)
+        }
+    }
+
+    const sendCodeEmailHandler = () => {
+        if ((emailError !== '' || newEmail) && emailError !== 'Некорректный email') {
+            setChangeEmailBlock(true)
+            store.sendChangePasswordCode(store.user.email, newEmail)
         }
     }
 
@@ -89,8 +86,24 @@ function ProfileSettings() {
             setChangeBlock(false)
             store.changePassword(store.user.email, changeCode, newPassword)
             setNewPasswordError(false)
+            setNewPassword('')
+            setChangeBlock(false)
+            setChangeCode('')
         } else {
+            setNPErrorText('Поле не может быть пустым')
             setNewPasswordError(true)
+        }
+    }
+
+    const changeEmail = () => {
+        if (newEmail && !changeCodeError) {
+            setChangeBlock(false)
+            store.changeEmail(store.user.email, newEmail, changeCode)
+            setEmailError('')
+            setNewEmail('')
+            setChangeEmailBlock(false)
+        } else {
+            setEmailError('Поле не может быть пустым')
         }
     }
 
@@ -113,147 +126,140 @@ function ProfileSettings() {
 
         }
     }
+
+    const emailHandler = (e) => {
+        setNewEmail(e.target.value)
+        const re =
+            /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        if (!re.test(String(e.target.value).toLowerCase())) {
+            setEmailError('Некорректный email')
+        }
+        if (e.target.value === '') {
+            setEmailError('')
+        }
+    }
+
+    console.log(newEmail)
+
     const selectAva = (e) => {
+        var reader = new FileReader()
+        reader.onload = function () {
+            var preview = document.querySelector('#img')
+            preview.src = reader.result
+        }
+        reader.readAsDataURL(e.target.files[0])
         setAva(e.target.files[0])
     }
     const params = useParams()
     const current = params.id
     return (
         <>
-            <Header />
             {
                 current == store.user.id &&
                 <div className={styles.container}>
-                    <div className={styles.profileinfo}>
-                        <div className={styles.photoButton}>
+                    <div className={styles.settingContainer}>
+                        <p className={styles.zagolovok}>Настройки</p>
 
-                            <div className={styles.photo}>
-                                <img className={styles.ava} src={"http://localhost:5000/" + store.user.img} alt="ava" />
-                            </div>
-                            <div>
-                                <input type="file"
-                                    onChange={e => selectAva(e)}
-                                />
-                            </div>
-                        </div>
-                        <div className={styles.mainInfo} >
-                            <div className={`${styles.first} ${redButton === "confirm" ? styles.disabled : styles.first}`}>
-                                <div>
-                                    <p>Имя</p>
-                                    <input
-                                        id="firstname"
-                                        type="text"
-                                        value={name}
-                                        onChange={e => setName(e.target.value)}
-                                        placeholder={store.user.name}
-
-                                    />
-                                </div>
-                                <div>
-                                    <p>Фамилия</p>
-                                    <input
-                                        id="lastname"
-                                        type="text"
-                                        value={surname}
-                                        onChange={e => setSurname(e.target.value)}
-                                        placeholder={store.user.surname} />
-                                </div>
-                                <div>
-                                    <p>Город</p>
-                                    <input
-                                        id=""
-                                        type="text"
-                                        value={city}
-                                        onChange={e => setCity(e.target.value)}
-                                        placeholder={store.user.city}
-                                    />
-                                </div>
-                                <div>
-                                    <p>Дата рождения</p>
-                                    <input
-                                        value={dob}
-                                        onChange={e => setDob(e.target.value)}
-                                        type="date"
-                                        placeholder={store.user.dob}
-                                    />
-                                </div>
+                        <div className={styles.mainInfo}>
+                            <img className={styles.ava} id="img" src={avaSrc} />
+                            <div className={styles.avausername}>
                                 <div>
                                     <p>Имя профиля</p>
                                     <input
+                                        className={styles.logininput}
                                         value={username}
-                                        onChange={e => setUsername(e.target.value)}
                                         type="text"
-                                        placeholder={store.user.username}
+                                        placeholder={username}
+                                        onChange={(e) => setUsername(e.target.value)}
                                     />
                                 </div>
-                                <div className={styles.redButton}>
-                                    <button onClick={() => handleClick(redButton)}>
-                                        <ProfileButton redButton={redButton} />
-                                    </button>
+                                <div>
+                                    <p>Фото</p>
+                                    <input type="file"
+                                        id="img"
+                                        onChange={(e) => selectAva(e)}
+                                    />
                                 </div>
                             </div>
-
                         </div>
-                    </div>
+                        <div className={styles.otherInfo}>
+                            <div>
+                                <p>Почта</p>
+                                <input
+                                    value={store.user.email}
+                                    placeholder={store.user.email}
+                                    type="text"
+                                    className={styles.logininput}
+                                    onChange={(e) => setEmail(e.target.value)}
 
-                    <div className={`${styles.aboutMe} ${redButton === "confirm" ? styles.disabled : styles.aboutMe}`}>
-                        <div>
-                            <p>Напишите немного о себе</p>
-                            <textarea
-                                placeholder={store.user.aboutMe}
-                                value={aboutM}
-                                type="text"
-                                onChange={e => setAboutMe(e.target.value)}
-                            />
+                                />
+                            </div>
+                            <div>
+                                <p>Имя</p>
+                                <input
+                                    value={name}
+                                    placeholder={name}
+                                    type="text"
+                                    className={styles.logininput}
+                                    onChange={(e) => setName(e.target.value)}
+
+                                />
+                            </div>
+                            <div>
+                                <p>Фамилия</p>
+                                <input
+                                    value={surname}
+                                    placeholder={surname}
+                                    type="text"
+                                    className={styles.logininput}
+                                    onChange={(e) => setSurname(e.target.value)}
+
+                                />
+                            </div>
+                            <div>
+                                <p>Дата рождения</p>
+                                <input
+                                    value={dob}
+                                    placeholder={dob}
+                                    type="date"
+                                    className={styles.logininput}
+                                    onChange={(e) => setDob(e.target.value)}
+
+                                />
+                            </div>
+                            <div>
+                                <p>Город</p>
+                                <input
+                                    value={city}
+                                    placeholder={city}
+                                    type="text"
+                                    className={styles.logininput}
+                                    onChange={(e) => setCity(e.target.value)}
+
+                                />
+                            </div>
                         </div>
-                    </div>
-
-                    <div className={styles.test}>
-                        {
-                            store.user.test_result === null &&
-                            <>
-                                <p>Пройдите тест и получите рекомендации к обучению</p>
-                                <Link to={TEST_PAGE + `/${store.user.id}`}>
-                                    <button className={styles.testButton}>
-                                        Пройти
-                                    </button>
-                                </Link>
-                            </>
-
-                        }
-                        {
-                            store.user.test_result !== null &&
-                            <>
-                                <p>{store.user.test_result}</p>
-                                <Link to={TEST_PAGE + `/${store.user.id}`}>
-                                    <button className={styles.testButton}>
-                                        Пройти еще раз
-                                    </button>
-                                </Link>
-                            </>
-
-                        }
+                        <button onClick={() => handleClick()} className={styles.saveButton}>Сохранить</button>
                     </div>
                     <div className={styles.emailPassword}>
                         <div className={styles.second}>
-                            <div>
+                            <div className={styles.editPassword}>
+                                <p>{newPasswordError ? <div className={styles.error} >{NPErrorText}</div> : false}</p>
                                 <div>
-                                    {newPasswordError && <div className={styles.passwordError}>{NPErrorText}</div>}
-                                    <p>Новый пароль</p>
-                                    <input
-                                        className={`${newPasswordError && styles.passwordInput}`}
-                                        id="password"
-                                        type="password"
+                                    <p >Новый пароль</p>
+                                    <input type="password"
+                                        className={styles.logininput}
                                         placeholder="Введите новый пароль"
+                                        onChange={(e) => newPasswordHandler(e)}
                                         value={newPassword}
-                                        onChange={e => newPasswordHandler(e)}
                                     />
                                 </div>
                                 {changeBlock &&
                                     <div>
-                                        {changeCodeError && <div className={styles.passwordError}>{changeCodeErrorText}</div>}
+                                        {changeCodeError && <div className={styles.error}>{changeCodeErrorText}</div>}
                                         <p>Код подтверждения</p>
                                         <input
+                                            className={styles.logininput}
                                             id="password"
                                             type="text"
                                             placeholder="Введите шестизначный код из письма"
@@ -261,58 +267,65 @@ function ProfileSettings() {
                                             onChange={e => changeCodeHandler(e)}
                                         />
                                     </div>}
-                                {!changeBlock &&
-                                    <div className={`${newPasswordError ? styles.redButtonError : styles.redButton}`}>
-                                        <button onClick={() => sendCodeHandler()}>
-                                            <p className={styles.buttext}>РЕДАКТИРОВАТЬ</p>
-                                        </button>
-                                    </div>
-                                }
-                                {changeBlock &&
-                                    <div className={`${changeCodeError ? styles.redButtonError : styles.redButton}`}>
-                                        <button onClick={() => changePasswordHandler()}>
-                                            <p className={styles.buttext}>ПРИНЯТЬ</p>
-                                        </button>
-                                    </div>
-                                }
+                                <div className={styles.redButton}>
+                                    {!changeBlock && <button onClick={sendCodeHandler}>
+                                        <p>РЕДАКТИРОВАТЬ</p>
+                                    </button>}
+                                    {changeBlock &&
+                                        <div className={styles.redButton}>
+                                            <button onClick={() => changePasswordHandler()}>
+                                                <p className={styles.buttext}>СОХРАНИТЬ</p>
+                                            </button>
+                                        </div>
+                                    }
+                                </div>
                             </div>
-                            <div>
-
+                            <div className={styles.editEmail}>
+                                <p>{emailError ? <div className={styles.error} >{emailError}</div> : false}</p>
                                 <div>
                                     <p>Новая почта</p>
                                     <input
+                                        className={styles.logininput}
                                         id="email"
                                         type="text"
                                         name="email"
                                         placeholder="Введите новую почту"
+                                        onChange={(e) => emailHandler(e)}
                                     />
                                 </div>
+                                {changeEmailBlock &&
+                                    <div>
+                                        {changeCodeError && <div className={styles.error}>{changeCodeErrorText}</div>}
+                                        <p>Код подтверждения</p>
+                                        <input
+                                            className={styles.logininput}
+                                            id="password"
+                                            type="text"
+                                            placeholder="Введите шестизначный код из письма"
+                                            value={changeCode}
+                                            onChange={e => changeCodeHandler(e)}
+                                        />
+                                    </div>}
                                 <div className={styles.redButton}>
-                                    <button >
-                                        <p className={styles.buttext}>РЕДАКТИРОВАТЬ</p>
-                                    </button>
+                                    {!changeEmailBlock && <button onClick={sendCodeEmailHandler}>
+                                        <p>РЕДАКТИРОВАТЬ</p>
+                                    </button>}
+                                    {changeEmailBlock &&
+                                        <div className={styles.redButton}>
+                                            <button onClick={() => changeEmail()}>
+                                                <p className={styles.buttext}>СОХРАНИТЬ</p>
+                                            </button>
+                                        </div>
+                                    }
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div>
-                        <hr className={styles.linia} />
                     </div>
                 </div>
             }
 
             <div className={styles.footer}>
-                <Footer />
             </div>
-        </>
-    )
-}
-
-function ProfileButton({ redButton }) {
-    const text = redButton === "confirm" ? "РЕДАКТИРОВАТЬ" : "СОХРАНИТЬ"
-    return (
-        <>
-            <p className={styles.buttext}>{text}</p>
         </>
     )
 }

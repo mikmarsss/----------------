@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { observer } from 'mobx-react-lite'
 import styles from "../styles/profilepanel.module.css"
 import { Context } from "..";
@@ -7,10 +7,14 @@ import { CATALOG_ROUTE } from "../utils";
 import { useState } from "react";
 import HomePageProfile from "./HomePageProfile";
 import PortfolioPage from "./PortfolioPage";
+import ProfileSettings from "../pages/ProfileSettings";
+import CoursesBlockProfile from "./CoursesBlockProfile";
+import CoursesService from "../service/CoursesService";
 
 function Profilepanel() {
     const { store, courseStore } = useContext(Context)
     const [menu, setMenu] = useState('home')
+    const [courses, setCourses] = useState([])
 
     const navigate = useNavigate()
     const logoutHandler = () => {
@@ -18,8 +22,32 @@ function Profilepanel() {
         navigate(CATALOG_ROUTE)
     }
 
+    useEffect(() => {
+        setMenu(localStorage.getItem('menuPanel'))
+        if (localStorage.getItem('menuPanel') === 'created') {
+            getCourses()
+        }
+    }, [])
+
     const menuHandler = (v) => {
         setMenu(v)
+        localStorage.setItem('menuPanel', v)
+    }
+
+    async function getCourses() {
+        try {
+            const response = await CoursesService.fetchUserCourses(store.user.id)
+            const dataArray = response.data.courses; // Предполагается, что courses - это массив в модели
+            if (Array.isArray(dataArray)) {
+                setCourses(dataArray);
+
+            } else {
+                console.error('Ожидался массив, но получен другой тип данных:', dataArray);
+                setCourses([]); // Установка пустого массива в случае ошибки
+            }
+        } catch (e) {
+            console.log(e)
+        }
     }
 
 
@@ -58,14 +86,14 @@ function Profilepanel() {
                     </div>
                 </div>
                 <div className={styles.info}>
-                    <ShowInfo menu={menu} />
+                    <ShowInfo menu={menu} courses={courses} />
                 </div>
             </div>
         </>
     )
 }
 
-const ShowInfo = observer(({ menu }) => {
+const ShowInfo = observer(({ menu, courses }) => {
 
     return (
         <>
@@ -76,6 +104,14 @@ const ShowInfo = observer(({ menu }) => {
             {
                 menu === 'portfolio' &&
                 <PortfolioPage />
+            }
+            {
+                menu === 'settings' &&
+                <ProfileSettings />
+            }
+            {
+                menu === 'created' &&
+                <CoursesBlockProfile courses={courses} />
             }
         </>
     )

@@ -7,9 +7,14 @@ import createback from "../Images/createpageback.svg"
 import Footer from "../components/Footer";
 import { authRoutes } from "../routes";
 import { Link } from "react-router-dom";
-import { CHOOSE_COURSE } from "../utils";
+import { CHOOSE_COURSE, FREE_COURSE } from "../utils";
+import { Context } from "..";
 
 function CreateCoursesBlock() {
+    const { store, courseStore } = useContext(Context)
+    const createCourse = () => {
+        courseStore.createCourse(store.user.id)
+    }
     return (
         <>
             <div className={styles.header}>
@@ -26,8 +31,8 @@ function CreateCoursesBlock() {
                         </p>
                     </div>
                     <div >
-                        <Link to={CHOOSE_COURSE}>
-                            <button className={styles.createbutton}>СОЗДАТЬ КУРС</button>
+                        <Link to={FREE_COURSE}>
+                            <button onClick={createCourse} className={styles.createbutton}>СОЗДАТЬ КУРС</button>
                         </Link>
                     </div>
                 </div>

@@ -17,27 +17,30 @@ function CourseBlockProfile({ courses }) {
 
     return (
         <>
+            <p className={styles.zagolovok}>Мои курсы</p>
 
-            {
-                courses.map((item, index) => (
-                    <div className={styles.Mycourse} key={index}>
-                        <div>
-                            <div className={styles.courseblock}>
-                                <div className={styles.info}>
-                                    <h1>{item.name}</h1>
-                                    <p>{item.description}</p>
-                                    <p>{item.price}</p>
+            <div className={styles.container}>
+                {
+                    courses.map((item, index) => (
+                        <div className={styles.Mycourse} key={index}>
+                            <div>
+                                <div className={styles.courseblock}>
+                                    <div className={styles.info}>
+                                        <h1>{item.name}</h1>
+                                        <p>{item.description}</p>
+                                        <p>{item.price}</p>
+                                    </div>
+                                    <div className={styles.buttons}>
+                                        <button onClick={() => chooseCourse(item.id)}>Редактирование</button>
+                                        <button>Управление</button>
+                                    </div>
                                 </div>
-                                <div className={styles.buttons}>
-                                    <button onClick={() => chooseCourse(item.id)}>Редактирование</button>
-                                    <button>Управление</button>
-                                </div>
+
                             </div>
-
                         </div>
-                    </div>
-                ))
-            }
+                    ))
+                }
+            </div>
         </>
     )
 }

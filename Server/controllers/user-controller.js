@@ -52,10 +52,18 @@ class UserController {
 
     async sendChangePasswordCode(req, res, next) {
         try {
-            const { email } = req.body
-            const userData = await userService.sendChangePassword(email)
-            res.cookie('refreshToken', userData.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true })
-            return res.json(userData)
+            const { email, newEmail } = req.body
+            if (newEmail) {
+                const userData = await userService.sendChangeEmail(email, newEmail)
+                res.cookie('refreshToken', userData.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true })
+                return res.json(userData)
+            }
+            else {
+                const userData = await userService.sendChangePassword(email)
+                res.cookie('refreshToken', userData.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true })
+                return res.json(userData)
+            }
+
         } catch (e) {
             next(e)
         }
@@ -65,6 +73,17 @@ class UserController {
         try {
             const { email, code, newPassword } = req.body
             const userData = await userService.changePassword(email, code, newPassword)
+            res.cookie('refreshToken', userData.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true })
+            return res.json(userData)
+        } catch (e) {
+            next(e)
+        }
+    }
+
+    async changeEmail(req, res, next) {
+        try {
+            const { oldEmail, newEmail, code } = req.body
+            const userData = await userService.changeEmail(oldEmail, newEmail, code)
             res.cookie('refreshToken', userData.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true })
             return res.json(userData)
         } catch (e) {
