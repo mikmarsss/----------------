@@ -6,6 +6,7 @@ router.post('/fetchmodulelessons', LessonController.fetchModuleLessons)
 router.post('/createlesson', LessonController.createLesson)
 router.post('/fetchlesson', LessonController.fetchLesson)
 router.post('/savelesson', LessonController.saveLesson)
+router.post('/deleteLesson', LessonController.deleteLesson)
 
 
 

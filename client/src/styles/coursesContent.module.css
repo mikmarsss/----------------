@@ -1,10 +1,26 @@
 .container {
     background-color: #3D3F4C;
+    min-height: 72vh;
     height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 30px;
+}
+
+.netmodulei {
+    margin-top: 200px;
+    text-align: center;
+}
+
+.netmodulei>h1 {
+    color: #C1A875;
+    font-size: 40px;
+}
+
+.netmodulei>p {
+    color: white;
+    font-size: 20px;
 }
 
 .module {

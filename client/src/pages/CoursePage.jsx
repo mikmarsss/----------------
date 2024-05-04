@@ -13,13 +13,22 @@ import { EDITCOURSE_PAGE } from "../utils";
 
 function CoursePage() {
     const [contentList, setContentList] = useState([])
+    const [modules, setModules] = useState([])
+    const [lessons, setLessons] = useState([])
+    const [moduleId, setModuleId] = useState()
+
     const params = useParams()
     const { store, courseStore } = useContext(Context)
     const current = params.id
 
     useEffect(() => {
         getCourse()
+        getModules()
     }, [])
+
+    useEffect(() => {
+        getLessons()
+    }, [moduleId])
 
     async function getCourse() {
         try {
@@ -32,6 +41,45 @@ function CoursePage() {
             console.log(e)
         }
     }
+
+    async function getModules() {
+        try {
+            const response = await CoursesService.fetchCourseModules(current)
+            const dataArray = response.data.modules; // Предполагается, что courses - это массив в модели
+            if (Array.isArray(dataArray)) {
+                setModules(dataArray);
+
+            } else {
+                console.error('Ожидался массив, но получен другой тип данных:', dataArray);
+                setModules([]); // Установка пустого массива в случае ошибки
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    async function getLessons() {
+        try {
+            const response = await CoursesService.fetchModuleLessons(moduleId)
+            const dataArray = response.data.lessons; // Предполагается, что courses - это массив в модели
+            if (Array.isArray(dataArray)) {
+                setLessons(dataArray);
+
+            } else {
+                console.error('Ожидался массив, но получен другой тип данных:', dataArray);
+                setLessons([]); // Установка пустого массива в случае ошибки
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    console.log(lessons)
+
+    const moduleHandler = (id) => {
+        setModuleId(id)
+    }
+
 
     const icons = [
         {
@@ -127,6 +175,7 @@ function CoursePage() {
             name: 'wordpress.svg',
         },
     ]
+
     return (
         <>
             <Header />
@@ -157,7 +206,7 @@ function CoursePage() {
                             }
 
                             {
-                                courseStore.course.price === 0 &&
+                                courseStore.course.price === 0 && courseStore.course.creator_id !== store.user.id &&
                                 <button className={styles.button}>
                                     <p>
                                         учиться
@@ -189,6 +238,37 @@ function CoursePage() {
                             contentList.length !== 0 &&
                             <CreateDescriptionList content={contentList} />
                         }
+                        <h1>Краткий обзор курса</h1>
+                        {
+                            modules.length !== 0 &&
+                            <>
+                                <div className={styles.moduleList}>
+                                    {
+                                        modules.map((index, item) => (
+                                            <>
+                                                <div key={index} >
+                                                    <button onClick={() => moduleHandler(index.id)} className={styles.module}>{index.number}. {index.name}</button>
+                                                </div>
+                                                <div className={styles.lessonsList}>
+                                                    {index.id === moduleId &&
+                                                        lessons.map((index, item) => (
+                                                            <>
+                                                                <div className={styles.lesson}>
+                                                                    {index.name}
+                                                                </div>
+                                                            </>
+                                                        ))
+                                                    }
+                                                </div>
+                                            </>
+                                        ))
+                                    }
+                                    <div>
+
+                                    </div>
+                                </div>
+                            </>
+                        }
                     </div>
 
                 </div>
@@ -203,7 +283,7 @@ function CreateDescriptionList({ content }) {
     return (
         <>
             {
-
+                content &&
                 content.map((item, index) => (
                     <div key={index}>
                         <li>{item.description}</li>

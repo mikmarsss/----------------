@@ -6,12 +6,14 @@ import { APi_URL } from "../http";
 import CoursesService from "../service/CoursesService";
 import { CourseResponse } from "../models/response/CoursesResponse";
 import { ILesson } from "../models/ILesson";
+import { IChapter } from "../models/IChapter";
 
 export default class CourseStore {
     module = {} as IModule
     course = {} as ICourse
     data = {} as ICourse;
     lesson = {} as ILesson
+    chapter = {} as IChapter
 
     constructor() {
         makeAutoObservable(this)
@@ -30,6 +32,10 @@ export default class CourseStore {
 
     setLesson(lesson: ILesson) {
         this.lesson = lesson
+    }
+
+    setChapter(chapter: IChapter) {
+        this.chapter = chapter
     }
 
     async createCourse(userId: string) {
@@ -162,6 +168,7 @@ export default class CourseStore {
 
     async fetchLesson(lessonId: string) {
         try {
+            console.log(lessonId)
             const response = await CoursesService.fetchLesson(lessonId)
             console.log(response)
             this.setLesson(response.data.lesson)
@@ -170,9 +177,9 @@ export default class CourseStore {
         }
     }
 
-    async saveLesson(formdata: any) {
+    async saveLesson(lessonId: string, name: string, content: string) {
         try {
-            const response = await CoursesService.saveLesson(formdata)
+            const response = await CoursesService.saveLesson(lessonId, name)
             console.log(response)
             this.setLesson(response.data.lesson)
         } catch (e) {
@@ -195,6 +202,45 @@ export default class CourseStore {
             const response = await CoursesService.deleteModule(moduleId)
             console.log(response)
             this.setModule(response.data.module)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+    }
+
+    async createChapter(course_lesson_id: string) {
+        try {
+            const response = await CoursesService.createChapter(course_lesson_id)
+            console.log(response)
+            this.setChapter(response.data.chapter)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+    }
+
+    async saveChapter(formdata: any) {
+        try {
+            const response = await CoursesService.saveChapter(formdata)
+            this.setChapter(response.data.chapter)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+    }
+
+    async fetchChapter(chapter_id: string) {
+        try {
+            const response = await CoursesService.fetchChapter(chapter_id)
+            console.log(response)
+            localStorage.setItem('chapterId', response.data.chapter.id)
+            this.setChapter(response.data.chapter)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+    }
+
+    async deleteLesson(lessonId: string) {
+        try {
+            const response = await CoursesService.deleteLesson(lessonId)
+            console.log(response)
         } catch (e) {
             console.log(e.response?.data?.message)
         }

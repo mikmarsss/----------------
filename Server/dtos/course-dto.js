@@ -12,6 +12,7 @@ module.exports = class CourseDto {
     additional_type;
     created_at;
     updated_at;
+    status;
     constructor(model) {
         this.id = model.id;
         this.name = model.name;
@@ -26,5 +27,6 @@ module.exports = class CourseDto {
         this.additional_type = model.additional_type
         this.created_at = model.created_at
         this.updated_at = model.updated_at
+        this.status = model.status
     }
 }

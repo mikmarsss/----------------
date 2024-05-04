@@ -1,28 +1,95 @@
 .container {
     width: 100%;
-    height: 100vh;
+    min-height: 77vh;
+    height: auto;
     background-color: #3D3F4C;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.netmodulei {
+    text-align: center;
+}
+
+.netmodulei>h1 {
+    color: #C1A875;
+    font-size: 40px;
+}
+
+.netmodulei>p {
+    color: white;
+    font-size: 20px;
+}
+
 .lessoncontainer {
     width: 1200px;
-    height: 900px;
+    height: auto;
     border: 2px #C1A875 solid;
+}
+
+.chaptersBar {
+    width: 1200px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+
+}
+
+.chapterBox {
+    width: 30px;
+    height: 30px;
+    border: solid 1px #C1A875;
+    border-radius: 5px;
+}
+
+.selectedChapterBox {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #C1A875;
+}
+
+.addChapter {
+    width: 20px;
+    height: 20px;
+}
+
+.lessonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.lessonName {
+    color: #C1A875;
+    font-size: 40px;
+}
+
+.addcChapterBox {
+    width: 30px;
+    height: 30px;
+    border: #C1A875 solid 2px;
+    border-radius: 5px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .title {
     display: flex;
+    flex-direction: column;
 }
-
-.body {}
 
 .moduleName {
     color: white;
     font-size: 50px;
     margin-top: 50px;
+    text-align: center;
 }
 
 .logininput {
@@ -45,6 +112,148 @@
     border-bottom-color: #C1A875;
 }
 
-.lessonName {
+.chapterInput {
+    border: none;
+    border-bottom: 2px solid #D1D1D4;
+    background: none;
+    padding: 10px;
+    padding-left: 24px;
+    font-weight: 700;
     width: 400px;
+    transition: .2s;
+    color: white;
+    font-size: 20px;
+}
+
+.chapterInput:active,
+.chapterInput:focus,
+.chapterInput:hover {
+    outline: none;
+    border-bottom-color: #C1A875;
+}
+
+.lessonName {
+    text-align: center;
+}
+
+.addChapterElement {
+    color: #C1A875;
+    font-size: 30px;
+    border: #C1A875 solid 2px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.chapterElements {
+    border: #C1A875 solid 2px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
+}
+
+.chapterElements>button {
+    color: white;
+    font-size: 30px;
+}
+
+.chapterElements>button:hover {
+    color: #C1A875;
+    transition: .2s;
+}
+
+.contentInput {
+    min-width: 900px;
+    min-height: 300px;
+    max-width: 900px;
+    max-height: 300px;
+    border: none;
+    border: 2px solid #D1D1D4;
+    background: none;
+    padding: 10px;
+    padding-left: 24px;
+    font-weight: 700;
+    width: 75%;
+    transition: .2s;
+    color: white;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+.test {
+    min-width: 900px;
+    min-height: 300px;
+    height: auto;
+    border: none;
+    border: 2px solid #D1D1D4;
+    background: none;
+    padding: 10px;
+    padding-left: 24px;
+    transition: .2s;
+    color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.testContent {
+    display: flex;
+    gap: 20px;
+}
+
+.ava {
+    width: 900px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.img {
+    min-width: 900px;
+    min-height: 300px;
+    height: auto;
+    border: none;
+    border: 2px solid #D1D1D4;
+    background: none;
+    transition: .2s;
+    color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.radioButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.chapterContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.removeButton {
+    color: #C1A875;
+    font-size: 30px;
+    border: #C1A875 solid 2px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.contentInput:active,
+.contentInput:focus,
+.contentInput:hover {
+    outline: none;
+    border-color: #C1A875;
 }

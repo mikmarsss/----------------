@@ -18,7 +18,6 @@ function CourseBlockProfile({ courses }) {
     return (
         <>
             <p className={styles.zagolovok}>Мои курсы</p>
-
             <div className={styles.container}>
                 {
                     courses.map((item, index) => (
@@ -26,9 +25,9 @@ function CourseBlockProfile({ courses }) {
                             <div>
                                 <div className={styles.courseblock}>
                                     <div className={styles.info}>
-                                        <h1>{item.name}</h1>
-                                        <p>{item.description}</p>
-                                        <p>{item.price}</p>
+                                        <h1 className={styles.status}>{item.status === 'notpublished' ? 'Неопубликован' : 'Опубликован'}</h1>
+                                        <h1 className={styles.name}>{item.name}</h1>
+                                        <p className={styles.opisanie}>{item.description}</p>
                                     </div>
                                     <div className={styles.buttons}>
                                         <button onClick={() => chooseCourse(item.id)}>Редактирование</button>

@@ -80,7 +80,7 @@
 .rightBlock {
     display: flex;
     border: solid black 2px;
-    width: 600px;
+    width: auto;
     height: auto;
     flex-direction: column;
     gap: 20px;
@@ -161,4 +161,58 @@
     left: 0;
     right: 0;
     bottom: 0;
+}
+
+.logininput {
+    border: none;
+    border-bottom: 2px solid #D1D1D4;
+    background: none;
+    padding: 10px;
+    padding-left: 24px;
+    font-weight: 700;
+    width: 300px;
+    transition: .2s;
+    color: white;
+}
+
+.logininput:active,
+.logininput:focus,
+.logininput:hover {
+    outline: none;
+    border-bottom-color: #C1A875;
+}
+
+.isfree>label {
+    font-size: 20px;
+}
+
+.contentInput {
+    min-width: 900px;
+    min-height: 300px;
+    max-width: 900px;
+    max-height: 300px;
+    border: none;
+    border: 2px solid #D1D1D4;
+    background: none;
+    padding: 10px;
+    padding-left: 24px;
+    font-weight: 700;
+    width: 75%;
+    transition: .2s;
+    color: white;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+.contentInput:active,
+.contentInput:focus,
+.contentInput:hover {
+    outline: none;
+    border-color: #C1A875;
+}
+
+.firstblock {
+    border: solid black 2px;
+    display: flex;
+    flex-direction: row;
 }

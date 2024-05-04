@@ -34,9 +34,13 @@ function ModulePage() {
             courseStore.saveModule(courseStore.module.id, name, description)
         }
     }
-    // const removeInfo = (number) => {
-    //     setModule(modulee.filter(i => (i.number !== number)))
-    // }
+
+    const deleteLesson = (number) => {
+        const lessonId = lessons[number - 1].id
+        setLessons(lessons.filter(i => (i.number !== number)))
+        courseStore.deleteLesson(lessonId)
+
+    }
 
     const addLesson = () => {
         setLessons([...lessons, []])
@@ -116,10 +120,20 @@ function ModulePage() {
                                 }
                             </button>
                         </div>
-                        <div className={styles.createLesson}>
-                            <button onClick={() => addLesson()}>Добавить урок</button>
-                        </div>
+                        {
+                            lessons.length === 0 &&
+                            <>
+                                <div className={styles.netmodulei}>
+                                    <h1>У вас нет уроков в этом модуле</h1>
+                                    <p>Чтобы добавить новый урок в этот модуль нажмите на кнопочку</p>
+                                </div>
+                            </>
+                        }
+
                         <div className={styles.lessons}>
+                            <div>
+                                <button className={styles.addModule} onClick={() => addLesson()}>Добавить урок</button>
+                            </div>
                             {
                                 lessons.length !== 0 &&
                                 lessons.map((item, index) => (
@@ -144,12 +158,10 @@ function ModulePage() {
                                 ))
                             }
                             {
-                                lessons.length === 0 &&
-                                <>
-                                    <div>
-                                        <h1>У вас нет уроков в этом модуле</h1>
-                                    </div>
-                                </>
+                                lessons.length !== 0 &&
+                                <div>
+                                    <button className={styles.addModule} onClick={() => deleteLesson(lessons.length)}>Удалить урок</button>
+                                </div>
                             }
                         </div>
                     </div>

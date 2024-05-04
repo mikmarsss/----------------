@@ -11,4 +11,5 @@ export interface ICourse {
     additional_type: string;
     course_content: string;
     creator_id: string;
+    status: string;
 }

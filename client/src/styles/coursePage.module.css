@@ -14,6 +14,7 @@
 }
 
 .ava {
+    object-fit: cover;
     width: 200px;
     height: 200px;
     border-radius: 20px;
@@ -44,6 +45,7 @@
 }
 
 .courseInfo {
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -93,4 +95,27 @@
     width: auto;
     border-bottom: 2px #C1A875 solid;
 
+}
+
+.moduleList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.module {
+    color: #C1A875;
+    font-size: 30px;
+}
+
+.lessonsList {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.lesson {
+    color: #C1A875;
+    font-size: 24px;
 }

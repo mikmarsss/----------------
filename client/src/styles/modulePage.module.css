@@ -1,4 +1,6 @@
 .container {
+    min-height: 77vh;
+    height: auto;
     width: 100%;
     height: auto;
     background-color: #3D3F4C;
@@ -15,7 +17,30 @@
     align-items: center;
 }
 
+.netmodulei {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.addModule {
+    font-size: 30px;
+    border: 2px #C1A875 solid;
+    border-radius: 20PX;
+    padding: 10PX;
+}
+
+.netmodulei>h1 {
+    color: #C1A875;
+    font-size: 40px;
+}
+
+.netmodulei>p {
+    color: white;
+    font-size: 20px;
+}
+
 .title {
+    margin-top: 100px;
     width: 600px;
     height: 200px;
     padding-top: 20px;
@@ -44,6 +69,7 @@
 .lessons {
     margin-top: 20px;
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: 20px;
 }

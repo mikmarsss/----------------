@@ -7,6 +7,8 @@ import { ICourse } from "../models/ICourse";
 import { IModule } from '../models/IModule'
 import { ILesson } from "../models/ILesson";
 import { LessonResponse } from "../models/response/LessonResponse";
+import { ChapterResponse } from "../models/response/ChapterResponse";
+import { IChapter } from "../models/IChapter";
 export default class CoursesService {
     static async createCourse(userId: any): Promise<AxiosResponse<CourseResponse>> {
         return $api.post<CourseResponse>('/courses/createCourse', { userId })
@@ -52,8 +54,8 @@ export default class CoursesService {
         return $api.post<LessonResponse>('/lesson/fetchlesson', { lessonId })
     }
 
-    static async saveLesson(formdata: any): Promise<AxiosResponse<LessonResponse>> {
-        return $api.post<LessonResponse>('/lesson/savelesson', { formdata })
+    static async saveLesson(lessonId: string, name: string): Promise<AxiosResponse<LessonResponse>> {
+        return $api.post<LessonResponse>('/lesson/savelesson', { lessonId, name })
     }
 
     static async refreshModule(moduleId: string): Promise<AxiosResponse<ModuleResponse>> {
@@ -70,6 +72,26 @@ export default class CoursesService {
 
     static async deleteModule(moduleId: string): Promise<AxiosResponse<ModuleResponse>> {
         return $api.post<ModuleResponse>('/module/deleteModule', { moduleId })
+    }
+
+    static async createChapter(course_lesson_id: string): Promise<AxiosResponse<ChapterResponse>> {
+        return $api.post<ChapterResponse>('/chapter/createChapter', { course_lesson_id })
+    }
+
+    static async fetchChapter(chapter_id: string): Promise<AxiosResponse<ChapterResponse>> {
+        return $api.post<ChapterResponse>('/chapter/fetchChapter', { chapter_id })
+    }
+
+    static async fetchChapters(course_lesson_id: string): Promise<AxiosResponse<IChapter[]>> {
+        return $api.post<IChapter[]>('/chapter/fetchChapters', { course_lesson_id })
+    }
+
+    static async saveChapter(formdata: any): Promise<AxiosResponse<ChapterResponse>> {
+        return $api.post<ChapterResponse>('/chapter/saveChapter', formdata)
+    }
+
+    static async deleteLesson(lessonId: string): Promise<AxiosResponse<LessonResponse>> {
+        return $api.post<LessonResponse>('/lesson/deleteLesson', { lessonId })
     }
 }
 

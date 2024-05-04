@@ -34,18 +34,23 @@ class LessonController {
 
     async saveLesson(req, res, next) {
         try {
-            const { img } = req.files
-            const { lessonId, name, content } = req.body
-            const lessonData = await LessonService.saveLesson(lessonId, img, name, content)
+            const { lessonId, name } = req.body
+            const lessonData = await LessonService.saveLesson(lessonId, name)
             return res.json(lessonData)
         } catch (e) {
             next(e)
         }
     }
 
-
-
-
+    async deleteLesson(req, res, next) {
+        try {
+            const { lessonId } = req.body
+            const lessonData = await LessonService.deleteLesson(lessonId)
+            return res.json(lessonData)
+        } catch (e) {
+            next(e)
+        }
+    }
 }
 
 module.exports = new LessonController()

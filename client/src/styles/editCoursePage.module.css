@@ -101,6 +101,15 @@
     text-align: center;
 }
 
+.inputFiles input[type=file] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    display: block;
+    width: 0;
+    height: 0;
+}
+
 .logininput {
     border: none;
     border-bottom: 2px solid #D1D1D4;
@@ -203,6 +212,7 @@
 .ava {
     width: 200px;
     height: 200px;
+    object-fit: cover;
     border-radius: 20px;
     border: 2px #C1A875 solid;
 }

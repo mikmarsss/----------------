@@ -1,13 +1,11 @@
 import Catalog from "./pages/Catalog"
-import ChooseCourse from "./pages/ChooseCourse"
 import CoursesContent from "./pages/CoursesContent"
 import CreateCoursesBlock from "./pages/CreateCoursesBlock"
 import FreeCourses from "./pages/FreeCourses"
 import Landing from "./pages/Landing"
-import PayCourses from "./pages/PayCourses"
 import PersonalAccount from "./pages/PersonalAccount"
 import ProfileSettings from "./pages/ProfileSettings"
-import { AUTHORIZATION_PAGE, CATALOG_ROUTE, CHOOSE_COURSE, COURSES_CONTENT, COURSE_LESSONS, COURSE_PAGE, CREATE_ROUTE, EDITCOURSE_PAGE, EDIT_LESSON, FREE_COURSE, LANDING_ROUTE, MODULE_PAGE, PAY_COURSE, PERSONAL_PAGE, PROFILE_ROUTE, SETTINGS_ROUTE, TEST_PAGE } from "./utils"
+import { AUTHORIZATION_PAGE, CATALOG_ROUTE, COURSES_CONTENT, COURSE_LESSONS, COURSE_PAGE, CREATE_ROUTE, EDITCOURSE_PAGE, EDIT_LESSON, FREE_COURSE, LANDING_ROUTE, MODULE_PAGE, PERSONAL_PAGE, PROFILE_ROUTE, SETTINGS_ROUTE, TEST_PAGE } from "./utils"
 import CourseLessons from "./pages/CourseLessons"
 import CoursePage from "./pages/CoursePage"
 import ModulePage from "./pages/ModulePage"
@@ -27,16 +25,8 @@ export const authRoutes = [
         Component: ProfileSettings
     },
     {
-        path: CHOOSE_COURSE,
-        Component: ChooseCourse
-    },
-    {
         path: FREE_COURSE,
         Component: FreeCourses
-    },
-    {
-        path: PAY_COURSE,
-        Component: PayCourses
     },
     {
         path: COURSES_CONTENT + '/:id',

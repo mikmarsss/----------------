@@ -64,7 +64,8 @@ const Course_info = sequelize.define('course_info', {
     type: { type: DataTypes.INTEGER, allowNull: false },
     additional_type: { type: DataTypes.ARRAY(DataTypes.INTEGER), allowNull: false },
     created_at: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW },
-    updated_at: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW }
+    updated_at: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW },
+    status: { type: DataTypes.STRING, defaultValue: 'notpublished' }
 }, { sequelize, timestamps: false })
 
 const Course_module = sequelize.define('course_module', {

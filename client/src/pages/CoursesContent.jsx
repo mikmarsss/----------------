@@ -65,8 +65,9 @@ function CoursesContent() {
                     {
                         modulee.length === 0 &&
                         <>
-                            <div>
-                                <h1>У вас нет уроков в этом модуле</h1>
+                            <div className={styles.netmodulei}>
+                                <h1>У вас нет модулей в этом курсе</h1>
+                                <p>Чтобы добавить новый модуль в этом курсе нажмите на кнопочку</p>
                             </div>
                         </>
                     }
@@ -94,9 +95,12 @@ function CoursesContent() {
                                         </div>
                                     ))
                                 }
-                                <div>
-                                    <button className={styles.deleteButton} onClick={() => deleteModule(modulee.length)}>Удалить модуль</button>
-                                </div>
+                                {
+                                    modulee.length !== 0 &&
+                                    <div>
+                                        <button className={styles.deleteButton} onClick={() => deleteModule(modulee.length)}>Удалить модуль</button>
+                                    </div>
+                                }
                             </>
                         }
 

@@ -128,11 +128,9 @@ export default class Store {
             this.setLoading(true)
             const msg = [{ "role": "user", "content": `${answer}, что делать, опиши кратко в 400 символов` }]
             const mdel = "deepseek-chat"
-            console.log(msg)
             const response = await AuthService.sendAiText(mdel, msg)
             console.log(response)
             this.setAnswer(response.data)
-            console.log(response.data)
         } catch (e) {
             console.log(e.response?.data?.message)
         } finally {

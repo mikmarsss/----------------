@@ -7,7 +7,7 @@ const { Module_lesson } = require('../models/user-model')
 
 class LessonService {
     async fetchModuleLessons(moduleId) {
-        const lessons = await Module_lesson.findAll({ where: { course_module_id: moduleId } })
+        const lessons = await Module_lesson.findAll({ where: { course_module_id: moduleId }, order: [['number', 'ASC']] })
         return { lessons }
     }
 
@@ -34,23 +34,20 @@ class LessonService {
         return { lesson: lessonDto }
     }
 
-    async saveLesson(lessonId, img, name, content) {
+    async saveLesson(lessonId, name) {
         const lesson = await Module_lesson.findOne({ where: { id: lessonId } })
-        let deleteImg = lesson.img
 
-        if (deleteImg !== "logo.svg") {
-            fs.unlinkSync(path.resolve(__dirname, '..', 'static', deleteImg))
-        }
         const time = Math.floor(Date.now() / 1000)
-        let fileName = uuid.v4() + ".jpg";
-        img.mv(path.resolve(__dirname, '..', 'static', fileName))
         lesson.update({ updated_at: time }, { where: { id: lessonId } })
-        lesson.update({ img: fileName }, { where: { id: lessonId } })
         lesson.update({ name: name }, { where: { id: lessonId } })
-        lesson.update({ content: content }, { where: { id: lessonId } })
 
         const lessonDto = new LessonDto(lesson)
         return { lesson: lessonDto }
+    }
+
+    async deleteLesson(lessonId) {
+        const lesson = await Module_lesson.findOne({ where: { id: lessonId } })
+        lesson.destroy()
     }
 }
 

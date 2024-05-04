@@ -24,10 +24,10 @@ function Profilepanel() {
 
     useEffect(() => {
         setMenu(localStorage.getItem('menuPanel'))
-        if (localStorage.getItem('menuPanel') === 'created') {
+        if (menu === 'created') {
             getCourses()
         }
-    }, [])
+    }, [menu])
 
     const menuHandler = (v) => {
         setMenu(v)
