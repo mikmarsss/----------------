@@ -65,7 +65,10 @@ const Course_info = sequelize.define('course_info', {
     additional_type: { type: DataTypes.ARRAY(DataTypes.INTEGER), allowNull: false },
     created_at: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW },
     updated_at: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW },
-    status: { type: DataTypes.STRING, defaultValue: 'notpublished' }
+    status: { type: DataTypes.STRING, defaultValue: 'notpublished' },
+    amount_done_courses: { type: DataTypes.INTEGER, defaultValue: 0 },
+    amount_done_lessons: { type: DataTypes.INTEGER, defaultValue: 0 },
+    amount_done_modules: { type: DataTypes.INTEGER, defaultValue: 0 },
 }, { sequelize, timestamps: false })
 
 const Course_module = sequelize.define('course_module', {
@@ -76,6 +79,7 @@ const Course_module = sequelize.define('course_module', {
     created_at: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW },
     updated_at: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW },
     course_info_id: { type: DataTypes.INTEGER },
+    done_modules: { type: DataTypes.INTEGER, defaultValue: 0 }
 }, { sequelize, timestamps: false })
 
 const Module_lesson = sequelize.define('module_lesson', {
@@ -87,7 +91,7 @@ const Module_lesson = sequelize.define('module_lesson', {
     created_at: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW },
     updated_at: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW },
     course_module_id: { type: DataTypes.INTEGER },
-
+    done_lessons: { type: DataTypes.INTEGER, defaultValue: 0 }
 }, { sequelize, timestamps: false })
 
 const Lesson_Chapter = sequelize.define('lesson_chapter', {
@@ -99,7 +103,8 @@ const Lesson_Chapter = sequelize.define('lesson_chapter', {
     created_at: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW },
     updated_at: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW },
     course_lesson_id: { type: DataTypes.INTEGER },
-    imgs: { type: DataTypes.STRING }
+    done_chapters: { type: DataTypes.INTEGER, defaultValue: 0 },
+    imgs: { type: DataTypes.STRING },
 }, { sequelize, timestamps: false })
 
 const Creator = sequelize.define('creator', {

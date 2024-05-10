@@ -6,4 +6,5 @@ export interface IChapter {
     numberLesson: string;
     course_lesson_id: string;
     imgs: string;
+    done_chapters: string;
 }

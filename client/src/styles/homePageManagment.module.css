@@ -1,0 +1,121 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.zagolovok {
+    color: #C1A875;
+    font-size: 40px;
+}
+
+.mainInfo {
+    width: 75%;
+    border-bottom: solid #C1A875 1px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    height: 230px;
+}
+
+.shortStats {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    height: 230px;
+}
+
+.fullStat {
+    font-size: 18px;
+    color: white;
+}
+
+.fullStat>button {
+    font-size: 20px;
+    color: #C1A875;
+}
+
+.statsContainer {
+    width: 75%;
+    border-bottom: solid #C1A875 1px;
+    display: flex;
+    flex-direction: column;
+}
+
+.shortStats>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.shortStats>div>h1 {
+    color: white;
+    font-size: 80px;
+}
+
+.shortStats>div>p {
+    color: #C1A875;
+    font-size: 24px;
+    text-align: center;
+}
+
+.moneyAndRating {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 230px;
+}
+
+.moneyAndRating>div>h1 {
+    color: white;
+    font-size: 80px;
+    text-align: center;
+}
+
+.moneyAndRating>div>p {
+    color: #C1A875;
+    font-size: 24px;
+    text-align: center;
+}
+
+.ava {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+
+.photo {
+    border-radius: 20px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    font-size: 40px;
+    color: #C1A875;
+}
+
+.description {
+    font-size: 30px;
+    color: white;
+}
+
+.ratingContainer {
+    width: 75%;
+    border-bottom: solid #C1A875 1px;
+    display: flex;
+    flex-direction: column;
+}

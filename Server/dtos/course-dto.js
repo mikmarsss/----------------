@@ -13,6 +13,9 @@ module.exports = class CourseDto {
     created_at;
     updated_at;
     status;
+    amount_done_courses;
+    amount_done_modules;
+    amount_done_lessons;
     constructor(model) {
         this.id = model.id;
         this.name = model.name;
@@ -28,5 +31,8 @@ module.exports = class CourseDto {
         this.created_at = model.created_at
         this.updated_at = model.updated_at
         this.status = model.status
+        this.amount_done_courses = model.amount_done_courses
+        this.amount_done_modules = model.amount_done_modules
+        this.amount_done_lessons = model.amount_done_lessons
     }
 }

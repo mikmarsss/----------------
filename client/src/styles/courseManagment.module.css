@@ -1,0 +1,272 @@
+.container {
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    justify-content: center;
+    border: solid black 2px;
+}
+
+.conatainer1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    min-height: 77vh;
+    height: auto;
+    background-color: #3D3F4C;
+}
+
+.navmenu {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+.navmenu>div {
+    width: 100%;
+}
+
+.ava {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+
+}
+
+.navpanel {
+    height: 660px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-left: 50px;
+}
+
+.main>button {
+    font-size: 18px;
+    color: white;
+    text-align: left;
+}
+
+.photo {
+    border-radius: 20px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.username {
+    font-size: 30px;
+    color: white;
+}
+
+.courses>button {
+    width: auto;
+    font-size: 18px;
+    color: white;
+    text-align: left;
+
+}
+
+.courses>button:hover {
+    font-size: 18px;
+    color: #C1A875;
+    text-align: left;
+}
+
+.main>button:hover {
+    font-size: 18px;
+    color: #C1A875;
+    text-align: left;
+}
+
+label {
+    color: #C1A875;
+    font-size: 30px;
+    align-items: center;
+}
+
+.courses {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-left: 50px;
+}
+
+.exitButton {
+    margin-top: 50px;
+    font-size: 30px;
+    border: #C1A875 solid 2px;
+    border-radius: 15px;
+    padding: 5px;
+    color: white;
+}
+
+.info {
+    width: 85%;
+    height: 100%;
+    border: solid black 2px;
+}
+
+.homePageContainer {
+    display: flex;
+    flex-direction: column;
+    height: 900px;
+    padding: 10px;
+    gap: 70px;
+}
+
+
+
+.learnStat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 250px;
+}
+
+.statValues {
+    width: 90%;
+    height: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    border-bottom: #C1A875 1px solid;
+}
+
+.statValues>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.statValues>div>h1 {
+    color: white;
+    font-size: 80px;
+}
+
+.statValues>div>p {
+    color: #C1A875;
+    font-size: 24px;
+    text-align: center;
+}
+
+.learnStat>p {
+    text-align: center;
+    color: white;
+    font-size: 30px;
+}
+
+.activeCourse>p {
+    text-align: center;
+    color: white;
+    font-size: 30px;
+}
+
+.recomendCourses {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+
+}
+
+.recomendation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    gap: 20px;
+}
+
+.recomendation>button {
+    font-size: 40px;
+    padding: 10px;
+    border: #C1A875 solid 1px;
+    color: white;
+    border-radius: 20px;
+}
+
+.recomendation>p {
+    color: #C1A875;
+    font-size: 20px;
+    text-align: center;
+}
+
+.recText {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    border-bottom: #C1A875 solid 1px;
+}
+
+.recomendCourses>p {
+    text-align: center;
+    color: white;
+    font-size: 30px;
+}
+
+.activeCourse {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+}
+
+.courseInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+.courseName {
+    color: #C1A875;
+    font-size: 40px;
+}
+
+.courseDescription {
+    color: white;
+    font-size: 26px;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+.mainCourse {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    height: 140px;
+    align-items: center;
+    border-bottom: #C1A875 solid 2px;
+    gap: 300px;
+}
+
+.continueButton {
+    width: 200px;
+    height: 130px;
+    background-color: #C1A875;
+    font-size: 29px;
+    border-radius: 10px;
+}

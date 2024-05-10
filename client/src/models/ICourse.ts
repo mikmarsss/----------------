@@ -12,4 +12,8 @@ export interface ICourse {
     course_content: string;
     creator_id: string;
     status: string;
+    amount_done_courses: string;
+    amount_done_modules: string;
+    amount_done_lessons: string;
+
 }

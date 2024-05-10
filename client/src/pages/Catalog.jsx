@@ -21,7 +21,7 @@ function Catalog() {
             <div className={styles.container}>
                 <div className={styles.catalog}>
                     <div className={styles.left}>
-                        <div >
+                        <div>
                             <Link to={TEST_PAGE + `/${store.user.id}`}>
                                 <button className={styles.upl}>
                                     <h1>ПРОФ ОРИЕНТАЦИЯ</h1>

@@ -8,6 +8,7 @@ module.exports = class LessonChapterDto {
     imgs;
     created_at;
     updated_at;
+    done_chapters;
     constructor(model) {
         this.id = model.id;
         this.name = model.name;
@@ -18,5 +19,6 @@ module.exports = class LessonChapterDto {
         this.updated_at = model.updated_at;
         this.course_lesson_id = model.course_lesson_id;
         this.imgs = model.imgs;
+        this.done_chapters = model.done_chapters;
     }
 }

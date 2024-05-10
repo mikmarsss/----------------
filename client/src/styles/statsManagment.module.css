@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.zagolovok {
+    color: #C1A875;
+    font-size: 40px;
+}
+
+.diagram {
+    border-bottom: #C1A875 solid 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+}
+
+.diagbar {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.diagbar>button {
+    border: #C1A875 solid 1px;
+    padding: 5px;
+    font-size: 30px;
+    border-radius: 10px;
+    color: white;
+}
+
+.diagbar>button:hover {
+    background-color: #C1A875;
+    transition: .2s;
+    color: #3D3F4C;
+}

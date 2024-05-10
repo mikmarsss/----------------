@@ -20,7 +20,6 @@ export const Context = createContext<State>({
 })
 
 ReactDOM.render(
-
   <Context.Provider value={{ store, courseStore }}>
     <BrowserRouter>
       <App />

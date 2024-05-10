@@ -4,4 +4,5 @@ export interface IModule {
     description: string;
     number: string;
     course_info_id: string;
+    done_modules: string;
 }

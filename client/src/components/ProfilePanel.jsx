@@ -116,4 +116,7 @@ const ShowInfo = observer(({ menu, courses }) => {
         </>
     )
 })
+
+
+
 export default observer(Profilepanel)

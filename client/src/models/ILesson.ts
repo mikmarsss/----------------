@@ -5,4 +5,5 @@ export interface ILesson {
     content: string;
     numberModule: string;
     course_module_id: string;
+    done_lessons: string;
 }
