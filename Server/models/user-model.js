@@ -125,6 +125,83 @@ const TokenSchema = sequelize.define('token', {
     userId: { type: DataTypes.INTEGER, allowNull: false }
 })
 
+const firstMonthStudents = sequelize.define('first_month_students', {
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    course_info_id: { type: DataTypes.INTEGER },
+    one: { type: DataTypes.INTEGER, allowNull: false },
+    two: { type: DataTypes.INTEGER, allowNull: false },
+    three: { type: DataTypes.INTEGER, allowNull: false },
+    four: { type: DataTypes.INTEGER, allowNull: false },
+    five: { type: DataTypes.INTEGER, allowNull: false },
+    six: { type: DataTypes.INTEGER, allowNull: false },
+    seven: { type: DataTypes.INTEGER, allowNull: false },
+    eight: { type: DataTypes.INTEGER, allowNull: false },
+    nine: { type: DataTypes.INTEGER, allowNull: false },
+    ten: { type: DataTypes.INTEGER, allowNull: false },
+    eleven: { type: DataTypes.INTEGER, allowNull: false },
+    twelve: { type: DataTypes.INTEGER, allowNull: false },
+    thirteen: { type: DataTypes.INTEGER, allowNull: false },
+    fourteen: { type: DataTypes.INTEGER, allowNull: false },
+    fifteen: { type: DataTypes.INTEGER, allowNull: false },
+    sixteen: { type: DataTypes.INTEGER, allowNull: false },
+    seventeen: { type: DataTypes.INTEGER, allowNull: false },
+    eighteen: { type: DataTypes.INTEGER, allowNull: false },
+    nineteen: { type: DataTypes.INTEGER, allowNull: false },
+    twenty: { type: DataTypes.INTEGER, allowNull: false },
+    twentyone: { type: DataTypes.INTEGER, allowNull: false },
+    twentytwo: { type: DataTypes.INTEGER, allowNull: false },
+    twentythree: { type: DataTypes.INTEGER, allowNull: false },
+    twentyfour: { type: DataTypes.INTEGER, allowNull: false },
+    twentyfive: { type: DataTypes.INTEGER, allowNull: false },
+    twentysix: { type: DataTypes.INTEGER, allowNull: false },
+    twentyseven: { type: DataTypes.INTEGER, allowNull: false },
+    twentyeight: { type: DataTypes.INTEGER, allowNull: false },
+    twentynine: { type: DataTypes.INTEGER, allowNull: false },
+    thirty: { type: DataTypes.INTEGER, allowNull: false },
+    thirtyone: { type: DataTypes.INTEGER, allowNull: false },
+})
+const secondMonthStudents = sequelize.define('second_month_students', {
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    course_info_id: { type: DataTypes.INTEGER },
+    one: { type: DataTypes.INTEGER, allowNull: false },
+    two: { type: DataTypes.INTEGER, allowNull: false },
+    three: { type: DataTypes.INTEGER, allowNull: false },
+    four: { type: DataTypes.INTEGER, allowNull: false },
+    five: { type: DataTypes.INTEGER, allowNull: false },
+    six: { type: DataTypes.INTEGER, allowNull: false },
+    seven: { type: DataTypes.INTEGER, allowNull: false },
+    eight: { type: DataTypes.INTEGER, allowNull: false },
+    nine: { type: DataTypes.INTEGER, allowNull: false },
+    ten: { type: DataTypes.INTEGER, allowNull: false },
+    eleven: { type: DataTypes.INTEGER, allowNull: false },
+    twelve: { type: DataTypes.INTEGER, allowNull: false },
+    thirteen: { type: DataTypes.INTEGER, allowNull: false },
+    fourteen: { type: DataTypes.INTEGER, allowNull: false },
+    fifteen: { type: DataTypes.INTEGER, allowNull: false },
+    sixteen: { type: DataTypes.INTEGER, allowNull: false },
+    seventeen: { type: DataTypes.INTEGER, allowNull: false },
+    eighteen: { type: DataTypes.INTEGER, allowNull: false },
+    nineteen: { type: DataTypes.INTEGER, allowNull: false },
+    twenty: { type: DataTypes.INTEGER, allowNull: false },
+    twentyone: { type: DataTypes.INTEGER, allowNull: false },
+    twentytwo: { type: DataTypes.INTEGER, allowNull: false },
+    twentythree: { type: DataTypes.INTEGER, allowNull: false },
+    twentyfour: { type: DataTypes.INTEGER, allowNull: false },
+    twentyfive: { type: DataTypes.INTEGER, allowNull: false },
+    twentysix: { type: DataTypes.INTEGER, allowNull: false },
+    twentyseven: { type: DataTypes.INTEGER, allowNull: false },
+    twentyeight: { type: DataTypes.INTEGER, allowNull: false },
+    twentynine: { type: DataTypes.INTEGER, allowNull: false },
+    thirty: { type: DataTypes.INTEGER, allowNull: false },
+    thirtyone: { type: DataTypes.INTEGER, allowNull: false },
+})
+
+Course_info.hasOne(firstMonthStudents, { foreignKey: 'course_info_id' })
+firstMonthStudents.belongsTo(Course_info, { foreignKey: 'course_info_id' })
+
+Course_info.hasOne(secondMonthStudents, { foreignKey: 'course_info_id' })
+secondMonthStudents.belongsTo(Course_info, { foreignKey: 'course_info_id' })
+
 Module_lesson.hasMany(Lesson_Chapter, { foreignKey: 'course_lesson_id' })
 Lesson_Chapter.belongsTo(Module_lesson, { foreignKey: 'course_lesson_id' })
 

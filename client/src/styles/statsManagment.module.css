@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
 }
 
 .zagolovok {
@@ -12,9 +13,15 @@
 .diagram {
     border-bottom: #C1A875 solid 1px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 500px;
+}
+
+.diagram>p {
+    font-size: 25px;
+    color: #C1A875;
 }
 
 .diagbar {
@@ -35,4 +42,36 @@
     background-color: #C1A875;
     transition: .2s;
     color: #3D3F4C;
+}
+
+.minMax {
+    border: solid black 1px;
+    width: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+
+}
+
+.modules {
+    display: flex;
+    flex-direction: column;
+}
+
+.modules>div>p {
+    color: #C1A875;
+    font-size: 26px;
+    text-align: center;
+}
+
+.lessons {
+    display: flex;
+    flex-direction: column;
+}
+
+.lessons>div>p {
+    color: #C1A875;
+    font-size: 26px;
+    text-align: center;
 }

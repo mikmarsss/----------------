@@ -1,6 +1,11 @@
 const { Course_info } = require('../models/user-model')
 const { Creator } = require('../models/user-model')
 const CourseDto = require('../dtos/course-dto')
+const { secondMonthStudents } = require('../models/user-model')
+const { firstMonthStudents } = require('../models/user-model')
+const FirstMonthStudentsDto = require('../dtos/firstMonthStudents-dto')
+const SecondMonthStudentsDto = require('../dtos/secondMonthStudents-dto')
+
 const uuid = require('uuid')
 const path = require('path')
 const fs = require('fs')
@@ -18,6 +23,8 @@ class CoursesService {
         const creator_id = findCreatorId.id
         const time = Math.floor(Date.now() / 1000)
         const course = await Course_info.create({ name: '1', price: 1, creator_id, description: '1', rating: '0', people: '0', time: '0', course_content: '1', img: 'fileName', type: '1', additional_type: [1], created_at: time, updated_at: time });
+        await firstMonthStudents.create({ course_info_id: course.id })
+        await secondMonthStudents.create({ course_info_id: course.id })
         const courseDto = new CourseDto(course);
         return { course: courseDto }
     }
@@ -54,6 +61,14 @@ class CoursesService {
         const creatorId = creator.id
         const courses = await Course_info.findAll({ where: { creator_id: creatorId } })
         return { courses }
+    }
+
+    async fetchMonthStat(course_info_id) {
+        const _1stmonth = await firstMonthStudents.findOne({ where: { course_info_id: course_info_id } })
+        const _2ndmonth = await secondMonthStudents.findOne({ where: { course_info_id: course_info_id } })
+        const _1stmonthDto = new FirstMonthStudentsDto(_1stmonth)
+        const _2ndmonthDto = new SecondMonthStudentsDto(_2ndmonth)
+        return { _1stmonth: _1stmonthDto, _2ndmonth: _2ndmonthDto }
     }
 
 }

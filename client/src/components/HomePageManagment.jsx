@@ -25,15 +25,15 @@ function HomePageManagment() {
                 <div className={styles.statsContainer}>
                     <div className={styles.shortStats}>
                         <div className={styles.done_courses}>
-                            <h1>{courseStore.course.amount_done_courses}</h1>
+                            <h1>{`${courseStore.course.amount_done_courses < 1000 ? courseStore.course.amount_done_courses : Math.round(courseStore.course.amount_done_courses / 1000)}`}</h1>
                             <p>Людей прошедших курс</p>
                         </div>
                         <div className={styles.done_courses}>
-                            <h1>{courseStore.course.amount_done_modules}</h1>
+                            <h1>{`${courseStore.course.amount_done_modules < 1000 ? courseStore.course.amount_done_modules : Math.round(courseStore.course.amount_done_modules / 1000)}k`}</h1>
                             <p>Пройдено модулей</p>
                         </div>
                         <div className={styles.done_courses}>
-                            <h1>{courseStore.course.amount_done_lessons}</h1>
+                            <h1>{`${courseStore.course.amount_done_lessons < 1000 ? courseStore.course.amount_done_lessons : Math.round(courseStore.course.amount_done_lessons / 1000)}k`}</h1>
                             <p>Пройдено уроков</p>
                         </div>
                     </div>
@@ -44,7 +44,7 @@ function HomePageManagment() {
                 <div className={styles.ratingContainer}>
                     <div className={styles.moneyAndRating}>
                         <div className={styles.done_courses}>
-                            <h1>{courseStore.course.price * courseStore.course.people}</h1>
+                            <h1>{`${Math.round((courseStore.course.price * courseStore.course.people) / 1000) * 1000}k`}</h1>
                             <p>Выручка</p>
                         </div>
                         <div className={styles.done_courses}>

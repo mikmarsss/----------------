@@ -245,4 +245,13 @@ export default class CourseStore {
             console.log(e.response?.data?.message)
         }
     }
+
+    async fetchMonthStat(course_info_id: string) {
+        try {
+            const response = await CoursesService.fetchMonthStat(course_info_id)
+            console.log(response)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+    }
 }

@@ -9,6 +9,8 @@ import { ILesson } from "../models/ILesson";
 import { LessonResponse } from "../models/response/LessonResponse";
 import { ChapterResponse } from "../models/response/ChapterResponse";
 import { IChapter } from "../models/IChapter";
+import { MonthStatResponse } from "../models/response/MonthStatResponse";
+
 export default class CoursesService {
     static async createCourse(userId: any): Promise<AxiosResponse<CourseResponse>> {
         return $api.post<CourseResponse>('/courses/createCourse', { userId })
@@ -92,6 +94,10 @@ export default class CoursesService {
 
     static async deleteLesson(lessonId: string): Promise<AxiosResponse<LessonResponse>> {
         return $api.post<LessonResponse>('/lesson/deleteLesson', { lessonId })
+    }
+
+    static async fetchMonthStat(course_info_id: string): Promise<AxiosResponse<MonthStatResponse>> {
+        return $api.post<MonthStatResponse>('/courses/fetchMonthStat', { course_info_id })
     }
 }
 
