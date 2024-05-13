@@ -16,7 +16,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 500px;
+    height: 600px;
 }
 
 .diagram>p {
@@ -74,4 +74,70 @@
     color: #C1A875;
     font-size: 26px;
     text-align: center;
+}
+
+.selected {
+    background-color: #C1A875;
+}
+
+.statWarning {
+    color: #C1A875;
+    font-size: 30px;
+    text-align: center;
+}
+
+.price {
+    border: solid black 2px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.logininput {
+    height: 26px;
+    border: none;
+    border-bottom: 2px solid #D1D1D4;
+    background: none;
+    padding: 10px;
+    padding-left: 24px;
+    font-weight: 700;
+    width: 350px;
+    transition: .2s;
+    color: white;
+    font-size: 25px;
+}
+
+.logininput:active,
+.logininput:focus,
+.logininput:hover {
+    outline: none;
+    border-bottom-color: #C1A875;
+}
+
+.currentPrice {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    gap: 30px;
+}
+
+.currentPrice>div {
+    width: 70%;
+}
+
+.currentPrice>div>p {
+    color: #C1A875;
+    font-size: 25px;
+    margin-left: 20px;
+}
+
+.sale {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.sale>p {
+    font-size: 20px;
+    color: #C1A875;
 }

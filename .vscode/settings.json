@@ -18,7 +18,7 @@
     "workbench.iconTheme": "material-icon-theme",
     "figma.autocompleteBlocks": true,
     "workbench.preferredDarkColorTheme": "Default High Contrast Light",
-    "workbench.colorTheme": "Winter is Coming (Dark Blue)",
+    "workbench.colorTheme": "Winter is Coming (Dark Blue - No Italics)",
     "javascript.updateImportsOnFileMove.enabled": "always",
     "editor.fontFamily": "JetBrains Mono"
 }

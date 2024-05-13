@@ -7,6 +7,9 @@ import { useParams } from "react-router-dom";
 import { Context } from "..";
 import HomePageManagment from "../components/HomePageManagment";
 import StatsManagment from "../components/StatsManagment";
+import ManagmentSettings from "../components/ManagmentSettings";
+import MoneyStat from "../components/MoneyStat";
+import MoneySettings from "../components/MoneySettings";
 
 function CourseManagment() {
     const { store, courseStore } = useContext(Context)
@@ -38,12 +41,15 @@ function CourseManagment() {
                                 <div className={styles.main} id="main">
                                     <button onClick={() => menuHandler('home')}>Домашняя страница</button>
                                     <button onClick={() => menuHandler('stats')}>Статистика</button>
-                                    <button onClick={() => menuHandler('settings')}>Настройки</button>
                                 </div>
-                                <label htmlFor="courses">Монетизация</label>
+                                <label htmlFor="courses">Доходы</label>
                                 <div id="courses" className={styles.courses}>
                                     <button onClick={() => menuHandler('moneytStats')}>Статистика</button>
-                                    <button onClick={() => menuHandler('moneySettings')}>Настройки курсы</button>
+                                </div>
+                                <label htmlFor="courses">Настройки</label>
+                                <div id="courses" className={styles.courses}>
+                                    <button onClick={() => menuHandler('settings')}>Публикация</button>
+                                    <button onClick={() => menuHandler('moneySettings')}>Цены</button>
                                 </div>
                             </div>
                         </div>
@@ -71,10 +77,16 @@ const ShowInfo = observer(({ menu, page }) => {
                 <StatsManagment />
             }
             {
-
+                menu === 'settings' &&
+                <ManagmentSettings />
             }
             {
-
+                menu === 'moneytStats' &&
+                <MoneyStat />
+            }
+            {
+                menu === 'moneySettings' &&
+                <MoneySettings />
             }
         </>
     )

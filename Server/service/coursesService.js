@@ -5,7 +5,8 @@ const { secondMonthStudents } = require('../models/user-model')
 const { firstMonthStudents } = require('../models/user-model')
 const FirstMonthStudentsDto = require('../dtos/firstMonthStudents-dto')
 const SecondMonthStudentsDto = require('../dtos/secondMonthStudents-dto')
-
+const YearIncomeStatDto = require('../dtos/yearIncomeStat-dto')
+const { YearIncomeStat } = require('../models/user-model')
 const uuid = require('uuid')
 const path = require('path')
 const fs = require('fs')
@@ -22,9 +23,10 @@ class CoursesService {
         })
         const creator_id = findCreatorId.id
         const time = Math.floor(Date.now() / 1000)
-        const course = await Course_info.create({ name: '1', price: 1, creator_id, description: '1', rating: '0', people: '0', time: '0', course_content: '1', img: 'fileName', type: '1', additional_type: [1], created_at: time, updated_at: time });
-        await firstMonthStudents.create({ course_info_id: course.id })
-        await secondMonthStudents.create({ course_info_id: course.id })
+        const course = await Course_info.create({ name: '1', price: 1, creator_id, description: '1', rating: '0', people: '0', time: '0', course_content: '1', img: 'fileName', type: '1', additional_type: [1], created_at: time, updated_at: time, new_price: 0 });
+        await firstMonthStudents.create({ course_info_id: course.id, one: 0, two: 0, three: 0, four: 0, five: 0, six: 0, seven: 0, eight: 0, nine: 0, ten: 0, eleven: 0, twelve: 0, thirteen: 0, fourteen: 0, fifteen: 0, sixteen: 0, seventeen: 0, eighteen: 0, nineteen: 0, twenty: 0, twentyone: 0, twentytwo: 0, twentythree: 0, twentyfour: 0, twentyfive: 0, twentysix: 0, twentyseven: 0, twentyeight: 0, twentynine: 0, thirty: 0, thirtyone: 0, })
+        await secondMonthStudents.create({ course_info_id: course.id, one: 0, two: 0, three: 0, four: 0, five: 0, six: 0, seven: 0, eight: 0, nine: 0, ten: 0, eleven: 0, twelve: 0, thirteen: 0, fourteen: 0, fifteen: 0, sixteen: 0, seventeen: 0, eighteen: 0, nineteen: 0, twenty: 0, twentyone: 0, twentytwo: 0, twentythree: 0, twentyfour: 0, twentyfive: 0, twentysix: 0, twentyseven: 0, twentyeight: 0, twentynine: 0, thirty: 0, thirtyone: 0, })
+        await YearIncomeStat.create({ course_info_id: course.id, created_at: time, updated_at: time })
         const courseDto = new CourseDto(course);
         return { course: courseDto }
     }
@@ -66,11 +68,15 @@ class CoursesService {
     async fetchMonthStat(course_info_id) {
         const _1stmonth = await firstMonthStudents.findOne({ where: { course_info_id: course_info_id } })
         const _2ndmonth = await secondMonthStudents.findOne({ where: { course_info_id: course_info_id } })
-        const _1stmonthDto = new FirstMonthStudentsDto(_1stmonth)
-        const _2ndmonthDto = new SecondMonthStudentsDto(_2ndmonth)
-        return { _1stmonth: _1stmonthDto, _2ndmonth: _2ndmonthDto }
+        const months = [_1stmonth, _2ndmonth]
+        return { months }
     }
 
+    async fetchYearIncome(course_info_id) {
+        const yearIncomeData = await YearIncomeStat.findOne({ where: { course_info_id: course_info_id } })
+        const yearIncomeDto = new YearIncomeStatDto(yearIncomeData)
+        return { yearIncome: yearIncomeDto }
+    }
 }
 
 module.exports = new CoursesService()

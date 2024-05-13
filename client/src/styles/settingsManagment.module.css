@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.settings {
+    margin-top: 50px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    border: solid black 2px;
+}
+
+.publish {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.circle {
+    width: 20px;
+    height: 20px;
+    border: solid #C1A875 1px;
+    border-radius: 50%;
+}
+
+.checkList>div {
+    gap: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.checkList>div>p {
+    font-size: 30px;
+}
+
+.zagolovok {
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    color: #C1A875;
+}

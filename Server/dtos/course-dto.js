@@ -4,6 +4,7 @@ module.exports = class CourseDto {
     description;
     courseContent;
     price;
+    newPrice;
     rating;
     people;
     time;
@@ -22,6 +23,7 @@ module.exports = class CourseDto {
         this.description = model.description;
         this.courseContent = model.courseContent;
         this.price = model.price;
+        this.new_price = model.new_price;
         this.rating = model.rating;
         this.people = model.people;
         this.time = model.time;

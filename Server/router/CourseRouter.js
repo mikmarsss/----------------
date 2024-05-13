@@ -8,6 +8,7 @@ router.post('/savecoursedata', CoursesController.SaveCourseData)
 router.post('/refreshCourse', CoursesController.refreshCourse)
 router.post('/fetchusercourses', CoursesController.fetchUserCourses)
 router.post('/fetchMonthStat', CoursesController.fetchMonthStat)
+router.post('/fetchYearIncome', CoursesController.fetchYearIncome)
 
 
 module.exports = router

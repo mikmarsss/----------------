@@ -254,4 +254,13 @@ export default class CourseStore {
             console.log(e.response?.data?.message)
         }
     }
+
+    async fetchYearIncome(course_info_id: string) {
+        try {
+            const response = await CoursesService.fetchYearIncome(course_info_id)
+            console.log(response)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+    }
 }

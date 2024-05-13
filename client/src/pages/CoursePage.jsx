@@ -46,7 +46,7 @@ function CoursePage() {
         try {
             const response = await CoursesService.fetchCourseModules(current)
             const dataArray = response.data.modules; // Предполагается, что courses - это массив в модели
-            if (Array.isArray(dataArray)) {
+            if (Array.isArray(dataArray) && dataArray.length !== 0) {
                 setModules(dataArray);
 
             } else {
@@ -250,7 +250,7 @@ function CoursePage() {
                                                     <button onClick={() => moduleHandler(index.id)} className={styles.module}>{index.number}. {index.name}</button>
                                                 </div>
                                                 <div className={styles.lessonsList}>
-                                                    {index.id === moduleId &&
+                                                    {index.id === moduleId && lessons.length !== 0 &&
                                                         lessons.map((index, item) => (
                                                             <>
                                                                 <div className={styles.lesson}>

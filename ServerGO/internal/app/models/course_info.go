@@ -8,6 +8,7 @@ type CourseInfo struct {
 	Id                  int64   `json:"id"`
 	Name                string  `json:"name"`
 	Price               float64 `json:"price"`
+	NewPrice            float64 `json:"new_price"`
 	Rating              float64 `json:"rating"`
 	People              int64   `json:"people"`
 	Time                int64   `json:"time"`

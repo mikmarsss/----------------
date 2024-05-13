@@ -54,6 +54,7 @@ const Course_info = sequelize.define('course_info', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     name: { type: DataTypes.STRING, allowNull: false },
     price: { type: DataTypes.DECIMAL, allowNull: false },
+    new_price: { type: DataTypes.DECIMAL, allowNull: false },
     rating: { type: DataTypes.DECIMAL, allowNull: true },
     people: { type: DataTypes.INTEGER, allowNull: true },
     time: { type: DataTypes.INTEGER, allowNull: true },
@@ -124,6 +125,27 @@ const TokenSchema = sequelize.define('token', {
     refreshToken: { type: DataTypes.STRING, allowNull: false },
     userId: { type: DataTypes.INTEGER, allowNull: false }
 })
+
+const YearIncomeStat = sequelize.define('year_income_stat', {
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    course_info_id: { type: DataTypes.INTEGER, },
+    January: { type: DataTypes.INTEGER, defaultValue: 0 },
+    February: { type: DataTypes.INTEGER, defaultValue: 0 },
+    March: { type: DataTypes.INTEGER, defaultValue: 0 },
+    April: { type: DataTypes.INTEGER, defaultValue: 0 },
+    May: { type: DataTypes.INTEGER, defaultValue: 0 },
+    June: { type: DataTypes.INTEGER, defaultValue: 0 },
+    July: { type: DataTypes.INTEGER, defaultValue: 0 },
+    August: { type: DataTypes.INTEGER, defaultValue: 0 },
+    September: { type: DataTypes.INTEGER, defaultValue: 0 },
+    October: { type: DataTypes.INTEGER, defaultValue: 0 },
+    November: { type: DataTypes.INTEGER, defaultValue: 0 },
+    December: { type: DataTypes.INTEGER, defaultValue: 0 },
+    created_at: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW },
+    updated_at: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW },
+}, { sequelize, timestamps: false })
+
+
 
 const firstMonthStudents = sequelize.define('first_month_students', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
@@ -196,6 +218,9 @@ const secondMonthStudents = sequelize.define('second_month_students', {
     thirtyone: { type: DataTypes.INTEGER, allowNull: false },
 })
 
+Course_info.hasOne(YearIncomeStat, { foreignKey: 'course_info_id' })
+YearIncomeStat.belongsTo(Course_info, { foreignKey: 'course_info_id' })
+
 Course_info.hasOne(firstMonthStudents, { foreignKey: 'course_info_id' })
 firstMonthStudents.belongsTo(Course_info, { foreignKey: 'course_info_id' })
 
@@ -256,4 +281,7 @@ module.exports = {
     Rating,
     TokenSchema,
     Lesson_Chapter,
+    secondMonthStudents,
+    firstMonthStudents,
+    YearIncomeStat,
 }

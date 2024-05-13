@@ -54,6 +54,16 @@ class CoursesController {
             next(e)
         }
     }
+
+    async fetchYearIncome(req, res, next) {
+        try {
+            const { course_info_id } = req.body
+            const coursesData = await CoursesService.fetchYearIncome(course_info_id)
+            return res.json(coursesData)
+        } catch (e) {
+            next(e)
+        }
+    }
 }
 
 module.exports = new CoursesController()

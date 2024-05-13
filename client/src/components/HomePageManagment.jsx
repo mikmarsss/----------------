@@ -44,13 +44,19 @@ function HomePageManagment() {
                 <div className={styles.ratingContainer}>
                     <div className={styles.moneyAndRating}>
                         <div className={styles.done_courses}>
-                            <h1>{`${Math.round((courseStore.course.price * courseStore.course.people) / 1000) * 1000}k`}</h1>
+                            <h1>{`${Math.round((courseStore.course.price * courseStore.course.people) / 1000)}k`}</h1>
                             <p>Выручка</p>
                         </div>
                         <div className={styles.done_courses}>
                             <h1>{courseStore.course.rating}</h1>
                             <p>Средний рейтинг</p>
                         </div>
+                    </div>
+                </div>
+                <div className={styles.status}>
+                    <div className={styles.done_courses}>
+                        <h1 className={`${courseStore.course.status === 'notpublished' ? styles.notpublished : styles.published}`}>{`${courseStore.course.status === 'notpublished' ? 'неопубликован' : 'опубликован'}`}</h1>
+                        <p>Статус</p>
                     </div>
                 </div>
             </div>
