@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 .netmodulei {
@@ -23,38 +24,85 @@
 }
 
 .lessoncontainer {
-    width: 1200px;
+    margin-left: 100px;
+    margin-top: -242px;
+    width: 1100px;
     height: auto;
-    border: 2px #C1A875 solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .chaptersBar {
-    width: 1200px;
+    width: auto;
     height: 50px;
     display: flex;
     justify-content: center;
     gap: 30px;
-    align-items: center;
+}
 
+.chapterZagolovok {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.inputFiles input[type=file] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    display: block;
+    width: 0;
+    height: 0;
+}
+
+.inputButton {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    font-size: 14px;
+    vertical-align: middle;
+    color: rgb(255 255 255);
+    text-align: center;
+    border-radius: 10px;
+    background-color: #3D3F4C;
+    line-height: 22px;
+    height: 40px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border: none;
+    border: 2px #C1A875 solid;
+    margin: 0;
+    transition: background-color 0.2s;
+    text-align: center;
+}
+
+.showElements {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .chapterBox {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     border: solid 1px #C1A875;
     border-radius: 5px;
 }
 
 .selectedChapterBox {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50pxpx;
     border-radius: 5px;
     background-color: #C1A875;
 }
 
 .addChapter {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
 }
 
 .lessonContainer {
@@ -70,8 +118,8 @@
 }
 
 .addcChapterBox {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     border: #C1A875 solid 2px;
     border-radius: 5px;
     font-size: 30px;
@@ -81,8 +129,27 @@
 }
 
 .title {
+    margin-left: 100px;
+    margin-top: 50px;
+    width: 600px;
+    height: auto;
+    min-height: 200px;
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
+    padding: 20px;
+    gap: 30px;
+    align-self: flex-start;
+}
+
+.lessonname>input {
+    font-size: 20px;
+}
+
+.title>div {
+    width: auto;
+    font-size: 36px;
+    color: #C1A875;
 }
 
 .moduleName {
@@ -102,7 +169,7 @@
     width: 75%;
     transition: .2s;
     color: white;
-    font-size: 40px;
+    font-size: 24px;
 }
 
 .logininput:active,
@@ -138,29 +205,33 @@
 
 .addChapterElement {
     color: #C1A875;
-    font-size: 30px;
-    border: #C1A875 solid 2px;
+    font-size: 20px;
+    border-bottom: #C1A875 solid 2px;
+    border-top: #C1A875 solid 2px;
     padding: 10px;
-    border-radius: 10px;
 }
 
 .chapterElements {
-    border: #C1A875 solid 2px;
+    margin-top: 30px;
+    border-top: #C1A875 solid 2px;
+    border-bottom: #C1A875 solid 2px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
-    border-radius: 10px;
 }
 
 .chapterElements>button {
     color: white;
-    font-size: 30px;
+    font-size: 20px;
+    width: 300px;
 }
 
 .chapterElements>button:hover {
     color: #C1A875;
-    transition: .2s;
+    transition: .3s;
 }
+
 
 .contentInput {
     min-width: 900px;
@@ -180,21 +251,30 @@
     border-radius: 20px;
 }
 
+.textEditor {
+    min-width: 900px;
+    min-height: 300px;
+    border-top: 2px solid #D1D1D4;
+    border-bottom: 2px solid #D1D1D4;
+    padding: 20px;
+}
+
 .test {
     min-width: 900px;
     min-height: 300px;
     height: auto;
     border: none;
-    border: 2px solid #D1D1D4;
+    border-top: 2px solid #D1D1D4;
+    border-bottom: 2px solid #D1D1D4;
     background: none;
     padding: 10px;
     padding-left: 24px;
     transition: .2s;
     color: white;
-    border-radius: 20px;
     display: flex;
     flex-direction: column;
     gap: 30px;
+    align-items: center;
 }
 
 .testContent {
@@ -203,25 +283,56 @@
 }
 
 .ava {
-    width: 900px;
-    height: 300px;
+    max-width: 900px;
+    max-height: 400px;
     object-fit: cover;
-    border-radius: 20px;
+
+}
+
+.video {
+    padding: 20px;
+    border-top: 2px solid #D1D1D4;
+    border-bottom: 2px solid #D1D1D4;
+    width: 900px;
+    min-height: 100px;
+    height: auto;
+    background: none;
+    transition: .2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.videoInput {
+    max-width: 1000px;
+    max-height: 550px;
 }
 
 .img {
-    min-width: 900px;
-    min-height: 300px;
+    padding: 20px;
+    border-top: 2px solid #D1D1D4;
+    border-bottom: 2px solid #D1D1D4;
+    width: 900px;
+    min-height: 100px;
     height: auto;
-    border: none;
-    border: 2px solid #D1D1D4;
     background: none;
     transition: .2s;
-    color: white;
-    border-radius: 20px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 30px;
+}
+
+.inputFiles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.inputFiles>p {
+    font-size: 20px;
 }
 
 .radioButton {
@@ -234,26 +345,52 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 30px;
 }
 
 .popt {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
 
 }
 
 .removeButton {
     color: #C1A875;
-    font-size: 30px;
-    border: #C1A875 solid 2px;
+    font-size: 20px;
+    border-bottom: #C1A875 solid 2px;
     padding: 10px;
-    border-radius: 10px;
 }
 
 .contentInput:active,
 .contentInput:focus,
 .contentInput:hover {
+    outline: none;
+    border-color: #C1A875;
+}
+
+.textInput {
+    min-width: 800px;
+    min-height: 150px;
+    max-width: 400px;
+    max-height: 150px;
+    border: none;
+    border: 2px solid #D1D1D4;
+    background: none;
+    padding: 10px;
+    padding-left: 24px;
+    font-weight: 700;
+    width: 75%;
+    transition: .2s;
+    color: white;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+.textInput:active,
+.textInput:focus,
+.textInput:hover {
     outline: none;
     border-color: #C1A875;
 }

@@ -73,6 +73,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 30px;
+    border-top: 2px #C1A875 solid;
+    border-bottom: 2px #C1A875 solid;
 }
 
 .deleteButton {
@@ -80,4 +83,16 @@
     font-size: 26px;
     padding: 20px;
     border-radius: 20PX;
+    margin-bottom: 30px;
+}
+
+.navigateHistory {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.navigateHistory>button {
+    font-size: 21px;
+    color: white;
 }

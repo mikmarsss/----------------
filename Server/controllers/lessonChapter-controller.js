@@ -35,8 +35,8 @@ class LessonChapterController {
         try {
             if (req.files) {
                 const { chapter_id, chapter_info, chapter_name } = req.body
-                const { img } = req.files
-                const chapterData = await LessonChapterService.saveChapter(chapter_id, chapter_info, chapter_name, img)
+                const { img, video } = req.files
+                const chapterData = await LessonChapterService.saveChapter(chapter_id, chapter_info, chapter_name, img, video)
                 return res.json(chapterData)
             } else {
                 const { chapter_id, chapter_info, chapter_name } = req.body

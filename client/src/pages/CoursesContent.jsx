@@ -3,8 +3,8 @@ import styles from '../styles/coursesContent.module.css'
 import React, { useContext, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Link } from "react-router-dom";
-import { COURSES_CONTENT, COURSE_LESSONS, MODULE_PAGE } from "../utils";
+import { Link, useNavigate } from "react-router-dom";
+import { COURSES_CONTENT, COURSE_LESSONS, EDITCOURSE_PAGE, MODULE_PAGE } from "../utils";
 import { Context } from "..";
 import { useParams } from "react-router-dom";
 import CoursesService from "../service/CoursesService";
@@ -55,12 +55,22 @@ function CoursesContent() {
     console.log(modulee)
     const params = useParams()
     const current = params.id
+    const navigate = useNavigate()
+    const navigateHandler = (path) => {
+        if (path === 'course') {
+            navigate(EDITCOURSE_PAGE + `/${courseStore.course.id}`)
+        }
+        if (path === 'modules') {
+            navigate(COURSES_CONTENT + `/${courseStore.course.id}`)
+        }
+    }
 
     return (
         <>
             <Header />
             {
                 current == courseStore.course.id &&
+
                 <div className={styles.container}>
                     {
                         modulee.length === 0 &&
@@ -71,6 +81,7 @@ function CoursesContent() {
                             </div>
                         </>
                     }
+
                     <div className={styles.contentOfLesson}>
                         <button className={styles.addModule} onClick={() => addModule()}>Добавить модуль</button>
                         {

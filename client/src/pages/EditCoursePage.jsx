@@ -321,7 +321,7 @@ function EditCoursePage() {
                         </div>
                         <Link to={COURSES_CONTENT + `/${courseStore.course.id}`}>
                             <div className={styles.saveButtonBlock}>
-                                <button>Редактировать модули</button>
+                                <button className={styles.removeButton}>Редактировать модули</button>
                             </div>
                         </Link>
 

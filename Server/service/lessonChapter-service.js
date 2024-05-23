@@ -35,9 +35,18 @@ class LessonChapterService {
         return { chapters }
     }
 
-    async saveChapter(chapter_id, chapter_info, chapter_name, img) {
+    async saveChapter(chapter_id, chapter_info, chapter_name, img, video) {
         const time = Math.floor(Date.now() / 1000)
         const chapter = await Lesson_Chapter.findOne({ where: { id: chapter_id } })
+        if (video) {
+            let deleteVideo = chapter.video
+            if (deleteVideo !== 'video') {
+                fs.unlinkSync(path.resolve(__dirname, '..', 'videos', deleteVideo))
+            }
+            let videoName = uuid.v4() + ".mp4";
+            video.mv(path.resolve(__dirname, '..', 'videos', videoName))
+            chapter.update({ video: videoName }, { where: { id: chapter_id } })
+        }
         if (img) {
             let deleteImg = chapter.imgs
             if (deleteImg !== "Картинки") {

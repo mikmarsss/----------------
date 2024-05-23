@@ -7,4 +7,5 @@ export interface IChapter {
     course_lesson_id: string;
     imgs: string;
     done_chapters: string;
+    video: string;
 }

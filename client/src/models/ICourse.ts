@@ -2,6 +2,7 @@ export interface ICourse {
     id: string;
     name: string;
     price: string;
+    new_price: string;
     description: string;
     rating: string;
     people: string;

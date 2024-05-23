@@ -106,6 +106,7 @@ const Lesson_Chapter = sequelize.define('lesson_chapter', {
     course_lesson_id: { type: DataTypes.INTEGER },
     done_chapters: { type: DataTypes.INTEGER, defaultValue: 0 },
     imgs: { type: DataTypes.STRING },
+    video: { type: DataTypes.STRING, defaultValue: 'video' },
 }, { sequelize, timestamps: false })
 
 const Creator = sequelize.define('creator', {

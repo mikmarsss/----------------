@@ -4,14 +4,14 @@ import { Context } from "..";
 import { useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styles from "../styles/modulePage.module.css"
 import CoursesService from "../service/CoursesService";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import EditLesson from "./EditLesson";
-import { EDIT_LESSON, MODULE_PAGE, COURSES_CONTENT } from "../utils";
-
+import { EDIT_LESSON, MODULE_PAGE, COURSES_CONTENT, EDITCOURSE_PAGE } from "../utils";
+import arrow from '../Images/Arrow.svg'
 
 function ModulePage() {
     const { store, courseStore } = useContext(Context)
@@ -66,12 +66,23 @@ function ModulePage() {
             console.log(e)
         }
     }
+    const navigate = useNavigate()
+
+    const navigateHandler = (path) => {
+        if (path === 'course') {
+            navigate(EDITCOURSE_PAGE + `/${courseStore.course.id}`)
+        }
+        if (path === 'modules') {
+            navigate(COURSES_CONTENT + `/${courseStore.course.id}`)
+        }
+    }
     return (
         <>
             <Header />
             {
                 current == courseStore.module.id &&
                 <div className={styles.container}>
+
                     <div className={styles.moduleContainer}>
                         <div className={styles.title}>
                             {
@@ -87,12 +98,15 @@ function ModulePage() {
 
                                     </div>
                                     <div>
-                                        <input
-                                            className={styles.logininput}
+                                        <textarea
+                                            className={styles.contentInput}
                                             type="text"
+                                            id="content"
                                             onChange={(e) => setDescription(e.target.value)}
-                                            placeholder={description}
+                                            value={description}
+                                            maxLength={500}
                                         />
+
                                     </div>
 
                                 </>
@@ -104,8 +118,9 @@ function ModulePage() {
                                     <div>
                                         {name}
                                     </div>
-                                    <div>
-                                        {description}
+                                    <div className={styles.moduledescription}>
+                                        <p>{description}</p>
+
                                     </div>
                                 </>
                             }
@@ -140,16 +155,17 @@ function ModulePage() {
                                     <>
                                         <div key={index}>
                                             <div className={styles.lesson}>
-                                                <div className={styles.imgLesson}>
-                                                    <img className={styles.ava} src={`http://localhost:5000/${item.img}`} alt="" />
+                                                <div className={styles.numberModule}>
+                                                    {item.number}
                                                 </div>
                                                 <div className={styles.lessonInfo}>
-                                                    <div>Модуль {courseStore.module.number} Урок {index + 1} </div>
                                                     {item.name}
                                                 </div>
                                                 <Link to={COURSES_CONTENT + `/${courseStore.course.id}` + MODULE_PAGE + `/${courseStore.module.id}` + EDIT_LESSON + `/${item.id}`}>
                                                     <div className={styles.redbutton}>
-                                                        <button>редактировать</button>
+                                                        <button>
+                                                            <img src={arrow} alt="" />
+                                                        </button>
                                                     </div>
                                                 </Link>
                                             </div>

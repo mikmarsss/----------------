@@ -10,17 +10,17 @@ const sequelize = require('./db')
 const fileUpload = require('express-fileupload')
 const path = require('path')
 
-
 app.use(express.json())
 app.use(fileUpload({}))
 app.use(express.static(path.resolve(__dirname, 'static')));
 app.use(express.static(path.resolve(__dirname, 'langIcons')));
+app.use(express.static(path.resolve(__dirname, 'videos')));
+
 app.use(cookieParser())
 app.use(cors({
     credentials: true,
     origin: process.env.CLIENT_URL
 }))
-
 app.use('/api', router)
 app.use(errorMiddleware)
 
@@ -35,3 +35,4 @@ const start = async () => {
 }
 
 start()
+

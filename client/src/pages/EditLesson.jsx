@@ -7,13 +7,16 @@ import { Context } from "..";
 import { useParams } from "react-router-dom";
 import CoursesService from "../service/CoursesService";
 import plus from '../Images/plus.svg'
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import TextEditor from "../components/TextEditor";
 
 function EditLesson() {
     const { store, courseStore } = useContext(Context)
     const params = useParams()
     const current = params.id
     const [chapters, setChapters] = useState([])
-    const [numChapter, setNumChapter] = useState(1)
+    const [chapter, setChapter] = useState({})
     const [chaptersError, setChaptersError] = useState()
     const [addChapterClicker, setAddChapterClicker] = useState(false)
     const [lessonName, setLessonName] = useState('')
@@ -22,6 +25,8 @@ function EditLesson() {
         getLesson()
         getChapters()
     }, [addChapterClicker])
+
+    console.log(current)
 
     async function getLesson() {
         try {
@@ -38,7 +43,8 @@ function EditLesson() {
             const dataArray = response.data.chapters; // Предполагается, что courses - это массив в модели
             if (Array.isArray(dataArray)) {
                 setChapters(dataArray);
-
+                console.log(dataArray[0])
+                setChapter(dataArray[dataArray.length - 1])
             } else {
                 console.error('Ожидался массив, но получен другой тип данных:', dataArray);
                 setChapters([]); // Установка пустого массива в случае ошибки
@@ -48,13 +54,14 @@ function EditLesson() {
         }
     }
 
-    const chapterHandler = (index) => {
-        setNumChapter(index)
-        localStorage.setItem('chapterNum', index.id)
+    const chapterHandler = (item, index) => {
+        setChapter(item)
+        localStorage.setItem('chapter', index)
     }
 
     async function addChapterHandler(index) {
         await courseStore.createChapter(index)
+        localStorage.setItem('chapter', chapters.length)
         setAddChapterClicker(addChapterClicker === true ? false : true)
     }
 
@@ -66,10 +73,10 @@ function EditLesson() {
                 <>
                     <div className={styles.container}>
                         <div className={styles.title}>
-                            <div className={styles.moduleName}>
+                            <div >
                                 {courseStore.module.name}
                             </div>
-                            <div className={styles.moduleName}>
+                            <div className={styles.lessonname}>
                                 <input type="text"
                                     className={styles.logininput}
                                     placeholder={lessonName}
@@ -78,24 +85,30 @@ function EditLesson() {
                                 />
                             </div>
                         </div>
-                        <div className={styles.chaptersBar}>
-                            {
-                                chapters.map((index, item) => (
-                                    <>
-                                        <button onClick={() => chapterHandler(index)} key={index} className={`${index === numChapter ? styles.selectedChapterBox : styles.chapterBox}`}>
-                                        </button>
-                                    </>
-                                ))
-                            }
-                            <button onClick={() => addChapterHandler(current)} className={styles.addcChapterBox}>
-                                <img src={plus} className={styles.addChapter} alt="" />
-                            </button>
-                        </div>
+
                         <div className={styles.lessoncontainer}>
+                            <div className={styles.chapterZagolovok}>
+                                Разделы урока
+                            </div>
+                            <div className={styles.chaptersBar}>
+                                {
+                                    chapters.map((item, index) => (
+                                        <>
+
+                                            <button onClick={() => chapterHandler(item, index)} key={index} className={`${localStorage.getItem('chapter') == index ? styles.selectedChapterBox : styles.chapterBox}`}>
+
+                                            </button>
+                                        </>
+                                    ))
+                                }
+                                <button onClick={() => addChapterHandler(current)} className={styles.addcChapterBox}>
+                                    <img src={plus} className={styles.addChapter} alt="" />
+                                </button>
+                            </div>
                             <div className={styles.body}>
                                 {
-                                    chapters.length != 0 &&
-                                    <LessonInfo lesson={numChapter} lessonName={lessonName} />
+                                    chapter &&
+                                    <LessonInfo lesson={chapter} lessonName={lessonName} />
                                 }
                                 {
                                     chapters.length == 0 &&
@@ -121,9 +134,11 @@ const LessonInfo = observer(({ lesson, lessonName }) => {
     const [showElements, setShowElements] = useState(false)
     const [courseContent, setCourseContent] = useState([])
     const [testContent, setTestContent] = useState([])
-    const [chapterName, setChapterName] = useState(lesson.name)
+    const [chapterName, setChapterName] = useState('')
     const [ava, setAva] = useState([])
+    const [video, setVideo] = useState([])
 
+    console.log(lesson.id)
     useEffect(() => {
         getChapter()
         setChapterName(courseStore.chapter.name)
@@ -140,8 +155,11 @@ const LessonInfo = observer(({ lesson, lessonName }) => {
 
     async function getChapter() {
         try {
-            await courseStore.fetchChapter(localStorage.getItem('chapterNum'))
-            setChapterName(courseStore.chapter.name)
+            if (lesson.id) {
+                await courseStore.fetchChapter(lesson.id)
+                setChapterName(courseStore.chapter.name)
+            }
+
 
             if (isJsonString(courseStore.chapter.content)) {
                 const parsedContent = JSON.parse(courseStore.chapter.content)
@@ -173,36 +191,55 @@ const LessonInfo = observer(({ lesson, lessonName }) => {
         const name = i.name
 
         const selectAva = (e) => {
-            var reader = new FileReader()
-            reader.onload = function () {
-                var preview = document.querySelector('#img-preview')
-                preview.src = reader.result
-            }
-            reader.readAsDataURL(e.target.files[0])
-            setAva(e.target.files[0])
+            console.log(e)
         }
+
+        const selectVideo = (e) => {
+            const newFile = e.target.files[0];
+            if (newFile) {
+                var reader = new FileReader()
+                reader.onload = function () {
+                    var preview = document.querySelector('#video-preview')
+                    preview.src = reader.result
+                }
+                reader.readAsDataURL(e.target.files[0])
+                setVideo(e.target.files[0])
+            }
+            if (e.target.value) {
+                setVideo(e.target.value)
+            }
+        }
+
+        const handleChangeText = (value) => {
+
+            changeInfo('description', value, i.number);
+        };
+
+        const handleChangeTestText = (value) => {
+
+            changeInfo('name', value, i.number);
+        };
+
+
+
+        console.log(ava)
 
         return (
             <>
                 {
                     tag === 'text' &&
-                    <textarea
-                        className={styles.contentInput}
-                        type="text"
-                        id="content"
-                        onChange={(e) => changeInfo('description', e.target.value, i.number)}
-                        value={description}
-                    />
+                    <TextEditor />
                 }
                 {
                     tag === 'test' &&
                     <>
                         <div className={styles.test}>
                             <div>
-                                <input type="text"
-                                    className={styles.chapterInput}
-                                    onChange={((e) => changeInfo('name', e.target.value, i.number))}
+                                <ReactQuill
+                                    theme="snow"
                                     value={name}
+                                    placeholder="Введите содержание теста"
+                                    onChange={handleChangeTestText}
                                 />
                             </div>
                             {
@@ -231,16 +268,46 @@ const LessonInfo = observer(({ lesson, lessonName }) => {
                         </div>
                     </>
                 }
-                {
+                {/* {
                     tag === 'img' &&
                     <>
-                        <input
-                            type="file"
-                            onChange={(e) => selectAva(e)}
-                        />
-
                         <div className={styles.img}>
+
+                            <label className={styles.inputFiles}>
+                                <p>Вы можете загрузить изображение, чтобы дополнить содержания</p>
+                                <input
+                                    type="file"
+                                    id="img"
+                                    onChange={(e) => selectAva(e)}
+                                />
+                                <span className={styles.inputButton}>Выберите файл</span>
+                            </label>
                             <img src={`${"http://localhost:5000/" + courseStore.chapter.imgs}`} className={styles.ava} id="img-preview" alt="" />
+                        </div>
+                    </>
+                } */}
+                {
+                    tag === 'video' &&
+                    <>
+                        <div className={styles.video}>
+                            <label className={styles.inputFiles}>
+                                <p>Загрузите видео или вставьте ссылку</p>
+                                <input
+                                    type="text"
+                                    className={styles.logininput}
+                                    placeholder='Вставьте ссылку на видео'
+                                    onChange={(e) => setVideo(e.target.value)}
+                                />
+                                <input
+                                    type="file"
+                                    id="img"
+                                    onChange={(e) => selectVideo(e)}
+                                />
+                                <span className={styles.inputButton}>Выберите файл</span>
+                            </label>
+                            <video controls id="video-preview" className={styles.videoInput}>
+                                <source src={`${"http://localhost:5000/" + courseStore.chapter.video}`} type="video/mp4" />
+                            </video>
                         </div>
                     </>
                 }
@@ -275,7 +342,10 @@ const LessonInfo = observer(({ lesson, lessonName }) => {
         if (tag === 'test') {
             setCourseContent([...courseContent, { description: '', number: Date.now(), tag: tag, answer: '', name: '' }])
         }
-        if (tag === 'img') {
+        // if (tag === 'img') {
+        //     setCourseContent([...courseContent, { description: '', number: Date.now(), tag: tag }])
+        // }
+        if (tag === 'video') {
             setCourseContent([...courseContent, { description: '', number: Date.now(), tag: tag }])
         }
     }
@@ -295,7 +365,7 @@ const LessonInfo = observer(({ lesson, lessonName }) => {
         formdata.append('chapter_info', chapterData)
         formdata.append('chapter_name', chapterName)
         formdata.append('img', ava)
-
+        formdata.append('video', video)
         courseStore.saveChapter(formdata)
         courseStore.saveLesson(courseStore.lesson.id, lessonName)
     }
@@ -309,24 +379,21 @@ const LessonInfo = observer(({ lesson, lessonName }) => {
                         placeholder={chapterName}
                         type="text"
                         onChange={(e) => setChapterName(e.target.value)}
-                        value={chapterName}
                     />
                 </div>
-                <div className={styles.chapterContent}>
+                <div className={styles.showElements}>
                     {
-
-                        courseContent.map(i => (
-                            <div key={i.number} className={styles.popt} id="popts">
-                                {RenderArea(i)}
-                                <button className={styles.removeButton} onClick={() => removeInfo(i.number)}>Удалить</button>
-                            </div>
-                        ))
+                        showElements === false &&
+                        <button onClick={() => addElementHandle(showElements)} className={styles.addChapterElement}>
+                            Добавить элементы
+                        </button>
                     }
-                </div>
-                <div>
-                    <button onClick={() => addElementHandle(showElements)} className={styles.addChapterElement}>
-                        Добавить элементы в раздел урока
-                    </button>
+                    {
+                        showElements === true &&
+                        <button onClick={() => addElementHandle(showElements)} className={styles.addChapterElement}>
+                            Скрыть элементы
+                        </button>
+                    }
                     {
                         showElements === true &&
                         <>
@@ -337,13 +404,28 @@ const LessonInfo = observer(({ lesson, lessonName }) => {
                                 <button onClick={() => addContent('test')}>
                                     Тест
                                 </button>
-                                <button onClick={() => addContent('img')}>
+                                {/* <button onClick={() => addContent('img')}>
                                     Изображение
+                                </button> */}
+                                <button onClick={() => addContent('video')}>
+                                    Видео
                                 </button>
                             </div>
                         </>
                     }
                 </div>
+                <div className={styles.chapterContent}>
+                    {
+
+                        courseContent.map(i => (
+                            <div key={i.number} className={styles.popt} id="popts">
+                                {RenderArea(i)}
+                                <button className={styles.removeButton} onClick={() => removeInfo(i.number)}>Удалить элемент</button>
+                            </div>
+                        ))
+                    }
+                </div>
+
                 <button onClick={saveChapterHandler} className={styles.removeButton}>Сохранить</button>
             </div>
         </>
