@@ -189,12 +189,13 @@ function EditCoursePage() {
     }
     return (
         <>
-            <Header />
-            {
-                current == courseStore.course.id &&
-                <div className={styles.container}>
-                    <div className={styles.courseBlock}>
-
+            <div className={styles.container}>
+                <div>
+                    <Header />
+                </div>
+                {
+                    current == courseStore.course.id &&
+                    <div className={`${styles.courseBlock} ${styles.glass}`}>
                         <div className={styles.title}>
                             <div className={styles.imgfield}>
                                 <img className={styles.ava} id="img-preview" src={coursseLogo} alt="" />
@@ -219,20 +220,9 @@ function EditCoursePage() {
                                     />
                                 </div>
                                 <div>
-                                    <label htmlFor="price">Цена</label>
-                                    <input
-                                        className={styles.logininput}
-                                        type="text"
-                                        id="price"
-                                        placeholder={courseStore.course.price}
-                                        onChange={(e) => setPrice(e.target.value)}
-
-                                    />
-                                </div>
-                                <div>
                                     <label htmlFor="description">Описание</label>
                                     <textarea
-                                        className={styles.logininput}
+                                        className={styles.contentInput}
                                         type="text"
                                         id="description"
                                         placeholder={courseStore.course.description}
@@ -240,7 +230,6 @@ function EditCoursePage() {
 
                                     />
                                 </div>
-
                             </div>
                         </div>
                         <div className={styles.body}>
@@ -324,12 +313,12 @@ function EditCoursePage() {
                                 <button className={styles.removeButton}>Редактировать модули</button>
                             </div>
                         </Link>
-
                     </div>
-
+                }
+                <div className={styles.footer}>
+                    <Footer />
                 </div>
-            }
-            <Footer />
+            </div>
         </>
     )
 }

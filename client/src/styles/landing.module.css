@@ -33,671 +33,96 @@
     src: url(../fonts/Montserrat-Regular.ttf);
 }
 
-.header {
-    background: url(../Images/headerback.svg);
-    width: 100%;
-    height: 821PX;
-    border-radius: 0 0 100px 100px;
-}
-
-.header2 {
-    background: url(../Images/headerback.svg);
-    width: 100%;
-    height: 80PX;
-    border-radius: 0 0 100px 100px;
-}
-
-
-.conthide {
-    opacity: 0.8;
-    width: 100%;
-    height: 100%;
-    background: black;
-    position: absolute;
-    z-index: 1;
-}
-
-.logo {
-    margin-left: 10%;
-    scale: 0.8;
-}
-
-.non {
-    display: none;
-}
-
-.navBar {
-    display: flex;
-    height: 87px;
-
-}
-
-
-.tryuscontainer {
-    gap: 40px;
-    margin-top: 70px;
-    background-color: #fff;
-    border-radius: 30px;
-    color: #6f31c1;
-    display: flex;
-    margin-left: 25%;
-    width: 800px;
-    height: 440px;
-    font-size: 54px;
-    flex-direction: column;
-}
-
-.tryuscontainer>p {
-    margin-left: 15%;
-    font-family: 'Montserrat-Bold';
-}
-
-.tryuscontainer>span {
-    color: #170538;
-    font-size: 26px;
-    margin-left: 35%;
-    font-family: 'Montserrat-Bold';
-}
-
-.tryustext {
-    background: white;
-    border-radius: 30px;
-}
-
-.dropdownButtons {
-    position: absolute;
-    left: 50%;
-    display: flex;
-    font-size: 25px;
-    height: 80px;
-    width: 250px;
-    align-items: center;
-    gap: 10%;
-}
-
-.course>button {
-    color: white;
-}
-
-.work>button {
-    color: white;
-}
-
-button {
-    cursor: pointer;
-    border: none;
-    background: none;
-
-}
-
-.slogan {
-
-    font-family: 'Montserrat-Bold';
-    position: absolute;
-    top: 150px;
-    left: 10%;
-    font-size: 93px;
-    color: white;
-
-}
-
-.book2img {
-    position: absolute;
-    top: 336px;
-    left: 2000px;
-    width: 389px;
-    height: 317px;
-}
-
-.book1img {
-    position: absolute;
-    top: 580px;
-    left: 862px;
-    width: 389px;
-    height: 317px;
-}
-
-.opisanie {
-    position: absolute;
-    top: 525px;
-    left: 10%;
-    font-size: 25px;
-    color: white;
-}
-
-
-
-.auth>button {
-    color: white;
-    font-family: 'Montserrat-Medium';
-}
-
-.auth {
-    gap: 10px;
-    position: absolute;
-    left: 83%;
-    display: flex;
-    font-size: 28px;
-    height: 87px;
-    align-items: center;
-    font-family: 'Montserrat-Bold';
-
-}
-
-.course {
-
-    display: flex;
-    flex-direction: column;
-    width: 100px;
-    align-items: center;
-}
-
-.work {
-    display: flex;
-    flex-direction: column;
-    width: 100px;
-    align-items: center;
-}
-
 .container {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    background-color: #C3BAAF;
+    background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.3));
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    gap: 100px;
 }
 
-.courseContainer {
-    display: none;
-    flex-direction: column;
-    top: 80%;
-    position: absolute;
-}
-
-.workContainer {
-    top: 80%;
-    position: absolute;
-    display: none;
-    flex-direction: column;
-    width: 130px;
-}
-
-.workContainer>button {
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-
-.showSecond {
-    display: flex;
-}
-
-.navButtuns {
-    font-size: calc(0.1em + 0.8vw);
-    font-family: 'Montserrat-Medium';
-
-
-}
-
-.buttons {
-    position: absolute;
-    margin-left: 10%;
-    top: 650px;
-    display: flex;
-    gap: 10%;
-}
-
-.trybutton {
-    font-family: 'Montserrat-Bold';
-    box-shadow: 0px 25px 9px #170538;
-    width: 320px;
-    height: 83px;
-    border-radius: 41px;
-    background: #FF8C37;
-    font-size: 26px;
-    color: white;
-    cursor: pointer;
-}
-
-.trybutton2 {
-    font-family: 'Montserrat-Bold';
-    width: 320px;
-    height: 83px;
-    border-radius: 41px;
-    background: #FF8C37;
-    font-size: 26px;
-    color: white;
-    margin-left: 40%;
-    cursor: pointer;
-}
-
-.calendar {
-    position: absolute;
-    top: 371px;
-    left: 1011px;
-}
-
-.fon {
-    top: 400px;
-    position: absolute;
-    width: 2540px;
-    height: 1000px;
-    background-image: url(../Images/fon1.svg);
-}
-
-.fon2 {
-    top: 1300px;
-    position: absolute;
-    width: 2540px;
-    height: 1000px;
-    background-image: url(../Images/fon2.svg);
-}
-
-.fon4 {
-    top: 1700px;
-    left: 0;
-    position: absolute;
-    background-image: url(../Images/fon4.svg);
-}
-
-.opportunities {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    margin-top: 80px
-}
-
-.Blockwork {
-    color: #6f31c1;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    width: 460px;
-    height: 270px;
-    background-image: url(../Images/blockback.svg);
+.glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 20px;
-    justify-content: center;
-    align-items: center;
-    font-size: 24PX;
-    gap: 20px;
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.33);
 }
 
-.whymeContainer {
-    margin-top: 80px;
-    display: flex;
-    justify-content: center;
+.content>button {
+    width: 1200px;
+    height: 300px;
+    border: solid black 2px;
 }
 
-.whyme {
-    width: 1490px;
-    height: 490px;
-    display: flex;
-    background-image: url(../Images/offerback.svg);
-    flex-direction: column;
+.content>div {
+    width: 1200px;
+    height: 300px;
 }
 
-.blockopp {
+.courseBlock {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    margin-top: 80px;
+    gap: 30px;
 }
 
-.Blockwork>div {
-    font-family: 'Montserrat-Bold';
+.courseCatalog {
+    padding: 10px;
+    flex-grow: 2;
+    width: 100px;
 }
 
-.Block {
-    gap: 20px;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    width: 460px;
-    height: 270px;
-    background-image: url(../Images/blockback.svg);
+.courseCatalog>p {
+    margin-top: -120px;
+    width: 300px;
+    font-size: 40px;
+}
+
+.courseCreate:hover,
+.courseCatalog:hover,
+.chalangerBlock:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 20px;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.33);
 }
 
-.Block>div {
-    font-family: 'Montserrat-Bold';
-    font-size: 24PX;
-    color: #ff8c37;
+.courseCreate {
+    padding: 10px;
+    flex-grow: 1;
+    width: 50px;
+
 }
 
-.watchvideobutton {
-    font-family: 'Montserrat-Bold';
-    box-shadow: 0px 25px 9px #170538;
-    width: 203px;
-    height: 83px;
-    border-radius: 41px;
-    background: #884DF1;
-    font-size: 26px;
-    color: white;
-    cursor: pointer;
+.courseCreate>p {
+    margin-top: -120px;
+    width: 300px;
+    font-size: 40px;
 }
 
-.whyMeh1 {
-    font-family: 'Montserrat-Bold';
-    color: #6f31c1;
-    font-size: 54px;
-    margin-top: 80px;
-    text-align: center;
+.chalangerBlock {
+    width: 1200px;
+    height: 300px;
+    padding: 20px;
 }
 
-.offer {
-    font-family: 'Montserrat-Bold';
-    color: #6f31c1;
-    font-size: 84px;
-    margin-top: 80px;
-    text-align: center;
-}
-
-@media only screen and (max-width: 1920px) {
-    .whyme {
-        width: 1200px;
-        height: 490px;
-        display: flex;
-        background-image: url(../Images/offerback.svg);
-        flex-direction: column;
-    }
-
-    .Block {
-        gap: 20px;
-        display: flex;
-        flex-direction: column;
-        cursor: pointer;
-        width: 400px;
-        height: 220px;
-        background-image: url(../Images/blockback.svg);
-        border-radius: 20px;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-    }
-
-    .Blockwork {
-        color: #6f31c1;
-        display: flex;
-        flex-direction: column;
-        cursor: pointer;
-        width: 400px;
-        height: 220px;
-        background-image: url(../Images/blockback.svg);
-        border-radius: 20px;
-        justify-content: center;
-        align-items: center;
-        font-size: 24PX;
-        gap: 20px;
-    }
-
-    .book2img {
-        position: absolute;
-        top: 270px;
-        left: 1400px;
-        width: 389px;
-        height: 317px;
-    }
-
-    .calendar {
-        position: absolute;
-        top: 281px;
-        left: 711px;
-    }
-
-    .book1img {
-        position: absolute;
-        top: 470px;
-        left: 762px;
-        width: 389px;
-        height: 317px;
-    }
-
-    .opisanie {
-        position: absolute;
-        top: 430px;
-        left: 10%;
-        font-size: 25px;
-        color: white;
-    }
-
-    .buttons {
-        position: absolute;
-        margin-left: 10%;
-        top: 550px;
-        display: flex;
-        gap: 10%;
-    }
-
-    .slogan {
-        font-family: 'Montserrat-Bold';
-        position: absolute;
-        top: 150px;
-        left: 10%;
-        font-size: 63px;
-        color: white;
-
-    }
-
-    .header {
-        background-image: url(../Images/headerback.svg);
-        width: 100%;
-        height: 721PX;
-    }
-
-    .offer {
-        font-family: 'Montserrat-Bold';
-        color: #6f31c1;
-        font-size: 74px;
-        margin-top: 80px;
-        text-align: center;
-    }
-}
-
-@media only screen and (max-width: 1680px) {
-    .book2img {
-        position: absolute;
-        top: 270px;
-        left: 1100px;
-        width: 389px;
-        height: 317px;
-        scale: 0.8;
-    }
-
-    .calendar {
-        position: absolute;
-        top: 231px;
-        left: 611px;
-        scale: 0.8;
-    }
-
-    .book1img {
-        position: absolute;
-        top: 380px;
-        left: 702px;
-        width: 389px;
-        height: 317px;
-        scale: 0.8;
-    }
-
-    .trybutton {
-        font-family: 'Montserrat-Bold';
-        box-shadow: 0px 25px 9px #170538;
-        width: 260px;
-        height: 75px;
-        border-radius: 41px;
-        background: #FF8C37;
-        font-size: 22px;
-        color: white;
-        cursor: pointer;
-    }
-
-    .watchvideobutton {
-        font-family: 'Montserrat-Bold';
-        box-shadow: 0px 25px 9px #170538;
-        width: 173px;
-        height: 75px;
-        border-radius: 41px;
-        background: #884DF1;
-        font-size: 22px;
-        color: white;
-        cursor: pointer;
-    }
-
-    .opisanie {
-        position: absolute;
-        top: 380px;
-        left: 10%;
-        font-size: 25px;
-        color: white;
-    }
-
-    .buttons {
-        position: absolute;
-        margin-left: 10%;
-        top: 480px;
-        display: flex;
-        gap: 10%;
-    }
-
-    .slogan {
-        font-family: 'Montserrat-Bold';
-        position: absolute;
-        top: 150px;
-        left: 10%;
-        font-size: 53px;
-        color: white;
-
-    }
-
-    .header {
-        background-image: url(../Images/headerback.svg);
-        width: 100%;
-        height: 621PX;
-    }
-}
-
-@media only screen and (max-width: 1440px) {
-    .whyme {
-        width: 1200px;
-        height: 490px;
-        display: flex;
-        background-image: url(../Images/offerback.svg);
-        flex-direction: column;
-    }
-
-    .Block {
-        gap: 20px;
-        display: flex;
-        flex-direction: column;
-        cursor: pointer;
-        width: 380px;
-        height: 220px;
-        background-image: url(../Images/blockback.svg);
-        border-radius: 20px;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-    }
-
-    .Blockwork {
-        color: #6f31c1;
-        display: flex;
-        flex-direction: column;
-        cursor: pointer;
-        width: 380px;
-        height: 220px;
-        background-image: url(../Images/blockback.svg);
-        border-radius: 20px;
-        justify-content: center;
-        align-items: center;
-        font-size: 24PX;
-        gap: 20px;
-    }
-
-    .book2img {
-        position: absolute;
-        top: 170px;
-        left: 900px;
-        width: 389px;
-        height: 317px;
-        scale: 0.7;
-    }
-
-    .calendar {
-        position: absolute;
-        top: 181px;
-        left: 511px;
-        scale: 0.7;
-    }
-
-    .book1img {
-        position: absolute;
-        top: 350px;
-        left: 602px;
-        width: 389px;
-        height: 317px;
-        scale: 0.6;
-    }
-
-    .trybutton {
-        font-family: 'Montserrat-Bold';
-        box-shadow: 0px 25px 9px #170538;
-        width: 260px;
-        height: 75px;
-        border-radius: 41px;
-        background: #FF8C37;
-        font-size: 22px;
-        color: white;
-        cursor: pointer;
-    }
-
-    .watchvideobutton {
-        font-family: 'Montserrat-Bold';
-        box-shadow: 0px 25px 9px #170538;
-        width: 173px;
-        height: 75px;
-        border-radius: 41px;
-        background: #884DF1;
-        font-size: 22px;
-        color: white;
-        cursor: pointer;
-    }
-
-    .opisanie {
-        position: absolute;
-        top: 330px;
-        left: 10%;
-        font-size: 25px;
-        color: white;
-    }
-
-    .buttons {
-        position: absolute;
-        margin-left: 10%;
-        top: 430px;
-        display: flex;
-        gap: 10%;
-    }
-
-
-
-    .slogan {
-        font-family: 'Montserrat-Bold';
-        position: absolute;
-        top: 130px;
-        left: 10%;
-        font-size: 43px;
-        color: white;
-
-    }
-
-    .header {
-        background-image: url(../Images/headerback.svg);
-        width: 100%;
-        height: 581PX;
-    }
+.chalangerBlock>p {
+    margin-top: -120px;
+    width: 300px;
+    font-size: 40px;
 }

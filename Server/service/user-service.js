@@ -6,21 +6,23 @@ const UserDto = require('../dtos/user-dto')
 const fs = require('fs')
 const tokenService = require('./token-service')
 const ApiError = require('../exceptions/api-error')
-const jwt = require('jsonwebtoken')
 const path = require('path')
-
+const UserTrainersDto = require('../dtos/userTrainers-dto')
+const { UserTrainers } = require('../models/user-model')
 
 class UserService {
     async registration(email, password, username) {
+        const time = Math.floor(Date.now() / 1000)
         const candidate = await User.findOne({ where: { email } })
         if (candidate) {
             throw ApiError.BadRequest(`Пользователь с а почтовым адресом ${email} уже зарегистрирован!`)
         }
         const hashPassword = await bcrypt.hash(password, 3)
         const activationLink = uuid.v4()
-        const user = await User.create({ email, password: hashPassword, activationLink, username })
+        const user = await User.create({ email, password: hashPassword, activationLink, username, name: 'Плюмбус', surname: 'Особый' })
         await mailService.sendActivationMail(email, `${process.env.API_URL}/api/user/activate/${activationLink}`)
-
+        const userId = user.id
+        await UserTrainers.create({ user_id: userId, created_at: time, updated_at: time })
         const userDto = new UserDto(user);
         const tokens = tokenService.generateTokens(userDto.email, userDto.id, userDto.isActivated);
         await tokenService.saveToken(userDto.id, tokens.refreshToken);

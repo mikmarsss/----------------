@@ -7,20 +7,22 @@ import { BrowserRouter } from 'react-router-dom';
 import { getElementError } from '@testing-library/react';
 import reportWebVitals from './reportWebVitals';
 import CourseStore from './store/CoursesStore';
-
+import TrainerStore from './store/TrainerStore';
 interface State {
   store: Store,
-  courseStore: CourseStore
+  courseStore: CourseStore,
+  trainerStore: TrainerStore
 
 }
 const store = new Store();
 const courseStore = new CourseStore()
+const trainerStore = new TrainerStore()
 export const Context = createContext<State>({
-  store, courseStore
+  store, courseStore, trainerStore
 })
 
 ReactDOM.render(
-  <Context.Provider value={{ store, courseStore }}>
+  <Context.Provider value={{ store, courseStore, trainerStore }}>
     <BrowserRouter>
       <App />
     </BrowserRouter>

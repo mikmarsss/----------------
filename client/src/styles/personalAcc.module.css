@@ -34,6 +34,10 @@
     align-items: center;
 }
 
+.editPassword>div>p {
+    color: #243F5D;
+}
+
 .container {
     width: 100%;
     height: 100%;
@@ -41,7 +45,6 @@
     height: auto;
     flex-direction: column;
     align-items: center;
-    background: #3D3F4C;
 }
 
 .logininput {
@@ -53,14 +56,14 @@
     font-weight: 700;
     width: 75%;
     transition: .2s;
-    color: white;
+    color: black;
 }
 
 .logininput:active,
 .logininput:focus,
 .logininput:hover {
     outline: none;
-    border-bottom-color: #C1A875;
+    border-bottom-color: #243F5D;
 }
 
 .navmenu {
@@ -125,17 +128,18 @@
 }
 
 .saveButton {
-    color: #C1A875;
+    color: #243F5D;
     font-size: 26px;
-    border: #C1A875 solid 1px;
+    border: #243F5D solid 1px;
     padding: 10px;
     border-radius: 10px;
 }
 
 .saveButton:hover {
-    background-color: #C1A875;
+    background-color: #243F5D;
     color: #3D3F4C;
     transition: .5s;
+    color: white;
 }
 
 .mainInfo {
@@ -166,13 +170,53 @@
 }
 
 .otherInfo>div>p {
-    color: #C1A875;
+    color: #243F5D;
     font-size: 20px;
     margin-left: 20px;
 }
 
+.inputButton {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    font-size: 14px;
+    vertical-align: middle;
+    color: rgb(255 255 255);
+    text-align: center;
+    border-radius: 10px;
+    background-color: #243F5D;
+    line-height: 22px;
+    height: 40px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border: none;
+    margin: 0;
+    transition: background-color 0.2s;
+    text-align: center;
+}
+
+.inputFiles input[type=file] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    display: block;
+    width: 0;
+    height: 0;
+}
+
+.glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.33);
+}
+
 .avausername>div>p {
-    color: #C1A875;
+    color: #243F5D;
     font-size: 20px;
     margin-left: 20px;
 }
@@ -226,7 +270,7 @@
 }
 
 .redButton>button {
-    color: #C1A875;
+    color: #243F5D;
     font-size: 25px;
 }
 
@@ -244,6 +288,7 @@
     width: 90%;
     display: flex;
     justify-content: center;
+    margin-bottom: 50px;
 }
 
 .second {
@@ -256,7 +301,7 @@
 
 .second>div>div>p {
     margin-left: 20px;
-    color: #C1A875;
+    color: #243F5D;
     font-size: 20px;
 }
 

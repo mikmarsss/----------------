@@ -22,44 +22,50 @@ function CourseManagment() {
 
     return (
         <>
-            <Header />
-            {
-                current == courseStore.course.id &&
-                <div className={styles.conatainer1}>
-                    <div className={styles.container}>
-                        <div className={styles.navmenu}>
-                            <div className={styles.ava}>
-                                <div>
-                                    <img className={styles.photo} src={"http://localhost:5000/" + courseStore.course.img} alt="ava" />
+            <div className={styles.container2}>
+                <div>
+                    <Header />
+                </div>
+                {
+                    current == courseStore.course.id &&
+                    <div className={styles.conatainer}>
+                        <div className={styles.content1}>
+                            <div className={`${styles.navmenu} ${styles.glass}`}>
+                                <div className={styles.ava}>
+                                    <div>
+                                        <img className={styles.photo} src={"http://localhost:5000/" + courseStore.course.img} alt="ava" />
+                                    </div>
+                                    <div className={styles.username}>
+                                        {courseStore.course.name}
+                                    </div>
                                 </div>
-                                <div className={styles.username}>
-                                    {courseStore.course.name}
+                                <div className={styles.navpanel}>
+                                    <label htmlFor="main">Основное</label>
+                                    <div className={styles.main} id="main">
+                                        <button onClick={() => menuHandler('home')}>Домашняя страница</button>
+                                        <button onClick={() => menuHandler('stats')}>Статистика</button>
+                                    </div>
+                                    <label htmlFor="courses">Доходы</label>
+                                    <div id="courses" className={styles.courses}>
+                                        <button onClick={() => menuHandler('moneytStats')}>Статистика</button>
+                                    </div>
+                                    <label htmlFor="courses">Настройки</label>
+                                    <div id="courses" className={styles.courses}>
+                                        <button onClick={() => menuHandler('settings')}>Публикация</button>
+                                        <button onClick={() => menuHandler('moneySettings')}>Цены</button>
+                                    </div>
                                 </div>
                             </div>
-                            <div className={styles.navpanel}>
-                                <label htmlFor="main">Основное</label>
-                                <div className={styles.main} id="main">
-                                    <button onClick={() => menuHandler('home')}>Домашняя страница</button>
-                                    <button onClick={() => menuHandler('stats')}>Статистика</button>
-                                </div>
-                                <label htmlFor="courses">Доходы</label>
-                                <div id="courses" className={styles.courses}>
-                                    <button onClick={() => menuHandler('moneytStats')}>Статистика</button>
-                                </div>
-                                <label htmlFor="courses">Настройки</label>
-                                <div id="courses" className={styles.courses}>
-                                    <button onClick={() => menuHandler('settings')}>Публикация</button>
-                                    <button onClick={() => menuHandler('moneySettings')}>Цены</button>
-                                </div>
+                            <div className={`${styles.info} ${styles.glass}`}>
+                                <ShowInfo menu={menu} />
                             </div>
-                        </div>
-                        <div className={styles.info}>
-                            <ShowInfo menu={menu} />
                         </div>
                     </div>
+                }
+                <div>
+                    <Footer />
                 </div>
-            }
-            <Footer />
+            </div>
         </>
     )
 }

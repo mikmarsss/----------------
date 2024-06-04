@@ -178,102 +178,107 @@ function CoursePage() {
 
     return (
         <>
-            <Header />
             <div className={styles.container}>
-                <div className={styles.courseInfo}>
-                    <div className={styles.title}>
+                <div>
+                    <Header />
+                </div>
+                <div className={`${styles.content}  `}>
+                    <div className={`${styles.courseInfo} ${styles.glass} `}>
+                        <div className={styles.title}>
+                            <div className={styles.imgfield}>
+                                <img className={styles.ava} src={"http://localhost:5000/" + courseStore.course.img} alt="" />
+                                {
+                                    courseStore.course.creator_id === store.user.id &&
+                                    <Link to={EDITCOURSE_PAGE + `/${courseStore.course.id}`}>
+                                        <button className={styles.button}>
+                                            <p>
+                                                редактировать
+                                            </p>
+                                        </button>
+                                    </Link>
+                                }
 
-                        <div className={styles.imgfield}>
-                            <img className={styles.ava} src={"http://localhost:5000/" + courseStore.course.img} alt="" />
-                            {
-                                courseStore.course.creator_id === store.user.id &&
-                                <Link to={EDITCOURSE_PAGE + `/${courseStore.course.id}`}>
+                                {
+                                    courseStore.course.creator_id !== store.user.id &&
                                     <button className={styles.button}>
                                         <p>
-                                            редактировать
+                                            Купить
                                         </p>
                                     </button>
-                                </Link>
-                            }
+                                }
 
-                            {
-                                courseStore.course.creator_id !== store.user.id &&
-                                <button className={styles.button}>
-                                    <p>
-                                        Купить
-                                    </p>
-                                </button>
-                            }
-
-                            {
-                                courseStore.course.price === 0 && courseStore.course.creator_id !== store.user.id &&
-                                <button className={styles.button}>
-                                    <p>
-                                        учиться
-                                    </p>
-                                </button>
-                            }
-                        </div>
-                        <div className={styles.titleInfo}>
-                            <div>
-                                <h1>{courseStore.course.name}</h1>
-                            </div>
-                            <div>
-                                <p>{courseStore.course.description}</p>
-                            </div>
-                            <div className={styles.langicons}>
-                                {courseStore.course.additional_type &&
-                                    icons.filter(item => courseStore.course.additional_type.includes(item.id)).map(item => (
-                                        <div key={item.id}>
-                                            <img src={`http://localhost:5000/${item.name}`} alt="" />
-                                        </div>
-                                    ))
+                                {
+                                    courseStore.course.price === 0 && courseStore.course.creator_id !== store.user.id &&
+                                    <button className={styles.button}>
+                                        <p>
+                                            учиться
+                                        </p>
+                                    </button>
                                 }
                             </div>
-                        </div>
-                    </div>
-                    <div className={styles.body}>
-                        <h1>На этом курсе вы изучите</h1>
-                        {
-                            contentList.length !== 0 &&
-                            <CreateDescriptionList content={contentList} />
-                        }
-                        <h1>Краткий обзор курса</h1>
-                        {
-                            modules.length !== 0 &&
-                            <>
-                                <div className={styles.moduleList}>
-                                    {
-                                        modules.map((index, item) => (
-                                            <>
-                                                <div key={index} >
-                                                    <button onClick={() => moduleHandler(index.id)} className={styles.module}>{index.number}. {index.name}</button>
-                                                </div>
-                                                <div className={styles.lessonsList}>
-                                                    {index.id === moduleId && lessons.length !== 0 &&
-                                                        lessons.map((index, item) => (
-                                                            <>
-                                                                <div className={styles.lesson}>
-                                                                    {index.name}
-                                                                </div>
-                                                            </>
-                                                        ))
-                                                    }
-                                                </div>
-                                            </>
+                            <div className={styles.titleInfo}>
+                                <div>
+                                    <h1>{courseStore.course.name}</h1>
+                                </div>
+                                <div>
+                                    <p>{courseStore.course.description}</p>
+                                </div>
+                                <div className={styles.langicons}>
+                                    {courseStore.course.additional_type &&
+                                        icons.filter(item => courseStore.course.additional_type.includes(item.id)).map(item => (
+                                            <div key={item.id}>
+                                                <img src={`http://localhost:5000/${item.name}`} alt="" />
+                                            </div>
                                         ))
                                     }
-                                    <div>
-
-                                    </div>
                                 </div>
-                            </>
-                        }
-                    </div>
+                            </div>
+                        </div>
+                        <div className={styles.body}>
+                            <h1>На этом курсе вы изучите</h1>
+                            {
+                                contentList.length !== 0 &&
+                                <CreateDescriptionList content={contentList} />
+                            }
+                            <h1>Краткий обзор курса</h1>
+                            {
+                                modules.length !== 0 &&
+                                <>
+                                    <div className={styles.moduleList}>
+                                        {
+                                            modules.map((index, item) => (
+                                                <>
+                                                    <div key={index} >
+                                                        <button onClick={() => moduleHandler(index.id)} className={styles.module}>{index.number}. {index.name}</button>
+                                                    </div>
+                                                    <div className={styles.lessonsList}>
+                                                        {index.id === moduleId && lessons.length !== 0 &&
+                                                            lessons.map((index, item) => (
+                                                                <>
+                                                                    <div className={styles.lesson}>
+                                                                        {index.name}
+                                                                    </div>
+                                                                </>
+                                                            ))
+                                                        }
+                                                    </div>
+                                                </>
+                                            ))
+                                        }
+                                        <div>
 
+                                        </div>
+                                    </div>
+                                </>
+                            }
+                        </div>
+
+                    </div>
+                </div>
+                <div>
+                    <Footer />
                 </div>
             </div>
-            <Footer />
         </>
     )
 }
@@ -282,15 +287,16 @@ function CreateDescriptionList({ content }) {
 
     return (
         <>
-            {
-                content &&
-                content.map((item, index) => (
-                    <div key={index}>
-                        <li>{item.description}</li>
-                    </div>
-                ))
-
-            }
+            <div className={styles.descriptionList}>
+                {
+                    content &&
+                    content.map((item, index) => (
+                        <div key={index} className={styles.descriptionListItems}>
+                            <li>{item.description}</li>
+                        </div>
+                    ))
+                }
+            </div>
         </>
     )
 }

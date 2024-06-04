@@ -146,6 +146,23 @@ const YearIncomeStat = sequelize.define('year_income_stat', {
     updated_at: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW },
 }, { sequelize, timestamps: false })
 
+const UserTrainers = sequelize.define('user_trainers', {
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    user_id: { type: DataTypes.INTEGER, },
+    done_trainers: { type: DataTypes.INTEGER, defaultValue: 1 },
+    progress_status: { type: DataTypes.INTEGER, defaultValue: 0 },
+    points: { type: DataTypes.INTEGER, defaultValue: 0 },
+    created_at: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW },
+    updated_at: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW },
+}, { sequelize, timestamps: false })
+
+const TrainerStatuses = sequelize.define('trainer_statuses', {
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    status: { type: DataTypes.STRING },
+    status_value: { type: DataTypes.INTEGER },
+    created_at: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW },
+    updated_at: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW },
+}, { sequelize, timestamps: false })
 
 
 const firstMonthStudents = sequelize.define('first_month_students', {
@@ -219,6 +236,14 @@ const secondMonthStudents = sequelize.define('second_month_students', {
     thirtyone: { type: DataTypes.INTEGER, allowNull: false },
 })
 
+
+
+TrainerStatuses.hasMany(UserTrainers, { foreignKey: 'progress_status' })
+UserTrainers.belongsTo(TrainerStatuses, { foreignKey: 'progress_status' })
+
+User.hasOne(UserTrainers, { foreignKey: 'user_id' })
+UserTrainers.belongsTo(User, { foreignKey: 'user_id' })
+
 Course_info.hasOne(YearIncomeStat, { foreignKey: 'course_info_id' })
 YearIncomeStat.belongsTo(Course_info, { foreignKey: 'course_info_id' })
 
@@ -285,4 +310,6 @@ module.exports = {
     secondMonthStudents,
     firstMonthStudents,
     YearIncomeStat,
+    UserTrainers,
+    TrainerStatuses
 }

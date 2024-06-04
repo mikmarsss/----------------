@@ -1,12 +1,30 @@
-.container {
-    width: 100%;
-    min-height: 77vh;
+.content {
+    width: auto;
     height: auto;
-    background-color: #3D3F4C;
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-grow: 1;
+    z-index: 0;
+}
 
+.glass {
+    background: linear-gradient(135deg, #C3BAAF, rgba(255, 255, 255, 0.01));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.33);
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    background-color: #C3BAAF;
+    background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.3));
+    display: flex;
+    flex-direction: column;
 }
 
 .netmodulei {
@@ -27,11 +45,12 @@
     margin-left: 100px;
     margin-top: -242px;
     width: 1100px;
-    height: auto;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 20px;
 }
 
 .chaptersBar {
@@ -57,29 +76,6 @@
     height: 0;
 }
 
-.inputButton {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    outline: none;
-    text-decoration: none;
-    font-size: 14px;
-    vertical-align: middle;
-    color: rgb(255 255 255);
-    text-align: center;
-    border-radius: 10px;
-    background-color: #3D3F4C;
-    line-height: 22px;
-    height: 40px;
-    padding: 10px 20px;
-    box-sizing: border-box;
-    border: none;
-    border: 2px #C1A875 solid;
-    margin: 0;
-    transition: background-color 0.2s;
-    text-align: center;
-}
-
 .showElements {
     display: flex;
     flex-direction: column;
@@ -89,7 +85,7 @@
 .chapterBox {
     width: 50px;
     height: 50px;
-    border: solid 1px #C1A875;
+    border: solid 1px #243F5D;
     border-radius: 5px;
 }
 
@@ -97,7 +93,7 @@
     width: 50px;
     height: 50pxpx;
     border-radius: 5px;
-    background-color: #C1A875;
+    background-color: #243F5D;
 }
 
 .addChapter {
@@ -120,7 +116,7 @@
 .addcChapterBox {
     width: 50px;
     height: 50px;
-    border: #C1A875 solid 2px;
+    border: #243F5D solid 2px;
     border-radius: 5px;
     font-size: 30px;
     display: flex;
@@ -149,7 +145,7 @@
 .title>div {
     width: auto;
     font-size: 36px;
-    color: #C1A875;
+    color: #243F5D;
 }
 
 .moduleName {
@@ -168,7 +164,7 @@
     font-weight: 700;
     width: 75%;
     transition: .2s;
-    color: white;
+    color: black;
     font-size: 24px;
 }
 
@@ -176,172 +172,11 @@
 .logininput:focus,
 .logininput:hover {
     outline: none;
-    border-bottom-color: #C1A875;
+    border-bottom-color: #243F5D;
 }
 
-.chapterInput {
-    border: none;
-    border-bottom: 2px solid #D1D1D4;
-    background: none;
-    padding: 10px;
-    padding-left: 24px;
-    font-weight: 700;
-    width: 400px;
-    transition: .2s;
-    color: white;
-    font-size: 20px;
-}
-
-.chapterInput:active,
-.chapterInput:focus,
-.chapterInput:hover {
-    outline: none;
-    border-bottom-color: #C1A875;
-}
-
-.lessonName {
-    text-align: center;
-}
-
-.addChapterElement {
-    color: #C1A875;
-    font-size: 20px;
-    border-bottom: #C1A875 solid 2px;
-    border-top: #C1A875 solid 2px;
-    padding: 10px;
-}
-
-.chapterElements {
-    margin-top: 30px;
-    border-top: #C1A875 solid 2px;
-    border-bottom: #C1A875 solid 2px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.chapterElements>button {
-    color: white;
-    font-size: 20px;
-    width: 300px;
-}
-
-.chapterElements>button:hover {
-    color: #C1A875;
-    transition: .3s;
-}
-
-
-.contentInput {
-    min-width: 900px;
-    min-height: 300px;
-    max-width: 900px;
-    max-height: 300px;
-    border: none;
-    border: 2px solid #D1D1D4;
-    background: none;
-    padding: 10px;
-    padding-left: 24px;
-    font-weight: 700;
-    width: 75%;
-    transition: .2s;
-    color: white;
-    font-size: 20px;
-    border-radius: 20px;
-}
-
-.textEditor {
-    min-width: 900px;
-    min-height: 300px;
-    border-top: 2px solid #D1D1D4;
-    border-bottom: 2px solid #D1D1D4;
-    padding: 20px;
-}
-
-.test {
-    min-width: 900px;
-    min-height: 300px;
-    height: auto;
-    border: none;
-    border-top: 2px solid #D1D1D4;
-    border-bottom: 2px solid #D1D1D4;
-    background: none;
-    padding: 10px;
-    padding-left: 24px;
-    transition: .2s;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    align-items: center;
-}
-
-.testContent {
-    display: flex;
-    gap: 20px;
-}
-
-.ava {
-    max-width: 900px;
-    max-height: 400px;
-    object-fit: cover;
-
-}
-
-.video {
-    padding: 20px;
-    border-top: 2px solid #D1D1D4;
-    border-bottom: 2px solid #D1D1D4;
-    width: 900px;
-    min-height: 100px;
-    height: auto;
-    background: none;
-    transition: .2s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-}
-
-.videoInput {
-    max-width: 1000px;
-    max-height: 550px;
-}
-
-.img {
-    padding: 20px;
-    border-top: 2px solid #D1D1D4;
-    border-bottom: 2px solid #D1D1D4;
-    width: 900px;
-    min-height: 100px;
-    height: auto;
-    background: none;
-    transition: .2s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-}
-
-.inputFiles {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-}
-
-.inputFiles>p {
-    font-size: 20px;
-}
-
-.radioButton {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.chapterContent {
+.chapterContainer {
+    width: 1100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -352,45 +187,195 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.chapterName {
+    width: 400px;
+}
+
+.listElements {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.listElements>button {
+    font-size: 30px;
+    color: #243F5D;
+}
+
+.elementsBar {
+    width: 1000px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 20px;
+    position: absolute;
+    padding: 20px;
+    z-index: 1;
+    /* background: linear-gradient(to right bottom, rgba(195, 186, 175, 1), rgba(195, 186, 175, 1)); */
+    background: rgba(195, 186, 175, 0.8);
+    backdrop-filter: blur(60px);
+    -webkit-backdrop-filter: blur(60px);
+    border-radius: 20px;
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.33);
+}
+
+.text>div {
+    width: 200px;
+}
+
+.testelements>div {
+    width: 200px;
+}
+
+.testelements>button>div>button>p {
+    font-size: 18px;
+}
+
+.hideElements {
+    font-size: 30px;
+    color: #243F5D;
+}
+
+.textIcon {
+    width: 50px;
+    height: 50px;
+}
+
+.elements>div {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.elements {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.elements>div>button>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    height: 120px;
+    justify-content: center;
+}
+
+.elements>div>button:hover {
+    background: linear-gradient(135deg, #C3BAAF, rgba(255, 255, 255, 0.01));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.33);
+}
+
+.elements>div>button>div>button {
+    font-size: 30px;
+}
+
+.chapterContent {
+    width: 90%;
+    min-height: 300px;
+    height: auto;
+}
+
+.testAnswers {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.testContent {
+    width: 950px;
+    display: flex;
+    gap: 20px;
+}
+
+.testPoints {
+    display: flex;
 
 }
 
-.removeButton {
-    color: #C1A875;
-    font-size: 20px;
-    border-bottom: #C1A875 solid 2px;
-    padding: 10px;
+.multiAns {
+    border: solid black 2px;
+    align-self: flex-start;
+    margin-left: 20px;
+    margin-top: 10px;
+    display: flex;
+    gap: 20px;
 }
 
-.contentInput:active,
-.contentInput:focus,
-.contentInput:hover {
-    outline: none;
-    border-color: #C1A875;
+.inputButton {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 26px;
+    color: #243F5D;
+    border-bottom: #243F5D 1px solid;
 }
 
-.textInput {
-    min-width: 800px;
-    min-height: 150px;
-    max-width: 400px;
-    max-height: 150px;
+.ava {
+    width: 800px;
+    height: 400px;
+    object-fit: contain;
+    border: solid 1px black;
+}
+
+.inputFiles input[type=file] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    display: block;
+    width: 0;
+    height: 0;
+}
+
+.imgfield {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.textEditor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.testInput {
     border: none;
-    border: 2px solid #D1D1D4;
+    border-bottom: 2px solid #D1D1D4;
     background: none;
     padding: 10px;
     padding-left: 24px;
     font-weight: 700;
-    width: 75%;
+    width: 500px;
     transition: .2s;
     color: white;
     font-size: 20px;
-    border-radius: 20px;
 }
 
-.textInput:active,
-.textInput:focus,
-.textInput:hover {
+.testInput:active,
+.testInput:focus,
+.testInput:hover {
     outline: none;
-    border-color: #C1A875;
+    border-bottom-color: #243F5D;
+}
+
+.removeButton {
+    font-size: 26px;
+    color: #243F5D;
+    border-bottom: #243F5D 1px solid;
 }

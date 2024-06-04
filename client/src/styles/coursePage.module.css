@@ -3,22 +3,40 @@
     src: url(../fonts/Montserrat-Medium.ttf);
 }
 
-.container {
+.content {
     width: 100%;
     height: 100vh;
-    background-color: #3D3F4C;
     display: flex;
     flex-direction: column;
     align-items: center;
 
 }
 
+.glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.33);
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    background-color: #C3BAAF;
+    background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.3));
+    display: flex;
+    flex-direction: column;
+}
+
 .ava {
     object-fit: cover;
     width: 200px;
     height: 200px;
-    border-radius: 20px;
-    border: 2px #C1A875 solid;
+    border-radius: 10px;
+    border: 2px #243F5D solid;
 }
 
 .title {
@@ -51,10 +69,7 @@
     align-items: center;
     width: 1200px;
     height: auto;
-    border-radius: 45px;
-    background-color: #3D3F4C;
-    border-top: 2px #C1A875 solid;
-    border-bottom: 2px #C1A875 solid;
+    border-radius: 30px;
     gap: 30px;
 
 }
@@ -65,15 +80,22 @@
     gap: 40px;
     padding: 10px;
     width: 700px;
+    align-self: flex-start;
+    margin-left: 100px;
 }
 
 .button {
-    border: 2px #C1A875 solid;
+    border: 2px #243F5D solid;
     width: 210px;
     height: 40px;
     font-size: 24px;
-    border-radius: 10px;
+    border-radius: 6px;
     font-family: 'Montserrat-Medium';
+}
+
+.button:hover {
+    background-color: #243F5D;
+    color: white;
 
 }
 
@@ -94,8 +116,25 @@
 
 .titleInfo>div {
     width: auto;
-    border-bottom: 2px #C1A875 solid;
+    border-bottom: 2px #243F5D solid;
 
+}
+
+
+
+.titleInfo>div>p {
+    font-size: 24px;
+}
+
+.descriptionList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.descriptionListItems {
+    font-size: 26px;
+    color: #243F5D;
 }
 
 .moduleList {
@@ -105,7 +144,7 @@
 }
 
 .module {
-    color: #C1A875;
+    color: #243F5D;
     font-size: 30px;
 }
 
@@ -117,6 +156,6 @@
 }
 
 .lesson {
-    color: #C1A875;
+    color: #243F5D;
     font-size: 24px;
 }

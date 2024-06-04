@@ -263,4 +263,13 @@ export default class CourseStore {
             console.log(e.response?.data?.message)
         }
     }
+
+    // async deleteChapterImg(img: string) {
+    //     try {
+    //         const response = await CoursesService.deleteChapterImg(img)
+    //         console.log(response)
+    //     } catch (e) {
+    //         console.log(e.response?.data?.message)
+    //     }
+    // }
 }

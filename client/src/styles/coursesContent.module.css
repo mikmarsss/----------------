@@ -1,5 +1,4 @@
-.container {
-    background-color: #3D3F4C;
+.content {
     min-height: 72vh;
     height: auto;
     display: flex;
@@ -8,13 +7,32 @@
     padding: 30px;
 }
 
+.glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.33);
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    background-color: #C3BAAF;
+    background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.3));
+    display: flex;
+    flex-direction: column;
+}
+
 .netmodulei {
     margin-top: 200px;
     text-align: center;
 }
 
 .netmodulei>h1 {
-    color: #C1A875;
+    color: #243F5D;
     font-size: 40px;
 }
 
@@ -30,9 +48,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    border: 2px #C1A875 solid;
+    border: 2px #243F5D solid;
     gap: 30px;
-    border-radius: 20px;
+    border-radius: 15px;
 }
 
 .nameModule {
@@ -46,14 +64,14 @@
 
 .addModule {
     font-size: 30px;
-    border: 2px #C1A875 solid;
-    border-radius: 20PX;
+    border: 2px #243F5D solid;
+    border-radius: 10PX;
     padding: 10PX;
 }
 
 .numberModule {
     font-size: 80px;
-    color: #C1A875;
+    color: #243F5D;
     margin-left: 70px;
 }
 
@@ -73,16 +91,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 30px;
-    border-top: 2px #C1A875 solid;
-    border-bottom: 2px #C1A875 solid;
+    border-radius: 20px;
 }
 
 .deleteButton {
-    border: 2px #C1A875 solid;
+    border: 2px #243F5D solid;
     font-size: 26px;
     padding: 20px;
-    border-radius: 20PX;
+    border-radius: 10PX;
     margin-bottom: 30px;
 }
 

@@ -23,12 +23,12 @@ function CourseBlockProfile({ courses }) {
 
     return (
         <>
-            <p className={styles.zagolovok}>Мои курсы</p>
-            <div className={styles.container}>
-                {
-                    courses.map((item, index) => (
-                        <div className={styles.Mycourse} key={index}>
-                            <div>
+            <div className={`${styles.container} ${styles.glass}`}>
+                <p className={styles.zagolovok}>Мои курсы</p>
+                <div>
+                    {
+                        courses.map((item, index) => (
+                            <div className={styles.Mycourse} key={index}>
                                 <div className={styles.courseblock}>
                                     <div className={styles.info}>
                                         <h1 className={styles.status}>{item.status === 'notpublished' ? 'Неопубликован' : 'Опубликован'}</h1>
@@ -42,9 +42,9 @@ function CourseBlockProfile({ courses }) {
                                 </div>
 
                             </div>
-                        </div>
-                    ))
-                }
+                        ))
+                    }
+                </div>
             </div>
         </>
     )

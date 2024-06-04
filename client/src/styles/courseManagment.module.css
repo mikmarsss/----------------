@@ -1,21 +1,45 @@
-.container {
-    width: 50%;
+.content1 {
+    width: 55%;
     height: auto;
     display: flex;
     flex-direction: row;
     padding: 10px;
     justify-content: center;
-    border: solid black 2px;
+    gap: 30px;
 }
 
-.conatainer1 {
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.33);
+}
+
+.container2 {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    background-color: #C3BAAF;
+    background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.3));
+    display: flex;
+    flex-direction: column;
+}
+
+.conatainer {
     display: flex;
     flex-direction: row;
     justify-content: center;
     width: 100%;
-    min-height: 77vh;
     height: auto;
-    background-color: #3D3F4C;
 }
 
 .navmenu {
@@ -74,7 +98,7 @@
 
 .username {
     font-size: 30px;
-    color: white;
+    color: #243F5D;
 }
 
 .courses>button {
@@ -87,18 +111,18 @@
 
 .courses>button:hover {
     font-size: 18px;
-    color: #C1A875;
+    color: #243F5D;
     text-align: left;
 }
 
 .main>button:hover {
     font-size: 18px;
-    color: #C1A875;
+    color: #243F5D;
     text-align: left;
 }
 
 label {
-    color: #C1A875;
+    color: #243F5D;
     font-size: 30px;
     align-items: center;
 }
@@ -114,7 +138,7 @@ label {
 .exitButton {
     margin-top: 50px;
     font-size: 30px;
-    border: #C1A875 solid 2px;
+    border: #243F5D solid 2px;
     border-radius: 15px;
     padding: 5px;
     color: white;
@@ -123,7 +147,6 @@ label {
 .info {
     width: 85%;
     height: 100%;
-    border: solid black 2px;
 }
 
 .homePageContainer {

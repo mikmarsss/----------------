@@ -1,17 +1,18 @@
-.container {
+.content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .zagolovok {
-    color: #C1A875;
+    color: #243F5D;
     font-size: 40px;
 }
 
 .mainInfo {
     width: 75%;
-    border-bottom: solid #C1A875 1px;
+    border-bottom: solid #243F5D 1px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -37,12 +38,13 @@
 
 .fullStat>button {
     font-size: 20px;
-    color: #C1A875;
+    color: #243F5D;
+    font-weight: bold;
 }
 
 .statsContainer {
     width: 75%;
-    border-bottom: solid #C1A875 1px;
+    border-bottom: solid #243F5D 1px;
     display: flex;
     flex-direction: column;
 }
@@ -59,9 +61,10 @@
 }
 
 .shortStats>div>p {
-    color: #C1A875;
+    color: #243F5D;
     font-size: 24px;
     text-align: center;
+    font-weight: bold;
 }
 
 .moneyAndRating {
@@ -78,9 +81,10 @@
 }
 
 .moneyAndRating>div>p {
-    color: #C1A875;
+    color: #243F5D;
     font-size: 24px;
     text-align: center;
+    font-weight: bold;
 }
 
 .ava {
@@ -105,7 +109,7 @@
 
 .name {
     font-size: 40px;
-    color: #C1A875;
+    color: #243F5D;
 }
 
 .description {
@@ -115,20 +119,20 @@
 
 .ratingContainer {
     width: 75%;
-    border-bottom: solid #C1A875 1px;
+    border-bottom: solid #243F5D 1px;
     display: flex;
     flex-direction: column;
 }
 
 .status {
     width: 75%;
-    border-bottom: solid #C1A875 1px;
+    border-bottom: solid #243F5D 1px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 30px;
-    height: 230px;
+    height: 200px;
 }
 
 .status>div {
@@ -142,7 +146,7 @@
 }
 
 .status>div>p {
-    color: #C1A875;
+    color: #243F5D;
     font-size: 24px;
     text-align: center;
 }

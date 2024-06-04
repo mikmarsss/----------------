@@ -4,6 +4,7 @@ import styles from "../styles/profilepanel.module.css"
 import { Context } from "..";
 import { useNavigate } from 'react-router-dom'
 import { COURSE_PAGE, TEST_PAGE } from "../utils";
+import arrow from '../Images/Arrow.svg'
 
 function HomePageProfile() {
     const digits = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -21,7 +22,7 @@ function HomePageProfile() {
 
     return (
         <>
-            <div className={styles.homePageContainer}>
+            <div className={`${styles.homePageContainer} ${styles.glass}`}>
                 <div className={styles.learnStat}>
                     <p>Статистика</p>
                     <div className={styles.statValues}>
@@ -39,27 +40,28 @@ function HomePageProfile() {
                         </div>
                     </div>
                 </div>
-
-                <div className={styles.activeCourse}>
-                    <p>Сейчас прохожу</p>
-                    <div className={styles.mainCourse}>
-                        <div className={styles.courseInfo}>
-                            <div className={styles.courseName}>
-                                {
-                                    courseStore.course.name
-                                }
+                <button onClick={courseHandler} className={styles.continuecourse}>
+                    <div className={styles.activeCourse}>
+                        <p>Сейчас прохожу</p>
+                        <div className={styles.mainCourse}>
+                            <div className={styles.courseInfo}>
+                                <div className={styles.courseName}>
+                                    {
+                                        courseStore.course.name
+                                    }
+                                </div>
+                                <div className={styles.courseDescription}>
+                                    {
+                                        courseStore.course.description
+                                    }
+                                </div>
                             </div>
-                            <div className={styles.courseDescription}>
-                                {
-                                    courseStore.course.description
-                                }
+                            <div>
+                                <button className={styles.continueButton}><img src={arrow} alt="" /></button>
                             </div>
-                        </div>
-                        <div>
-                            <button onClick={courseHandler} className={styles.continueButton}>Продолжить</button>
                         </div>
                     </div>
-                </div>
+                </button>
                 <div className={styles.recomendCourses}>
                     <p>Рекомендации</p>
                     {

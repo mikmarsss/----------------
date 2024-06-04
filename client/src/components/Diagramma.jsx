@@ -105,6 +105,7 @@ const MyDiagram = ({ tag }) => {
 
     console.log(months)
 
+    let monthId = 1
     let monthValues1 = []
     if (months.length !== 0) {
         monthValues1 = [
@@ -146,10 +147,10 @@ const MyDiagram = ({ tag }) => {
     if (monthValues1) {
         monthArray = monthValues1.map(item => {
             const newItem = {
-                id: currentId,
+                id: monthId,
                 value: item
             };
-            currentId++;
+            monthId++;
             return newItem;
         });
     }
@@ -222,9 +223,9 @@ const MyDiagram = ({ tag }) => {
                                 axis: {
                                     style: {
                                         axis: { stroke: "transparent" },
-                                        grid: { stroke: "#C1A875", strokeWidth: 0.7 },
+                                        grid: { stroke: "#243F5D", strokeWidth: 0.7 },
                                         ticks: { stroke: "transparent" },
-                                        tickLabels: { fontSize: 20, padding: 5, fill: "#C1A875" }
+                                        tickLabels: { fontSize: 20, padding: 5, fill: "#243F5D" }
                                     }
                                 },
                                 line: {
@@ -245,10 +246,10 @@ const MyDiagram = ({ tag }) => {
                                 label='Номер модуля'
                                 style={{
                                     axis: { stroke: "transparent" },
-                                    grid: { stroke: "#C1A875", strokeWidth: 0.5 },
+                                    grid: { stroke: "#243F5D", strokeWidth: 0.5 },
                                     ticks: { stroke: "transparent" },
                                     tickLabels: { fontSize: 20, padding: 5, fill: "white" },
-                                    axisLabel: { fontSize: 20, fill: "#C1A875" }
+                                    axisLabel: { fontSize: 20, fill: "#243F5D" }
                                 }}
                                 scale="linear"
 
@@ -257,9 +258,9 @@ const MyDiagram = ({ tag }) => {
                                 dependentAxis
                                 style={{
                                     axis: { stroke: "transparent" },
-                                    grid: { stroke: "#C1A875", strokeWidth: 0.5 },
+                                    grid: { stroke: "#243F5D", strokeWidth: 0.5 },
                                     ticks: { stroke: "transparent" },
-                                    tickLabels: { fontSize: 20, padding: 5, fill: "white" },
+                                    tickLabels: { fontSize: 20, padding: 5, fill: "black" },
                                 }}
                             />
                             <VictoryLine data={modules} x="number" y="done_modules" />
@@ -270,12 +271,12 @@ const MyDiagram = ({ tag }) => {
                                 size={2}
                                 style={{
                                     data: {
-                                        fill: "#C1A875",
+                                        fill: "white",
                                         stroke: "transparent",
                                         strokeWidth: 100
                                     },
                                     labels: {
-                                        fill: "#C1A875", // Исправленный цвет текста меток
+                                        fill: "white", // Исправленный цвет текста меток
                                         fontSize: 18,
                                     }
                                 }}
@@ -304,9 +305,9 @@ const MyDiagram = ({ tag }) => {
                                 axis: {
                                     style: {
                                         axis: { stroke: "transparent" },
-                                        grid: { stroke: "#C1A875", strokeWidth: 0.7 },
+                                        grid: { stroke: "#243F5D", strokeWidth: 0.7 },
                                         ticks: { stroke: "transparent" },
-                                        tickLabels: { fontSize: 20, padding: 5, fill: "#C1A875" }
+                                        tickLabels: { fontSize: 20, padding: 5, fill: "#243F5D" }
                                     }
                                 },
                                 line: {
@@ -327,10 +328,10 @@ const MyDiagram = ({ tag }) => {
                                 label='Номер урока'
                                 style={{
                                     axis: { stroke: "transparent" },
-                                    grid: { stroke: "#C1A875", strokeWidth: 0.5 },
+                                    grid: { stroke: "#243F5D", strokeWidth: 0.5 },
                                     ticks: { stroke: "transparent" },
                                     tickLabels: { fontSize: 20, padding: 5, fill: "white" },
-                                    axisLabel: { fontSize: 20, fill: "#C1A875" }
+                                    axisLabel: { fontSize: 20, fill: "#243F5D" }
                                 }}
                                 scale="linear"
                                 domain={{ x: [0, lessons.length] }} />
@@ -338,9 +339,9 @@ const MyDiagram = ({ tag }) => {
                                 dependentAxis
                                 style={{
                                     axis: { stroke: "transparent" },
-                                    grid: { stroke: "#C1A875", strokeWidth: 0.5 },
+                                    grid: { stroke: "#243F5D", strokeWidth: 0.5 },
                                     ticks: { stroke: "transparent" },
-                                    tickLabels: { fontSize: 20, padding: 5, fill: "white" },
+                                    tickLabels: { fontSize: 20, padding: 5, fill: "black" },
                                 }}
                             />
                             <VictoryLine data={lessonsArray} x="id" y="done_lessons" />
@@ -348,12 +349,12 @@ const MyDiagram = ({ tag }) => {
                                 data={lessonsArray} x="id" y="done_lessons" size={3}
                                 style={{
                                     data: {
-                                        fill: "#C1A875",
+                                        fill: "white",
                                         stroke: "transparent",
                                         strokeWidth: 100
                                     },
                                     labels: {
-                                        fill: "#C1A875", // Исправленный цвет текста меток
+                                        fill: "white", // Исправленный цвет текста меток
                                         fontSize: 18,
                                     }
                                 }}
@@ -391,9 +392,9 @@ const MyDiagram = ({ tag }) => {
                                 axis: {
                                     style: {
                                         axis: { stroke: "transparent" },
-                                        grid: { stroke: "#C1A875", strokeWidth: 0.7 },
+                                        grid: { stroke: "#243F5D", strokeWidth: 0.7 },
                                         ticks: { stroke: "transparent" },
-                                        tickLabels: { fontSize: 20, padding: 5, fill: "#C1A875" }
+                                        tickLabels: { fontSize: 20, padding: 5, fill: "#243F5D" }
                                     }
                                 },
                                 line: {
@@ -414,10 +415,10 @@ const MyDiagram = ({ tag }) => {
                                 label='День месяца'
                                 style={{
                                     axis: { stroke: "transparent" },
-                                    grid: { stroke: "#C1A875", strokeWidth: 0.5 },
+                                    grid: { stroke: "#243F5D", strokeWidth: 0.5 },
                                     ticks: { stroke: "transparent" },
                                     tickLabels: { fontSize: 20, padding: 5, fill: "white" },
-                                    axisLabel: { fontSize: 20, fill: "#C1A875" }
+                                    axisLabel: { fontSize: 20, fill: "#243F5D" }
                                 }}
                                 scale="linear"
 
@@ -426,7 +427,7 @@ const MyDiagram = ({ tag }) => {
                                 dependentAxis
                                 style={{
                                     axis: { stroke: "transparent" },
-                                    grid: { stroke: "#C1A875", strokeWidth: 0.5 },
+                                    grid: { stroke: "#243F5D", strokeWidth: 0.5 },
                                     ticks: { stroke: "transparent" },
                                     tickLabels: { fontSize: 20, padding: 5, fill: "white" },
                                 }}
@@ -439,12 +440,12 @@ const MyDiagram = ({ tag }) => {
                                 size={2}
                                 style={{
                                     data: {
-                                        fill: "#C1A875",
+                                        fill: "white",
                                         stroke: "transparent",
                                         strokeWidth: 1
                                     },
                                     labels: {
-                                        fill: "#C1A875", // Исправленный цвет текста меток
+                                        fill: "white", // Исправленный цвет текста меток
                                         fontSize: 18,
                                     }
                                 }}
@@ -467,9 +468,9 @@ const MyDiagram = ({ tag }) => {
                                 axis: {
                                     style: {
                                         axis: { stroke: "transparent" },
-                                        grid: { stroke: "#C1A875", strokeWidth: 0.7 },
+                                        grid: { stroke: "#243F5D", strokeWidth: 0.7 },
                                         ticks: { stroke: "transparent" },
-                                        tickLabels: { fontSize: 20, padding: 5, fill: "#C1A875" }
+                                        tickLabels: { fontSize: 20, padding: 5, fill: "#243F5D" }
                                     }
                                 },
                                 line: {
@@ -490,10 +491,10 @@ const MyDiagram = ({ tag }) => {
                                 label='День месяца'
                                 style={{
                                     axis: { stroke: "transparent" },
-                                    grid: { stroke: "#C1A875", strokeWidth: 0.5 },
+                                    grid: { stroke: "#243F5D", strokeWidth: 0.5 },
                                     ticks: { stroke: "transparent" },
                                     tickLabels: { fontSize: 20, padding: 5, fill: "white" },
-                                    axisLabel: { fontSize: 20, fill: "#C1A875" }
+                                    axisLabel: { fontSize: 20, fill: "#243F5D" }
                                 }}
                                 scale="linear"
                                 domain={{ x: [0, lessons.length] }} />
@@ -501,7 +502,7 @@ const MyDiagram = ({ tag }) => {
                                 dependentAxis
                                 style={{
                                     axis: { stroke: "transparent" },
-                                    grid: { stroke: "#C1A875", strokeWidth: 0.7 },
+                                    grid: { stroke: "#243F5D", strokeWidth: 0.7 },
                                     ticks: { stroke: "transparent" },
                                     tickLabels: { fontSize: 20, padding: 5, fill: "white" },
                                 }}
@@ -511,12 +512,12 @@ const MyDiagram = ({ tag }) => {
                                 data={monthArray2} x="id" y="value" size={3}
                                 style={{
                                     data: {
-                                        fill: "#C1A875",
+                                        fill: "white",
                                         stroke: "transparent",
                                         strokeWidth: 1
                                     },
                                     labels: {
-                                        fill: "#C1A875", // Исправленный цвет текста меток
+                                        fill: "white", // Исправленный цвет текста меток
                                         fontSize: 18,
                                     }
                                 }}
@@ -545,9 +546,9 @@ const MyDiagram = ({ tag }) => {
                         axis: {
                             style: {
                                 axis: { stroke: "transparent" },
-                                grid: { stroke: "#C1A875", strokeWidth: 0.7 },
+                                grid: { stroke: "#243F5D", strokeWidth: 0.7 },
                                 ticks: { stroke: "transparent" },
-                                tickLabels: { fontSize: 20, padding: 5, fill: "#C1A875" }
+                                tickLabels: { fontSize: 20, padding: 5, fill: "#243F5D" }
                             }
                         },
                         line: {
@@ -568,10 +569,10 @@ const MyDiagram = ({ tag }) => {
                         label='Месяц'
                         style={{
                             axis: { stroke: "transparent" },
-                            grid: { stroke: "#C1A875", strokeWidth: 0.5 },
+                            grid: { stroke: "#243F5D", strokeWidth: 0.5 },
                             ticks: { stroke: "transparent" },
                             tickLabels: { fontSize: 20, padding: 5, fill: "white" },
-                            axisLabel: { fontSize: 20, fill: "#C1A875" }
+                            axisLabel: { fontSize: 20, fill: "white" }
                         }}
                         scale="linear"
                         domain={{ x: [0, yearIncome.length] }}
@@ -580,7 +581,7 @@ const MyDiagram = ({ tag }) => {
                         dependentAxis
                         style={{
                             axis: { stroke: "transparent" },
-                            grid: { stroke: "#C1A875", strokeWidth: 0.7 },
+                            grid: { stroke: "#243F5D", strokeWidth: 0.7 },
                             ticks: { stroke: "transparent" },
                             tickLabels: { fontSize: 20, padding: 5, fill: "white" },
                         }}
@@ -591,12 +592,12 @@ const MyDiagram = ({ tag }) => {
                         data={yearIncome} x="id" y="value" size={3}
                         style={{
                             data: {
-                                fill: "#C1A875",
+                                fill: "white",
                                 stroke: "transparent",
                                 strokeWidth: 1
                             },
                             labels: {
-                                fill: "#C1A875", // Исправленный цвет текста меток
+                                fill: "white", // Исправленный цвет текста меток
                                 fontSize: 18,
                             }
                         }}

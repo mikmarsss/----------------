@@ -9,7 +9,7 @@ function HomePageManagment() {
 
     return (
         <>
-            <div className={styles.container}>
+            <div className={styles.content}>
                 <p className={styles.zagolovok}>Домашняя страница</p>
                 <div className={styles.mainInfo}>
                     <div className={styles.ava}>

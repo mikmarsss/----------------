@@ -35,6 +35,7 @@ export default class Store {
             const response = await AuthService.login(email, password)
             console.log(response)
             localStorage.setItem('token', response.data.accessToken)
+            localStorage.setItem('userId', response.data.user.id)
             this.setAuth(true)
             this.setUser(response.data.user)
         } catch (e) {
@@ -114,6 +115,7 @@ export default class Store {
             const response = await axios.get<AuthResponse>(`${APi_URL}/user/refresh`, { withCredentials: true })
             console.log(response)
             localStorage.setItem('token', response.data.accessToken)
+            localStorage.setItem('userId', response.data.user.id)
             this.setAuth(true)
             this.setUser(response.data.user)
         } catch (e) {

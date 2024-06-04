@@ -1,10 +1,12 @@
 .container {
-    background-color: #3D3F4C;
     width: 100%;
+    min-height: 100vh;
     height: auto;
+    background-color: #C3BAAF;
+    background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.3));
     display: flex;
-    justify-content: center;
-
+    flex-direction: column;
+    align-items: center;
 }
 
 .courseBlock {
@@ -13,12 +15,25 @@
     width: 1200px;
     height: auto;
     border-radius: 50px;
-    background-color: #3D3F4C;
     display: flex;
     flex-direction: column;
-    gap: 50px;
-    border-top: 2px #C1A875 solid;
-    border-bottom: 2px #C1A875 solid;
+    gap: 60px;
+}
+
+.glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.33);
+}
+
+.content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .maintype {
@@ -36,20 +51,18 @@
 }
 
 .selected {
-    border-bottom: 2px #C1A875 solid;
-    border-radius: 10px;
+    border-bottom: 2px #204436 solid;
     padding: 5px;
 }
 
 .maintypes>button {
-    color: #C1A875;
+    color: #243F5D;
     font-size: 20px;
+    font-weight: bold;
 }
 
-
-
 .help {
-    color: #C1A875;
+    color: #243F5D;
 }
 
 .title {
@@ -60,7 +73,7 @@
     margin-top: 50px;
     display: flex;
     flex-direction: row;
-    gap: 0px;
+    gap: 10px;
 }
 
 .inpitFiles {
@@ -71,7 +84,7 @@
 .imgfield {
     border-radius: 20px;
     width: 230px;
-    height: 276px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -85,21 +98,46 @@
     cursor: pointer;
     outline: none;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 18px;
     vertical-align: middle;
     color: rgb(255 255 255);
     text-align: center;
     border-radius: 10px;
-    background-color: #3D3F4C;
+    background-color: #243F5D;
     line-height: 22px;
     height: 40px;
     padding: 10px 20px;
     box-sizing: border-box;
     border: none;
-    border: 2px #C1A875 solid;
     margin: 0;
     transition: background-color 0.2s;
     text-align: center;
+}
+
+
+
+.contentInput {
+    border: none;
+    border: 2px solid white;
+    background: none;
+    padding: 10px;
+    padding-left: 24px;
+    font-weight: 700;
+    min-width: 90%;
+    max-width: 90%;
+    min-height: 150px;
+    max-height: 150px;
+    transition: .2s;
+    color: white;
+    border-radius: 15px;
+    font-size: 20px;
+}
+
+.contentInput:active,
+.contentInput:focus,
+.contentInput:hover {
+    outline: none;
+    border-color: #243F5D;
 }
 
 .inputFiles input[type=file] {
@@ -113,21 +151,22 @@
 
 .logininput {
     border: none;
-    border-bottom: 2px solid #D1D1D4;
+    border-bottom: 2px solid white;
     background: none;
     padding: 10px;
     padding-left: 24px;
     font-weight: 700;
-    width: 75%;
+    width: 90%;
     transition: .2s;
     color: white;
+    font-size: 20px;
 }
 
 .logininput:active,
 .logininput:focus,
 .logininput:hover {
     outline: none;
-    border-bottom-color: #C1A875;
+    border-bottom-color: #243F5D;
 }
 
 .choosedTypes {
@@ -138,6 +177,7 @@
 
 .tagslabel {
     font-size: 20px;
+    color: #243F5D;
 }
 
 .searchtag {
@@ -153,6 +193,7 @@
 }
 
 .searchtag>label {
+    color: #243F5D;
     font-size: 20px;
 }
 
@@ -214,13 +255,13 @@
     width: 200px;
     height: 200px;
     object-fit: cover;
-    border-radius: 20px;
-    border: 2px #C1A875 solid;
+    border-radius: 15px;
+    border: 2px #243F5D solid;
 }
 
 .titleName {
     width: 70%;
-    height: 276px;
+    height: 100%;
     display: flex;
     gap: 10px;
     flex-direction: column;
@@ -232,21 +273,24 @@
 }
 
 .saveButtonBlock>button {
+    margin-bottom: 80px;
     font-size: 30px;
+}
+
+.footer {
+    width: 100%;
 }
 
 .titleName label {
     margin-left: 20px;
-    color: white;
+    color: black;
 }
 
 .removeButton {
     width: auto;
     padding: 10px;
     font-size: 20px;
-    border-radius: 10px;
-    border-top: 2px #C1A875 solid;
-    border-bottom: 2px #C1A875 solid;
+    border-bottom: 2px #204436 solid;
 }
 
 .content {
@@ -261,4 +305,8 @@
     display: flex;
     justify-content: center;
     gap: 30px;
+}
+
+.popt>label {
+    color: #243F5D;
 }

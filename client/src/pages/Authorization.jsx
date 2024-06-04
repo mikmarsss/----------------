@@ -62,73 +62,79 @@ function Authorization() {
 
     return (
         <>
-            <Header />
             <div className={styles.container}>
-                <div className={styles.vhodorreg}>
-                    <button onClick={() => showAuthHandleClick('vhod')} className={`${showAuth === 'vhod' ? styles.clickedbutton : styles.c}`}>Вход</button>
-                    <button onClick={() => showAuthHandleClick('reg')} className={`${showAuth === 'reg' ? styles.clickedbutton : styles.c}`}>Регистрация</button>
+                <div>
+                    <Header />
                 </div>
-                <div className={styles.authcontainer}>
-                    {
-                        showAuth === 'vhod' &&
-                        <div className={styles.vhodBlock}>
-                            <input
-                                className={styles.logininput}
-                                type="email"
-                                onChange={(e) => emailHandler(e)}
-                                value={email}
-                                placeholder="Email"
-                            />
-                            <input
-                                className={styles.logininput}
-                                onChange={(e) => passwordHandler(e)}
-                                value={password}
-                                type="password"
-                                placeholder="Password"
+                <div className={styles.content}>
+                    <div className={styles.vhodorreg}>
+                        <button onClick={() => showAuthHandleClick('vhod')} className={`${showAuth === 'vhod' ? styles.clickedbutton : styles.c}`}>Вход</button>
+                        <button onClick={() => showAuthHandleClick('reg')} className={`${showAuth === 'reg' ? styles.clickedbutton : styles.c}`}>Регистрация</button>
+                    </div>
+                    <div className={`${styles.authcontainer} ${styles.glass}`}>
+                        {
+                            showAuth === 'vhod' &&
+                            <div className={styles.vhodBlock}>
+                                <input
+                                    className={styles.logininput}
+                                    type="email"
+                                    onChange={(e) => emailHandler(e)}
+                                    value={email}
+                                    placeholder="Email"
+                                />
+                                <input
+                                    className={styles.logininput}
+                                    onChange={(e) => passwordHandler(e)}
+                                    value={password}
+                                    type="password"
+                                    placeholder="Password"
 
-                            />
-                            <button onClick={loginHandler} className={`${password && email !== '' ? styles.confirm : styles.vhodbutton}`}>Войти</button>
-                        </div>
-                    }
-                    {
-                        showAuth === 'reg' &&
-                        <div className={styles.vhodBlock}>
-                            <input
-                                className={styles.logininput}
-                                type="email"
-                                onChange={(e) => emailHandler(e)}
-                                value={email}
-                                placeholder="Email"
-                            />
-                            <input
-                                className={styles.logininput}
-                                type="text"
-                                onChange={(e) => usernameHandler(e)}
-                                value={username}
-                                placeholder="Username"
-                            />
-                            <input
-                                className={styles.logininput}
-                                onChange={(e) => passwordHandler(e)}
-                                value={password}
-                                type="password"
-                                placeholder="Password"
+                                />
+                                <button onClick={loginHandler} className={`${password && email !== '' ? styles.confirm : styles.vhodbutton}`}>Войти</button>
+                            </div>
+                        }
+                        {
+                            showAuth === 'reg' &&
+                            <div className={styles.vhodBlock}>
+                                <input
+                                    className={styles.logininput}
+                                    type="email"
+                                    onChange={(e) => emailHandler(e)}
+                                    value={email}
+                                    placeholder="Email"
+                                />
+                                <input
+                                    className={styles.logininput}
+                                    type="text"
+                                    onChange={(e) => usernameHandler(e)}
+                                    value={username}
+                                    placeholder="Username"
+                                />
+                                <input
+                                    className={styles.logininput}
+                                    onChange={(e) => passwordHandler(e)}
+                                    value={password}
+                                    type="password"
+                                    placeholder="Password"
 
-                            />
-                            <input
-                                className={styles.logininput}
-                                onChange={(e) => passwordRetryHandler(e)}
-                                value={passwordRetry}
-                                type="password"
-                                placeholder="Retry Password"
+                                />
+                                <input
+                                    className={styles.logininput}
+                                    onChange={(e) => passwordRetryHandler(e)}
+                                    value={passwordRetry}
+                                    type="password"
+                                    placeholder="Retry Password"
 
-                            />
-                            <button onClick={regHandler} className={`${passwordRetry === password ? styles.confirm : styles.vhodbutton}`}>Зарегистрироваться</button>
-                        </div>
-                    }
+                                />
+                                <button onClick={regHandler} className={`${passwordRetry === password ? styles.confirm : styles.vhodbutton}`}>Зарегистрироваться</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div>
+                    <Footer />
                 </div>
             </div>
-            <Footer />
         </>
     )
 }

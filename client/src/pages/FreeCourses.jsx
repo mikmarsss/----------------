@@ -12,7 +12,6 @@ import { COURSES_CONTENT } from "../utils";
 function FreeCourses() {
     const { courseStore, store } = useContext(Context)
     const [name, setName] = useState('')
-    const [price, setPrice] = useState('')
     const [description, setDescription] = useState('')
     const [courseContent, setCourseContent] = useState([])
     const [ava, setAva] = useState([])
@@ -144,7 +143,6 @@ function FreeCourses() {
         const formdata = new FormData()
         formdata.append('courseId', courseStore.course.id)
         formdata.append('name', name)
-        formdata.append('price', price)
         formdata.append('description', description)
         formdata.append('courseContent', JSON.stringify(courseContent))
         formdata.append('img', ava)
@@ -174,144 +172,139 @@ function FreeCourses() {
 
     return (
         <>
-            <Header />
+
             <div className={styles.container}>
-                <div className={styles.courseBlock}>
-
-                    <div className={styles.title}>
-                        <div className={styles.imgfield}>
-                            <img className={styles.ava} id="img-preview" src={coursseLogo} alt="" />
-                            <label className={styles.inputFiles}>
-                                <input
-                                    type="file"
-                                    id="img"
-                                    onChange={(e) => selectAva(e)}
-                                />
-                                <span className={styles.inputButton}>Выберите файл</span>
-                            </label>
-                        </div>
-                        <div className={styles.titleName}>
-                            <div>
-                                <label htmlFor="name">Название</label>
-                                <input
-                                    className={styles.logininput}
-                                    type="text"
-                                    id="name"
-                                    placeholder={courseStore.course.name}
-                                    onChange={(e) => setName(e.target.value)}
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="price">Цена</label>
-                                <input
-                                    className={styles.logininput}
-                                    type="text"
-                                    id="price"
-                                    placeholder={courseStore.course.price}
-                                    onChange={(e) => setPrice(e.target.value)}
-
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="description">Описание</label>
-                                <textarea
-                                    className={styles.logininput}
-                                    type="text"
-                                    id="description"
-                                    placeholder={courseStore.course.description}
-                                    onChange={(e) => setDescription(e.target.value)}
-
-                                />
-                            </div>
-
-                        </div>
-                    </div>
-                    <div className={styles.body}>
-                        <div className={styles.maintype}>
-                            <p>Чтобы ваш курс было проще найти,
-                                <label className={styles.help} htmlFor="type"> выберите основной тег</label>
-                            </p>
-                            <div className={styles.maintypes}>
-                                <button className={`${type === '1' ? styles.selected : false}`} onClick={() => setType('1')}>Программирование</button>
-                                <button className={`${type === '2' ? styles.selected : false}`} onClick={() => setType('2')}>Дизайн</button>
-                                <button className={`${type === '3' ? styles.selected : false}`} onClick={() => setType('3')}>Маркетинг</button>
-                                <button className={`${type === '4' ? styles.selected : false}`} onClick={() => setType('4')}>Тестирование</button>
-                            </div>
-                        </div>
-
-                        <div className={styles.searchtag}>
-                            <label htmlFor="tags">Введите теги</label>
-                            <input
-                                className={styles.logininput}
-                                type="text"
-                                id="tags"
-                                placeholder="Введите дополнительные теги"
-                                onChange={(e) => findTag(e)}
-                            />
-                        </div>
-
-                        <div className={styles.dopTypes}>
-                            {
-                                tags && tags.length !== 23 &&
-                                tags.map(item => (
-                                    <button key={item.id} onClick={() => addDopTypesHandler(item.id)}>
-                                        <img src={`http://localhost:5000/${item.name}.svg`} alt="" />
-                                        <p>{item.name}</p>
-                                    </button>
-                                ))
-                            }
-                        </div>
-
-                        <div className={styles.doptags}>
-                            <label className={styles.tagslabel} htmlFor="choosedTypes">Выбранные теги</label>
-                            <div className={styles.choosedTypes} id="choosedTypes">
-                                {icons.filter(item => dopType.includes(item.id)).map(item => (
-                                    <div key={item.id}>
-
-                                        <div className={styles.tegblock}>
-                                            <img src={`http://localhost:5000/${item.name}.svg`} alt="" />
-                                            <button className={styles.deleteButton} onClick={() => removedopTegs(item.id)}>x</button>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                        <div className={styles.content}>
-                            <label className={styles.tagslabel} htmlFor="popts">Опишите в кратце что будет в вашем курсе</label>
-                            {
-                                courseContent.map(i => (
-                                    <div key={i.number} className={styles.popt} id="popts">
-                                        <label htmlFor="content">Пункт </label>
-                                        <input
-                                            className={styles.logininput}
-                                            type="text"
-                                            id="content"
-                                            value={i.description}
-                                            placeholder={i.description}
-                                            onChange={(e) => changeInfo('description', e.target.value, i.number)}
-                                        />
-                                        <button className={styles.removeButton} onClick={() => removeInfo(i.number)}>Удалить</button>
-                                    </div>
-                                ))
-                            }
-                            <div>
-                                <button className={styles.removeButton} onClick={addContent}>Добавить пункт</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={styles.saveButtonBlock} onClick={saveData}>
-                        <button className={styles.removeButton}>Сохранить</button>
-                    </div>
-                    <Link to={COURSES_CONTENT + `/${courseStore.course.id}`}>
-                        <div className={styles.saveButtonBlock}>
-                            <button>Редактировать модули</button>
-                        </div>
-                    </Link>
-
+                <div>
+                    <Header />
                 </div>
+                <div className={styles.content}>
+                    <div className={`${styles.courseBlock} ${styles.glass}`}>
+                        <div className={styles.title}>
+                            <div className={styles.imgfield}>
+                                <img className={styles.ava} id="img-preview" src={coursseLogo} alt="" />
+                                <label className={styles.inputFiles}>
+                                    <input
+                                        type="file"
+                                        id="img"
+                                        onChange={(e) => selectAva(e)}
+                                    />
+                                    <span className={styles.inputButton}>Выберите файл</span>
+                                </label>
+                            </div>
+                            <div className={styles.titleName}>
+                                <div>
+                                    <label htmlFor="name">Название</label>
+                                    <input
+                                        className={styles.logininput}
+                                        type="text"
+                                        id="name"
+                                        placeholder={courseStore.course.name}
+                                        onChange={(e) => setName(e.target.value)}
+                                    />
+                                </div>
+                                <div>
+                                    <label htmlFor="description">Описание</label>
+                                    <textarea
+                                        className={styles.contentInput}
+                                        type="text"
+                                        id="description"
+                                        placeholder={courseStore.course.description}
+                                        onChange={(e) => setDescription(e.target.value)}
 
+                                    />
+                                </div>
+
+                            </div>
+                        </div>
+                        <div className={styles.body}>
+                            <div className={styles.maintype}>
+                                <p>Чтобы ваш курс было проще найти,
+                                    <label className={styles.help} htmlFor="type"> выберите основной тег</label>
+                                </p>
+                                <div className={styles.maintypes}>
+                                    <button className={`${type === '1' ? styles.selected : false}`} onClick={() => setType('1')}>Программирование</button>
+                                    <button className={`${type === '2' ? styles.selected : false}`} onClick={() => setType('2')}>Дизайн</button>
+                                    <button className={`${type === '3' ? styles.selected : false}`} onClick={() => setType('3')}>Маркетинг</button>
+                                    <button className={`${type === '4' ? styles.selected : false}`} onClick={() => setType('4')}>Тестирование</button>
+                                </div>
+                            </div>
+
+                            <div className={styles.searchtag}>
+                                <label htmlFor="tags">Введите теги</label>
+                                <input
+                                    className={styles.logininput}
+                                    type="text"
+                                    id="tags"
+                                    placeholder="Введите дополнительные теги"
+                                    onChange={(e) => findTag(e)}
+                                />
+                            </div>
+
+                            <div className={styles.dopTypes}>
+                                {
+                                    tags && tags.length !== 23 &&
+                                    tags.map(item => (
+                                        <button key={item.id} onClick={() => addDopTypesHandler(item.id)}>
+                                            <img src={`http://localhost:5000/${item.name}.svg`} alt="" />
+                                            <p>{item.name}</p>
+                                        </button>
+                                    ))
+                                }
+                            </div>
+
+                            <div className={styles.doptags}>
+                                <label className={styles.tagslabel} htmlFor="choosedTypes">Выбранные теги</label>
+                                <div className={styles.choosedTypes} id="choosedTypes">
+                                    {icons.filter(item => dopType.includes(item.id)).map(item => (
+                                        <div key={item.id}>
+
+                                            <div className={styles.tegblock}>
+                                                <img src={`http://localhost:5000/${item.name}.svg`} alt="" />
+                                                <button className={styles.deleteButton} onClick={() => removedopTegs(item.id)}>x</button>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className={styles.content}>
+                                <label className={styles.tagslabel} htmlFor="popts">Опишите в кратце что будет в вашем курсе</label>
+                                {
+                                    courseContent.map(i => (
+                                        <div key={i.number} className={styles.popt} id="popts">
+                                            <label htmlFor="content">Пункт </label>
+                                            <input
+                                                className={styles.logininput}
+                                                type="text"
+                                                id="content"
+                                                value={i.description}
+                                                placeholder={i.description}
+                                                onChange={(e) => changeInfo('description', e.target.value, i.number)}
+                                            />
+                                            <button className={styles.removeButton} onClick={() => removeInfo(i.number)}>Удалить</button>
+                                        </div>
+                                    ))
+                                }
+                                <div>
+                                    <button className={styles.removeButton} onClick={addContent}>Добавить пункт</button>
+                                </div>
+                                <div className={styles.saveButtonBlock} onClick={saveData}>
+                                    <button className={styles.removeButton}>Сохранить</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <Link to={COURSES_CONTENT + `/${courseStore.course.id}`}>
+                            <div className={styles.saveButtonBlock}>
+                                <button>Редактировать модули</button>
+                            </div>
+                        </Link>
+
+                    </div>
+                </div>
+                <div>
+                    <Footer />
+                </div>
             </div>
-            <Footer />
         </>
     )
 }

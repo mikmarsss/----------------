@@ -6,81 +6,88 @@
 
 .container {
     width: 100%;
-    background-color: #3D3F4C;
+    min-height: 100vh;
     height: auto;
-    min-height: 979px;
+    background-color: #C3BAAF;
+    background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.3));
+    display: flex;
+    flex-direction: column;
 }
 
-.catalog {
+.content {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+}
+
+.glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.33);
+}
+
+.content>div {
+    width: 1200px;
+    height: 300px;
+}
+
+.courseBlock {
     display: flex;
     flex-direction: row;
-    justify-content: center;
     gap: 30px;
 }
 
-.left {
-    width: auto;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    border: solid black 2px;
-    align-items: center;
-    gap: 30px;
+.courseCatalog {
+    padding: 20px;
+    flex-grow: 2;
+    width: 100px;
 }
 
-.upl {
-    width: 500px;
-    height: 140px;
-    background-color: white;
-    border: solid black 2px;
-    border-radius: 120px;
+.courseCatalog>p {
+    margin-top: -120px;
+    width: 300px;
+    font-size: 40px;
 }
 
-.upl>button>h1 {
-    font-size: 28px;
-    padding-left: 50px;
-    padding-top: 20px;
+.courseCreate:hover,
+.courseCatalog:hover,
+.chalangerBlock:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.33);
 }
 
-.upl>button>p {
-    font-size: 18px;
-    padding-top: 20px;
-    padding-left: 150px;
+.courseCreate {
+    padding: 20px;
+    flex-grow: 1;
+    width: 50px;
+
 }
 
-
-.downl {
-    width: 500px;
-    height: 600px;
-    background-color: white;
-    border: solid black 2px;
-    border-radius: 120px;
+.courseCreate>p {
+    margin-top: -120px;
+    width: 300px;
+    font-size: 40px;
 }
 
-.right {
-    width: auto;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    border: solid black 2px;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
+.chalangerBlock {
+    width: 1200px;
+    height: 300px;
+    padding: 20px;
 }
 
-.upr {
-    border-radius: 120px;
-    width: 900px;
-    height: 140px;
-    background-color: white;
-    border: solid black 2px;
-}
-
-.downr {
-    border-radius: 120px;
-    width: 1000px;
-    height: 600px;
-    background-color: white;
-    border: solid black 2px;
+.chalangerBlock>p {
+    margin-top: -120px;
+    width: 300px;
+    font-size: 40px;
 }

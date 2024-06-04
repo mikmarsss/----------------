@@ -2,13 +2,7 @@ import React, { useContext, useState } from "react";
 import { observer } from "mobx-react-lite";
 import styles from "../styles/personalAcc.module.css"
 import { Context } from "..";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import { Link, Navigate, useParams } from "react-router-dom";
-import Image from "../components/Image";
-import { CATALOG_ROUTE, TEST_PAGE } from "../utils";
-
-
 
 
 function ProfileSettings() {
@@ -156,10 +150,9 @@ function ProfileSettings() {
         <>
             {
                 current == store.user.id &&
-                <div className={styles.container}>
+                <div className={`${styles.container} ${styles.glass}`}>
                     <div className={styles.settingContainer}>
                         <p className={styles.zagolovok}>Настройки</p>
-
                         <div className={styles.mainInfo}>
                             <img className={styles.ava} id="img" src={avaSrc} />
                             <div className={styles.avausername}>
@@ -173,13 +166,14 @@ function ProfileSettings() {
                                         onChange={(e) => setUsername(e.target.value)}
                                     />
                                 </div>
-                                <div>
-                                    <p>Фото</p>
-                                    <input type="file"
+                                <label className={styles.inputFiles}>
+                                    <input
+                                        type="file"
                                         id="img"
                                         onChange={(e) => selectAva(e)}
                                     />
-                                </div>
+                                    <span className={styles.inputButton}>Выберите файл</span>
+                                </label>
                             </div>
                         </div>
                         <div className={styles.otherInfo}>
@@ -246,7 +240,7 @@ function ProfileSettings() {
                             <div className={styles.editPassword}>
                                 <p>{newPasswordError ? <div className={styles.error} >{NPErrorText}</div> : false}</p>
                                 <div>
-                                    <p >Новый пароль</p>
+                                    <p>Новый пароль</p>
                                     <input type="password"
                                         className={styles.logininput}
                                         placeholder="Введите новый пароль"

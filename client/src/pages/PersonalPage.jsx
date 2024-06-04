@@ -5,14 +5,14 @@ import styles from '../styles/personalPage.module.css'
 import Footer from "../components/Footer";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "..";
-import { CATALOG_ROUTE, PROFILE_ROUTE, SETTINGS_ROUTE } from "../utils";
+import { LANDING_ROUTE, PROFILE_ROUTE, SETTINGS_ROUTE } from "../utils";
 import ProfilePanel from "../components/ProfilePanel";
 
 function PersonalPage() {
     const { store } = useContext(Context)
     const navigate = useNavigate()
     const logoutHandleClick = () => {
-        navigate(CATALOG_ROUTE)
+        navigate(LANDING_ROUTE)
         store.logout()
     }
     const accauntPageHandler = () => {
@@ -24,11 +24,17 @@ function PersonalPage() {
     }
     return (
         <>
-            <Header />
             <div className={styles.container}>
-                <ProfilePanel />
+                <div>
+                    <Header />
+                </div>
+                <div className={styles.content}>
+                    <ProfilePanel />
+                </div>
+                <div>
+                    <Footer />
+                </div>
             </div>
-            <Footer />
         </>
     )
 }

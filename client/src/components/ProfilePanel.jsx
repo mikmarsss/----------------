@@ -53,8 +53,8 @@ function Profilepanel() {
 
     return (
         <>
-            <div className={styles.container}>
-                <div className={styles.navmenu}>
+            <div className={`${styles.container} `}>
+                <div className={`${styles.navmenu} ${styles.glass}`}>
                     <div className={styles.ava}>
                         <div>
                             <img className={styles.photo} src={"http://localhost:5000/" + store.user.img} alt="ava" />

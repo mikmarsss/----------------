@@ -18,7 +18,8 @@
     "workbench.iconTheme": "material-icon-theme",
     "figma.autocompleteBlocks": true,
     "workbench.preferredDarkColorTheme": "Default High Contrast Light",
-    "workbench.colorTheme": "Winter is Coming (Dark Blue - No Italics)",
+    "workbench.colorTheme": "Default Light+",
     "javascript.updateImportsOnFileMove.enabled": "always",
-    "editor.fontFamily": "JetBrains Mono"
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.mouseWheelScrollSensitivity": 3.35
 }

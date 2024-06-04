@@ -67,61 +67,64 @@ function CoursesContent() {
 
     return (
         <>
-            <Header />
-            {
-                current == courseStore.course.id &&
+            <div className={styles.container}>
+                <div>
+                    <Header />
+                </div>
+                {
+                    current == courseStore.course.id &&
 
-                <div className={styles.container}>
-                    {
-                        modulee.length === 0 &&
-                        <>
-                            <div className={styles.netmodulei}>
-                                <h1>У вас нет модулей в этом курсе</h1>
-                                <p>Чтобы добавить новый модуль в этом курсе нажмите на кнопочку</p>
-                            </div>
-                        </>
-                    }
-
-                    <div className={styles.contentOfLesson}>
-                        <button className={styles.addModule} onClick={() => addModule()}>Добавить модуль</button>
+                    <div className={`${styles.content} `}>
                         {
+                            modulee.length === 0 &&
                             <>
-                                {
-                                    modulee.map((item, index) => (
-                                        <div key={index} className={styles.module}>
-                                            <div className={styles.numberModule}>
-                                                {item.number}
-                                            </div>
-                                            <div className={styles.aboutModule}>
-                                                <div className={styles.nameModule}>
-                                                    {item.name}
-                                                </div>
-                                                <Link to={COURSES_CONTENT + `/${courseStore.course.id}` + MODULE_PAGE + `/${item.id}`} >
-                                                    <button onClick={() => choseModel(item.id)}>
-                                                        Редактикровать модуль
-                                                    </button>
-                                                </Link>
-
-                                            </div>
-                                        </div>
-                                    ))
-                                }
-                                {
-                                    modulee.length !== 0 &&
-                                    <div>
-                                        <button className={styles.deleteButton} onClick={() => deleteModule(modulee.length)}>Удалить модуль</button>
-                                    </div>
-                                }
+                                <div className={styles.netmodulei}>
+                                    <h1>У вас нет модулей в этом курсе</h1>
+                                    <p>Чтобы добавить новый модуль в этом курсе нажмите на кнопочку</p>
+                                </div>
                             </>
                         }
 
+                        <div className={`${styles.contentOfLesson} ${styles.glass}`}>
+                            <button className={styles.addModule} onClick={() => addModule()}>Создать модуль</button>
+                            {
+                                <>
+                                    {
+                                        modulee.map((item, index) => (
+                                            <div key={index} className={styles.module}>
+                                                <div className={styles.numberModule}>
+                                                    {item.number}
+                                                </div>
+                                                <div className={styles.aboutModule}>
+                                                    <div className={styles.nameModule}>
+                                                        {item.name}
+                                                    </div>
+                                                    <Link to={COURSES_CONTENT + `/${courseStore.course.id}` + MODULE_PAGE + `/${item.id}`} >
+                                                        <button onClick={() => choseModel(item.id)}>
+                                                            Редактикровать модуль
+                                                        </button>
+                                                    </Link>
 
+                                                </div>
+                                            </div>
+                                        ))
+                                    }
+                                    {
+                                        modulee.length !== 0 &&
+                                        <div>
+                                            <button className={styles.deleteButton} onClick={() => deleteModule(modulee.length)}>Удалить модуль</button>
+                                        </div>
+                                    }
+                                </>
+                            }
+
+                        </div>
                     </div>
-
+                }
+                <div>
+                    <Footer />
                 </div>
-            }
-
-            <Footer />
+            </div>
         </>
     )
 }

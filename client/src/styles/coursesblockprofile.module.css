@@ -5,45 +5,53 @@
 }
 
 .Mycourse {
-    border: 2px #C1A875 solid;
-    width: 300px;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 30px;
+    border: 2px #243F5D solid;
+    width: 800px;
+    height: 200px;
+    border-radius: 15px;
+}
 
+.glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.33);
 }
 
 .info {
-    margin-top: 40px;
     width: 280px;
     height: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    justify-content: space-around;
+    flex-grow: 2;
 }
 
 .courseblock {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
+    flex-direction: row;
+
 }
 
 .buttons {
     width: 300px;
-    height: 100px;
+    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
+    flex-grow: 1;
 }
 
 .buttons>button {
     font-family: 'Montserrat-Medium';
     font-size: 22px;
-    border: 2px #C1A875 solid;
+    border: 2px #243F5D solid;
     width: 210px;
     height: 70px;
     border-radius: 10px;
@@ -51,21 +59,30 @@
 }
 
 .buttons>button:hover {
-    background-color: #C1A875;
+    background-color: #243F5D;
     transition: .2s;
 }
 
 .container {
-    margin-top: 50px;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.container>p {
+    color: #243F5D;
+    font-size: 36px;
+}
+
+.container>div {
+    gap: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .name {
-    color: #C1A875;
+    color: #243F5D;
     font-size: 28px;
 }
 
@@ -87,5 +104,5 @@
     color: white;
     font-size: 20px;
     padding: 5px;
-    border-radius: 10px;
+    border-radius: 5px;
 }

@@ -6,12 +6,11 @@
 }
 
 .zagolovok {
-    color: #C1A875;
+    color: #243F5D;
     font-size: 40px;
 }
 
 .diagram {
-    border-bottom: #C1A875 solid 1px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,7 +20,7 @@
 
 .diagram>p {
     font-size: 25px;
-    color: #C1A875;
+    color: #243F5D;
 }
 
 .diagbar {
@@ -31,17 +30,17 @@
 }
 
 .diagbar>button {
-    border: #C1A875 solid 1px;
+    border: #243F5D solid 1px;
     padding: 5px;
     font-size: 30px;
     border-radius: 10px;
-    color: white;
+    color: #243F5D;
 }
 
 .diagbar>button:hover {
-    background-color: #C1A875;
+    background-color: #243F5D;
     transition: .2s;
-    color: #3D3F4C;
+    color: white;
 }
 
 .minMax {
@@ -77,7 +76,8 @@
 }
 
 .selected {
-    background-color: #C1A875;
+    background-color: #243F5D;
+    color: white !important;
 }
 
 .statWarning {
@@ -87,7 +87,6 @@
 }
 
 .price {
-    border: solid black 2px;
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -112,7 +111,7 @@
 .logininput:focus,
 .logininput:hover {
     outline: none;
-    border-bottom-color: #C1A875;
+    border-bottom-color: #243F5D;
 }
 
 .currentPrice {
@@ -127,7 +126,7 @@
 }
 
 .currentPrice>div>p {
-    color: #C1A875;
+    color: #243F5D;
     font-size: 25px;
     margin-left: 20px;
 }
@@ -140,5 +139,5 @@
 
 .sale>p {
     font-size: 20px;
-    color: #C1A875;
+    color: #243F5D;
 }

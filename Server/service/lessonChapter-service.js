@@ -55,6 +55,12 @@ class LessonChapterService {
             let fileName = uuid.v4() + ".jpg";
             img.mv(path.resolve(__dirname, '..', 'static', fileName))
             chapter.update({ imgs: fileName }, { where: { id: chapter_id } })
+        } else {
+            let deleteImg = chapter.imgs
+            if (deleteImg !== "Картинки") {
+                fs.unlinkSync(path.resolve(__dirname, '..', 'static', deleteImg))
+            }
+            chapter.update({ imgs: `Картинки` }, { where: { id: chapter_id } })
         }
         chapter.update({ updated_at: time }, { where: { id: chapter_id } })
         chapter.update({ content: chapter_info }, { where: { id: chapter_id } })

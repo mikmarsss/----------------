@@ -1,22 +1,31 @@
 .container {
-    width: 50%;
+    width: 60%;
     height: auto;
     display: flex;
     flex-direction: row;
     padding: 10px;
     justify-content: center;
+    gap: 100px;
 }
 
 .navmenu {
     width: 25%;
+    height: 800px;
     display: flex;
     flex-direction: column;
     padding: 10px;
-    align-items: center;
+
     gap: 10px;
 }
 
-
+.glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.33);
+}
 
 .navmenu>div {
     width: 100%;
@@ -63,7 +72,7 @@
 
 .username {
     font-size: 30px;
-    color: white;
+    color: #243F5D;
 }
 
 .courses>button {
@@ -76,18 +85,18 @@
 
 .courses>button:hover {
     font-size: 18px;
-    color: #C1A875;
+    color: #243F5D;
     text-align: left;
 }
 
 .main>button:hover {
     font-size: 18px;
-    color: #C1A875;
+    color: #243F5D;
     text-align: left;
 }
 
-label {
-    color: #C1A875;
+.navpanel>label {
+    color: #243F5D;
     font-size: 30px;
     align-items: center;
 }
@@ -103,9 +112,17 @@ label {
 .exitButton {
     margin-top: 50px;
     font-size: 30px;
-    border: #C1A875 solid 2px;
-    border-radius: 15px;
+    border: #243F5D solid 2px;
+    border-radius: 10px;
     padding: 5px;
+    color: red;
+}
+
+.exitButton:hover {
+    margin-top: 50px;
+    font-size: 30px;
+    background-color: red;
+    border: #243F5D solid 2px;
     color: white;
 }
 
@@ -120,6 +137,7 @@ label {
     height: 900px;
     padding: 10px;
     gap: 70px;
+    justify-content: center;
 }
 
 
@@ -139,7 +157,7 @@ label {
     align-items: center;
     justify-content: center;
     gap: 50px;
-    border-bottom: #C1A875 1px solid;
+    border-bottom: #243F5D 1px solid;
 }
 
 .statValues>div {
@@ -154,20 +172,20 @@ label {
 }
 
 .statValues>div>p {
-    color: #C1A875;
+    color: #243F5D;
     font-size: 24px;
     text-align: center;
 }
 
 .learnStat>p {
     text-align: center;
-    color: white;
+    color: #243F5D;
     font-size: 30px;
 }
 
 .activeCourse>p {
     text-align: center;
-    color: white;
+    color: #243F5D;
     font-size: 30px;
 }
 
@@ -176,7 +194,6 @@ label {
     flex-direction: column;
     align-items: center;
     gap: 40px;
-
 }
 
 .recomendation {
@@ -190,13 +207,13 @@ label {
 .recomendation>button {
     font-size: 40px;
     padding: 10px;
-    border: #C1A875 solid 1px;
+    border: #243F5D solid 1px;
     color: white;
     border-radius: 20px;
 }
 
 .recomendation>p {
-    color: #C1A875;
+    color: #243F5D;
     font-size: 20px;
     text-align: center;
 }
@@ -205,12 +222,12 @@ label {
     color: white;
     font-size: 20px;
     text-align: center;
-    border-bottom: #C1A875 solid 1px;
+    border-bottom: #243F5D solid 1px;
 }
 
 .recomendCourses>p {
     text-align: center;
-    color: white;
+    color: #243F5D;
     font-size: 30px;
 }
 
@@ -230,7 +247,7 @@ label {
 
 
 .courseName {
-    color: #C1A875;
+    color: #243F5D;
     font-size: 40px;
 }
 
@@ -247,14 +264,20 @@ label {
     width: 90%;
     height: 140px;
     align-items: center;
-    border-bottom: #C1A875 solid 2px;
+    border-bottom: #243F5D solid 2px;
     gap: 300px;
 }
 
 .continueButton {
-    width: 200px;
-    height: 130px;
-    background-color: #C1A875;
-    font-size: 29px;
-    border-radius: 10px;
+    margin-left: 300px;
+
+}
+
+.continuecourse:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.33);
 }

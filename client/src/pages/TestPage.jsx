@@ -6,7 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Context } from "..";
 import styles from '../styles/testPage.module.css'
 import { useState } from "react";
-import { CATALOG_ROUTE } from "../utils";
+import { LANDING_ROUTE } from "../utils";
 import Image from "../components/Image";
 import logo from '../Images/logoTETA.svg'
 
@@ -60,7 +60,7 @@ const ShowQuestion = observer(() => {
             store.sendToAI(answer)
         }
         if (next === 3) {
-            navigate(CATALOG_ROUTE)
+            navigate(LANDING_ROUTE)
             store.saveTestResult(store.test.choices[0].message.content, store.user.id)
         }
     }

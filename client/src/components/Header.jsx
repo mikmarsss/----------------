@@ -13,7 +13,7 @@ import {
     Link,
     useNavigate
 } from "react-router-dom";
-import { AUTHORIZATION_PAGE, CATALOG_ROUTE, CREATE_ROUTE, PERSONAL_PAGE } from '../utils';
+import { AUTHORIZATION_PAGE, CATALOG_ROUTE, CREATE_ROUTE, LANDING_ROUTE, PERSONAL_PAGE, TRAINER_PAGE } from '../utils';
 
 
 
@@ -33,13 +33,55 @@ function Header() {
                 <div className={styles.header}>
                     <div>
                         <button className={styles.logo}>
-                            <Link to="/catalog">
+                            <Link to="/">
                                 <Image image={logo2} alt={"logo"} />
                             </Link>
-
                         </button>
+                        <Link to={LANDING_ROUTE}>
+                            <button onClick={() => handleClickNavButtons('catalog')} className={`${styles.navButtuns}`}>
+                                Главная
+                            </button>
+                        </Link>
+                        <Link to={CATALOG_ROUTE}>
+                            <button onClick={() => handleClickNavButtons('course')} className={`${styles.navButtuns}`}>
+                                Курсы
+                            </button>
+                        </Link>
+                        <Link to={TRAINER_PAGE}>
+                            <button onClick={() => handleClickNavButtons('trainers')} className={`${styles.navButtuns}`}>
+                                Тренажёр
+                            </button>
+                        </Link>
+                        <Link to={CREATE_ROUTE}>
+                            <button onClick={() => handleClickNavButtons('create')} className={`${styles.navButtuns} `}>
+                                Создать
+                            </button>
+                        </Link>
+                        <button onClick={() => handleClickNavButtons('freelance')} className={`${styles.navButtuns} `} >
+                            Фриланс
+                        </button>
+
+                        {
+                            store.isAuth &&
+                            <Link to={PERSONAL_PAGE + `/${store.user.id}`}>
+                                <button onClick={() => handleClickNavButtons('profile')} className={`${styles.navButtuns}`}>
+                                    {store.user.username}
+                                </button>
+                            </Link>
+                        }
+                        {
+                            !store.isAuth &&
+                            <>
+                                <Link to={AUTHORIZATION_PAGE}>
+                                    <button className={styles.navButtuns}>
+                                        Авторизация
+                                    </button>
+                                </Link>
+                            </>
+                        }
+
                     </div>
-                    <div className={styles.dropdownButtons} >
+                    {/* <div className={styles.dropdownButtons} >
                         <div className={styles.firstbutton}>
                             <div className={styles.course}>
                                 <Link to={CATALOG_ROUTE}>
@@ -90,7 +132,7 @@ function Header() {
                                 }
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
 
