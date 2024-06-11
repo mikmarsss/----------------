@@ -10,7 +10,6 @@
     width: 90%;
     display: flex;
     flex-direction: column;
-    border: solid black 2px;
 }
 
 .publish {
@@ -24,13 +23,6 @@
     gap: 15px;
 }
 
-.circle {
-    width: 20px;
-    height: 20px;
-    border: solid #C1A875 1px;
-    border-radius: 50%;
-}
-
 .checkList>div {
     gap: 20px;
     display: flex;
@@ -39,12 +31,29 @@
 }
 
 .checkList>div>p {
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .zagolovok {
     width: 100%;
     text-align: center;
     font-size: 40px;
-    color: #C1A875;
+    color: #243F5D;
+}
+
+.publicButton {
+    align-self: center;
+}
+
+.publicButton>button {
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 5px;
+    border: solid #243F5D 2px;
+    font-size: 30px;
+}
+
+.publicButton>button:hover {
+    background-color: #243F5D;
+    color: white;
 }

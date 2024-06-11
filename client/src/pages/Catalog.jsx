@@ -17,35 +17,17 @@ function Catalog() {
 
     return (
         <>
-            <Header />
             <div className={styles.container}>
-                <div className={styles.catalog}>
-                    <div className={styles.left}>
-                        <div>
-                            <Link to={TEST_PAGE + `/${store.user.id}`}>
-                                <button className={styles.upl}>
-                                    <h1>ПРОФ ОРИЕНТАЦИЯ</h1>
-                                    <p>пройдите тест и узнайте какая роль в IT подходит именно вам</p>
-                                </button>
-                            </Link>
-                        </div>
-                        <div className={styles.downl}>
+                <div>
+                    <Header />
+                </div>
+                <div className={`${styles.content} `}>
 
-                        </div>
-                    </div>
-
-                    <div className={styles.right}>
-                        <div className={styles.upr}>
-
-                        </div>
-                        <div className={styles.downr}>
-
-                        </div>
-                    </div>
+                </div>
+                <div>
+                    <Footer />
                 </div>
             </div>
-            <Footer />
-
         </>
 
     )

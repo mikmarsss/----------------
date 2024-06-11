@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite";
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useNavigate, useParams } from "react-router-dom";
@@ -7,39 +7,40 @@ import { Context } from "..";
 import styles from '../styles/testPage.module.css'
 import { useState } from "react";
 import { LANDING_ROUTE } from "../utils";
-import Image from "../components/Image";
 import logo from '../Images/logoTETA.svg'
 
 function TestPage() {
-    const { store, courseStore } = useContext(Context)
+    const { store } = useContext(Context)
     const params = useParams()
-    const [click, setClick] = useState(0)
     const current = params.id
-    const model = "deepseek-chat"
 
     return (
         <>
-
-            <Header />
-            {
-                current == store.user.id &&
-                <div className={styles.container}>
-                    <div className={styles.test}>
-                        {
-                            <div>
-                                <div >
-
-                                    <ShowQuestion />
+            <div className={styles.container}>
+                <div>
+                    <Header />
+                </div>
+                {
+                    current == store.user.id &&
+                    <div className={styles.content}>
+                        <div className={`${styles.test} ${styles.glass}`}>
+                            {
+                                <div>
+                                    <div >
+                                        <ShowQuestion />
+                                    </div>
                                 </div>
-                            </div>
 
-                        }
+                            }
 
-                    </div>
+                        </div>
 
-                </div >
-            }
-            <Footer />
+                    </div >
+                }
+                <div>
+                    <Footer />
+                </div>
+            </div>
         </>
     )
 }
@@ -88,8 +89,8 @@ const ShowQuestion = observer(() => {
                 {
                     next === 0 &&
                     <>
-                        <p>Приветствую, {store.user.name}, здесь мы сможем подобрать для тебя необходимые курсы и вектор обучения по твоим интересам! </p>
-                        <p>Чтобы узнать результат, тебе необходимо ответить на нескуолько вопрос!</p>
+                        <p>Приветствую, {store.user.name}, пройдя данный тест вы получите рекомендации по обучению! </p>
+                        <p>Чтобы узнать результат, тебе необходимо ответить на несколько вопросов!</p>
                         <p>НАЧНЕМ?</p>
 
                     </>

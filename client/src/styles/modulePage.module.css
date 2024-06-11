@@ -20,10 +20,33 @@
     width: 100%;
     min-height: 100vh;
     height: auto;
-    background-color: #C3BAAF;
+    background-color: #D6DCDB;
     background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.3));
     display: flex;
     flex-direction: column;
+}
+
+.courseNavPanel {
+    margin-left: 100px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    width: 1200px;
+    justify-content: center;
+    gap: 20px;
+    align-self: center;
+}
+
+.courseNavPanel>div>button {
+    border: solid black 1px;
+    padding: 5px;
+    font-size: 30px;
+    border-radius: 5px;
+}
+
+.courseNavPanel>div>button:hover {
+    color: white;
+    background-color: #243F5D;
 }
 
 .moduleContainer {
@@ -79,6 +102,7 @@
 }
 
 .title {
+
     margin-left: 100px;
     margin-top: 50px;
     position: absolute;
@@ -99,14 +123,14 @@
     max-width: 550px;
     max-height: 200px;
     border: none;
-    border: 2px solid #D1D1D4;
+    border: 2px solid black;
     background: none;
     padding: 10px;
     padding-left: 24px;
     font-weight: 700;
     width: 75%;
     transition: .2s;
-    color: white;
+    color: black;
     font-size: 20px;
     border-radius: 20px;
 }
@@ -124,7 +148,7 @@
 }
 
 .moduledescription>p {
-    color: white;
+    color: black;
     word-wrap: break-word;
     font-size: 20px;
     max-width: 600px;
@@ -137,10 +161,16 @@
 
 .title>button {
     font-size: 24px;
-    color: white;
+    color: black;
     border: 2px #243F5D solid;
     border-radius: 20px;
     padding: 10px;
+}
+
+.title>button:hover {
+    background-color: #243F5D;
+    color: white;
+
 }
 
 .lessons {
@@ -182,14 +212,14 @@
 
 .logininput {
     border: none;
-    border-bottom: 2px solid #D1D1D4;
+    border-bottom: 2px solid black;
     background: none;
     padding: 10px;
     padding-left: 24px;
     font-weight: 700;
     width: 75%;
     transition: .2s;
-    color: white;
+    color: black;
     font-size: 24px;
 }
 

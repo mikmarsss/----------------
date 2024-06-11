@@ -29,7 +29,7 @@ function CreateCoursesBlock() {
                     </div>
                     <div >
                         <Link to={FREE_COURSE}>
-                            <button onClick={createCourse} className={styles.createbutton}>СОЗДАТЬ КУРС</button>
+                            <button onClick={createCourse} className={`${styles.createbutton} ${styles.glass2}`}>СОЗДАТЬ КУРС</button>
                         </Link>
                     </div>
                 </div>

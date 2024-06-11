@@ -114,16 +114,17 @@ function EditLesson() {
                                         chapter &&
                                         <ChapterInfo chapter={chapter} lessonName={lessonName} />
                                     }
-                                    {
-                                        chapters.length == 0 &&
-                                        <>
-                                            <div className={styles.netmodulei}>
-                                                <h1>У вас нет разделов в этом уроке</h1>
-                                                <p>Чтобы добавить новый раздел в этом уроке нажмите на кнопочку</p>
-                                            </div>
-                                        </>
-                                    }
+
                                 </div>
+                                {
+                                    chapters.length == 0 &&
+                                    <>
+                                        <div className={styles.netmodulei}>
+                                            <h1>У вас нет разделов в этом уроке</h1>
+                                            <p>Чтобы добавить новый раздел в этом уроке нажмите на кнопочку</p>
+                                        </div>
+                                    </>
+                                }
                             </div>
                         </div>
                     </>
@@ -267,8 +268,8 @@ const ChapterInfo = observer(({ chapter, lessonName }) => {
                         onChange={(e) => nameHandler(e)}
                         type="text"
                         className={styles.logininput}
-                        placeholder={chapter.name}
-                        value={chapter.name}
+                        placeholder={chapterName}
+                        value={chapterName}
                     />
                 </div>
                 <div className={styles.listElements}>
@@ -284,24 +285,24 @@ const ChapterInfo = observer(({ chapter, lessonName }) => {
                             <div className={`${styles.elementsBar}`}>
                                 <div className={styles.elements}>
                                     <div className={styles.text}>
-                                        <button>
+                                        <button onClick={() => addElement('text')}>
                                             <div>
                                                 <img className={styles.textIcon} src={textIcon} alt="" />
-                                                <button onClick={() => addElement('text')}>Текст</button>
+                                                <button >Текст</button>
                                             </div>
                                         </button>
                                     </div>
                                     <div className={styles.testelements}>
-                                        <button>
+                                        <button onClick={() => addElement('test')}>
                                             <div>
                                                 <img className={styles.textIcon} src={radioBtn} alt="" />
-                                                <button onClick={() => addElement('test')}>Тест <p>(один ответ)</p></button>
+                                                <button >Тест <p>(один ответ)</p></button>
                                             </div>
                                         </button>
                                         <button>
-                                            <div>
+                                            <div onClick={() => addElement('testMulti')}>
                                                 <img className={styles.textIcon} src={checkBox} alt="" />
-                                                <button onClick={() => addElement('testMulti')}>Тест <p>(несколько ответов)</p></button>
+                                                <button >Тест <p>(несколько ответов)</p></button>
                                             </div>
                                         </button>
                                     </div>

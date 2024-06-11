@@ -4,8 +4,8 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import styles from '../styles/TrainerPage.module.css'
 import { Context } from "..";
-import progressBar from '../Images/progressBar.svg'
-import progressBarFill from '../Images/progressBarFill.svg'
+import { useNavigate } from "react-router-dom";
+import { CREATE_TRAINER } from "../utils";
 
 function TrainerPage() {
 
@@ -14,8 +14,8 @@ function TrainerPage() {
     let progress = (trainerStore.userTrainer.points / trainerStore.userTrainer.status_value) * 100
     useEffect(() => {
         getTrainerUserInfo()
-        // setProgress(trainerStore.userTrainer.points)
     }, [])
+
     async function getTrainerUserInfo() {
         try {
             await trainerStore.fetchUserTrainerInfo(localStorage.getItem('userId'))
@@ -23,6 +23,17 @@ function TrainerPage() {
             console.log(e)
         }
 
+    }
+
+    const navigate = useNavigate()
+
+    const navigateHandler = (path) => {
+        if (path === 'catalog') {
+
+        }
+        if (path === 'create') {
+            navigate(CREATE_TRAINER + '/' + store.user.id)
+        }
     }
 
     return (
@@ -106,8 +117,15 @@ function TrainerPage() {
                             </div>
                         }
                     </div>
-                    <div className={`${styles.trainersCatalog} ${styles.glass}`}>
-
+                    <div className={`${styles.trainersCatalog}`}>
+                        <div className={styles.allTrainers}>
+                            <button className={`${styles.trainerCatalog} ${styles.glass}`} onClick={() => navigateHandler('catalog')}>
+                                <p>Все задачи</p>
+                            </button>
+                            <button className={`${styles.createTrainer} ${styles.glass}`} onClick={() => navigateHandler('create')}>
+                                <p>Создать задачу</p>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div>

@@ -2,7 +2,7 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
 import styles from '../styles/settingsManagment.module.css'
-
+import box from '../Images/boxforcheck.svg'
 
 function ManagmentSettings() {
     return (
@@ -13,21 +13,24 @@ function ManagmentSettings() {
                         <p className={styles.zagolovok}>Чек-лист</p>
                         <div className={styles.checkList}>
                             <div>
-                                <div className={styles.circle}></div>
+                                <img src={box} alt="" />
                                 <p>Карточка курса заполнена корректно</p>
                             </div>
                             <div>
-                                <div className={styles.circle}></div>
+                                <img src={box} alt="" />
                                 <p>Курс содержит не менее 3 модулей и 9 уроков</p>
                             </div>
                             <div>
-                                <div className={styles.circle}></div>
+                                <img src={box} alt="" />
                                 <p>Нет пустых модулей</p>
                             </div>
                             <div>
-                                <div className={styles.circle}></div>
-                                <p>Название модулей и уроков должны быть заполнены корректно</p>
+                                <img src={box} alt="" />
+                                <p>Название модулей и уроков заполнены корректно</p>
                             </div>
+                        </div>
+                        <div className={styles.publicButton}>
+                            <button>Опубликовать</button>
                         </div>
                     </div>
                 </div>

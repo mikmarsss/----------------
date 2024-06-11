@@ -7,7 +7,6 @@ import { useParams } from "react-router-dom";
 import { Context } from "..";
 import { useContext, useEffect } from "react";
 import CoursesService from "../service/CoursesService";
-import { toJS } from "mobx";
 import { Link } from "react-router-dom";
 import { EDITCOURSE_PAGE } from "../utils";
 

@@ -44,6 +44,12 @@ function CourseBlockProfile({ courses }) {
                             </div>
                         ))
                     }
+                    {
+                        courses.length === 0 &&
+                        <div className={styles.noCourses}>
+                            У вас нет собственных курсов
+                        </div>
+                    }
                 </div>
             </div>
         </>

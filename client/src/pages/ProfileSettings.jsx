@@ -133,8 +133,6 @@ function ProfileSettings() {
         }
     }
 
-    console.log(newEmail)
-
     const selectAva = (e) => {
         var reader = new FileReader()
         reader.onload = function () {

@@ -2,7 +2,7 @@
     width: 100%;
     min-height: 100vh;
     height: auto;
-    background-color: #C3BAAF;
+    background-color: #D6DCDB;
     background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.3));
     display: flex;
     flex-direction: column;
@@ -11,13 +11,43 @@
 
 .courseBlock {
     align-items: center;
-    margin-top: 100px;
+    margin-top: 50px;
     width: 1200px;
     height: auto;
     border-radius: 50px;
     display: flex;
     flex-direction: column;
     gap: 60px;
+}
+
+.courseNavPanel {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    width: 1200px;
+    justify-content: center;
+    gap: 20px;
+}
+
+.courseNavPanel>div>button {
+    border: solid black 1px;
+    padding: 5px;
+    font-size: 30px;
+    border-radius: 5px;
+}
+
+.courseNavPanel>div>button:hover {
+    color: white;
+    background-color: #243F5D;
+}
+
+.glass2 {
+    background: rgba(36, 63, 93, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    box-shadow: 0 8px 32px 0 rgba(214, 220, 219, 0.33);
 }
 
 .glass {
@@ -30,11 +60,15 @@
 }
 
 .content {
+    width: 100%;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
+    height: auto;
 }
+
 
 .maintype {
     display: flex;
@@ -128,7 +162,7 @@
     min-height: 150px;
     max-height: 150px;
     transition: .2s;
-    color: white;
+    color: black;
     border-radius: 15px;
     font-size: 20px;
 }
@@ -156,9 +190,9 @@
     padding: 10px;
     padding-left: 24px;
     font-weight: 700;
-    width: 90%;
+    width: 70%;
     transition: .2s;
-    color: white;
+    color: black;
     font-size: 20px;
 }
 
@@ -273,7 +307,6 @@
 }
 
 .saveButtonBlock>button {
-    margin-bottom: 80px;
     font-size: 30px;
 }
 
@@ -290,10 +323,25 @@
     width: auto;
     padding: 10px;
     font-size: 20px;
-    border-bottom: 2px #204436 solid;
+    border: 2px #204436 solid;
+    border-radius: 6px;
 }
 
-.content {
+.removeButton:hover,
+.addButton:hover {
+    background-color: #243F5D;
+    color: white;
+}
+
+.addButton {
+    width: 1070px;
+    padding: 10px;
+    font-size: 20px;
+    border: 2px #204436 solid;
+    border-radius: 6px;
+}
+
+.addPointButton .content {
     align-items: center;
     display: flex;
     flex-direction: column;

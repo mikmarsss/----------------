@@ -14,11 +14,16 @@ class CoursesController {
 
     async SaveCourseData(req, res, next) {
         try {
-            const { name, price, courseId, description, courseContent, type, additional_type } = req.body
-            const { img } = req.files
-            const courseData = await CoursesService.SaveCourseData(name, price, courseId, description, courseContent, img, type, additional_type)
-            return res.json(courseData)
-
+            if (req.files) {
+                const { name, price, courseId, description, courseContent, type, additional_type } = req.body
+                const { img } = req.files
+                const courseData = await CoursesService.SaveCourseData(name, price, courseId, description, courseContent, type, additional_type, img)
+                return res.json(courseData)
+            } else {
+                const { name, price, courseId, description, courseContent, type, additional_type } = req.body
+                const courseData = await CoursesService.SaveCourseData(name, price, courseId, description, courseContent, type, additional_type)
+                return res.json(courseData)
+            }
         } catch (e) {
             next(e)
         }
@@ -59,6 +64,16 @@ class CoursesController {
         try {
             const { course_info_id } = req.body
             const coursesData = await CoursesService.fetchYearIncome(course_info_id)
+            return res.json(coursesData)
+        } catch (e) {
+            next(e)
+        }
+    }
+
+    async deleteCourse(req, res, next) {
+        try {
+            const { course_info_id } = req.body
+            const coursesData = await CoursesService.deleteCourse(course_info_id)
             return res.json(coursesData)
         } catch (e) {
             next(e)

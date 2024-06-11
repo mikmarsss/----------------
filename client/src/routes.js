@@ -5,7 +5,7 @@ import FreeCourses from "./pages/FreeCourses"
 import Landing from "./pages/Landing"
 import PersonalAccount from "./pages/PersonalAccount"
 import ProfileSettings from "./pages/ProfileSettings"
-import { AUTHORIZATION_PAGE, CATALOG_ROUTE, COURSES_CONTENT, COURSE_LESSONS, COURSE_MANAGMENT, COURSE_PAGE, CREATE_ROUTE, EDITCOURSE_PAGE, EDIT_LESSON, FREE_COURSE, LANDING_ROUTE, MODULE_PAGE, PERSONAL_PAGE, PROFILE_ROUTE, SETTINGS_ROUTE, TEST_PAGE, TRAINER_PAGE } from "./utils"
+import { AUTHORIZATION_PAGE, CATALOG_ROUTE, COURSES_CONTENT, COURSE_LESSONS, COURSE_MANAGMENT, COURSE_PAGE, CREATE_ROUTE, CREATE_TRAINER, EDITCOURSE_PAGE, EDIT_LESSON, EDIT_TRAINER, FREE_COURSE, LANDING_ROUTE, MODULE_PAGE, PERSONAL_PAGE, PROFILE_ROUTE, SETTINGS_ROUTE, TEST_PAGE, TRAINER_PAGE } from "./utils"
 import CourseLessons from "./pages/CourseLessons"
 import CoursePage from "./pages/CoursePage"
 import ModulePage from "./pages/ModulePage"
@@ -16,6 +16,8 @@ import PersonalPage from "./pages/PersonalPage"
 import Authorization from "./pages/Authorization"
 import CourseManagment from "./pages/CourseManagment"
 import TrainerPage from "./pages/TrainerPage"
+import CreateTrainer from "./pages/CreateTrainer"
+import EditTrainer from "./pages/EditTrainer"
 
 export const authRoutes = [
     {
@@ -65,6 +67,14 @@ export const authRoutes = [
     {
         path: PERSONAL_PAGE + '/:id',
         Component: PersonalPage
+    },
+    {
+        path: CREATE_TRAINER + '/:id',
+        Component: CreateTrainer
+    },
+    {
+        path: EDIT_TRAINER + '/:id',
+        Component: EditTrainer
     },
 ]
 

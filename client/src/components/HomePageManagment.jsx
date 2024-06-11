@@ -55,8 +55,8 @@ function HomePageManagment() {
                 </div>
                 <div className={styles.status}>
                     <div className={styles.done_courses}>
-                        <h1 className={`${courseStore.course.status === 'notpublished' ? styles.notpublished : styles.published}`}>{`${courseStore.course.status === 'notpublished' ? 'неопубликован' : 'опубликован'}`}</h1>
                         <p>Статус</p>
+                        <h1 className={`${courseStore.course.status === 'notpublished' ? styles.notpublished : styles.published}`}>{`${courseStore.course.status === 'notpublished' ? 'неопубликован' : 'опубликован'}`}</h1>
                     </div>
                 </div>
             </div>

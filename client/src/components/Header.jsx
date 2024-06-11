@@ -34,7 +34,7 @@ function Header() {
                     <div>
                         <button className={styles.logo}>
                             <Link to="/">
-                                <Image image={logo2} alt={"logo"} />
+                                <img src={logo2} alt="" className={styles.logoo} />
                             </Link>
                         </button>
                         <Link to={LANDING_ROUTE}>

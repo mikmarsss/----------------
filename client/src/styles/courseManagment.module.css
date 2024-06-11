@@ -28,7 +28,7 @@
     width: 100%;
     min-height: 100vh;
     height: auto;
-    background-color: #C3BAAF;
+    background-color: #D6DCDB;
     background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.3));
     display: flex;
     flex-direction: column;
@@ -85,7 +85,7 @@
 
 .main>button {
     font-size: 18px;
-    color: white;
+    color: black;
     text-align: left;
 }
 
@@ -101,10 +101,16 @@
     color: #243F5D;
 }
 
+.deleteCourse {
+    font-size: 24px;
+    color: red;
+}
+
+
 .courses>button {
     width: auto;
     font-size: 18px;
-    color: white;
+    color: black;
     text-align: left;
 
 }

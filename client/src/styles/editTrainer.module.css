@@ -1,0 +1,252 @@
+.container {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    background-color: #D6DCDB;
+    background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.3));
+    display: flex;
+    flex-direction: column;
+}
+
+.glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.33);
+}
+
+.content {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    width: 1200px;
+    align-self: center;
+    padding: 20px;
+    height: auto;
+    gap: 20px;
+}
+
+.contentInput {
+    min-width: 97%;
+    min-height: 200px;
+    max-width: 97%;
+    max-height: 200px;
+    border: none;
+    border: 2px solid black;
+    background: none;
+    font-weight: 600;
+    transition: .2s;
+    color: black;
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.contentInput:active,
+.contentInput:focus,
+.contentInput:hover {
+    outline: none;
+    border-color: #243F5D;
+}
+
+.logininput {
+    border: none;
+    border-bottom: 2px solid black;
+    background: none;
+    padding: 10px;
+    padding-left: 24px;
+    font-weight: 700;
+    width: 96%;
+    transition: .2s;
+    color: black;
+    font-size: 24px;
+}
+
+.compileButton {
+    align-self: flex-start, ;
+    padding: 5px;
+    font-size: 30px;
+    border-radius: 8px;
+    border: #243F5D solid 2px;
+}
+
+.compileButton:hover {
+    background-color: #243F5D;
+    color: white;
+}
+
+.codeMirrorEditor {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.compiler {
+    height: auto;
+    width: 80%;
+}
+
+.compiler>p {
+    font-size: 30px;
+    font-weight: 600;
+    color: #243F5D;
+}
+
+.opisanie>div>p {
+    font-size: 30px;
+    font-weight: 600;
+    color: #243F5D;
+}
+
+.result {
+    border: #243F5D solid 2px;
+    min-height: 200px;
+    height: auto;
+    width: 100%;
+    align-self: flex-start;
+    border-radius: 11px;
+    padding-top: 10px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+}
+
+.dificultlevels {
+    font-size: 30px;
+    color: #243F5D;
+    font-weight: 600;
+}
+
+.ezLevel {
+    color: green;
+    font-size: 22px;
+}
+
+.progLang {
+    color: black;
+    font-size: 22px;
+}
+
+.medLevel {
+    color: orange;
+    font-size: 22px;
+}
+
+.hardLevel {
+    color: red;
+    font-size: 22px;
+}
+
+.resultBlock>p {
+    font-size: 30px;
+    font-weight: 600;
+    color: #243F5D;
+}
+
+.dificult>div>div {
+    display: flex;
+    gap: 5px;
+}
+
+.testsInput {
+    display: flex;
+    gap: 20px;
+}
+
+.dificult>div {
+    gap: 20px;
+    display: flex;
+}
+
+.result>div {
+    display: flex;
+    font-size: 25px;
+    gap: 10px;
+}
+
+.result>div>p {
+    color: #243F5D;
+    font-weight: 600;
+}
+
+.testBlock>div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.testBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tests {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputVars {
+    width: 250px;
+    height: 50px;
+    border: solid #243F5D 2px;
+    font-size: 20px;
+    padding-left: 10px;
+    border-radius: 10px;
+}
+
+.removeButton {
+    border: solid #243F5D 2px;
+    font-size: 30px;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.removeButton:hover {
+    background-color: #243F5D;
+    color: white;
+}
+
+.addTest {
+    border: #243F5D solid 2px;
+    font-size: 30px;
+    padding: 5px;
+    border-radius: 7px;
+}
+
+.addTest:hover {
+    background-color: #243F5D;
+    color: white;
+}
+
+.logininput:active,
+.logininput:focus,
+.logininput:hover {
+    outline: none;
+    border-bottom-color: #243F5D;
+}
+
+.opisanie {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 80%;
+}
+
+.saveButton>button {
+    border: #243F5D solid 2px;
+    padding: 5px;
+    font-size: 30px;
+    border-radius: 10px;
+}
+
+.saveButton>button:hover {
+    background-color: #243F5D;
+    color: white;
+}

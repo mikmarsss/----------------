@@ -111,7 +111,7 @@
     width: 100%;
     min-height: 100vh;
     height: auto;
-    background-color: #C3BAAF;
+    background-color: #D6DCDB;
     background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.3));
     display: flex;
     flex-direction: column;
@@ -130,7 +130,7 @@
 .zagolovok>p {
     font-family: 'Montserrat-Medium';
     font-size: 36px;
-    color: #243F5D;
+    color: black;
     align-items: center;
 }
 
@@ -143,6 +143,15 @@
     gap: 40px;
 }
 
+.glass2 {
+    background: rgba(36, 63, 93, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    box-shadow: 0 8px 32px 0 rgba(214, 220, 219, 0.33);
+}
+
 .opisanie>p {
     font-size: 26px;
     color: black;
@@ -153,9 +162,19 @@
     width: 320px;
     height: 83px;
     font-size: 26px;
-    color: #243F5D;
+    color: black;
     cursor: pointer;
     font-weight: bold;
+}
+
+.createbutton:hover {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    box-shadow: 0 8px 32px 0 rgba(214, 220, 219, 0.33);
+    transition: 0.2s;
 }
 
 .footer {

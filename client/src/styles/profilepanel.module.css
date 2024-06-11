@@ -59,7 +59,7 @@
 
 .main>button {
     font-size: 18px;
-    color: white;
+    color: #243F5D;
     text-align: left;
 }
 
@@ -78,7 +78,7 @@
 .courses>button {
     width: auto;
     font-size: 18px;
-    color: white;
+    color: #243F5D;
     text-align: left;
 
 }
@@ -96,7 +96,7 @@
 }
 
 .navpanel>label {
-    color: #243F5D;
+    color: black;
     font-size: 30px;
     align-items: center;
 }

@@ -1,7 +1,7 @@
 .container {
     display: flex;
     flex-direction: column;
-    height: 900px;
+    height: 800px;
     padding: 10px;
     gap: 70px;
     align-items: center;
@@ -9,13 +9,13 @@
 
 .zagolovok {
     text-align: center;
-    color: white;
+    color: #243F5D;
     font-size: 30px;
 }
 
 .info {
     font-size: 30px;
-    color: white;
+    color: black;
     text-align: center;
 }
 

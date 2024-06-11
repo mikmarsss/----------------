@@ -55,15 +55,21 @@
     width: 210px;
     height: 70px;
     border-radius: 10px;
-    color: white;
+    color: black;
 }
 
 .buttons>button:hover {
     background-color: #243F5D;
     transition: .2s;
+    color: white;
+}
+
+.noCourses {
+    font-size: 28px;
 }
 
 .container {
+    min-height: 820px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -87,7 +93,7 @@
 }
 
 .opisanie {
-    color: white;
+    color: black;
     font-size: 20px;
     margin-top: 20px;
 }

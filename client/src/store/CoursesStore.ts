@@ -264,12 +264,12 @@ export default class CourseStore {
         }
     }
 
-    // async deleteChapterImg(img: string) {
-    //     try {
-    //         const response = await CoursesService.deleteChapterImg(img)
-    //         console.log(response)
-    //     } catch (e) {
-    //         console.log(e.response?.data?.message)
-    //     }
-    // }
+    async deleteCourse(course_info_id: string) {
+        try {
+            const response = await CoursesService.deleteCourse(course_info_id)
+            console.log(response)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+    }
 }

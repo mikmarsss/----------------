@@ -37,92 +37,163 @@
     width: 100%;
     min-height: 100vh;
     height: auto;
-    background-color: #C3BAAF;
+    background-color: #D6DCDB;
     background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.3));
     display: flex;
     flex-direction: column;
 }
 
 .content {
-    margin-top: 50px;
-    margin-bottom: 50px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+}
+
+.zagolovok1 {
+
+    margin-top: 100px;
+    margin-left: 250px;
+    top: 10px;
+    font-size: 46px;
+    transition: top 1s ease-out,
+}
+
+.zagolovok2 {
+
+    top: 10px;
+    margin-top: 600px;
+    margin-left: 1700px;
+    font-size: 46px;
+
+}
+
+.arrow {
+    position: absolute;
+    top: 800px;
+    left: 250px;
+    font-size: 46px;
+}
+
+.mainDopInfo {
+    margin-top: 100px;
+    width: 1600px;
+    height: 900px;
+    align-self: center;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.cardContainer {
+    width: 1600px;
+    height: 800px;
+    background-color: black;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.mainDopInfo>p {
+    width: 500px;
+    font-size: 24px;
+}
+
+
+.cards {
+    margin-top: 300px;
+    align-self: center;
+    height: 863px;
+    overflow: auto;
+    justify-content: center;
+}
+
+.cardName>p {
+    font-size: 96px;
+    color: white;
+    width: 600px;
+}
+
+.cardInfo {
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    gap: 100px;
+    gap: 30px;
+}
+
+.mainCardInfo {
+    width: 900px;
+    height: 500px;
+    border-radius: 34px;
 }
 
 .glass {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 1));
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 20px;
     /* border: 1px solid rgba(255, 255, 255, 0.18); */
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.33);
+    box-shadow: 0 8px 32px 0 rgba(214, 220, 219, 0.33);
 }
 
-.content>button {
-    width: 1200px;
-    height: 300px;
-    border: solid black 2px;
+.glass2 {
+    background: rgba(36, 63, 93, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    box-shadow: 0 8px 32px 0 rgba(214, 220, 219, 0.33);
 }
 
-.content>div {
-    width: 1200px;
-    height: 300px;
+.dopCardInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
-.courseBlock {
+.dopCardInfo>div {
+    width: 500px;
+    height: 235px;
+}
+
+.mainDopInfoBlock {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
     gap: 30px;
 }
 
-.courseCatalog {
-    padding: 10px;
-    flex-grow: 2;
-    width: 100px;
-}
-
-.courseCatalog>p {
-    margin-top: -120px;
-    width: 300px;
-    font-size: 40px;
-}
-
-.courseCreate:hover,
-.courseCatalog:hover,
-.chalangerBlock:hover {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 20px;
-    /* border: 1px solid rgba(255, 255, 255, 0.18); */
-    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.33);
-}
-
-.courseCreate {
-    padding: 10px;
-    flex-grow: 1;
-    width: 50px;
+.firstBlock {
+    width: 50%;
+    height: 100%;
 
 }
 
-.courseCreate>p {
-    margin-top: -120px;
-    width: 300px;
-    font-size: 40px;
+.secondBlock {
+    justify-content: center;
+    width: 45%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
-.chalangerBlock {
-    width: 1200px;
-    height: 300px;
-    padding: 20px;
+.thirdBlock {
+    width: 100%;
+    height: 50%;
 }
 
-.chalangerBlock>p {
-    margin-top: -120px;
-    width: 300px;
-    font-size: 40px;
+.fourthBlock {
+    width: 100%;
+    height: 45%;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.fourthBlock>div {
+    width: 50%;
+    height: 100%;
 }

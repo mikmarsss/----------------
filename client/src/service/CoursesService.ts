@@ -105,8 +105,8 @@ export default class CoursesService {
         return $api.post<YearIncomeStatResponse>('/courses/fetchYearIncome', { course_info_id })
     }
 
-    // static async deleteChapterImg(img: string): Promise<AxiosResponse<ChapterResponse>> {
-    //     return $api.post<ChapterResponse>('/chapter/deleteChapter', { img })
-    // }
+    static async deleteCourse(course_info_id: string): Promise<AxiosResponse<string>> {
+        return $api.post<string>('/courses/deleteCourse', { course_info_id })
+    }
 }
 

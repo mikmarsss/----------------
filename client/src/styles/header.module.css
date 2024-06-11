@@ -47,6 +47,7 @@
     justify-content: center;
     width: 100%;
     gap: 34px;
+    margin-top: 20px;
 }
 
 
@@ -54,5 +55,10 @@
 .navButtuns {
     font-size: 24px;
     font-family: 'Montserrat-Medium';
-    color: #243F5D;
+    color: black;
+}
+
+.logoo {
+    height: 100px;
+    width: 230px;
 }

@@ -7,6 +7,28 @@
     padding: 30px;
 }
 
+.courseNavPanel {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    width: 1200px;
+    justify-content: center;
+    gap: 20px;
+    align-self: center;
+}
+
+.courseNavPanel>div>button {
+    border: solid black 1px;
+    padding: 5px;
+    font-size: 30px;
+    border-radius: 5px;
+}
+
+.courseNavPanel>div>button:hover {
+    color: white;
+    background-color: #243F5D;
+}
+
 .glass {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
     backdrop-filter: blur(10px);
@@ -20,7 +42,7 @@
     width: 100%;
     min-height: 100vh;
     height: auto;
-    background-color: #C3BAAF;
+    background-color: #D6DCDB;
     background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.3));
     display: flex;
     flex-direction: column;
@@ -41,16 +63,31 @@
     font-size: 20px;
 }
 
+.redbutton {
+    width: 90px;
+    background-color: #243F5D;
+    height: 100px;
+    border-radius: 0 16px 16px 0;
+}
+
+.redbutton>button {
+    width: 90px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .module {
     border: solid black 2px;
-    width: 500px;
+    width: 600px;
     height: 100px;
     display: flex;
     flex-direction: row;
     align-items: center;
     border: 2px #243F5D solid;
     gap: 30px;
-    border-radius: 15px;
+    border-radius: 20px;
 }
 
 .nameModule {
@@ -58,8 +95,11 @@
 }
 
 .aboutModule {
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .addModule {
@@ -86,13 +126,15 @@
 .contentOfLesson {
     gap: 30px;
     padding-top: 30px;
-    width: 700px;
+    width: 900px;
     height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 20px;
 }
+
+
 
 .deleteButton {
     border: 2px #243F5D solid;

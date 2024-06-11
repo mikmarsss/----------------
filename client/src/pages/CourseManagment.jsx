@@ -1,15 +1,16 @@
 import { observer } from "mobx-react-lite";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from '../styles/courseManagment.module.css'
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Context } from "..";
 import HomePageManagment from "../components/HomePageManagment";
 import StatsManagment from "../components/StatsManagment";
 import ManagmentSettings from "../components/ManagmentSettings";
 import MoneyStat from "../components/MoneyStat";
 import MoneySettings from "../components/MoneySettings";
+import { PERSONAL_PAGE } from "../utils";
 
 function CourseManagment() {
     const { store, courseStore } = useContext(Context)
@@ -18,6 +19,13 @@ function CourseManagment() {
     const [menu, setMenu] = useState('home')
     const menuHandler = (v) => {
         setMenu(v)
+    }
+
+    const navigate = useNavigate()
+
+    const deleteCourseHandler = () => {
+        courseStore.deleteCourse(current)
+        navigate(PERSONAL_PAGE + `/${store.user.id}`)
     }
 
     return (
@@ -55,6 +63,9 @@ function CourseManagment() {
                                         <button onClick={() => menuHandler('moneySettings')}>Цены</button>
                                     </div>
                                 </div>
+                                <button className={styles.deleteCourse} onClick={deleteCourseHandler}>
+                                    Удалить курс
+                                </button>
                             </div>
                             <div className={`${styles.info} ${styles.glass}`}>
                                 <ShowInfo menu={menu} />

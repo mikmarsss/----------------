@@ -9,7 +9,7 @@
 }
 
 .glass {
-    background: linear-gradient(135deg, #C3BAAF, rgba(255, 255, 255, 0.01));
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 20px;
@@ -21,7 +21,7 @@
     width: 100%;
     min-height: 100vh;
     height: auto;
-    background-color: #C3BAAF;
+    background-color: #D6DCDB;
     background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.3));
     display: flex;
     flex-direction: column;
@@ -32,7 +32,7 @@
 }
 
 .netmodulei>h1 {
-    color: #C1A875;
+    color: #243F5D;
     font-size: 40px;
 }
 
@@ -252,6 +252,8 @@
     gap: 30px;
 }
 
+
+
 .elements {
     width: 100%;
     display: flex;
@@ -324,10 +326,11 @@
 }
 
 .ava {
-    width: 800px;
-    height: 400px;
+    max-width: 800px;
+    max-height: 800px;
+    width: auto;
+    height: auto;
     object-fit: contain;
-    border: solid 1px black;
 }
 
 .inputFiles input[type=file] {
@@ -345,6 +348,7 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    margin-bottom: 50px;
 }
 
 .textEditor {

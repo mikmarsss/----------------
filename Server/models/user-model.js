@@ -164,6 +164,27 @@ const TrainerStatuses = sequelize.define('trainer_statuses', {
     updated_at: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW },
 }, { sequelize, timestamps: false })
 
+const TrainerInfo = sequelize.define('trainer_info', {
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    name: { type: DataTypes.STRING, defaultValue: 'Новая Задача' },
+    content: { type: DataTypes.STRING, defaultValue: 'Новая Задача' },
+    user_id: { type: DataTypes.INTEGER },
+    tests: { type: DataTypes.STRING },
+    code: { type: DataTypes.STRING },
+    programming_languages: { type: DataTypes.STRING, defaultValue: 'Pascal' },
+    dificult: { type: DataTypes.STRING, defaultValue: 'Легко' },
+    created_at: { type: DataTypes.INTEGER },
+    updated_at: { type: DataTypes.INTEGER },
+}, { sequelize, timestamps: false })
+
+const DoneUserTrainers = sequelize.define('done_user_trainers', {
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    user_id: { type: DataTypes.INTEGER },
+    done_trainers: { type: DataTypes.STRING },
+    created_at: { type: DataTypes.INTEGER },
+    updated_at: { type: DataTypes.INTEGER },
+}, { sequelize, timestamps: false })
+
 
 const firstMonthStudents = sequelize.define('first_month_students', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
@@ -236,7 +257,11 @@ const secondMonthStudents = sequelize.define('second_month_students', {
     thirtyone: { type: DataTypes.INTEGER, allowNull: false },
 })
 
+User.hasOne(DoneUserTrainers, { foreignKey: 'user_id' })
+DoneUserTrainers.belongsTo(User, { foreignKey: 'user_id' })
 
+User.hasMany(TrainerInfo, { foreignKey: 'user_id' })
+TrainerInfo.belongsTo(User, { foreignKey: 'user_id' })
 
 TrainerStatuses.hasMany(UserTrainers, { foreignKey: 'progress_status' })
 UserTrainers.belongsTo(TrainerStatuses, { foreignKey: 'progress_status' })
@@ -253,13 +278,13 @@ firstMonthStudents.belongsTo(Course_info, { foreignKey: 'course_info_id' })
 Course_info.hasOne(secondMonthStudents, { foreignKey: 'course_info_id' })
 secondMonthStudents.belongsTo(Course_info, { foreignKey: 'course_info_id' })
 
-Module_lesson.hasMany(Lesson_Chapter, { foreignKey: 'course_lesson_id' })
+Module_lesson.hasMany(Lesson_Chapter, { foreignKey: 'course_lesson_id', onDelete: 'CASCADE', })
 Lesson_Chapter.belongsTo(Module_lesson, { foreignKey: 'course_lesson_id' })
 
-Course_module.hasMany(Module_lesson, { foreignKey: 'course_module_id' })
+Course_module.hasMany(Module_lesson, { foreignKey: 'course_module_id', onDelete: 'CASCADE', })
 Module_lesson.belongsTo(Course_module, { foreignKey: 'course_module_id' })
 
-Course_info.hasMany(Course_module, { foreignKey: 'course_info_id' })
+Course_info.hasMany(Course_module, { foreignKey: 'course_info_id', onDelete: 'CASCADE', })
 Course_module.belongsTo(Course_info, { foreignKey: 'course_info_id' })
 
 User.hasMany(Done_courses, { foreignKey: 'user_id' })
@@ -280,19 +305,19 @@ Creator.belongsTo(User, { foreignKey: 'user_id' })
 User.hasMany(Rating, { foreignKey: 'user_id' })
 Rating.belongsTo(User, { foreignKey: 'user_id' })
 
-Course_info.hasMany(Rating, { foreignKey: 'course_info_id' })
+Course_info.hasMany(Rating, { foreignKey: 'course_info_id', onDelete: 'CASCADE', })
 Rating.belongsTo(Course_info, { foreignKey: 'course_info_id' })
 
 Creator.hasMany(Course_info, { foreignKey: 'creator_id' })
 Course_info.belongsTo(Creator, { foreignKey: 'creator_id' })
 
-Course_info.hasMany(Favorite_courses, { foreignKey: 'course_info_id' })
+Course_info.hasMany(Favorite_courses, { foreignKey: 'course_info_id', onDelete: 'CASCADE', })
 Favorite_courses.belongsTo(Course_info, { foreignKey: 'course_info_id' })
 
-Course_info.hasMany(Active_courses, { foreignKey: 'course_info_id' })
+Course_info.hasMany(Active_courses, { foreignKey: 'course_info_id', onDelete: 'CASCADE', })
 Active_courses.belongsTo(Course_info, { foreignKey: 'course_info_id' })
 
-Course_info.hasMany(Done_courses, { foreignKey: 'course_info_id' })
+Course_info.hasMany(Done_courses, { foreignKey: 'course_info_id', onDelete: 'CASCADE', })
 Done_courses.belongsTo(Course_info, { foreignKey: 'course_info_id' })
 
 module.exports = {
@@ -311,5 +336,6 @@ module.exports = {
     firstMonthStudents,
     YearIncomeStat,
     UserTrainers,
-    TrainerStatuses
+    TrainerStatuses,
+    TrainerInfo
 }
