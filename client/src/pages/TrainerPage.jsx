@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import styles from '../styles/TrainerPage.module.css'
 import { Context } from "..";
 import { useNavigate } from "react-router-dom";
-import { CREATE_TRAINER } from "../utils";
+import { CREATE_TRAINER, MY_TRAINERS } from "../utils";
 
 function TrainerPage() {
 
@@ -33,6 +33,9 @@ function TrainerPage() {
         }
         if (path === 'create') {
             navigate(CREATE_TRAINER + '/' + store.user.id)
+        }
+        if (path === 'mytrainers') {
+            navigate(MY_TRAINERS + '/' + store.user.id)
         }
     }
 
@@ -103,6 +106,11 @@ function TrainerPage() {
                                             <button className={styles.seeAllStatuses}>Посмотреть все звания</button>
                                         </div>
                                     </div>
+                                </div>
+                                <div>
+                                    <button className={styles.myTrainers} onClick={() => navigateHandler('mytrainers')}>
+                                        Мои тренажеры
+                                    </button>
                                 </div>
                                 <div className={styles.doneTrainers}>
                                     <p>Недавние</p>

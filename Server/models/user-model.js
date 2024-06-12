@@ -170,11 +170,12 @@ const TrainerInfo = sequelize.define('trainer_info', {
     content: { type: DataTypes.STRING, defaultValue: 'Новая Задача' },
     user_id: { type: DataTypes.INTEGER },
     tests: { type: DataTypes.STRING },
-    code: { type: DataTypes.STRING },
+    code: { type: DataTypes.STRING, defaultValue: 'Введите код' },
     programming_languages: { type: DataTypes.STRING, defaultValue: 'Pascal' },
     dificult: { type: DataTypes.STRING, defaultValue: 'Легко' },
     created_at: { type: DataTypes.INTEGER },
     updated_at: { type: DataTypes.INTEGER },
+    status: { type: DataTypes.STRING, defaultValue: 'notpublished' }
 }, { sequelize, timestamps: false })
 
 const DoneUserTrainers = sequelize.define('done_user_trainers', {

@@ -1,0 +1,71 @@
+.container {
+    border: solid #243F5D 2px;
+    width: 600px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    justify-content: center;
+    gap: 20px;
+
+}
+
+.controll {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+
+.edit:hover {
+    background-color: #243F5D;
+    color: white;
+}
+
+.delete:hover {
+    background-color: red;
+    color: white;
+}
+
+.publish:hover {
+    background-color: green;
+    color: white;
+}
+
+.controll>button {
+    padding: 7px;
+    border: #243F5D solid 2px;
+    font-size: 22px;
+    border-radius: 8px;
+}
+
+.mainInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.name {
+    font-size: 30px;
+
+}
+
+.redbutton {
+    width: 90px;
+    background-color: #243F5D;
+    height: 100px;
+    border-radius: 0 16px 16px 0;
+}
+
+.redbutton>button {
+    width: 90px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.name>h2 {
+    font-size: 30px;
+}

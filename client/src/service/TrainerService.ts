@@ -3,6 +3,7 @@ import { AxiosResponse } from 'axios'
 import { ITrainerUserResponse } from "../models/response/ITrainerUserResponse";
 import { ITrainerResponse } from "../models/response/ITrainerResponse";
 import { ICompilerResponse } from "../models/response/ICompilerResponse";
+import { ITrainer } from "../models/ITrainer";
 
 export default class TrainerService {
 
@@ -24,5 +25,13 @@ export default class TrainerService {
 
     static async saveTrainerData(trainer_id: string, code: string, tag: string, name: string, description: string, dificult: string, tests: string): Promise<AxiosResponse<ITrainerResponse>> {
         return $api.post<ITrainerResponse>('/trainer/saveTrainerData', { code, tag, name, description, dificult, tests, trainer_id })
+    }
+
+    static async fetchAllTrainers(user_id: string): Promise<AxiosResponse<ITrainer[]>> {
+        return $api.post<ITrainer[]>('/trainer/fetchAllTrainers', { user_id })
+    }
+
+    static async deleteTrainer(trainer_id: string): Promise<AxiosResponse<string>> {
+        return $api.post<string>('/trainer/deleteTrainer', { trainer_id })
     }
 } 

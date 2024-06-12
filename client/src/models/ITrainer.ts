@@ -6,4 +6,5 @@ export interface ITrainer {
     dificult: string;
     tests: string;
     code: string;
+    status: string;
 }

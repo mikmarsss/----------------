@@ -7,6 +7,8 @@ router.post('/createTrainer', TrainerController.createTrainer)
 router.post('/fetchTrainer', TrainerController.fetchTrainer)
 router.post('/codeCompiler', TrainerController.codeCompiler)
 router.post('/saveTrainerData', TrainerController.saveTrainerData)
+router.post('/fetchAllTrainers', TrainerController.fetchAllTrainers)
+router.post('/deleteTrainer', TrainerController.deleteTrainer)
 
 
 module.exports = router

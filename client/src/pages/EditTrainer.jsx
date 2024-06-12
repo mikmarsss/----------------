@@ -16,7 +16,6 @@ function EditTrainer() {
     const [test, setTest] = useState([])
     const [code, setCode] = useState(trainerStore.trainer.code)
 
-
     const params = useParams()
     const current = params.id
 
@@ -68,7 +67,6 @@ function EditTrainer() {
     }
 
 
-    console.log(test)
     const saveTrainerDataHandler = () => {
         const stringTest = JSON.stringify(test)
         trainerStore.saveTrainerData(current, code, language, name, description, level, stringTest)

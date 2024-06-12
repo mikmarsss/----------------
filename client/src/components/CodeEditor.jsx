@@ -11,7 +11,6 @@ function CodeEditor({ testCB, codeCB, infoCallback }) {
     const { trainerStore } = useContext(Context)
     const [code, setCode] = useState('');
     const [test, setTest] = useState([])
-
     function isJsonString(str) {
         try {
             JSON.parse(str);
@@ -22,30 +21,28 @@ function CodeEditor({ testCB, codeCB, infoCallback }) {
     }
 
     useEffect(() => {
-        try {
-            if (isJsonString(trainerStore.trainer.tests)) {
-                setTest(JSON.parse(trainerStore.trainer.tests))
-            } else {
-                setTest([])
-            }
-            setCode(trainerStore.trainer.code)
-        } catch (e) {
-            console.log(e)
+        if (trainerStore.trainer.id) {
+            getTrainer()
         }
-    }, [])
+    }, [trainerStore.trainer.id])
 
-    async function infoHandler() {
+    async function getTrainer() {
         try {
-            if (isJsonString(trainerStore.trainer.tests)) {
+            await trainerStore.fetchTrainer(trainerStore.trainer.id)
+            setCode(trainerStore.trainer.code)
+            if (trainerStore.trainer.tests === null) {
+                setTest([])
+            }
+            else if (isJsonString(trainerStore.trainer.tests)) {
                 setTest(JSON.parse(trainerStore.trainer.tests))
             } else {
                 setTest([])
             }
-            setCode(trainerStore.trainer.code)
         } catch (e) {
             console.log(e)
         }
     }
+
 
     useEffect(() => {
         infoCallback(code, test)
@@ -76,8 +73,6 @@ function CodeEditor({ testCB, codeCB, infoCallback }) {
         });
         setTest(updatedTest);
     };
-
-    console.log(test)
 
     const addTestHandler = () => {
         setTest([...test, { vars: '', answer: '', number: Date.now() }])
@@ -130,6 +125,7 @@ function CodeEditor({ testCB, codeCB, infoCallback }) {
                         </button>
                         <div >
                             {
+                                test.length !== 0 &&
                                 test.map(i => (
                                     <div key={i.number} className={styles.testsInput}>
                                         <input

@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom";
 import CoursesService from "../service/CoursesService";
 import { useEffect } from "react";
 import arrow from '../Images/Arrow.svg'
+
 function CoursesContent() {
 
     const [modulee, setModule] = useState([])

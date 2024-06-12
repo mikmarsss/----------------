@@ -115,7 +115,6 @@
 .mainUserInfo {
     display: flex;
     flex-direction: row;
-    border: solid black 2px;
     gap: 80px;
     width: 100%;
 }
@@ -123,10 +122,21 @@
 .mainUserInfo>div {
     display: flex;
     flex-direction: column;
-    border: solid black 2px;
     gap: 20px;
     font-size: 24px;
     color: #243F5D;
+}
+
+.myTrainers {
+    border: #243F5D solid 2px;
+    padding: 5px;
+    font-size: 30px;
+    border-radius: 10px;
+}
+
+.myTrainers:hover {
+    background-color: #243F5D;
+    color: white;
 }
 
 .progress {

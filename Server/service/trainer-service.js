@@ -59,6 +59,16 @@ class TrainerService {
         const trainerDto = new TrainerInfoDTO(trainer)
         return { trainer: trainerDto }
     }
+
+    async fetchAllTrainers(user_id) {
+        const trainers = await TrainerInfo.findAll({ where: { user_id: user_id }, order: [['created_at', 'ASC']] })
+        return { trainers }
+    }
+
+    async deleteTrainer(trainer_id) {
+        await TrainerInfo.destroy({ where: { id: trainer_id } })
+        return { message: "Задача удалена" }
+    }
 }
 
 module.exports = new TrainerService()

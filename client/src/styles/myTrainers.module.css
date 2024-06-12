@@ -1,0 +1,40 @@
+.container {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    background-color: #D6DCDB;
+    background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.3));
+    display: flex;
+    flex-direction: column;
+}
+
+.glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.33);
+}
+
+.content {
+    border: solid black 2px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: 50px;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 900px;
+    gap: 20px;
+    align-self: center;
+    align-items: center;
+}
+
+.zagolovok {
+    font-size: 30px;
+    color: #243F5D;
+    align-self: center;
+    justify-self: flex-start;
+}

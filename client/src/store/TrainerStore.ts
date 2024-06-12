@@ -78,4 +78,13 @@ export default class TrainerStore {
             console.log(e.response?.data?.message)
         }
     }
+
+    async deleteTrainer(trainer_id: string) {
+        try {
+            const response = await TrainerService.deleteTrainer(trainer_id)
+            console.log(response)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+    }
 }
