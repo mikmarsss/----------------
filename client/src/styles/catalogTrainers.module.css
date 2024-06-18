@@ -1,0 +1,157 @@
+.container {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    background-color: #D6DCDB;
+    background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.3));
+    display: flex;
+    flex-direction: column;
+}
+
+.glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.33);
+}
+
+.glass2 {
+    background: linear-gradient(135deg, rgba(36, 63, 93, 0.3), rgba(36, 63, 93, 0.4));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+.content {
+    margin-top: 50px;
+    align-self: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.filter {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.filter>p {
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+.catalog {
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.dificult>div {
+    display: flex;
+    gap: 10px;
+    margin-left: 30px;
+}
+
+.dificult>div>p {
+    font-size: 20px;
+}
+
+.ezLevel {
+    padding: 6px;
+    border: solid 2px black;
+    border-radius: 7px;
+    font-size: 18px;
+    background-color: black;
+    color: white;
+}
+
+
+.medLevel {
+    padding: 6px;
+    border: solid 2px #3A20DA;
+    border-radius: 7px;
+    font-size: 18px;
+    background-color: #3A20DA;
+    color: white;
+}
+
+.hardLevel {
+    padding: 6px;
+    border: solid 2px #D41616;
+    border-radius: 7px;
+    font-size: 18px;
+    background-color: #D41616;
+    color: white;
+}
+
+.trainerBlock {
+    padding: 20px;
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+}
+
+.trainerBlock:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    transition: 0.3s;
+}
+
+.zagolovok {
+    font-size: 40px;
+    border-bottom: 1px solid black;
+    width: 1000px;
+    text-align: center;
+}
+
+.progLang {
+    font-size: 28px;
+}
+
+.name {
+    font-size: 32px;
+}
+
+.mainInfo {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.dificult {
+    margin-left: 20px;
+    align-self: flex-start;
+}
+
+.progLangs {
+    margin-left: 20px;
+    align-self: flex-start;
+}
+
+.progLangs>div {
+    display: flex;
+    gap: 10px;
+    margin-left: 30px;
+}
+
+.progLangs>p {
+    font-size: 22px;
+}
+
+.dificult>p {
+    font-size: 22px;
+}

@@ -86,17 +86,18 @@ function CoursesContent() {
 
 
                         <div className={`${styles.content} `}>
-                            {
-                                modulee.length === 0 &&
-                                <>
-                                    <div className={styles.netmodulei}>
-                                        <h1>У вас нет модулей в этом курсе</h1>
-                                        <p>Чтобы добавить новый модуль в этом курсе нажмите на кнопочку</p>
-                                    </div>
-                                </>
-                            }
 
                             <div className={`${styles.contentOfLesson} ${styles.glass}`}>
+                                {
+                                    modulee.length === 0 &&
+                                    <>
+                                        <div className={styles.netmodulei}>
+                                            <h1>У вас нет модулей в этом курсе</h1>
+                                            <p>Чтобы добавить новый модуль в этом курсе нажмите на кнопочку</p>
+                                        </div>
+                                    </>
+                                }
+
                                 <button className={styles.addModule} onClick={() => addModule()}>Создать модуль</button>
                                 {
                                     <>

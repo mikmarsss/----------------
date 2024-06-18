@@ -6,12 +6,14 @@ import TrainerService from "../service/TrainerService";
 import { ITrainerUser } from "../models/ITrainerUser";
 import { ITrainer } from "../models/ITrainer";
 import { ICompiler } from "../models/ICompiler";
+import { IDoneTrainer } from "../models/IDoneTrainers";
 
 export default class TrainerStore {
 
     userTrainer = {} as ITrainerUser
     trainer = {} as ITrainer
     result = {} as ICompiler
+    doneTrainer = {} as IDoneTrainer
 
     constructor() {
         makeAutoObservable(this)
@@ -27,6 +29,10 @@ export default class TrainerStore {
 
     setTrainer(trainer: ITrainer) {
         this.trainer = trainer
+    }
+
+    setDoneTrainer(doneTrainer: IDoneTrainer) {
+        this.doneTrainer = doneTrainer
     }
 
     async fetchUserTrainerInfo(user_id: string) {
@@ -69,9 +75,9 @@ export default class TrainerStore {
         }
     }
 
-    async saveTrainerData(trainer_id: string, code: string, tag: string, name: string, description: string, dificult: string, tests: string) {
+    async saveTrainerData(trainer_id: string, code: string, tag: string, name: string, description: string, dificult: string, tests: string, points: string) {
         try {
-            const response = await TrainerService.saveTrainerData(trainer_id, code, tag, name, description, dificult, tests)
+            const response = await TrainerService.saveTrainerData(trainer_id, code, tag, name, description, dificult, tests, points)
             console.log(response)
             this.setTrainer(response.data.trainer)
         } catch (e) {
@@ -83,6 +89,45 @@ export default class TrainerStore {
         try {
             const response = await TrainerService.deleteTrainer(trainer_id)
             console.log(response)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+    }
+
+    async publishTrainer(trainer_id: string) {
+        try {
+            const response = await TrainerService.publishTrainer(trainer_id)
+            console.log(response)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+    }
+
+    async saveDoneTrainers(trainer_id: string, check: string, code: string, user_id: string, points: string) {
+        try {
+            const response = await TrainerService.saveDoneTrainers(trainer_id, check, code, user_id, points)
+            console.log(response)
+            this.setDoneTrainer(response.data.trainer)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+    }
+
+    async fetchDoneTrainer(trainer_id: string, user_id: string) {
+        try {
+            const response = await TrainerService.fetchDoneTrainer(trainer_id, user_id)
+            console.log(response)
+            this.setDoneTrainer(response.data.trainer)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+    }
+
+    async createDoneTrainer(trainer_id: string, user_id: string) {
+        try {
+            const response = await TrainerService.createDoneTrainer(trainer_id, user_id)
+            console.log(response)
+            this.setDoneTrainer(response.data.trainer)
         } catch (e) {
             console.log(e.response?.data?.message)
         }

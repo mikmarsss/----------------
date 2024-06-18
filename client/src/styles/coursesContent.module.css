@@ -49,7 +49,6 @@
 }
 
 .netmodulei {
-    margin-top: 200px;
     text-align: center;
 }
 
@@ -65,9 +64,8 @@
 
 .redbutton {
     width: 90px;
-    background-color: #243F5D;
     height: 100px;
-    border-radius: 0 16px 16px 0;
+    border-radius: 0 15px 15px 0;
 }
 
 .redbutton>button {
@@ -79,7 +77,6 @@
 }
 
 .module {
-    border: solid black 2px;
     width: 600px;
     height: 100px;
     display: flex;
@@ -124,8 +121,8 @@
 }
 
 .contentOfLesson {
+    padding: 20px;
     gap: 30px;
-    padding-top: 30px;
     width: 900px;
     height: auto;
     display: flex;
@@ -141,7 +138,6 @@
     font-size: 26px;
     padding: 20px;
     border-radius: 10PX;
-    margin-bottom: 30px;
 }
 
 .navigateHistory {

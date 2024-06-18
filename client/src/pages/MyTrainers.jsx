@@ -2,29 +2,41 @@
 import { observer } from "mobx-react-lite";
 import React, { useContext, useEffect, useState } from "react";
 import styles from '../styles/myTrainers.module.css'
+import trainerBlockstyles from '../styles/trainerBlock.module.css'
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Context } from "..";
 import TrainerService from "../service/TrainerService";
-import { useParams } from "react-router-dom";
-import TrainerBlock from "../components/TrainerBlock";
+import { useNavigate, useParams } from "react-router-dom";
+import { EDIT_TRAINER } from "../utils";
+
+
 function MyTrainers() {
     const [trainers, setTrainers] = useState([])
     const { trainerStore } = useContext(Context)
     const params = useParams()
     const current = params.id
+    const navigate = useNavigate()
+
+    const editHandler = (id) => {
+        navigate(EDIT_TRAINER + '/' + id)
+    }
+
+    const deleteHandler = (id) => {
+        trainerStore.deleteTrainer(id)
+    }
+
+    const publishHandler = (id) => {
+        trainerStore.publishTrainer(id)
+    }
 
     useEffect(() => {
         getChapters()
     }, [])
 
-    const updateHandler = () => {
-        getChapters()
-    }
-
     async function getChapters() {
         try {
-            const response = await TrainerService.fetchAllTrainers(current)
+            const response = await TrainerService.fetchAllUserTrainers(current)
             const dataArray = response.data.trainers; // Предполагается, что courses - это массив в модели
             if (Array.isArray(dataArray)) {
                 setTrainers(dataArray);
@@ -46,12 +58,38 @@ function MyTrainers() {
                 </div>
                 <div className={`${styles.content} ${styles.glass}`}>
                     <p className={styles.zagolovok}>Мои тренажеры</p>
-                    {
-                        trainers.map((item, index) => (
+                    <div>
+                        {
+                            trainers.map((item, index) => (
 
-                            <TrainerBlock trainer={item} updateHandlerCB={updateHandler} />
-                        ))
-                    }
+                                <div className={trainerBlockstyles.container}>
+                                    <div className={trainerBlockstyles.mainInfo}>
+                                        <div className={trainerBlockstyles.name}>
+                                            <h2>{item.name}</h2>
+                                        </div>
+                                        {
+                                            (item.dificult === '1 Xi' || item.dificult === '2 Xi' || item.dificult === '3 Xi' || item.dificult === '4 Xi') &&
+                                            <div className={(item.dificult === '1 Xi' || item.dificult === '2 Xi') ? `${styles.ezLevel}` : `${styles.medLevel}`}>
+                                                <h2 >{item.dificult}</h2>
+                                            </div>
+                                        }
+                                        {
+                                            (item.dificult === '5 Xi' || item.dificult === '6 Xi') &&
+                                            <div className={(item.dificult === '5 Xi' || item.dificult === '6 Xi') ? `${styles.hardLevel}` : false}>
+                                                <h2>{item.dificult}</h2>
+                                            </div>
+                                        }
+                                    </div>
+                                    {console.log(item)}
+                                    <div className={trainerBlockstyles.controll}>
+                                        <button className={trainerBlockstyles.delete} onClick={() => deleteHandler(item.id)}>Удалить</button>
+                                        <button className={trainerBlockstyles.edit} onClick={() => editHandler(item.id)}>Редактировать</button>
+                                        <button className={item.status === 'notpublished' ? `${trainerBlockstyles.publish}` : `${trainerBlockstyles.notpublish}`} onClick={() => publishHandler(item.id)}>{item.status === 'notpublished' ? "Опубликовать" : "Снять с публикации"}</button>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
                 </div>
                 <div>
                     <Footer />

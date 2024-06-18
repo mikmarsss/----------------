@@ -12,7 +12,7 @@
     width: 100%;
     min-height: 100vh;
     height: auto;
-    background-color: #C3BAAF;
+    background-color: #D6DCDB;
     background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.3));
     display: flex;
     flex-direction: column;
@@ -44,7 +44,6 @@
 }
 
 .vhodorreg>button {
-    color: white;
     width: 230px;
     height: 50px;
     font-size: 25px;
@@ -57,6 +56,7 @@
     border: solid #243F5D 2px;
     border-radius: 10px;
     font-size: 25px;
+    color: #243F5D;
 }
 
 .logininput {
@@ -91,18 +91,23 @@
 
 .vhodbutton {
     font-size: 30px;
-    width: 85%;
+    width: 100%;
     border: #243F5D solid 2px;
     transition: .2s;
     border-radius: 15px;
+    color: #243F5D;
 }
 
 .confirm {
     font-size: 30px;
-    width: 85%;
+    width: 100%;
     border: #243F5D solid 2px;
     background-color: #243F5D;
     border-radius: 10px;
     transition: .2s;
     color: white;
+}
+
+.navButtons {
+    color: #243F5D;
 }

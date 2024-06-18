@@ -1,7 +1,6 @@
 @font-face {
-    font-family: 'Montserrat-Medium';
-    src: url(../fonts/Montserrat-Medium.ttf);
-
+    font-family: 'Comfortaa-Medium';
+    src: url(../fonts/Comfortaa-Medium.ttf);
 }
 
 .Mycourse {
@@ -49,7 +48,7 @@
 }
 
 .buttons>button {
-    font-family: 'Montserrat-Medium';
+    font-family: 'Comfortaa-Medium';
     font-size: 22px;
     border: 2px #243F5D solid;
     width: 210px;

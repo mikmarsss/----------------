@@ -1,36 +1,11 @@
 @font-face {
-    font-family: 'Montserrat-Black';
-    src: url(../fonts/Montserrat-Black.ttf);
+    font-family: 'Comfortaa-Medium';
+    src: url(../fonts/Comfortaa-Medium.ttf);
 }
 
 @font-face {
-    font-family: 'Montserrat-Bold';
-    src: url(../fonts/Montserrat-Bold.ttf);
-}
-
-@font-face {
-    font-family: 'Montserrat-ExtraLight';
-    src: url(../fonts/Montserrat-ExtraBold.ttf);
-}
-
-@font-face {
-    font-family: 'Montserrat-ExtraBold';
-    src: url(../fonts/Montserrat-ExtraLight.ttf);
-}
-
-@font-face {
-    font-family: 'Montserrat-Light';
-    src: url(../fonts/Montserrat-Light.ttf);
-}
-
-@font-face {
-    font-family: 'Montserrat-Medium';
-    src: url(../fonts/Montserrat-Medium.ttf);
-}
-
-@font-face {
-    font-family: 'Montserrat-Regular';
-    src: url(../fonts/Montserrat-Regular.ttf);
+    font-family: 'Comfortaa-Bold';
+    src: url(../fonts/Comfortaa-Bold.ttf);
 }
 
 .container {
@@ -87,12 +62,13 @@
 
 .cardContainer {
     width: 1600px;
-    height: 800px;
+    height: 700px;
     background-color: black;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     padding: 30px;
+    justify-content: center;
 }
 
 .mainDopInfo>p {
@@ -126,6 +102,28 @@
     width: 900px;
     height: 500px;
     border-radius: 34px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.mainCardInfo>div {
+    margin-top: 240px;
+    font-size: 40px;
+}
+
+.dopCardInfo>div {
+    padding: 10px;
+}
+
+.dopCardInfo>div>p {
+    padding: 10px;
+    font-size: 60px;
+}
+
+.mainCardInfo>p {
+    padding: 10px;
+    font-size: 100px;
 }
 
 .glass {

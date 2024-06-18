@@ -5,7 +5,7 @@ import FreeCourses from "./pages/FreeCourses"
 import Landing from "./pages/Landing"
 import PersonalAccount from "./pages/PersonalAccount"
 import ProfileSettings from "./pages/ProfileSettings"
-import { AUTHORIZATION_PAGE, CATALOG_ROUTE, COURSES_CONTENT, COURSE_LESSONS, COURSE_MANAGMENT, COURSE_PAGE, CREATE_ROUTE, CREATE_TRAINER, EDITCOURSE_PAGE, EDIT_LESSON, EDIT_TRAINER, FREE_COURSE, LANDING_ROUTE, MODULE_PAGE, MY_TRAINERS, PERSONAL_PAGE, PROFILE_ROUTE, SETTINGS_ROUTE, TEST_PAGE, TRAINER_PAGE } from "./utils"
+import { AUTHORIZATION_PAGE, CATALOG_ROUTE, CATALOG_TRAINERS, COURSES_CONTENT, COURSE_LESSONS, COURSE_MANAGMENT, COURSE_PAGE, CREATE_ROUTE, CREATE_TRAINER, EDITCOURSE_PAGE, EDIT_LESSON, EDIT_TRAINER, FREE_COURSE, LANDING_ROUTE, MODULE_PAGE, MY_TRAINERS, PERSONAL_PAGE, PROFILE_ROUTE, SETTINGS_ROUTE, SOLVE_TRAINER, TEST_PAGE, TRAINER_PAGE } from "./utils"
 import CourseLessons from "./pages/CourseLessons"
 import CoursePage from "./pages/CoursePage"
 import ModulePage from "./pages/ModulePage"
@@ -19,6 +19,8 @@ import TrainerPage from "./pages/TrainerPage"
 import CreateTrainer from "./pages/CreateTrainer"
 import EditTrainer from "./pages/EditTrainer"
 import MyTrainers from "./pages/MyTrainers"
+import CatalogTrainers from "./pages/CatalogTrainers"
+import SolveTrainer from "./pages/SolveTrainer"
 
 export const authRoutes = [
     {
@@ -81,6 +83,10 @@ export const authRoutes = [
         path: MY_TRAINERS + '/:id',
         Component: MyTrainers
     },
+    {
+        path: SOLVE_TRAINER + '/:id',
+        Component: SolveTrainer
+    },
 ]
 
 export const publicRoutes = [
@@ -103,5 +109,9 @@ export const publicRoutes = [
     {
         path: TRAINER_PAGE,
         Component: TrainerPage
+    },
+    {
+        path: CATALOG_TRAINERS,
+        Component: CatalogTrainers
     },
 ]

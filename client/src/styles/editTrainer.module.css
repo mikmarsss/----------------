@@ -104,12 +104,13 @@
 
 .result {
     border: #243F5D solid 2px;
-    min-height: 200px;
+    min-height: 30px;
     height: auto;
     width: 100%;
     align-self: flex-start;
     border-radius: 11px;
     padding-top: 10px;
+    padding-left: 10px;
     font-size: 20px;
     display: flex;
     flex-direction: column;
@@ -124,8 +125,12 @@
 }
 
 .ezLevel {
-    color: green;
+    padding: 10px;
+    border: solid 2px black;
+    border-radius: 7px;
     font-size: 22px;
+    background-color: black;
+    color: white;
 }
 
 .progLang {
@@ -134,13 +139,29 @@
 }
 
 .medLevel {
-    color: orange;
+    padding: 10px;
+    border: solid 2px #3A20DA;
+    border-radius: 7px;
     font-size: 22px;
+    background-color: #3A20DA;
+    color: white;
 }
 
 .hardLevel {
-    color: red;
+    padding: 10px;
+    border: solid 2px #D41616;
+    border-radius: 7px;
     font-size: 22px;
+    background-color: #D41616;
+    color: white;
+}
+
+.Codeeditor {
+    font-size: 23px;
+}
+
+.resBlock>p {
+    font-size: 25px;
 }
 
 .resultBlock>p {
@@ -249,4 +270,32 @@
 .saveButton>button:hover {
     background-color: #243F5D;
     color: white;
+}
+
+.checkResult {
+    width: 300px;
+    align-self: flex-start, ;
+    padding: 5px;
+    font-size: 30px;
+    border-radius: 8px;
+    border: #243F5D solid 2px;
+}
+
+.checkResult:hover {
+    background-color: #243F5D;
+    color: white;
+}
+
+.checkBlock {
+    width: 300px;
+    align-self: flex-start, ;
+    min-height: 200px;
+    padding: 5px;
+    font-size: 30px;
+    border-radius: 8px;
+    border: #243F5D solid 2px;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

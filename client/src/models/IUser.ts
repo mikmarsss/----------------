@@ -14,4 +14,5 @@ export interface IUser {
     user_done_courses: number;
     user_done_lessons: number;
     user_done_tasks: number;
+    role: string;
 }

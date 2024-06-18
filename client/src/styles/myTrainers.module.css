@@ -17,8 +17,35 @@
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.33);
 }
 
+.ezLevel {
+    padding: 6px;
+    border: solid 2px black;
+    border-radius: 7px;
+    font-size: 18px;
+    background-color: black;
+    color: white;
+}
+
+
+.medLevel {
+    padding: 6px;
+    border: solid 2px #3A20DA;
+    border-radius: 7px;
+    font-size: 18px;
+    background-color: #3A20DA;
+    color: white;
+}
+
+.hardLevel {
+    padding: 6px;
+    border: solid 2px #D41616;
+    border-radius: 7px;
+    font-size: 18px;
+    background-color: #D41616;
+    color: white;
+}
+
 .content {
-    border: solid black 2px;
     padding-top: 50px;
     padding-bottom: 50px;
     margin-top: 50px;
@@ -37,4 +64,11 @@
     color: #243F5D;
     align-self: center;
     justify-self: flex-start;
+}
+
+.content>div {
+    min-height: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }

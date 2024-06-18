@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import styles from '../styles/TrainerPage.module.css'
 import { Context } from "..";
 import { useNavigate } from "react-router-dom";
-import { CREATE_TRAINER, MY_TRAINERS } from "../utils";
+import { CATALOG_TRAINERS, CREATE_TRAINER, MY_TRAINERS } from "../utils";
 
 function TrainerPage() {
 
@@ -29,7 +29,7 @@ function TrainerPage() {
 
     const navigateHandler = (path) => {
         if (path === 'catalog') {
-
+            navigate(CATALOG_TRAINERS)
         }
         if (path === 'create') {
             navigate(CREATE_TRAINER + '/' + store.user.id)
@@ -86,6 +86,30 @@ function TrainerPage() {
                                                     trainerStore.userTrainer.status_value === 300 &&
                                                     0
                                                 }
+                                                {
+                                                    trainerStore.userTrainer.status_value === 600 &&
+                                                    300
+                                                }
+                                                {
+                                                    trainerStore.userTrainer.status_value === 1000 &&
+                                                    600
+                                                }
+                                                {
+                                                    trainerStore.userTrainer.status_value === 2000 &&
+                                                    1000
+                                                }
+                                                {
+                                                    trainerStore.userTrainer.status_value === 5000 &&
+                                                    2000
+                                                }
+                                                {
+                                                    trainerStore.userTrainer.status_value === 10000 &&
+                                                    5000
+                                                }
+                                                {
+                                                    trainerStore.userTrainer.status_value === 25000 &&
+                                                    10000
+                                                }
                                             </div>
                                             <div>
                                                 {trainerStore.userTrainer.points}
@@ -107,15 +131,24 @@ function TrainerPage() {
                                         </div>
                                     </div>
                                 </div>
-                                <div>
+
+
+                                <div className={styles.createMy}>
                                     <button className={styles.myTrainers} onClick={() => navigateHandler('mytrainers')}>
                                         Мои тренажеры
                                     </button>
+                                    {
+                                        store.user.role === 'ADMIN' &&
+                                        <button className={styles.myTrainers} onClick={() => navigateHandler('create')}>
+                                            Создать
+                                        </button>
+                                    }
                                 </div>
-                                <div className={styles.doneTrainers}>
+
+                                {/* <div className={styles.doneTrainers}>
                                     <p>Недавние</p>
 
-                                </div>
+                                </div> */}
                             </div>
                         }
                         {
@@ -130,8 +163,10 @@ function TrainerPage() {
                             <button className={`${styles.trainerCatalog} ${styles.glass}`} onClick={() => navigateHandler('catalog')}>
                                 <p>Все задачи</p>
                             </button>
-                            <button className={`${styles.createTrainer} ${styles.glass}`} onClick={() => navigateHandler('create')}>
-                                <p>Создать задачу</p>
+                        </div>
+                        <div>
+                            <button className={`${styles.langTrainers} ${styles.glass}`} onClick={() => navigateHandler('catalog')}>
+                                <p>JavaScript</p>
                             </button>
                         </div>
                     </div>

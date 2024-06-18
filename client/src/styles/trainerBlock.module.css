@@ -33,6 +33,11 @@
     color: white;
 }
 
+.notpublish:hover {
+    background-color: red;
+    color: white;
+}
+
 .controll>button {
     padding: 7px;
     border: #243F5D solid 2px;
@@ -44,9 +49,13 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    align-self: start;
+    margin-left: 5px;
+    gap: 20px;
 }
 
 .name {
+    justify-self: flex-start;
     font-size: 30px;
 
 }
@@ -67,5 +76,6 @@
 }
 
 .name>h2 {
+    align-self: flex-start;
     font-size: 30px;
 }

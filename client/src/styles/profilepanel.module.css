@@ -157,7 +157,7 @@
     align-items: center;
     justify-content: center;
     gap: 50px;
-    border-bottom: #243F5D 1px solid;
+    border-bottom: #243F5D 2px solid;
 }
 
 .statValues>div {
@@ -222,7 +222,7 @@
     color: white;
     font-size: 20px;
     text-align: center;
-    border-bottom: #243F5D solid 1px;
+    border-bottom: #243F5D solid 2px;
 }
 
 .recomendCourses>p {

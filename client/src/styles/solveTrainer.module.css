@@ -1,0 +1,112 @@
+.container {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    background-color: #D6DCDB;
+    background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.3));
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.33);
+}
+
+.mainInfo {
+    padding: 10px;
+    width: 90%;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.name {
+    font-size: 24px;
+    font-family: 'Comfortaa-Bold';
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.ezLevel {
+    padding: 6px;
+    border: solid 2px black;
+    border-radius: 7px;
+    font-size: 18px;
+    background-color: black;
+    color: white;
+}
+
+
+.medLevel {
+    padding: 6px;
+    border: solid 2px #3A20DA;
+    border-radius: 7px;
+    font-size: 18px;
+    background-color: #3A20DA;
+    color: white;
+}
+
+.hardLevel {
+    padding: 6px;
+    border: solid 2px #D41616;
+    border-radius: 7px;
+    font-size: 18px;
+    background-color: #D41616;
+    color: white;
+}
+
+.description {
+    padding: 10px;
+    width: 90%;
+    min-height: 200px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.description>div {
+    font-size: 25px;
+    width: 600px;
+}
+
+.solveBlock {
+    padding: 10px;
+    width: 90%;
+    min-height: 200px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.codeEditor {
+    align-self: center;
+    width: 1200px;
+}
+
+.done {
+    background: linear-gradient(135deg, rgba(60, 198, 48, 0.3), rgba(60, 198, 48, 0.3));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.33);
+}

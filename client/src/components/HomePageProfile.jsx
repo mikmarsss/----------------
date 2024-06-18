@@ -56,9 +56,6 @@ function HomePageProfile() {
                                     }
                                 </div>
                             </div>
-                            <div>
-                                <button className={styles.continueButton}><img src={arrow} alt="" /></button>
-                            </div>
                         </div>
                     </div>
                 </button>

@@ -175,13 +175,17 @@ const TrainerInfo = sequelize.define('trainer_info', {
     dificult: { type: DataTypes.STRING, defaultValue: 'Легко' },
     created_at: { type: DataTypes.INTEGER },
     updated_at: { type: DataTypes.INTEGER },
-    status: { type: DataTypes.STRING, defaultValue: 'notpublished' }
+    status: { type: DataTypes.STRING, defaultValue: 'notpublished' },
+    points: { type: DataTypes.INTEGER, defaultValue: 0 },
 }, { sequelize, timestamps: false })
 
 const DoneUserTrainers = sequelize.define('done_user_trainers', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     user_id: { type: DataTypes.INTEGER },
-    done_trainers: { type: DataTypes.STRING },
+    trainer_id: { type: DataTypes.INTEGER },
+    code: { type: DataTypes.STRING, defaultValue: 'Введите код' },
+    check: { type: DataTypes.ARRAY(DataTypes.STRING) },
+    isDone: { type: DataTypes.BOOLEAN, defaultValue: false },
     created_at: { type: DataTypes.INTEGER },
     updated_at: { type: DataTypes.INTEGER },
 }, { sequelize, timestamps: false })
@@ -338,5 +342,6 @@ module.exports = {
     YearIncomeStat,
     UserTrainers,
     TrainerStatuses,
-    TrainerInfo
+    TrainerInfo,
+    DoneUserTrainers
 }

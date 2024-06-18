@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Montserrat-Medium';
-    src: url(../fonts/Montserrat-Medium.ttf);
+    font-family: 'Comfortaa-Medium';
+    src: url(../fonts/Comfortaa-Medium.ttf);
 }
 
 .content {
@@ -86,11 +86,12 @@
 
 .button {
     border: 2px #243F5D solid;
-    width: 210px;
+    padding: 5px;
+    width: auto;
     height: 40px;
     font-size: 24px;
     border-radius: 6px;
-    font-family: 'Montserrat-Medium';
+    font-family: 'Comfortaa-Medium';
 }
 
 .button:hover {

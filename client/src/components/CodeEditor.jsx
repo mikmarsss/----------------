@@ -65,6 +65,7 @@ function CodeEditor({ testCB, codeCB, infoCallback }) {
 
             try {
                 result = eval(updatedCode);
+                console.log(result)
             } catch (e) {
                 console.error("Ошибка при выполнении кода:", e);
             }

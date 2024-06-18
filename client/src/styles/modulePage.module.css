@@ -58,7 +58,6 @@
 }
 
 .netmodulei {
-    margin-top: 100px;
     text-align: center;
 }
 
@@ -176,7 +175,7 @@
 .lessons {
     margin-left: 100px;
     margin-top: 50px;
-    padding-bottom: 20px;
+    padding: 20px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -197,7 +196,6 @@
 
 .redbutton {
     width: 90px;
-    background-color: #243F5D;
     height: 100px;
     border-radius: 0 16px 16px 0;
 }

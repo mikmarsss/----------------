@@ -14,6 +14,7 @@ import ChapterMultiTest from "../components/ChapterMultiTest";
 import textIcon from '../Images/textIcon.svg'
 import radioBtn from '../Images/radioBtn.svg'
 import checkBox from '../Images/checkBox.svg'
+import CodeEditor from "../components/CodeEditor";
 
 function EditLesson() {
     const { store, courseStore } = useContext(Context)
@@ -252,6 +253,14 @@ const ChapterInfo = observer(({ chapter, lessonName }) => {
                         </div>
                     </>
                 }
+                {
+                    i.tag === 'codeEditor' &&
+                    <>
+                        <div>
+                            <CodeEditor />
+                        </div>
+                    </>
+                }
             </>
         )
     }
@@ -299,10 +308,18 @@ const ChapterInfo = observer(({ chapter, lessonName }) => {
                                                 <button >Тест <p>(один ответ)</p></button>
                                             </div>
                                         </button>
-                                        <button>
-                                            <div onClick={() => addElement('testMulti')}>
+                                        <button onClick={() => addElement('testMulti')}>
+                                            <div>
                                                 <img className={styles.textIcon} src={checkBox} alt="" />
                                                 <button >Тест <p>(несколько ответов)</p></button>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div className={styles.codeEditor}>
+                                        <button onClick={() => addElement('codeEditor')}>
+                                            <div>
+                                                <img className={styles.textIcon} src={textIcon} alt="" />
+                                                <button >Задача</button>
                                             </div>
                                         </button>
                                     </div>

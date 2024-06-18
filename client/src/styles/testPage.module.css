@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Montserrat-Medium';
-    src: url(../fonts/Montserrat-Medium.ttf);
+    font-family: 'Comfortaa-Medium';
+    src: url(../fonts/Comfortaa-Medium.ttf);
 }
 
 .content {
@@ -44,7 +44,7 @@
 }
 
 .questionBlock>p {
-    font-family: 'Montserrat-Medium';
+    font-family: 'Comfortaa-Medium';
     padding: 40px;
     font-size: 40px;
     color: #0576C2;
@@ -93,7 +93,7 @@
 
 
 .answer {
-    font-family: 'Montserrat-Medium';
+    font-family: 'Comfortaa-Medium';
     text-align: center;
     font-size: 22px;
     background: #121FCF;
@@ -110,7 +110,7 @@
 }
 
 .firstQeustion>button {
-    font-family: 'Montserrat-Medium';
+    font-family: 'Comfortaa-Medium';
     font-size: 26px;
     border: solid black 2px;
     width: 400px;
@@ -129,7 +129,7 @@
 }
 
 .firstQeustionAnswers>button {
-    font-family: 'Montserrat-Medium';
+    font-family: 'Comfortaa-Medium';
     font-size: 26px;
 }
 

@@ -7,4 +7,5 @@ export interface ITrainer {
     tests: string;
     code: string;
     status: string;
+    points: string;
 }

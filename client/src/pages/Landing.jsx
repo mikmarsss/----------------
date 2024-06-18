@@ -76,10 +76,10 @@ function Landing() {
                 </div>
                 <div className={styles.content}>
                     <div className={styles.zagolovok1} id="sticky-comp" style={{ position: 'sticky', opacity: more1Opacity }}>
-                        <p>лорем испум лорем испум <br />лорем испум лорем испум</p>
+                        <p>Образовательная площадка Theta</p>
                     </div>
                     <div className={styles.zagolovok2} id="sticky-comp" style={{ position: 'sticky', opacity: more1Opacity }}>
-                        <p>лорем испум лорем испум <br />лорем испум лорем испум</p>
+                        <p>Не ставь себе целью обретение плодов деяний, и да не будет у тебя склонности к бездействию.</p>
                     </div>
                     <img className={styles.arrow} src={arrow} alt="" style={{ opacity: opacity }} />
                     <div className={styles.cards} >
@@ -87,7 +87,7 @@ function Landing() {
                             <InfoCard />
                         </div>
                     </div>
-                    <div className={styles.mainDopInfo}>
+                    {/* <div className={styles.mainDopInfo}>
                         <p> Лорем испум Лорем испум Лорем испум Лорем испум Лорем испум Лорем испум Лорем испум Лорем испум</p>
                         <div className={`${styles.mainDopInfoBlock} `}>
                             <div className={`${styles.firstBlock} ${styles.glass2}`}>
@@ -107,7 +107,7 @@ function Landing() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div>
@@ -127,18 +127,25 @@ function InfoCard() {
         <>
             <div className={styles.cardContainer}>
                 <div className={styles.cardName}>
-                    <p>Что-то про сайт</p>
+                    <p>Возможности</p>
                 </div>
                 <div className={styles.cardInfo}>
                     <div className={`${styles.mainCardInfo} ${styles.glass}`}>
-
+                        <p>
+                            Учиться
+                        </p>
+                        <div>
+                            <p>
+                                На Theta вы можете как обучаться, так и обучать. Познавайте новое или делитесь опытом.
+                            </p>
+                        </div>
                     </div>
                     <div className={`${styles.dopCardInfo} `}>
                         <div className={styles.glass}>
-
+                            <p>Обучать</p>
                         </div>
                         <div className={styles.glass}>
-
+                            <p>Практикаы</p>
                         </div>
                     </div>
                 </div>

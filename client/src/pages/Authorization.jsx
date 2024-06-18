@@ -68,8 +68,8 @@ function Authorization() {
                 </div>
                 <div className={styles.content}>
                     <div className={styles.vhodorreg}>
-                        <button onClick={() => showAuthHandleClick('vhod')} className={`${showAuth === 'vhod' ? styles.clickedbutton : styles.c}`}>Вход</button>
-                        <button onClick={() => showAuthHandleClick('reg')} className={`${showAuth === 'reg' ? styles.clickedbutton : styles.c}`}>Регистрация</button>
+                        <button onClick={() => showAuthHandleClick('vhod')} className={`${showAuth === 'vhod' ? styles.clickedbutton : styles.navButtons}`}>Вход</button>
+                        <button onClick={() => showAuthHandleClick('reg')} className={`${showAuth === 'reg' ? styles.clickedbutton : styles.navButtons}`}>Регистрация</button>
                     </div>
                     <div className={`${styles.authcontainer} ${styles.glass}`}>
                         {
@@ -126,7 +126,7 @@ function Authorization() {
                                     placeholder="Retry Password"
 
                                 />
-                                <button onClick={regHandler} className={`${passwordRetry === password ? styles.confirm : styles.vhodbutton}`}>Зарегистрироваться</button>
+                                <button onClick={regHandler} className={`${(passwordRetry === password && password) ? styles.confirm : styles.vhodbutton}`}>Зарегистрироваться</button>
                             </div>
                         }
                     </div>

@@ -146,17 +146,18 @@ function ModulePage() {
                                         }
                                     </button>
                                 </div>
-                                {
-                                    lessons.length === 0 &&
-                                    <>
-                                        <div className={styles.netmodulei}>
-                                            <h1>У вас нет уроков в этом модуле</h1>
-                                            <p>Чтобы добавить новый урок в этот модуль нажмите на кнопочку</p>
-                                        </div>
-                                    </>
-                                }
+
 
                                 <div className={`${styles.lessons} ${styles.glass}`}>
+                                    {
+                                        lessons.length === 0 &&
+                                        <>
+                                            <div className={styles.netmodulei}>
+                                                <h1>У вас нет уроков в этом модуле</h1>
+                                                <p>Чтобы добавить новый урок в этот модуль нажмите на кнопочку</p>
+                                            </div>
+                                        </>
+                                    }
                                     <div>
                                         <button className={styles.addModule} onClick={() => addLesson()}>Добавить урок</button>
                                     </div>
@@ -174,7 +175,7 @@ function ModulePage() {
                                                         </div>
                                                         <Link to={COURSES_CONTENT + `/${courseStore.course.id}` + MODULE_PAGE + `/${courseStore.module.id}` + EDIT_LESSON + `/${item.id}`}>
                                                             <div className={styles.redbutton}>
-                                                                <button>
+                                                                <button >
                                                                     <img src={arrow} alt="" />
                                                                 </button>
                                                             </div>

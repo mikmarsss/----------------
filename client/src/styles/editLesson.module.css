@@ -216,7 +216,7 @@
     padding: 20px;
     z-index: 1;
     /* background: linear-gradient(to right bottom, rgba(195, 186, 175, 1), rgba(195, 186, 175, 1)); */
-    background: rgba(195, 186, 175, 0.8);
+    background: rgba(214, 220, 219, 0.8);
     backdrop-filter: blur(60px);
     -webkit-backdrop-filter: blur(60px);
     border-radius: 20px;
@@ -271,7 +271,7 @@
 }
 
 .elements>div>button:hover {
-    background: linear-gradient(135deg, #C3BAAF, rgba(255, 255, 255, 0.01));
+    background: linear-gradient(135deg, #D6DCDB, rgba(255, 255, 255, 0.01));
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 20px;
@@ -299,6 +299,7 @@
 .testContent {
     width: 950px;
     display: flex;
+    align-items: center;
     gap: 20px;
 }
 
@@ -381,5 +382,7 @@
 .removeButton {
     font-size: 26px;
     color: #243F5D;
-    border-bottom: #243F5D 1px solid;
+    border: #243F5D 2px solid;
+    padding: 5px;
+    border-radius: 10px;
 }

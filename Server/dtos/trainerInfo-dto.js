@@ -8,6 +8,7 @@ module.exports = class TrainerInfoDTO {
     code;
     tests;
     status;
+    points;
     constructor(model) {
         this.id = model.id
         this.name = model.name
@@ -18,5 +19,6 @@ module.exports = class TrainerInfoDTO {
         this.code = model.code
         this.tests = model.tests
         this.status = model.status
+        this.points = model.points
     }
 }
