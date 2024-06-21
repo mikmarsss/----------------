@@ -3,7 +3,6 @@ import styles from '../styles/editTrainer.module.css'
 import { observer } from "mobx-react-lite";
 import CodeMirror, { lineNumberMarkers, lineNumbers } from "@uiw/react-codemirror";
 import { aura } from "@uiw/codemirror-themes-all";
-import { StreamLanguage, language } from "@codemirror/language";
 import { langs } from "@uiw/codemirror-extensions-langs";
 import { Context } from "..";
 

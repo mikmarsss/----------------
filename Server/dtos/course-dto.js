@@ -2,7 +2,7 @@ module.exports = class CourseDto {
     id;
     name;
     description;
-    courseContent;
+    course_content;
     price;
     newPrice;
     rating;
@@ -21,7 +21,7 @@ module.exports = class CourseDto {
         this.id = model.id;
         this.name = model.name;
         this.description = model.description;
-        this.courseContent = model.courseContent;
+        this.course_content = model.course_content;
         this.price = model.price;
         this.new_price = model.new_price;
         this.rating = model.rating;
